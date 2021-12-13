@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/tier4-proposal/planning/behavior_path_planner/behavior_path_planner_avoidance-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/tier4-proposal/launch/control_launch/">
       
-      <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
+      <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.0">
     
     
       
-        <title>Avoidance Module - Autoware Universe Documentation</title>
+        <title>control_launch - Autoware Universe Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.82f3c0b9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.82f3c0b9.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9204c3b2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
         
       
     
@@ -36,11 +36,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../docs/assets/css/extra.css">
+      <link rel="stylesheet" href="../../docs/assets/css/extra.css">
     
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#avoidance-module" class="md-skip">
+        <a href="#control_launch" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Autoware Universe Documentation" class="md-header__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
+    <a href="../.." title="Autoware Universe Documentation" class="md-header__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z"/></svg>
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Avoidance Module
+              control_launch
             
           </span>
         </div>
@@ -200,7 +200,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../.." class="md-tabs__link">
+    <a href="../.." class="md-tabs__link">
       autoware.universe
     </a>
   </li>
@@ -220,7 +220,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../awapi/awapi_awiv_adapter/Readme/" class="md-tabs__link">
+      <a href="../../awapi/awapi_awiv_adapter/Readme/" class="md-tabs__link">
         Awapi
       </a>
     </li>
@@ -243,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../common/autoware_auto_perception_rviz_plugin/" class="md-tabs__link">
+      <a href="../../common/autoware_auto_perception_rviz_plugin/" class="md-tabs__link">
         Common
       </a>
     </li>
@@ -266,7 +266,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../control/autoware_joy_controller/" class="md-tabs__link">
+      <a href="../../control/autoware_joy_controller/" class="md-tabs__link">
         Control
       </a>
     </li>
@@ -277,6 +277,8 @@
       
         
   
+  
+    
   
 
 
@@ -289,7 +291,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../launch/control_launch/" class="md-tabs__link">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         Launch
       </a>
     </li>
@@ -312,7 +314,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../localization/ekf_localizer/" class="md-tabs__link">
+      <a href="../../localization/ekf_localizer/" class="md-tabs__link">
         Localization
       </a>
     </li>
@@ -335,7 +337,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../map/lanelet2_extension/" class="md-tabs__link">
+      <a href="../../map/lanelet2_extension/" class="md-tabs__link">
         Map
       </a>
     </li>
@@ -353,7 +355,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../messages/" class="md-tabs__link">
+      <a href="../../messages/" class="md-tabs__link">
         Messages
       </a>
     </li>
@@ -374,7 +376,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../perception/compare_map_segmentation/" class="md-tabs__link">
+      <a href="../../perception/compare_map_segmentation/" class="md-tabs__link">
         Perception
       </a>
     </li>
@@ -385,8 +387,6 @@
       
         
   
-  
-    
   
 
 
@@ -399,7 +399,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../planning/behavior_path_planner/" class="md-tabs__link">
         Planning
       </a>
     </li>
@@ -422,7 +422,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../sensing/geo_pos_conv/" class="md-tabs__link">
+      <a href="../../sensing/geo_pos_conv/" class="md-tabs__link">
         Sensing
       </a>
     </li>
@@ -445,7 +445,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../simulator/dummy_perception_publisher/" class="md-tabs__link">
+      <a href="../../simulator/dummy_perception_publisher/" class="md-tabs__link">
         Simulator
       </a>
     </li>
@@ -468,7 +468,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../system/autoware_error_monitor/" class="md-tabs__link">
+      <a href="../../system/autoware_error_monitor/" class="md-tabs__link">
         System
       </a>
     </li>
@@ -496,7 +496,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../vehicle/accel_brake_map_calibrator/accel_brake_map_calibrator/" class="md-tabs__link">
+      <a href="../../vehicle/accel_brake_map_calibrator/accel_brake_map_calibrator/" class="md-tabs__link">
         Vehicle
       </a>
     </li>
@@ -534,7 +534,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Autoware Universe Documentation" class="md-nav__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
+    <a href="../.." title="Autoware Universe Documentation" class="md-nav__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z"/></svg>
@@ -565,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         autoware.universe
       </a>
     </li>
@@ -642,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../awapi/awapi_awiv_adapter/Readme/" class="md-nav__link">
+      <a href="../../awapi/awapi_awiv_adapter/Readme/" class="md-nav__link">
         awapi_awiv_adapter
       </a>
     </li>
@@ -756,7 +756,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/autoware_auto_perception_rviz_plugin/">Autoware auto perception rviz plugin</a>
+          <a href="../../common/autoware_auto_perception_rviz_plugin/">Autoware auto perception rviz plugin</a>
           
         </div>
       
@@ -802,7 +802,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/autoware_datetime_rviz_plugin/">Autoware datetime rviz plugin</a>
+          <a href="../../common/autoware_datetime_rviz_plugin/">Autoware datetime rviz plugin</a>
           
         </div>
       
@@ -848,7 +848,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/autoware_debug_tools/">Autoware debug tools</a>
+          <a href="../../common/autoware_debug_tools/">Autoware debug tools</a>
           
         </div>
       
@@ -907,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/autoware_global_parameter_loader/Readme/" class="md-nav__link">
+      <a href="../../common/autoware_global_parameter_loader/Readme/" class="md-nav__link">
         Autoware Global Parameter Loader
       </a>
     </li>
@@ -947,7 +947,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/autoware_localization_rviz_plugin/">Autoware localization rviz plugin</a>
+          <a href="../../common/autoware_localization_rviz_plugin/">Autoware localization rviz plugin</a>
           
         </div>
       
@@ -993,7 +993,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/autoware_perception_rviz_plugin/">Autoware perception rviz plugin</a>
+          <a href="../../common/autoware_perception_rviz_plugin/">Autoware perception rviz plugin</a>
           
         </div>
       
@@ -1039,7 +1039,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/autoware_planning_rviz_plugin/">Autoware planning rviz plugin</a>
+          <a href="../../common/autoware_planning_rviz_plugin/">Autoware planning rviz plugin</a>
           
         </div>
       
@@ -1098,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/autoware_rosbag_recorder/Readme/" class="md-nav__link">
+      <a href="../../common/autoware_rosbag_recorder/Readme/" class="md-nav__link">
         Autoware Rosbag Recorder
       </a>
     </li>
@@ -1138,7 +1138,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/autoware_state_rviz_plugin/">Autoware state rviz plugin</a>
+          <a href="../../common/autoware_state_rviz_plugin/">Autoware state rviz plugin</a>
           
         </div>
       
@@ -1184,7 +1184,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/autoware_utils/">Autoware utils</a>
+          <a href="../../common/autoware_utils/">Autoware utils</a>
           
         </div>
       
@@ -1230,7 +1230,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/autoware_vehicle_rviz_plugin/">Autoware vehicle rviz plugin</a>
+          <a href="../../common/autoware_vehicle_rviz_plugin/">Autoware vehicle rviz plugin</a>
           
         </div>
       
@@ -1276,7 +1276,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/autoware_web_controller/">Autoware web controller</a>
+          <a href="../../common/autoware_web_controller/">Autoware web controller</a>
           
         </div>
       
@@ -1335,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/goal_distance_calculator/Readme/" class="md-nav__link">
+      <a href="../../common/goal_distance_calculator/Readme/" class="md-nav__link">
         goal_distance_calculator
       </a>
     </li>
@@ -1375,7 +1375,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/interpolation/">Interpolation</a>
+          <a href="../../common/interpolation/">Interpolation</a>
           
         </div>
       
@@ -1421,7 +1421,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/kalman_filter/">Kalman filter</a>
+          <a href="../../common/kalman_filter/">Kalman filter</a>
           
         </div>
       
@@ -1510,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/osqp_interface/design/osqp_interface-design/" class="md-nav__link">
+      <a href="../../common/osqp_interface/design/osqp_interface-design/" class="md-nav__link">
         Osqp interface design
       </a>
     </li>
@@ -1570,7 +1570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/path_distance_calculator/Readme/" class="md-nav__link">
+      <a href="../../common/path_distance_calculator/Readme/" class="md-nav__link">
         path_distance_calculator
       </a>
     </li>
@@ -1623,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/polar_grid/Readme/" class="md-nav__link">
+      <a href="../../common/polar_grid/Readme/" class="md-nav__link">
         Polar Grid
       </a>
     </li>
@@ -1663,7 +1663,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../common/signal_processing/">Signal processing</a>
+          <a href="../../common/signal_processing/">Signal processing</a>
           
         </div>
       
@@ -1763,7 +1763,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../control/autoware_joy_controller/">Autoware joy controller</a>
+          <a href="../../control/autoware_joy_controller/">Autoware joy controller</a>
           
         </div>
       
@@ -1809,7 +1809,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../control/control_performance_analysis/">Control performance analysis</a>
+          <a href="../../control/control_performance_analysis/">Control performance analysis</a>
           
         </div>
       
@@ -1855,7 +1855,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../control/external_cmd_selector/">External cmd selector</a>
+          <a href="../../control/external_cmd_selector/">External cmd selector</a>
           
         </div>
       
@@ -1901,7 +1901,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../control/lane_departure_checker/">Lane departure checker</a>
+          <a href="../../control/lane_departure_checker/">Lane departure checker</a>
           
         </div>
       
@@ -1947,7 +1947,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../control/obstacle_collision_checker/">Obstacle collision checker</a>
+          <a href="../../control/obstacle_collision_checker/">Obstacle collision checker</a>
           
         </div>
       
@@ -1993,7 +1993,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../control/shift_decider/">Shift decider</a>
+          <a href="../../control/shift_decider/">Shift decider</a>
           
         </div>
       
@@ -2086,7 +2086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../control/trajectory_follower/design/trajectory_follower-design/" class="md-nav__link">
+      <a href="../../control/trajectory_follower/design/trajectory_follower-design/" class="md-nav__link">
         Trajectory follower design
       </a>
     </li>
@@ -2100,7 +2100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../control/trajectory_follower/design/trajectory_follower-mpc-design/" class="md-nav__link">
+      <a href="../../control/trajectory_follower/design/trajectory_follower-mpc-design/" class="md-nav__link">
         Trajectory follower mpc design
       </a>
     </li>
@@ -2114,7 +2114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../control/trajectory_follower/design/trajectory_follower-pid-design/" class="md-nav__link">
+      <a href="../../control/trajectory_follower/design/trajectory_follower-pid-design/" class="md-nav__link">
         Trajectory follower pid design
       </a>
     </li>
@@ -2210,7 +2210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../control/trajectory_follower_nodes/design/lateral_controller-design/" class="md-nav__link">
+      <a href="../../control/trajectory_follower_nodes/design/lateral_controller-design/" class="md-nav__link">
         Lateral controller design
       </a>
     </li>
@@ -2224,7 +2224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../control/trajectory_follower_nodes/design/latlon_muxer-design/" class="md-nav__link">
+      <a href="../../control/trajectory_follower_nodes/design/latlon_muxer-design/" class="md-nav__link">
         Latlon muxer design
       </a>
     </li>
@@ -2238,7 +2238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../control/trajectory_follower_nodes/design/longitudinal_controller-design/" class="md-nav__link">
+      <a href="../../control/trajectory_follower_nodes/design/longitudinal_controller-design/" class="md-nav__link">
         Longitudinal controller design
       </a>
     </li>
@@ -2252,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../control/trajectory_follower_nodes/design/trajectory_follower-design/" class="md-nav__link">
+      <a href="../../control/trajectory_follower_nodes/design/trajectory_follower-design/" class="md-nav__link">
         Trajectory follower design
       </a>
     </li>
@@ -2299,7 +2299,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../control/vehicle_cmd_gate/">Vehicle cmd gate</a>
+          <a href="../../control/vehicle_cmd_gate/">Vehicle cmd gate</a>
           
         </div>
       
@@ -2332,12 +2332,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -2362,14 +2364,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" checked>
       
       
       
@@ -2382,8 +2386,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../launch/control_launch/">Control launch</a>
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Control launch</a>
           
         </div>
       
@@ -2487,7 +2491,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/ekf_localizer/">Ekf localizer</a>
+          <a href="../../localization/ekf_localizer/">Ekf localizer</a>
           
         </div>
       
@@ -2533,7 +2537,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/gyro_odometer/">Gyro odometer</a>
+          <a href="../../localization/gyro_odometer/">Gyro odometer</a>
           
         </div>
       
@@ -2579,7 +2583,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/initial_pose_button_panel/">Initial pose button panel</a>
+          <a href="../../localization/initial_pose_button_panel/">Initial pose button panel</a>
           
         </div>
       
@@ -2625,7 +2629,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/localization_error_monitor/">Localization error monitor</a>
+          <a href="../../localization/localization_error_monitor/">Localization error monitor</a>
           
         </div>
       
@@ -2671,7 +2675,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/ndt/">Ndt</a>
+          <a href="../../localization/ndt/">Ndt</a>
           
         </div>
       
@@ -2717,7 +2721,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/ndt_pcl_modified/">Ndt pcl modified</a>
+          <a href="../../localization/ndt_pcl_modified/">Ndt pcl modified</a>
           
         </div>
       
@@ -2763,7 +2767,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/ndt_scan_matcher/">Ndt scan matcher</a>
+          <a href="../../localization/ndt_scan_matcher/">Ndt scan matcher</a>
           
         </div>
       
@@ -2809,7 +2813,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/pose2twist/">Pose2twist</a>
+          <a href="../../localization/pose2twist/">Pose2twist</a>
           
         </div>
       
@@ -2855,7 +2859,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/pose_initializer/">Pose initializer</a>
+          <a href="../../localization/pose_initializer/">Pose initializer</a>
           
         </div>
       
@@ -2901,7 +2905,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/stop_filter/">Stop filter</a>
+          <a href="../../localization/stop_filter/">Stop filter</a>
           
         </div>
       
@@ -2947,7 +2951,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../localization/vehicle_velocity_converter/">Vehicle velocity converter</a>
+          <a href="../../localization/vehicle_velocity_converter/">Vehicle velocity converter</a>
           
         </div>
       
@@ -3037,7 +3041,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../map/lanelet2_extension/">Lanelet2 extension</a>
+          <a href="../../map/lanelet2_extension/">Lanelet2 extension</a>
           
             <label for="__nav_7_1">
               <span class="md-nav__icon md-icon"></span>
@@ -3095,7 +3099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../map/lanelet2_extension/docs/extra_lanelet_subtypes/" class="md-nav__link">
+      <a href="../../map/lanelet2_extension/docs/extra_lanelet_subtypes/" class="md-nav__link">
         Extra Lanelet Subtypes
       </a>
     </li>
@@ -3109,7 +3113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../map/lanelet2_extension/docs/extra_regulatory_elements/" class="md-nav__link">
+      <a href="../../map/lanelet2_extension/docs/extra_regulatory_elements/" class="md-nav__link">
         Extra Regulatory Elements
       </a>
     </li>
@@ -3123,7 +3127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../map/lanelet2_extension/docs/lanelet2_format_extension/" class="md-nav__link">
+      <a href="../../map/lanelet2_extension/docs/lanelet2_format_extension/" class="md-nav__link">
         Modifying Lanelet2 format for Autoware
       </a>
     </li>
@@ -3170,7 +3174,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../map/map_loader/">Map loader</a>
+          <a href="../../map/map_loader/">Map loader</a>
           
         </div>
       
@@ -3229,7 +3233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../map/map_tf_generator/Readme/" class="md-nav__link">
+      <a href="../../map/map_tf_generator/Readme/" class="md-nav__link">
         map_tf_generator
       </a>
     </li>
@@ -3275,7 +3279,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../messages/">Messages</a>
+          <a href="../../messages/">Messages</a>
           
         </div>
       
@@ -3390,7 +3394,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/compare_map_segmentation/">Compare map segmentation</a>
+          <a href="../../perception/compare_map_segmentation/">Compare map segmentation</a>
           
         </div>
       
@@ -3436,7 +3440,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/detected_object_feature_remover/">Detected object feature remover</a>
+          <a href="../../perception/detected_object_feature_remover/">Detected object feature remover</a>
           
         </div>
       
@@ -3482,7 +3486,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/detection_by_tracker/">Detection by tracker</a>
+          <a href="../../perception/detection_by_tracker/">Detection by tracker</a>
           
         </div>
       
@@ -3528,7 +3532,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/elevation_map_loader/">Elevation map loader</a>
+          <a href="../../perception/elevation_map_loader/">Elevation map loader</a>
           
         </div>
       
@@ -3574,7 +3578,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/euclidean_cluster/">Euclidean cluster</a>
+          <a href="../../perception/euclidean_cluster/">Euclidean cluster</a>
           
         </div>
       
@@ -3622,7 +3626,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/ground_segmentation/">Ground segmentation</a>
+          <a href="../../perception/ground_segmentation/">Ground segmentation</a>
           
             <label for="__nav_9_6">
               <span class="md-nav__icon md-icon"></span>
@@ -3680,7 +3684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../perception/ground_segmentation/docs/ransac-ground-filter/" class="md-nav__link">
+      <a href="../../perception/ground_segmentation/docs/ransac-ground-filter/" class="md-nav__link">
         RANSAC Ground Filter
       </a>
     </li>
@@ -3694,7 +3698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../perception/ground_segmentation/docs/ray-ground-filter/" class="md-nav__link">
+      <a href="../../perception/ground_segmentation/docs/ray-ground-filter/" class="md-nav__link">
         Ray Ground Filter
       </a>
     </li>
@@ -3708,7 +3712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../perception/ground_segmentation/docs/scan-ground-filter/" class="md-nav__link">
+      <a href="../../perception/ground_segmentation/docs/scan-ground-filter/" class="md-nav__link">
         Scan Ground Filter
       </a>
     </li>
@@ -3757,7 +3761,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/lidar_apollo_instance_segmentation/">Lidar apollo instance segmentation</a>
+          <a href="../../perception/lidar_apollo_instance_segmentation/">Lidar apollo instance segmentation</a>
           
             <label for="__nav_9_7">
               <span class="md-nav__icon md-icon"></span>
@@ -3798,7 +3802,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/lidar_apollo_instance_segmentation/lib/">Lib</a>
+          <a href="../../perception/lidar_apollo_instance_segmentation/lib/">Lib</a>
           
         </div>
       
@@ -3851,7 +3855,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/lidar_centerpoint/">Lidar centerpoint</a>
+          <a href="../../perception/lidar_centerpoint/">Lidar centerpoint</a>
           
         </div>
       
@@ -3897,7 +3901,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/map_based_prediction/">Map based prediction</a>
+          <a href="../../perception/map_based_prediction/">Map based prediction</a>
           
         </div>
       
@@ -3943,7 +3947,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/multi_object_tracker/">Multi object tracker</a>
+          <a href="../../perception/multi_object_tracker/">Multi object tracker</a>
           
         </div>
       
@@ -3989,7 +3993,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/object_merger/">Object merger</a>
+          <a href="../../perception/object_merger/">Object merger</a>
           
         </div>
       
@@ -4035,7 +4039,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/object_range_splitter/">Object range splitter</a>
+          <a href="../../perception/object_range_splitter/">Object range splitter</a>
           
         </div>
       
@@ -4081,7 +4085,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/occupancy_grid_map_outlier_filter/">Occupancy grid map outlier filter</a>
+          <a href="../../perception/occupancy_grid_map_outlier_filter/">Occupancy grid map outlier filter</a>
           
         </div>
       
@@ -4127,7 +4131,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/roi_cluster_fusion/">Roi cluster fusion</a>
+          <a href="../../perception/roi_cluster_fusion/">Roi cluster fusion</a>
           
         </div>
       
@@ -4173,7 +4177,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/shape_estimation/">Shape estimation</a>
+          <a href="../../perception/shape_estimation/">Shape estimation</a>
           
         </div>
       
@@ -4219,7 +4223,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/tensorrt_yolo/">Tensorrt yolo</a>
+          <a href="../../perception/tensorrt_yolo/">Tensorrt yolo</a>
           
         </div>
       
@@ -4265,7 +4269,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/traffic_light_classifier/">Traffic light classifier</a>
+          <a href="../../perception/traffic_light_classifier/">Traffic light classifier</a>
           
         </div>
       
@@ -4311,7 +4315,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/traffic_light_map_based_detector/">Traffic light map based detector</a>
+          <a href="../../perception/traffic_light_map_based_detector/">Traffic light map based detector</a>
           
         </div>
       
@@ -4357,7 +4361,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/traffic_light_ssd_fine_detector/">Traffic light ssd fine detector</a>
+          <a href="../../perception/traffic_light_ssd_fine_detector/">Traffic light ssd fine detector</a>
           
         </div>
       
@@ -4403,7 +4407,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/traffic_light_visualization/">Traffic light visualization</a>
+          <a href="../../perception/traffic_light_visualization/">Traffic light visualization</a>
           
         </div>
       
@@ -4436,14 +4440,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" data-md-state="indeterminate" type="checkbox" id="__nav_10" checked>
       
       
       
@@ -4494,16 +4496,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" data-md-state="indeterminate" type="checkbox" id="__nav_10_1" checked>
       
       
       
@@ -4519,7 +4519,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Behavior path planner</a>
+          <a href="../../planning/behavior_path_planner/">Behavior path planner</a>
           
             <label for="__nav_10_1">
               <span class="md-nav__icon md-icon"></span>
@@ -4541,248 +4541,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Avoidance Module
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../planning/behavior_path_planner/behavior_path_planner_avoidance-design/" class="md-nav__link">
         Avoidance Module
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#purpose-role" class="md-nav__link">
-    Purpose / Role
-  </a>
-  
-    <nav class="md-nav" aria-label="Purpose / Role">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-is-avoidance-in-behavior-module" class="md-nav__link">
-    Why is avoidance in behavior module?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inner-workings-algorithms" class="md-nav__link">
-    Inner-workings / Algorithms
-  </a>
-  
-    <nav class="md-nav" aria-label="Inner-workings / Algorithms">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#flowchart" class="md-nav__link">
-    Flowchart
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#details-of-functions" class="md-nav__link">
-    Details of Functions
-  </a>
-  
-    <nav class="md-nav" aria-label="Details of Functions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#how-to-decide-the-target-obstacles" class="md-nav__link">
-    How to decide the target obstacles
-  </a>
-  
-    <nav class="md-nav" aria-label="How to decide the target obstacles">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#compensation-for-detection-lost" class="md-nav__link">
-    Compensation for detection lost
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-decide-the-path-shape" class="md-nav__link">
-    How to decide the path shape
-  </a>
-  
-    <nav class="md-nav" aria-label="How to decide the path shape">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#one-obstacle-case" class="md-nav__link">
-    One obstacle case
-  </a>
-  
-    <nav class="md-nav" aria-label="One obstacle case">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lateral-jerk-relaxation-conditions" class="md-nav__link">
-    Lateral jerk relaxation conditions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#minimum-velocity-relaxation-conditions" class="md-nav__link">
-    Minimum velocity relaxation conditions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-obstacle-case-one-direction" class="md-nav__link">
-    Multiple obstacle case (one direction)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-obstacle-case-both-direction" class="md-nav__link">
-    Multiple obstacle case (both direction)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filtering-for-shift-points" class="md-nav__link">
-    Filtering for shift points
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-keep-the-consistency-of-the-planning" class="md-nav__link">
-    How to keep the consistency of the planning
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#avoidance-path-generation" class="md-nav__link">
-    Avoidance path generation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#speed-limit-modification" class="md-nav__link">
-    Speed limit modification
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#object-selection" class="md-nav__link">
-    Object selection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#system" class="md-nav__link">
-    System
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
-    Future extensions / Unimplemented parts
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-debug" class="md-nav__link">
-    How to debug
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4836,7 +4599,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../behavior_velocity_planner/">Behavior velocity planner</a>
+          <a href="../../planning/behavior_velocity_planner/">Behavior velocity planner</a>
           
             <label for="__nav_10_2">
               <span class="md-nav__icon md-icon"></span>
@@ -4860,7 +4623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/blind-spot-design/" class="md-nav__link">
+      <a href="../../planning/behavior_velocity_planner/blind-spot-design/" class="md-nav__link">
         Blind spot design
       </a>
     </li>
@@ -4874,7 +4637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/crosswalk-design/" class="md-nav__link">
+      <a href="../../planning/behavior_velocity_planner/crosswalk-design/" class="md-nav__link">
         Crosswalk design
       </a>
     </li>
@@ -4888,7 +4651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/detection-area-design/" class="md-nav__link">
+      <a href="../../planning/behavior_velocity_planner/detection-area-design/" class="md-nav__link">
         Detection area design
       </a>
     </li>
@@ -4902,7 +4665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/intersection-design/" class="md-nav__link">
+      <a href="../../planning/behavior_velocity_planner/intersection-design/" class="md-nav__link">
         Intersection design
       </a>
     </li>
@@ -4916,7 +4679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/no-stopping-area-design/" class="md-nav__link">
+      <a href="../../planning/behavior_velocity_planner/no-stopping-area-design/" class="md-nav__link">
         No stopping area design
       </a>
     </li>
@@ -4930,7 +4693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/occlusion-spot-design/" class="md-nav__link">
+      <a href="../../planning/behavior_velocity_planner/occlusion-spot-design/" class="md-nav__link">
         Occlusion spot design
       </a>
     </li>
@@ -4944,7 +4707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/stop-line-design/" class="md-nav__link">
+      <a href="../../planning/behavior_velocity_planner/stop-line-design/" class="md-nav__link">
         Stop line design
       </a>
     </li>
@@ -4958,7 +4721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/traffic-light-design/" class="md-nav__link">
+      <a href="../../planning/behavior_velocity_planner/traffic-light-design/" class="md-nav__link">
         Traffic light design
       </a>
     </li>
@@ -4998,7 +4761,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../costmap_generator/">Costmap generator</a>
+          <a href="../../planning/costmap_generator/">Costmap generator</a>
           
         </div>
       
@@ -5044,7 +4807,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../external_velocity_limit_selector/">External velocity limit selector</a>
+          <a href="../../planning/external_velocity_limit_selector/">External velocity limit selector</a>
           
         </div>
       
@@ -5090,7 +4853,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../freespace_planner/">Freespace planner</a>
+          <a href="../../planning/freespace_planner/">Freespace planner</a>
           
         </div>
       
@@ -5136,7 +4899,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../freespace_planning_algorithms/">Freespace planning algorithms</a>
+          <a href="../../planning/freespace_planning_algorithms/">Freespace planning algorithms</a>
           
         </div>
       
@@ -5182,7 +4945,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../mission_planner/">Mission planner</a>
+          <a href="../../planning/mission_planner/">Mission planner</a>
           
         </div>
       
@@ -5230,7 +4993,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../motion_velocity_smoother/">Motion velocity smoother</a>
+          <a href="../../planning/motion_velocity_smoother/">Motion velocity smoother</a>
           
             <label for="__nav_10_8">
               <span class="md-nav__icon md-icon"></span>
@@ -5254,7 +5017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../motion_velocity_smoother/README.ja/" class="md-nav__link">
+      <a href="../../planning/motion_velocity_smoother/README.ja/" class="md-nav__link">
         Motion Velocity Smoother
       </a>
     </li>
@@ -5294,7 +5057,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../obstacle_avoidance_planner/">Obstacle avoidance planner</a>
+          <a href="../../planning/obstacle_avoidance_planner/">Obstacle avoidance planner</a>
           
         </div>
       
@@ -5340,7 +5103,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../obstacle_stop_planner/">Obstacle stop planner</a>
+          <a href="../../planning/obstacle_stop_planner/">Obstacle stop planner</a>
           
         </div>
       
@@ -5386,7 +5149,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../planning_error_monitor/">Planning error monitor</a>
+          <a href="../../planning/planning_error_monitor/">Planning error monitor</a>
           
         </div>
       
@@ -5432,7 +5195,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../route_handler/">Route handler</a>
+          <a href="../../planning/route_handler/">Route handler</a>
           
         </div>
       
@@ -5478,7 +5241,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../scenario_selector/">Scenario selector</a>
+          <a href="../../planning/scenario_selector/">Scenario selector</a>
           
         </div>
       
@@ -5526,7 +5289,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../surround_obstacle_checker/">Surround obstacle checker</a>
+          <a href="../../planning/surround_obstacle_checker/">Surround obstacle checker</a>
           
             <label for="__nav_10_14">
               <span class="md-nav__icon md-icon"></span>
@@ -5550,7 +5313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../surround_obstacle_checker/surround_obstacle_checker-design.ja/" class="md-nav__link">
+      <a href="../../planning/surround_obstacle_checker/surround_obstacle_checker-design.ja/" class="md-nav__link">
         Surround Obstacle Checker
       </a>
     </li>
@@ -5642,7 +5405,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../sensing/geo_pos_conv/">Geo pos conv</a>
+          <a href="../../sensing/geo_pos_conv/">Geo pos conv</a>
           
         </div>
       
@@ -5688,7 +5451,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../sensing/gnss_poser/">Gnss poser</a>
+          <a href="../../sensing/gnss_poser/">Gnss poser</a>
           
         </div>
       
@@ -5734,7 +5497,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../sensing/image_transport_decompressor/">Image transport decompressor</a>
+          <a href="../../sensing/image_transport_decompressor/">Image transport decompressor</a>
           
         </div>
       
@@ -5780,7 +5543,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../sensing/imu_corrector/">Imu corrector</a>
+          <a href="../../sensing/imu_corrector/">Imu corrector</a>
           
         </div>
       
@@ -5826,7 +5589,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../sensing/laserscan_to_occupancy_grid_map/">Laserscan to occupancy grid map</a>
+          <a href="../../sensing/laserscan_to_occupancy_grid_map/">Laserscan to occupancy grid map</a>
           
         </div>
       
@@ -5902,7 +5665,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../sensing/livox/livox_tag_filter/">Livox tag filter</a>
+          <a href="../../sensing/livox/livox_tag_filter/">Livox tag filter</a>
           
         </div>
       
@@ -5957,7 +5720,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../sensing/pointcloud_preprocessor/">Pointcloud preprocessor</a>
+          <a href="../../sensing/pointcloud_preprocessor/">Pointcloud preprocessor</a>
           
             <label for="__nav_11_7">
               <span class="md-nav__icon md-icon"></span>
@@ -6025,7 +5788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sensing/pointcloud_preprocessor/docs/concatenate-data/" class="md-nav__link">
+      <a href="../../sensing/pointcloud_preprocessor/docs/concatenate-data/" class="md-nav__link">
         concatenate_data
       </a>
     </li>
@@ -6039,7 +5802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sensing/pointcloud_preprocessor/docs/crop-box-filter/" class="md-nav__link">
+      <a href="../../sensing/pointcloud_preprocessor/docs/crop-box-filter/" class="md-nav__link">
         crop_box_filter
       </a>
     </li>
@@ -6053,7 +5816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sensing/pointcloud_preprocessor/docs/distortion-corrector/" class="md-nav__link">
+      <a href="../../sensing/pointcloud_preprocessor/docs/distortion-corrector/" class="md-nav__link">
         distortion_corrector
       </a>
     </li>
@@ -6067,7 +5830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sensing/pointcloud_preprocessor/docs/downsample-filter/" class="md-nav__link">
+      <a href="../../sensing/pointcloud_preprocessor/docs/downsample-filter/" class="md-nav__link">
         downsample_filter
       </a>
     </li>
@@ -6081,7 +5844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sensing/pointcloud_preprocessor/docs/outlier-filter/" class="md-nav__link">
+      <a href="../../sensing/pointcloud_preprocessor/docs/outlier-filter/" class="md-nav__link">
         outlier_filter
       </a>
     </li>
@@ -6095,7 +5858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sensing/pointcloud_preprocessor/docs/passthrough-filter/" class="md-nav__link">
+      <a href="../../sensing/pointcloud_preprocessor/docs/passthrough-filter/" class="md-nav__link">
         passthrough_filter
       </a>
     </li>
@@ -6109,7 +5872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sensing/pointcloud_preprocessor/docs/pointcloud-accumulator/" class="md-nav__link">
+      <a href="../../sensing/pointcloud_preprocessor/docs/pointcloud-accumulator/" class="md-nav__link">
         pointcloud_accumulator
       </a>
     </li>
@@ -6123,7 +5886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sensing/pointcloud_preprocessor/docs/vector-map-filter/" class="md-nav__link">
+      <a href="../../sensing/pointcloud_preprocessor/docs/vector-map-filter/" class="md-nav__link">
         vector_map_filter
       </a>
     </li>
@@ -6170,7 +5933,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../sensing/tier4_pcl_extensions/">Tier4 pcl extensions</a>
+          <a href="../../sensing/tier4_pcl_extensions/">Tier4 pcl extensions</a>
           
         </div>
       
@@ -6258,7 +6021,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../simulator/dummy_perception_publisher/">Dummy perception publisher</a>
+          <a href="../../simulator/dummy_perception_publisher/">Dummy perception publisher</a>
           
         </div>
       
@@ -6304,7 +6067,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../simulator/fault_injection/">Fault injection</a>
+          <a href="../../simulator/fault_injection/">Fault injection</a>
           
         </div>
       
@@ -6393,7 +6156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../simulator/simple_planning_simulator/design/simple_planning_simulator-design/" class="md-nav__link">
+      <a href="../../simulator/simple_planning_simulator/design/simple_planning_simulator-design/" class="md-nav__link">
         Simple planning simulator design
       </a>
     </li>
@@ -6494,7 +6257,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../system/autoware_error_monitor/">Autoware error monitor</a>
+          <a href="../../system/autoware_error_monitor/">Autoware error monitor</a>
           
         </div>
       
@@ -6540,7 +6303,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../system/autoware_state_monitor/">Autoware state monitor</a>
+          <a href="../../system/autoware_state_monitor/">Autoware state monitor</a>
           
         </div>
       
@@ -6586,7 +6349,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../system/autoware_version/">Autoware version</a>
+          <a href="../../system/autoware_version/">Autoware version</a>
           
         </div>
       
@@ -6632,7 +6395,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../system/dummy_diag_publisher/">Dummy diag publisher</a>
+          <a href="../../system/dummy_diag_publisher/">Dummy diag publisher</a>
           
         </div>
       
@@ -6678,7 +6441,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../system/dummy_infrastructure/">Dummy infrastructure</a>
+          <a href="../../system/dummy_infrastructure/">Dummy infrastructure</a>
           
         </div>
       
@@ -6724,7 +6487,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../system/emergency_handler/">Emergency handler</a>
+          <a href="../../system/emergency_handler/">Emergency handler</a>
           
         </div>
       
@@ -6772,7 +6535,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../system/system_monitor/">System monitor</a>
+          <a href="../../system/system_monitor/">System monitor</a>
           
             <label for="__nav_13_7">
               <span class="md-nav__icon md-icon"></span>
@@ -6850,7 +6613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/class_diagrams/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/class_diagrams/" class="md-nav__link">
         Class diagrams
       </a>
     </li>
@@ -6864,7 +6627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/hdd_reader/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/hdd_reader/" class="md-nav__link">
         hdd_reader
       </a>
     </li>
@@ -6878,7 +6641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/msr_reader/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/msr_reader/" class="md-nav__link">
         msr_reader
       </a>
     </li>
@@ -6892,7 +6655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/ros_parameters/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/ros_parameters/" class="md-nav__link">
         ROS parameters
       </a>
     </li>
@@ -6906,7 +6669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/seq_diagrams/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/seq_diagrams/" class="md-nav__link">
         Sequence diagrams
       </a>
     </li>
@@ -6920,7 +6683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/topics_cpu_monitor/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/topics_cpu_monitor/" class="md-nav__link">
         ROS topics: CPU Monitor
       </a>
     </li>
@@ -6934,7 +6697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/topics_gpu_monitor/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/topics_gpu_monitor/" class="md-nav__link">
         ROS topics: GPU Monitor
       </a>
     </li>
@@ -6948,7 +6711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/topics_hdd_monitor/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/topics_hdd_monitor/" class="md-nav__link">
         ROS topics: CPU Monitor
       </a>
     </li>
@@ -6962,7 +6725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/topics_mem_monitor/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/topics_mem_monitor/" class="md-nav__link">
         ROS topics: Memory Monitor
       </a>
     </li>
@@ -6976,7 +6739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/topics_net_monitor/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/topics_net_monitor/" class="md-nav__link">
         ROS topics: Net Monitor
       </a>
     </li>
@@ -6990,7 +6753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/topics_ntp_monitor/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/topics_ntp_monitor/" class="md-nav__link">
         ROS topics: NTP Monitor
       </a>
     </li>
@@ -7004,7 +6767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/topics_process_monitor/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/topics_process_monitor/" class="md-nav__link">
         ROS topics: Process Monitor
       </a>
     </li>
@@ -7018,7 +6781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/system_monitor/docs/traffic_reader/" class="md-nav__link">
+      <a href="../../system/system_monitor/docs/traffic_reader/" class="md-nav__link">
         traffic_reader
       </a>
     </li>
@@ -7078,7 +6841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/topic_state_monitor/Readme/" class="md-nav__link">
+      <a href="../../system/topic_state_monitor/Readme/" class="md-nav__link">
         topic_state_monitor
       </a>
     </li>
@@ -7131,7 +6894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system/velodyne_monitor/Readme/" class="md-nav__link">
+      <a href="../../system/velodyne_monitor/Readme/" class="md-nav__link">
         velodyne_monitor
       </a>
     </li>
@@ -7247,7 +7010,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../vehicle/accel_brake_map_calibrator/accel_brake_map_calibrator/">Accel brake map calibrator</a>
+          <a href="../../vehicle/accel_brake_map_calibrator/accel_brake_map_calibrator/">Accel brake map calibrator</a>
           
         </div>
       
@@ -7300,7 +7063,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../vehicle/external_cmd_converter/">External cmd converter</a>
+          <a href="../../vehicle/external_cmd_converter/">External cmd converter</a>
           
         </div>
       
@@ -7346,7 +7109,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../vehicle/pacmod_interface/">Pacmod interface</a>
+          <a href="../../vehicle/pacmod_interface/">Pacmod interface</a>
           
         </div>
       
@@ -7392,7 +7155,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../vehicle/raw_vehicle_cmd_converter/">Raw vehicle cmd converter</a>
+          <a href="../../vehicle/raw_vehicle_cmd_converter/">Raw vehicle cmd converter</a>
           
         </div>
       
@@ -7451,7 +7214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../vehicle/vehicle_info_util/Readme/" class="md-nav__link">
+      <a href="../../vehicle/vehicle_info_util/Readme/" class="md-nav__link">
         Vehicle Info Util
       </a>
     </li>
@@ -7499,204 +7262,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose-role" class="md-nav__link">
-    Purpose / Role
-  </a>
-  
-    <nav class="md-nav" aria-label="Purpose / Role">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-is-avoidance-in-behavior-module" class="md-nav__link">
-    Why is avoidance in behavior module?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inner-workings-algorithms" class="md-nav__link">
-    Inner-workings / Algorithms
-  </a>
-  
-    <nav class="md-nav" aria-label="Inner-workings / Algorithms">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#flowchart" class="md-nav__link">
-    Flowchart
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#details-of-functions" class="md-nav__link">
-    Details of Functions
-  </a>
-  
-    <nav class="md-nav" aria-label="Details of Functions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#how-to-decide-the-target-obstacles" class="md-nav__link">
-    How to decide the target obstacles
-  </a>
-  
-    <nav class="md-nav" aria-label="How to decide the target obstacles">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#compensation-for-detection-lost" class="md-nav__link">
-    Compensation for detection lost
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-decide-the-path-shape" class="md-nav__link">
-    How to decide the path shape
-  </a>
-  
-    <nav class="md-nav" aria-label="How to decide the path shape">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#one-obstacle-case" class="md-nav__link">
-    One obstacle case
-  </a>
-  
-    <nav class="md-nav" aria-label="One obstacle case">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lateral-jerk-relaxation-conditions" class="md-nav__link">
-    Lateral jerk relaxation conditions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#minimum-velocity-relaxation-conditions" class="md-nav__link">
-    Minimum velocity relaxation conditions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-obstacle-case-one-direction" class="md-nav__link">
-    Multiple obstacle case (one direction)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-obstacle-case-both-direction" class="md-nav__link">
-    Multiple obstacle case (both direction)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filtering-for-shift-points" class="md-nav__link">
-    Filtering for shift points
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-keep-the-consistency-of-the-planning" class="md-nav__link">
-    How to keep the consistency of the planning
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#avoidance-path-generation" class="md-nav__link">
-    Avoidance path generation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#speed-limit-modification" class="md-nav__link">
-    Speed limit modification
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#object-selection" class="md-nav__link">
-    Object selection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#system" class="md-nav__link">
-    System
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
-    Future extensions / Unimplemented parts
+  <a href="#structure" class="md-nav__link">
+    Structure
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-debug" class="md-nav__link">
-    How to debug
+  <a href="#package-dependencies" class="md-nav__link">
+    Package Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
   </a>
   
 </li>
@@ -7713,380 +7301,25 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/autowarefoundation/autoware.universe/edit/main/planning/behavior_path_planner/behavior_path_planner_avoidance-design.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/autowarefoundation/autoware.universe/edit/main/launch/control_launch/README.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="avoidance-module">Avoidance Module<a class="headerlink" href="#avoidance-module" title="Permanent link">#</a></h1>
-<p>This is a rule-based path planning module designed for obstacle avoidance.</p>
-<h2 id="purpose-role">Purpose / Role<a class="headerlink" href="#purpose-role" title="Permanent link">#</a></h2>
-<p>This module is designed for rule-based avoidance that is easy for developers to design its behavior. It generates avoidance path parameterized by intuitive parameters such as lateral jerk and avoidance distance margin. This makes it possible to pre-define avoidance behavior.</p>
-<p>In addition, the approval interface of behavior_path_planner allows external users / modules (e.g. remote operation) to intervene the decision of the vehicle behavior.　 This function is expected to be used, for example, for remote intervention in emergency situations or gathering information on operator decisions during development.</p>
-<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h3>
-<p>This module allows developers to design vehicle behavior in avoidance planning using specific rules. Due to the property of rule-based planning, the algorithm can not compensate for not colliding with obstacles in complex cases. This is a trade-off between "be intuitive and easy to design" and "be hard to tune but can handle many cases". This module adopts the former policy and therefore this output should be checked more strictly in the later stage. In the .iv reference implementation, there is another avoidance module in motion planning module that uses optimization to handle the avoidance in complex cases. (Note that, the motion planner needs to be adjusted so that the behavior result will not be changed much in the simple case and this is a typical challenge for the behavior-motion hierarchical architecture.)</p>
-<h3 id="why-is-avoidance-in-behavior-module">Why is avoidance in behavior module?<a class="headerlink" href="#why-is-avoidance-in-behavior-module" title="Permanent link">#</a></h3>
-<p>This module executes avoidance over lanes, and the decision requires the lane structure information to take care of traffic rules (e.g. it needs to send an indicator signal when the vehicle crosses a lane). The difference between motion and behavior module in the planning stack is whether the planner takes traffic rules into account, which is why this avoidance module exists in the behavior module.</p>
-<h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
-<p>The following figure shows a simple explanation of the logic for avoidance path generation. First, target objects are picked up, and shift requests are generated for each object. These shift requests are generated by taking into account the lateral jerk required for avoidance (red lines). Then these requests are merged and the shift points are created on the reference path (blue line). Filtering operations are performed on the shift points such as removing unnecessary shift points (yellow line), and finally a smooth avoidance path is generated by combining Clothoid-like curve primitives (green line).</p>
-<p><img alt="fig1" src="../image/avoidance_design/avoidance_design.fig1.drawio.svg" /></p>
-<h3 id="flowchart">Flowchart<a class="headerlink" href="#flowchart" title="Permanent link">#</a></h3>
-<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMTkyMnB4IiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0id2lkdGg6Nzg1cHg7aGVpZ2h0OjE5MjJweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA3ODUgMTkyMiIgd2lkdGg9Ijc4NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcz48ZmlsdGVyIGhlaWdodD0iMzAwJSIgaWQ9ImYxbTR0NTdndW5nbjFrIiB3aWR0aD0iMzAwJSIgeD0iLTEiIHk9Ii0xIj48ZmVHYXVzc2lhbkJsdXIgcmVzdWx0PSJibHVyT3V0IiBzdGREZXZpYXRpb249IjIuMCIvPjxmZUNvbG9yTWF0cml4IGluPSJibHVyT3V0IiByZXN1bHQ9ImJsdXJPdXQyIiB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgLjQgMCIvPjxmZU9mZnNldCBkeD0iNC4wIiBkeT0iNC4wIiBpbj0iYmx1ck91dDIiIHJlc3VsdD0iYmx1ck91dDMiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJibHVyT3V0MyIgbW9kZT0ibm9ybWFsIi8+PC9maWx0ZXI+PC9kZWZzPjxnPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIyOCIgeD0iMjc3LjUiIHk9IjI2LjcwOCI+YXZvaWRhbmNlIHBhdGggcGxhbm5pbmc8L3RleHQ+PGVsbGlwc2UgY3g9IjIxOC41IiBjeT0iNDAuOTUzMSIgZmlsbD0iIzAwMDAwMCIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgcng9IjEwIiByeT0iMTAiIHN0eWxlPSJzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MS4wOyIvPjxwYXRoIGQ9Ik0zMjkuNSw2MC45NTMxIEwzMjkuNSwxMDcuMzUxNiBMMzA5LjUsMTExLjM1MTYgTDMyOS41LDExNS4zNTE2IEwzMjkuNSwxNjEuNzUgQTAsMCAwIDAgMCAzMjkuNSwxNjEuNzUgTDY5OC41LDE2MS43NSBBMCwwIDAgMCAwIDY5OC41LDE2MS43NSBMNjk4LjUsNzAuOTUzMSBMNjg4LjUsNjAuOTUzMSBMMzI5LjUsNjAuOTUzMSBBMCwwIDAgMCAwIDMyOS41LDYwLjk1MzEgIiBmaWxsPSIjRUJFQkVCIiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cGF0aCBkPSJNNjg4LjUsNjAuOTUzMSBMNjg4LjUsNzAuOTUzMSBMNjk4LjUsNzAuOTUzMSBMNjg4LjUsNjAuOTUzMSAiIGZpbGw9IiNFQkVCRUIiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijc2IiB4PSIzMzUuNSIgeT0iNzguMDIiPi0gY2VudGVyIGxpbmU8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTA5IiB4PSIzMzUuNSIgeT0iOTMuMTUyOCI+LSByZWZlcmVuY2UgcGF0aDo8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzI4IiB4PSIzNTUuNSIgeT0iMTA4LjI4NTYiPmdlbmVyYXRlZCBieSBzcGxpbmUgaW50ZXJwb2xhdGlvbiBvZiBjZW50ZXJsaW5lIHBhdGg8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTIyIiB4PSIzNTUuNSIgeT0iMTIzLjQxODUiPndpdGggZGVuc2UgaW50ZXJ2YWw8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTA2IiB4PSIzMzUuNSIgeT0iMTM4LjU1MTMiPi0gZHJpdmluZyBsYW5lbGV0czwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI1NSIgeD0iMzM1LjUiIHk9IjE1My42ODQxIj4tIG9iamVjdHM8L3RleHQ+PHJlY3QgZmlsbD0iI0Y4RjhGOCIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjE4MiIgeD0iMTI3LjUiIHk9Ijk0LjM2NzIiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNjIiIHg9IjEzNy41IiB5PSIxMTUuNTA1OSI+Y2FsY0F2b2lkYW5jZVBsYW5uaW5nRGF0YTwvdGV4dD48cGF0aCBkPSJNMzM1LDE3MS43NSBMMzM1LDIxMC41ODIgTDMxNSwyMTQuNTgyIEwzMzUsMjE4LjU4MiBMMzM1LDI1Ny40MTQxIEEwLDAgMCAwIDAgMzM1LDI1Ny40MTQxIEw2NDUsMjU3LjQxNDEgQTAsMCAwIDAgMCA2NDUsMjU3LjQxNDEgTDY0NSwxODEuNzUgTDYzNSwxNzEuNzUgTDMzNSwxNzEuNzUgQTAsMCAwIDAgMCAzMzUsMTcxLjc1ICIgZmlsbD0iI0VCRUJFQiIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTYzNSwxNzEuNzUgTDYzNSwxODEuNzUgTDY0NSwxODEuNzUgTDYzNSwxNzEuNzUgIiBmaWxsPSIjRUJFQkVCIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyODkiIHg9IjM0MSIgeT0iMTg4LjgxNjkiPkZpbmQgb2JqZWN0cyB0aGF0IHNhdGlzZmllcyBhbGwgb2YgdGhlIGZvbGxvd2luZzo8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTI0IiB4PSIzNDUiIHk9IjIwMy45NDk3Ij4tIHRhcmdldCBvYmplY3QgdHlwZTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDAiIHg9IjM0NSIgeT0iMjE5LjA4MjUiPi0gYmVpbmcgc3RvcHBlZDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMjUiIHg9IjM0NSIgeT0iMjM0LjIxNTMiPi0gYmVpbmcgYXJvdW5kIHRoZSBlZ28tZHJpdmluZyBsYW5lPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE5OCIgeD0iMzQ1IiB5PSIyNDkuMzQ4MSI+LSBiZWluZyBvbiB0aGUgZWRnZSBvZiB0aGUgbGFuZTwvdGV4dD48cmVjdCBmaWxsPSIjRjhGOEY4IiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTkzIiB4PSIxMjIiIHk9IjE5Ny41OTc3Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTczIiB4PSIxMzIiIHk9IjIxOC43MzYzIj5jYWxjQXZvaWRhbmNlVGFyZ2V0T2JqZWN0czwvdGV4dD48cmVjdCBmaWxsPSIjRjhGOEY4IiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTU3IiB4PSIxNDAiIHk9IjM4MC42MjExIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTM3IiB4PSIxNTAiIHk9IjQwMS43NTk4Ij5leGl0IGF2b2lkYW5jZSBtb2R1bGU8L3RleHQ+PGVsbGlwc2UgY3g9IjIxOC41IiBjeT0iNDU0LjEwNTUiIGZpbGw9IiNGRkZGRkYiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIHJ4PSIxMSIgcnk9IjExIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuMDsiLz48ZWxsaXBzZSBjeD0iMjE4LjUiIGN5PSI0NTQuMTA1NSIgZmlsbD0iIzAwMDAwMCIgcng9IjYiIHJ5PSI2IiBzdHlsZT0ic3Ryb2tlOiM3RjdGN0Y7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cG9seWdvbiBmaWxsPSIjRjhGOEY4IiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBwb2ludHM9IjkyLDMzMi4yMTg4LDM0NSwzMzIuMjE4OCwzNTcsMzQ0LjIxODgsMzQ1LDM1Ni4yMTg4LDkyLDM1Ni4yMTg4LDgwLDM0NC4yMTg4LDkyLDMzMi4yMTg4IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNCIgeD0iMjIyLjUiIHk9IjM2Ni40MjkyIj5ubzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNTMiIHg9IjkyIiB5PSIzNDguMDI2OSI+RG9lcyBwYXRoX3NoaWZ0ZXIgYWxyZWFkeSBoYXZlIHNoaWZ0IHBvaW50cz88L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjEiIHg9IjM1NyIgeT0iMzQxLjYyNDUiPnllczwvdGV4dD48cG9seWdvbiBmaWxsPSIjRjhGOEY4IiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBwb2ludHM9IjE1NC41LDI3Ny40MTQxLDI4Mi41LDI3Ny40MTQxLDI5NC41LDI4OS40MTQxLDI4Mi41LDMwMS40MTQxLDE1NC41LDMwMS40MTQxLDE0Mi41LDI4OS40MTQxLDE1NC41LDI3Ny40MTQxIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIwIiB4PSIyMjYuNSIgeT0iMzExLjYyNDUiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNCIgeD0iMjI2LjUiIHk9IjMyNC40MjkyIj5ubzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMjgiIHg9IjE1NC41IiB5PSIyOTMuMjIyMiI+SXMgdGFyZ2V0IG9iamVjdCBmb3VuZD88L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjEiIHg9IjI5OC41IiB5PSIyODYuODE5OCI+eWVzPC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiNGOEY4RjgiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIHBvaW50cz0iMjE4LjUsNTA3LjEwNTUsMjMwLjUsNTE5LjEwNTUsMjE4LjUsNTMxLjEwNTUsMjA2LjUsNTE5LjEwNTUsMjE4LjUsNTA3LjEwNTUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIGhlaWdodD0iNDk1LjY0ODQiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6Mi4wOyIgd2lkdGg9IjY1NSIgeD0iNzcuNSIgeT0iNTQxLjEwNTUiLz48cGF0aCBkPSJNMTY2LjUsNTQxLjEwNTUgTDE2Ni41LDU2Ni42OTkyIEwxNTYuNSw1NzYuNjk5MiBMNzcuNSw1NzYuNjk5MiAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6Mi4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijc4IiB4PSI4MC41IiB5PSI1NTUuMTAwNiI+c2hpZnQtcG9pbnQ8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNzkiIHg9IjgwLjUiIHk9IjU3MS4zOTc1Ij5nZW5lcmF0aW9uPC90ZXh0PjxwYXRoIGQ9Ik0zNDIsNTg2LjY5OTIgTDM0Miw2MjUuNTMxMyBMMzIyLDYyOS41MzEzIEwzNDIsNjMzLjUzMTMgTDM0Miw2NzIuMzYzMyBBMCwwIDAgMCAwIDM0Miw2NzIuMzYzMyBMNjk0LDY3Mi4zNjMzIEEwLDAgMCAwIDAgNjk0LDY3Mi4zNjMzIEw2OTQsNTk2LjY5OTIgTDY4NCw1ODYuNjk5MiBMMzQyLDU4Ni42OTkyIEEwLDAgMCAwIDAgMzQyLDU4Ni42OTkyICIgZmlsbD0iI0VCRUJFQiIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTY4NCw1ODYuNjk5MiBMNjg0LDU5Ni42OTkyIEw2OTQsNTk2LjY5OTIgTDY4NCw1ODYuNjk5MiAiIGZpbGw9IiNFQkVCRUIiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjMzMSIgeD0iMzQ4IiB5PSI2MDMuNzY2MSI+Z2VuZXJhdGUgInJhd19zaGlmdF9wb2ludHMiIGZvciBlYWNoIHRhcmdldCBvYmplY3RzLjwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNTIiIHg9IjM0OCIgeT0iNjE4Ljg5ODkiPnRoZSBzaGlmdCBwb2ludCBjb250YWluczo8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iOTUiIHg9IjM1MiIgeT0iNjM0LjAzMTciPi0gYXZvaWRpbmcgc2hpZnQ8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTQ0IiB4PSIzNTIiIHk9IjY0OS4xNjQ2Ij4tIHJldHVybi10by1jZW50ZXIgc2hpZnQ8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjQ1IiB4PSIzNTIiIHk9IjY2NC4yOTc0Ij53aXRoIGNvbnNpZGVyaW5nIHRoZSBsYXRlcmFsIGplcmsgcmFuZ2UuPC90ZXh0PjxyZWN0IGZpbGw9IiNGOEY4RjgiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIyMDciIHg9IjExNSIgeT0iNjEyLjU0NjkiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxODciIHg9IjEyNSIgeT0iNjMzLjY4NTUiPmNhbGNSYXdTaGlmdFBvaW50c0Zyb21PYmplY3RzPC90ZXh0PjxwYXRoIGQ9Ik0zNjkuNSw2ODIuMzYzMyBMMzY5LjUsNzI4Ljc2MTcgTDM0OS41LDczMi43NjE3IEwzNjkuNSw3MzYuNzYxNyBMMzY5LjUsNzgzLjE2MDIgQTAsMCAwIDAgMCAzNjkuNSw3ODMuMTYwMiBMNzIyLjUsNzgzLjE2MDIgQTAsMCAwIDAgMCA3MjIuNSw3ODMuMTYwMiBMNzIyLjUsNjkyLjM2MzMgTDcxMi41LDY4Mi4zNjMzIEwzNjkuNSw2ODIuMzYzMyBBMCwwIDAgMCAwIDM2OS41LDY4Mi4zNjMzICIgZmlsbD0iI0VCRUJFQiIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTcxMi41LDY4Mi4zNjMzIEw3MTIuNSw2OTIuMzYzMyBMNzIyLjUsNjkyLjM2MzMgTDcxMi41LDY4Mi4zNjMzICIgZmlsbD0iI0VCRUJFQiIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzMxIiB4PSIzNzUuNSIgeT0iNjk5LjQzMDIiPmNvbWJpbmUgd2l0aCAiYWxyZWFkeS1yZWdpc3RlcmVkIHJhd19zaGlmdF9wb2ludHMiLjwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIwIiB4PSIzNzkuNSIgeT0iNzE0LjU2MyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjMwNCIgeD0iMzc1LjUiIHk9IjcyOS42OTU4Ij5UaGUgcmF3X3NoaWZ0X3BvaW50IGlzIHNhdmVkIHdoZW4gdGhlIHJlbGV2YW50PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIzOCIgeD0iMzc1LjUiIHk9Ijc0NC44Mjg2Ij5zaGlmdCBpcyBleGVjdXRlZC4gSGVyZSB0aGUgcmVnaXN0ZXJlZDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzMzIiIHg9IjM3NS41IiB5PSI3NTkuOTYxNCI+cmF3X3NoaWZ0X3BvaW50cyBhcmUgYWRkZWQgd2l0aCB0aGUgcmF3X3NoaWZ0X1BvaW50PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE0MyIgeD0iMzc1LjUiIHk9Ijc3NS4wOTQyIj5jYWxjdWxhdGVkIGluIHRoaXMgc3RlcC48L3RleHQ+PHJlY3QgZmlsbD0iI0Y4RjhGOCIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjI2MiIgeD0iODcuNSIgeT0iNzE1Ljc3NzMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNDIiIHg9Ijk3LjUiIHk9IjczNi45MTYiPmNvbWJpbmVSYXdTaGlmdFBvaW50c1dpdGhVbmlxdWVDaGVjazwvdGV4dD48cGF0aCBkPSJNMzMzLDc5My4xNjAyIEwzMzMsODE2Ljg1OTQgTDMxMyw4MjAuODU5NCBMMzMzLDgyNC44NTk0IEwzMzMsODQ4LjU1ODYgQTAsMCAwIDAgMCAzMzMsODQ4LjU1ODYgTDY1Myw4NDguNTU4NiBBMCwwIDAgMCAwIDY1Myw4NDguNTU4NiBMNjUzLDgwMy4xNjAyIEw2NDMsNzkzLjE2MDIgTDMzMyw3OTMuMTYwMiBBMCwwIDAgMCAwIDMzMyw3OTMuMTYwMiAiIGZpbGw9IiNFQkVCRUIiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxwYXRoIGQ9Ik02NDMsNzkzLjE2MDIgTDY0Myw4MDMuMTYwMiBMNjUzLDgwMy4xNjAyIEw2NDMsNzkzLjE2MDIgIiBmaWxsPSIjRUJFQkVCIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyODciIHg9IjMzOSIgeT0iODEwLjIyNzEiPkFkZCByZXR1cm4tdG8tY2VudGVyIHNoaWZ0IHBvaW50IGZyb20gdGhlIGxhc3Q8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjk5IiB4PSIzMzkiIHk9IjgyNS4zNTk5Ij5zaGlmdCBwb2ludCwgaWYgbmVlZGVkLiBJZiB0aGVyZSBpcyBubyBzaGlmdCBwb2ludHMsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIyNSIgeD0iMzM5IiB5PSI4NDAuNDkyNyI+c2V0IHJldHVybi10byBjZW50ZXIgc2hpZnQgZnJvbSBlZ28uPC90ZXh0PjxyZWN0IGZpbGw9IiNGOEY4RjgiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxODkiIHg9IjEyNCIgeT0iODAzLjg3NSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE2OSIgeD0iMTM0IiB5PSI4MjUuMDEzNyI+YWRkUmV0dXJuU2hpZnRQb2ludEZyb21FZ288L3RleHQ+PHBhdGggZD0iTTI5OSw4NTguNTU4NiBMMjk5LDg4Mi4yNTc4IEwyNzksODg2LjI1NzggTDI5OSw4OTAuMjU3OCBMMjk5LDkxMy45NTcgQTAsMCAwIDAgMCAyOTksOTEzLjk1NyBMNjc5LDkxMy45NTcgQTAsMCAwIDAgMCA2NzksOTEzLjk1NyBMNjc5LDg2OC41NTg2IEw2NjksODU4LjU1ODYgTDI5OSw4NTguNTU4NiBBMCwwIDAgMCAwIDI5OSw4NTguNTU4NiAiIGZpbGw9IiNFQkVCRUIiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxwYXRoIGQ9Ik02NjksODU4LjU1ODYgTDY2OSw4NjguNTU4NiBMNjc5LDg2OC41NTg2IEw2NjksODU4LjU1ODYgIiBmaWxsPSIjRUJFQkVCIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzMzIiIHg9IjMwNSIgeT0iODc1LjYyNTUiPnNoaWZ0IHBvaW50cyBmb3IgZWFjaCBvYmplY3RzIGFyZSBtZXJnZWQgdG8gY29uc2lkZXI8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzU5IiB4PSIzMDUiIHk9Ijg5MC43NTgzIj5vdmVybGFwcGluZyByZWdpb24sIGV0YyBhbmQgbmV3IHNoaWZ0IHBvaW50cyBhcmUgY3JlYXRlZDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMjkiIHg9IjMwNSIgeT0iOTA1Ljg5MTEiPmZvciB0aGUgY3VycmVudCByZWZlcmVuY2UgdHJhamVjdG9yeS48L3RleHQ+PHJlY3QgZmlsbD0iI0Y4RjhGOCIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjEyMSIgeD0iMTU4IiB5PSI4NjkuMjczNCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwMSIgeD0iMTY4IiB5PSI4OTAuNDEyMSI+bWVyZ2VTaGlmdFBvaW50czwvdGV4dD48cGF0aCBkPSJNMjg3LDkyMy45NTcgTDI4Nyw5NzAuMzU1NSBMMjY3LDk3NC4zNTU1IEwyODcsOTc4LjM1NTUgTDI4NywxMDI0Ljc1MzkgQTAsMCAwIDAgMCAyODcsMTAyNC43NTM5IEw2MzIsMTAyNC43NTM5IEEwLDAgMCAwIDAgNjMyLDEwMjQuNzUzOSBMNjMyLDkzMy45NTcgTDYyMiw5MjMuOTU3IEwyODcsOTIzLjk1NyBBMCwwIDAgMCAwIDI4Nyw5MjMuOTU3ICIgZmlsbD0iI0VCRUJFQiIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTYyMiw5MjMuOTU3IEw2MjIsOTMzLjk1NyBMNjMyLDkzMy45NTcgTDYyMiw5MjMuOTU3ICIgZmlsbD0iI0VCRUJFQiIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzI0IiB4PSIyOTMiIHk9Ijk0MS4wMjM5Ij5tb2RpZnkgc2hpZnQgcG9pbnRzIG9yIHJlbW92ZSB1bm5lY2Vzc2FyeSBwb2ludHMuPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE4MyIgeD0iMjkzIiB5PSI5NTYuMTU2NyI+aXQgY29udGFpbnMgc29tZSBvcGVyYXRpb25zOjwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNDAiIHg9IjI5NyIgeT0iOTcxLjI4OTYiPi0gcXVhbnRpemUgc2hpZnQgbGVuZ3RoPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwNSIgeD0iMjk3IiB5PSI5ODYuNDIyNCI+LSB0cmltIHNtYWxsIHNoaWZ0PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEzOCIgeD0iMjk3IiB5PSIxMDAxLjU1NTIiPi0gdHJpbSBzaW1pbGFyIGdyYWRpZW50PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE1OCIgeD0iMjk3IiB5PSIxMDE2LjY4OCI+LSB0cmltIG1vbWVudGFyeSByZXR1cm48L3RleHQ+PHJlY3QgZmlsbD0iI0Y4RjhGOCIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9Ijk3IiB4PSIxNzAiIHk9Ijk1Ny4zNzExIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNzciIHg9IjE4MCIgeT0iOTc4LjUwOTgiPnRyaW1TaGlmdFBvaW50PC90ZXh0PjxwYXRoIGQ9Ik0yOTkuNSwxMDQ2Ljc1MzkgTDI5OS41LDEwNzAuNDUzMSBMMjc5LjUsMTA3NC40NTMxIEwyOTkuNSwxMDc4LjQ1MzEgTDI5OS41LDExMDIuMTUyMyBBMCwwIDAgMCAwIDI5OS41LDExMDIuMTUyMyBMNTY1LjUsMTEwMi4xNTIzIEEwLDAgMCAwIDAgNTY1LjUsMTEwMi4xNTIzIEw1NjUuNSwxMDU2Ljc1MzkgTDU1NS41LDEwNDYuNzUzOSBMMjk5LjUsMTA0Ni43NTM5IEEwLDAgMCAwIDAgMjk5LjUsMTA0Ni43NTM5ICIgZmlsbD0iI0VCRUJFQiIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTU1NS41LDEwNDYuNzUzOSBMNTU1LjUsMTA1Ni43NTM5IEw1NjUuNSwxMDU2Ljc1MzkgTDU1NS41LDEwNDYuNzUzOSAiIGZpbGw9IiNFQkVCRUIiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI0NSIgeD0iMzA1LjUiIHk9IjEwNjMuODIwOCI+SWYgdGhlcmUgaXMgYSBzaGlmdCBwb2ludCB0aGF0IGhhcyBhIGxhcmdlPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI0NSIgeD0iMzA1LjUiIHk9IjEwNzguOTUzNiI+ZGV2aWF0aW9uIGZyb20gcHJldmlvdXMgcGxhbm5lZCBwYXRoLDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMzAiIHg9IjMwNS41IiB5PSIxMDk0LjA4NjQiPml0IGlzIGNvbnNpZGVyZWQgYXMgYSBuZXcgc2hpZnQgcG9pbnQuPC90ZXh0PjxyZWN0IGZpbGw9IiNGOEY4RjgiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxMjIiIHg9IjE1Ny41IiB5PSIxMDU3LjQ2ODgiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDIiIHg9IjE2Ny41IiB5PSIxMDc4LjYwNzQiPmZpbmROZXdTaGlmdFBvaW50PC90ZXh0PjxyZWN0IGZpbGw9IiNGRkZGRkYiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIGhlaWdodD0iMzc1LjI1ODMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6Mi4wOyIgd2lkdGg9IjczOCIgeD0iMTEiIHk9IjExNzIuNTY2NCIvPjxwYXRoIGQ9Ik0xODgsMTE3Mi41NjY0IEwxODgsMTE5OC4xNjAyIEwxNzgsMTIwOC4xNjAyIEwxMSwxMjA4LjE2MDIgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjIuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMTQiIHg9IjE0IiB5PSIxMTg2LjU2MTUiPnNldC1zaGlmdC1wb2ludHM8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTY3IiB4PSIxNCIgeT0iMTIwMi44NTg0Ij53aXRoLWFwcHJvdmFsLWhhbmRsaW5nPC90ZXh0PjxyZWN0IGZpbGw9IiNGOEY4RjgiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxNzIiIHg9IjEzMi41IiB5PSIxMjI1LjE2MDIiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNTIiIHg9IjE0Mi41IiB5PSIxMjQ2LjI5ODgiPmNoZWNrIGFwcHJvdmFsIGNvbmRpdGlvbjwvdGV4dD48cG9seWdvbiBmaWxsPSIjRjhGOEY4IiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBwb2ludHM9IjE4MiwxMjgzLjgzMjUsMjU1LDEyODMuODMyNSwyNjcsMTI5NS44MzI1LDI1NSwxMzA3LjgzMjUsMTgyLDEzMDcuODMyNSwxNzAsMTI5NS44MzI1LDE4MiwxMjgzLjgzMjUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjczIiB4PSIxODIiIHk9IjEyOTkuNjQwNiI+SXMgYXBwcm92ZWQ/PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE0IiB4PSIxNTYiIHk9IjEyOTMuMjM4MyI+bm88L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMCIgeD0iMjcxIiB5PSIxMjgwLjQzMzYiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMSIgeD0iMjcxIiB5PSIxMjkzLjIzODMiPnllczwvdGV4dD48cmVjdCBmaWxsPSIjRjhGOEY4IiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBoZWlnaHQ9IjQ3LjkzNzUiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTYzIiB4PSIyNS41IiB5PSIxMzE3LjgzMjUiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNDMiIHg9IjM1LjUiIHk9IjEzMzguOTcxMiI+c2V0IGFwcHJvdmFsX2hhbmRsZXIgdG88L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTE1IiB4PSIzNS41IiB5PSIxMzUyLjkzOTkiPldBSVRJTkdfQVBQUk9WQUw8L3RleHQ+PHJlY3QgZmlsbD0iI0Y4RjhGOCIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgaGVpZ2h0PSI0Ny45Mzc1IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjE2OCIgeD0iMjMiIHk9IjEzOTAuMjkzNSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE0OCIgeD0iMzMiIHk9IjE0MTEuNDMyMSI+Z2VuZXJhdGUgY2FuZGlkYXRlIHBhdGg8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEyIiB4PSIzMyIgeT0iMTQyNS40MDA5Ij53aXRoIHRoZSBuZXcgc2hpZnRzPC90ZXh0PjxwYXRoIGQ9Ik00NjQsMTMxNy44MzI1IEw0NjQsMTMzMy45NjUzIEw0NDQsMTMzNy45NjUzIEw0NjQsMTM0MS45NjUzIEw0NjQsMTM1OC4wOTgxIEEwLDAgMCAwIDAgNDY0LDEzNTguMDk4MSBMNjcwLDEzNTguMDk4MSBBMCwwIDAgMCAwIDY3MCwxMzU4LjA5ODEgTDY3MCwxMzI3LjgzMjUgTDY2MCwxMzE3LjgzMjUgTDQ2NCwxMzE3LjgzMjUgQTAsMCAwIDAgMCA0NjQsMTMxNy44MzI1ICIgZmlsbD0iI0VCRUJFQiIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTY2MCwxMzE3LjgzMjUgTDY2MCwxMzI3LjgzMjUgTDY3MCwxMzI3LjgzMjUgTDY2MCwxMzE3LjgzMjUgIiBmaWxsPSIjRUJFQkVCIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxODUiIHg9IjQ3MCIgeT0iMTMzNC44OTk0Ij5UaGlzIHByb2Nlc3MgbWFrZXMgY2hhbmdlczwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNDkiIHg9IjQ3MCIgeT0iMTM1MC4wMzIyIj50byB0aGUgZmluYWwgcGF0aCBzaGFwZS48L3RleHQ+PHJlY3QgZmlsbD0iI0Y4RjhGOCIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjIyOCIgeD0iMjE2IiB5PSIxMzIwLjk4MSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIwOCIgeD0iMjI2IiB5PSIxMzQyLjExOTYiPnNldCBuZXcgc2hpZnQgcG9pbnRzIHRvIHBhdGhfc2hpZnRlcjwvdGV4dD48cGF0aCBkPSJNNDY5LDEzODIuNjIxNiBMNDY5LDEzOTguNzU0NCBMNDQ5LDE0MDIuNzU0NCBMNDY5LDE0MDYuNzU0NCBMNDY5LDE0MjIuODg3MiBBMCwwIDAgMCAwIDQ2OSwxNDIyLjg4NzIgTDczNywxNDIyLjg4NzIgQTAsMCAwIDAgMCA3MzcsMTQyMi44ODcyIEw3MzcsMTM5Mi42MjE2IEw3MjcsMTM4Mi42MjE2IEw0NjksMTM4Mi42MjE2IEEwLDAgMCAwIDAgNDY5LDEzODIuNjIxNiAiIGZpbGw9IiNFQkVCRUIiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxwYXRoIGQ9Ik03MjcsMTM4Mi42MjE2IEw3MjcsMTM5Mi42MjE2IEw3MzcsMTM5Mi42MjE2IEw3MjcsMTM4Mi42MjE2ICIgZmlsbD0iI0VCRUJFQiIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjQ3IiB4PSI0NzUiIHk9IjEzOTkuNjg4NSI+VXNlZCB0byBrZWVwIHRoZSBwbGFubmluZyBjb25zaXN0ZW5jeTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxODgiIHg9IjQ3NSIgeT0iMTQxNC44MjEzIj5pbiB0aGUgc2hpZnQgcG9pbnRzIGdlbmVyYXRpb24uPC90ZXh0PjxyZWN0IGZpbGw9IiNGOEY4RjgiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIyMzgiIHg9IjIxMSIgeT0iMTM4NS43NyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIxOCIgeD0iMjIxIiB5PSIxNDA2LjkwODciPnJlZ2lzdGVyIGFzc29jaWF0ZWQgcmF3X3NoaWZ0X3BvaW50czwvdGV4dD48cmVjdCBmaWxsPSIjRjhGOEY4IiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBoZWlnaHQ9IjQ3LjkzNzUiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTY5IiB4PSIyNDUuNSIgeT0iMTQ1Ny44ODcyIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTQ5IiB4PSIyNTUuNSIgeT0iMTQ3OS4wMjU5Ij5jbGVhciBXQUlUSU5HX0FQUFJPVkFMPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExOCIgeD0iMjU1LjUiIHk9IjE0OTIuOTk0NiI+aW4gYXBwcm92YWxfaGFuZGxlcjwvdGV4dD48cG9seWdvbiBmaWxsPSIjRjhGOEY4IiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBwb2ludHM9IjIxOC41LDE1MTEuODI0NywyMzAuNSwxNTIzLjgyNDcsMjE4LjUsMTUzNS44MjQ3LDIwNi41LDE1MjMuODI0NywyMTguNSwxNTExLjgyNDciIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIvPjxwb2x5Z29uIGZpbGw9IiNGOEY4RjgiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIHBvaW50cz0iMTM3LjUsMTEyNi44NTYsMjk5LjUsMTEyNi44NTYsMzExLjUsMTEzOC44NTYsMjk5LjUsMTE1MC44NTYsMTM3LjUsMTE1MC44NTYsMTI1LjUsMTEzOC44NTYsMTM3LjUsMTEyNi44NTYiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIxIiB4PSIyMjYuNSIgeT0iMTE2MS4wNjY0Ij55ZXM8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTYyIiB4PSIxMzcuNSIgeT0iMTE0Mi42NjQxIj5JcyB0aGUgbmV3IHNoaWZ0IHBvaW50IGZvdW5kPzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIwIiB4PSIzMTUuNSIgeT0iMTEyMy40NTciLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNCIgeD0iMzE1LjUiIHk9IjExMzYuMjYxNyI+bm88L3RleHQ+PHBvbHlnb24gZmlsbD0iI0Y4RjhGOCIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgcG9pbnRzPSIyMTguNSwxNTY3LjgyNDcsMjMwLjUsMTU3OS44MjQ3LDIxOC41LDE1OTEuODI0NywyMDYuNSwxNTc5LjgyNDcsMjE4LjUsMTU2Ny44MjQ3IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBoZWlnaHQ9IjI2MS43NSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoyLjA7IiB3aWR0aD0iNjM2IiB4PSIzNC41IiB5PSIxNjAxLjgyNDciLz48cGF0aCBkPSJNMTYzLjUsMTYwMS44MjQ3IEwxNjMuNSwxNjExLjEyMTYgTDE1My41LDE2MjEuMTIxNiBMMzQuNSwxNjIxLjEyMTYgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjIuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMTkiIHg9IjM3LjUiIHk9IjE2MTUuODE5OCI+cGF0aC1nZW5lcmF0aW9uPC90ZXh0PjxwYXRoIGQ9Ik0zMTkuNSwxNjMxLjEyMTYgTDMxOS41LDE2NTQuODIwOCBMMjk5LjUsMTY1OC44MjA4IEwzMTkuNSwxNjYyLjgyMDggTDMxOS41LDE2ODYuNTIgQTAsMCAwIDAgMCAzMTkuNSwxNjg2LjUyIEw1ODcuNSwxNjg2LjUyIEEwLDAgMCAwIDAgNTg3LjUsMTY4Ni41MiBMNTg3LjUsMTY0MS4xMjE2IEw1NzcuNSwxNjMxLjEyMTYgTDMxOS41LDE2MzEuMTIxNiBBMCwwIDAgMCAwIDMxOS41LDE2MzEuMTIxNiAiIGZpbGw9IiNFQkVCRUIiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxwYXRoIGQ9Ik01NzcuNSwxNjMxLjEyMTYgTDU3Ny41LDE2NDEuMTIxNiBMNTg3LjUsMTY0MS4xMjE2IEw1NzcuNSwxNjMxLjEyMTYgIiBmaWxsPSIjRUJFQkVCIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNDciIHg9IjMyNS41IiB5PSIxNjQ4LjE4ODUiPkZpbmFsIHBhdGggaXMgZ2VuZXJhdGVkIGJ5IHBhdGhfc2hpZnRlcjwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMzEiIHg9IjMyNS41IiB5PSIxNjYzLjMyMTMiPmZyb20gdGhlIGNhbGN1bGF0ZWQgc2hpZnQgcG9pbnRzIHdpdGg8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTkzIiB4PSIzMjUuNSIgeT0iMTY3OC40NTQxIj5DbG90aG9pZC1MaWtlIGN1cnZlIHByaW1pdGl2ZXMuPC90ZXh0PjxyZWN0IGZpbGw9IiNGOEY4RjgiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxNjIiIHg9IjEzNy41IiB5PSIxNjQxLjgzNjQiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNDIiIHg9IjE0Ny41IiB5PSIxNjYyLjk3NTEiPmdlbmVyYXRlQXZvaWRhbmNlUGF0aDwvdGV4dD48cmVjdCBmaWxsPSIjRjhGOEY4IiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMjEwIiB4PSIxMTMuNSIgeT0iMTcwNi41MiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE5MCIgeD0iMTIzLjUiIHk9IjE3MjcuNjU4NyI+Z2VuZXJhdGVFeHRlbmRlZERyaXZhYmxlQXJlYTwvdGV4dD48cGF0aCBkPSJNNDEyLjUsMTc1Ny4zNDAzIEw0MTIuNSwxNzczLjQ3MzEgTDM5Mi41LDE3NzcuNDczMSBMNDEyLjUsMTc4MS40NzMxIEw0MTIuNSwxNzk3LjYwNiBBMCwwIDAgMCAwIDQxMi41LDE3OTcuNjA2IEw2NjAuNSwxNzk3LjYwNiBBMCwwIDAgMCAwIDY2MC41LDE3OTcuNjA2IEw2NjAuNSwxNzY3LjM0MDMgTDY1MC41LDE3NTcuMzQwMyBMNDEyLjUsMTc1Ny4zNDAzIEEwLDAgMCAwIDAgNDEyLjUsMTc1Ny4zNDAzICIgZmlsbD0iI0VCRUJFQiIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTY1MC41LDE3NTcuMzQwMyBMNjUwLjUsMTc2Ny4zNDAzIEw2NjAuNSwxNzY3LjM0MDMgTDY1MC41LDE3NTcuMzQwMyAiIGZpbGw9IiNFQkVCRUIiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE3NCIgeD0iNDE4LjUiIHk9IjE3NzQuNDA3MiI+UmVkdWNlIGFjY2VsZXJhdGlvbiBkdXJpbmc8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjI3IiB4PSI0MTguNSIgeT0iMTc4OS41NCI+YXZvaWRhbmNlIHRvIGltcHJvdmUgcmlkZSBjb21mb3J0LjwvdGV4dD48cmVjdCBmaWxsPSIjRjhGOEY4IiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMzQ4IiB4PSI0NC41IiB5PSIxNzYwLjQ4ODgiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzMjgiIHg9IjU0LjUiIHk9IjE3ODEuNjI3NCI+bW9kaWZ5UGF0aFZlbG9jaXR5VG9QcmV2ZW50QWNjZWxlcmF0aW9uT25Bdm9pZGFuY2U8L3RleHQ+PHBhdGggZD0iTTI5MiwxODIyLjAyMzkgTDI5MiwxODMwLjU5MDMgTDI3MiwxODM0LjU5MDMgTDI5MiwxODM4LjU5MDMgTDI5MiwxODQ3LjE1NjcgQTAsMCAwIDAgMCAyOTIsMTg0Ny4xNTY3IEw1NDgsMTg0Ny4xNTY3IEEwLDAgMCAwIDAgNTQ4LDE4NDcuMTU2NyBMNTQ4LDE4MzIuMDIzOSBMNTM4LDE4MjIuMDIzOSBMMjkyLDE4MjIuMDIzOSBBMCwwIDAgMCAwIDI5MiwxODIyLjAyMzkgIiBmaWxsPSIjRUJFQkVCIiBmaWx0ZXI9InVybCgjZjFtNHQ1N2d1bmduMWspIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cGF0aCBkPSJNNTM4LDE4MjIuMDIzOSBMNTM4LDE4MzIuMDIzOSBMNTQ4LDE4MzIuMDIzOSBMNTM4LDE4MjIuMDIzOSAiIGZpbGw9IiNFQkVCRUIiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIzNSIgeD0iMjk4IiB5PSIxODM5LjA5MDgiPlRvIHJlZHVjZSBwYXRoIHBvaW50cyBmb3IgbGF0ZXIgbm9kZS48L3RleHQ+PHJlY3QgZmlsbD0iI0Y4RjhGOCIgZmlsdGVyPSJ1cmwoI2YxbTR0NTdndW5nbjFrKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjEwNyIgeD0iMTY1IiB5PSIxODE3LjYwNiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg3IiB4PSIxNzUiIHk9IjE4MzguNzQ0NiI+cmVzYW1wbGUgcGF0aDwvdGV4dD48ZWxsaXBzZSBjeD0iMjE4LjUiIGN5PSIxODk0LjU3NDciIGZpbGw9IiNGRkZGRkYiIGZpbHRlcj0idXJsKCNmMW00dDU3Z3VuZ24xaykiIHJ4PSIxMSIgcnk9IjExIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuMDsiLz48ZWxsaXBzZSBjeD0iMjE4LjUiIGN5PSIxODk0LjU3NDciIGZpbGw9IiMwMDAwMDAiIHJ4PSI2IiByeT0iNiIgc3R5bGU9InN0cm9rZTojN0Y3RjdGO3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjE4LjUiIHgyPSIyMTguNSIgeTE9IjUwLjk1MzEiIHkyPSI5NC4zNjcyIi8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIyMTQuNSw4NC4zNjcyLDIxOC41LDk0LjM2NzIsMjIyLjUsODQuMzY3MiwyMTguNSw4OC4zNjcyIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyMTguNSIgeDI9IjIxOC41IiB5MT0iMTI4LjMzNTkiIHkyPSIxOTcuNTk3NyIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjE0LjUsMTg3LjU5NzcsMjE4LjUsMTk3LjU5NzcsMjIyLjUsMTg3LjU5NzcsMjE4LjUsMTkxLjU5NzciIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjIxOC41IiB4Mj0iMjE4LjUiIHkxPSI0MTQuNTg5OCIgeTI9IjQ0My4xMDU1Ii8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIyMTQuNSw0MzMuMTA1NSwyMTguNSw0NDMuMTA1NSwyMjIuNSw0MzMuMTA1NSwyMTguNSw0MzcuMTA1NSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjE4LjUiIHgyPSIyMTguNSIgeTE9IjM1Ni4yMTg4IiB5Mj0iMzgwLjYyMTEiLz48cG9seWdvbiBmaWxsPSIjMzgzODM4IiBwb2ludHM9IjIxNC41LDM3MC42MjExLDIxOC41LDM4MC42MjExLDIyMi41LDM3MC42MjExLDIxOC41LDM3NC42MjExIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIzNTciIHgyPSIzNjkiIHkxPSIzNDQuMjE4OCIgeTI9IjM0NC4yMTg4Ii8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIzNjUsNDEzLjEwNTUsMzY5LDQyMy4xMDU1LDM3Myw0MTMuMTA1NSwzNjksNDE3LjEwNTUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjM2OSIgeDI9IjM2OSIgeTE9IjM0NC4yMTg4IiB5Mj0iNDg3LjEwNTUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIzNjkiIHgyPSIyMTguNSIgeTE9IjQ4Ny4xMDU1IiB5Mj0iNDg3LjEwNTUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyMTguNSIgeDI9IjIxOC41IiB5MT0iNDg3LjEwNTUiIHkyPSI1MDcuMTA1NSIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjE0LjUsNDk3LjEwNTUsMjE4LjUsNTA3LjEwNTUsMjIyLjUsNDk3LjEwNTUsMjE4LjUsNTAxLjEwNTUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjIxOC41IiB4Mj0iMjE4LjUiIHkxPSIzMDEuNDE0MSIgeTI9IjMzMi4yMTg4Ii8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIyMTQuNSwzMjIuMjE4OCwyMTguNSwzMzIuMjE4OCwyMjIuNSwzMjIuMjE4OCwyMTguNSwzMjYuMjE4OCIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjk0LjUiIHgyPSIzNzkiIHkxPSIyODkuNDE0MSIgeTI9IjI4OS40MTQxIi8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIzNzUsNDA3LjEwNTUsMzc5LDQxNy4xMDU1LDM4Myw0MDcuMTA1NSwzNzksNDExLjEwNTUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjM3OSIgeDI9IjM3OSIgeTE9IjI4OS40MTQxIiB5Mj0iNTE5LjEwNTUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIzNzkiIHgyPSIyMzAuNSIgeTE9IjUxOS4xMDU1IiB5Mj0iNTE5LjEwNTUiLz48cG9seWdvbiBmaWxsPSIjMzgzODM4IiBwb2ludHM9IjI0MC41LDUxNS4xMDU1LDIzMC41LDUxOS4xMDU1LDI0MC41LDUyMy4xMDU1LDIzNi41LDUxOS4xMDU1IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyMTguNSIgeDI9IjIxOC41IiB5MT0iMjMxLjU2NjQiIHkyPSIyNzcuNDE0MSIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjE0LjUsMjY3LjQxNDEsMjE4LjUsMjc3LjQxNDEsMjIyLjUsMjY3LjQxNDEsMjE4LjUsMjcxLjQxNDEiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjIxOC41IiB4Mj0iMjE4LjUiIHkxPSI2NDYuNTE1NiIgeTI9IjcxNS43NzczIi8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIyMTQuNSw3MDUuNzc3MywyMTguNSw3MTUuNzc3MywyMjIuNSw3MDUuNzc3MywyMTguNSw3MDkuNzc3MyIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjE4LjUiIHgyPSIyMTguNSIgeTE9Ijc0OS43NDYxIiB5Mj0iODAzLjg3NSIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjE0LjUsNzkzLjg3NSwyMTguNSw4MDMuODc1LDIyMi41LDc5My44NzUsMjE4LjUsNzk3Ljg3NSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjE4LjUiIHgyPSIyMTguNSIgeTE9IjgzNy44NDM4IiB5Mj0iODY5LjI3MzQiLz48cG9seWdvbiBmaWxsPSIjMzgzODM4IiBwb2ludHM9IjIxNC41LDg1OS4yNzM0LDIxOC41LDg2OS4yNzM0LDIyMi41LDg1OS4yNzM0LDIxOC41LDg2My4yNzM0IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyMTguNSIgeDI9IjIxOC41IiB5MT0iOTAzLjI0MjIiIHkyPSI5NTcuMzcxMSIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjE0LjUsOTQ3LjM3MTEsMjE4LjUsOTU3LjM3MTEsMjIyLjUsOTQ3LjM3MTEsMjE4LjUsOTUxLjM3MTEiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjIxOC41IiB4Mj0iMjE4LjUiIHkxPSI1MzEuMTA1NSIgeTI9IjYxMi41NDY5Ii8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIyMTQuNSw2MDIuNTQ2OSwyMTguNSw2MTIuNTQ2OSwyMjIuNSw2MDIuNTQ2OSwyMTguNSw2MDYuNTQ2OSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjE4LjUiIHgyPSIyMTguNSIgeTE9Ijk5MS4zMzk4IiB5Mj0iMTA1Ny40Njg4Ii8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIyMTQuNSwxMDQ3LjQ2ODgsMjE4LjUsMTA1Ny40Njg4LDIyMi41LDEwNDcuNDY4OCwyMTguNSwxMDUxLjQ2ODgiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjEwNyIgeDI9IjEwNyIgeTE9IjEzNjUuNzciIHkyPSIxMzkwLjI5MzUiLz48cG9seWdvbiBmaWxsPSIjMzgzODM4IiBwb2ludHM9IjEwMywxMzgwLjI5MzUsMTA3LDEzOTAuMjkzNSwxMTEsMTM4MC4yOTM1LDEwNywxMzg0LjI5MzUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjMzMCIgeDI9IjMzMCIgeTE9IjEzNTQuOTQ5NyIgeTI9IjEzODUuNzciLz48cG9seWdvbiBmaWxsPSIjMzgzODM4IiBwb2ludHM9IjMyNiwxMzc1Ljc3LDMzMCwxMzg1Ljc3LDMzNCwxMzc1Ljc3LDMzMCwxMzc5Ljc3IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIzMzAiIHgyPSIzMzAiIHkxPSIxNDE5LjczODgiIHkyPSIxNDU3Ljg4NzIiLz48cG9seWdvbiBmaWxsPSIjMzgzODM4IiBwb2ludHM9IjMyNiwxNDQ3Ljg4NzIsMzMwLDE0NTcuODg3MiwzMzQsMTQ0Ny44ODcyLDMzMCwxNDUxLjg4NzIiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjE3MCIgeDI9IjEwNyIgeTE9IjEyOTUuODMyNSIgeTI9IjEyOTUuODMyNSIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjEwNyIgeDI9IjEwNyIgeTE9IjEyOTUuODMyNSIgeTI9IjEzMTcuODMyNSIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMTAzLDEzMDcuODMyNSwxMDcsMTMxNy44MzI1LDExMSwxMzA3LjgzMjUsMTA3LDEzMTEuODMyNSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjY3IiB4Mj0iMzMwIiB5MT0iMTI5NS44MzI1IiB5Mj0iMTI5NS44MzI1Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMzMwIiB4Mj0iMzMwIiB5MT0iMTI5NS44MzI1IiB5Mj0iMTMyMC45ODEiLz48cG9seWdvbiBmaWxsPSIjMzgzODM4IiBwb2ludHM9IjMyNiwxMzEwLjk4MSwzMzAsMTMyMC45ODEsMzM0LDEzMTAuOTgxLDMzMCwxMzE0Ljk4MSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMTA3IiB4Mj0iMTA3IiB5MT0iMTQzOC4yMzEiIHkyPSIxNTIzLjgyNDciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIxMDciIHgyPSIyMDYuNSIgeTE9IjE1MjMuODI0NyIgeTI9IjE1MjMuODI0NyIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMTk2LjUsMTUxOS44MjQ3LDIwNi41LDE1MjMuODI0NywxOTYuNSwxNTI3LjgyNDcsMjAwLjUsMTUyMy44MjQ3IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIzMzAiIHgyPSIzMzAiIHkxPSIxNTA1LjgyNDciIHkyPSIxNTIzLjgyNDciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIzMzAiIHgyPSIyMzAuNSIgeTE9IjE1MjMuODI0NyIgeTI9IjE1MjMuODI0NyIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjQwLjUsMTUxOS44MjQ3LDIzMC41LDE1MjMuODI0NywyNDAuNSwxNTI3LjgyNDcsMjM2LjUsMTUyMy44MjQ3IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyMTguNSIgeDI9IjIxOC41IiB5MT0iMTI1OS4xMjg5IiB5Mj0iMTI4My44MzI1Ii8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIyMTQuNSwxMjczLjgzMjUsMjE4LjUsMTI4My44MzI1LDIyMi41LDEyNzMuODMyNSwyMTguNSwxMjc3LjgzMjUiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjIxOC41IiB4Mj0iMjE4LjUiIHkxPSIxMTUwLjg1NiIgeTI9IjEyMjUuMTYwMiIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjE0LjUsMTIxNS4xNjAyLDIxOC41LDEyMjUuMTYwMiwyMjIuNSwxMjE1LjE2MDIsMjE4LjUsMTIxOS4xNjAyIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIzMTEuNSIgeDI9Ijc1OSIgeTE9IjExMzguODU2IiB5Mj0iMTEzOC44NTYiLz48cG9seWdvbiBmaWxsPSIjMzgzODM4IiBwb2ludHM9Ijc1NSwxMzUzLjQ4MSw3NTksMTM2My40ODEsNzYzLDEzNTMuNDgxLDc1OSwxMzU3LjQ4MSIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iNzU5IiB4Mj0iNzU5IiB5MT0iMTEzOC44NTYiIHkyPSIxNTc5LjgyNDciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSI3NTkiIHgyPSIyMzAuNSIgeTE9IjE1NzkuODI0NyIgeTI9IjE1NzkuODI0NyIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjQwLjUsMTU3NS44MjQ3LDIzMC41LDE1NzkuODI0NywyNDAuNSwxNTgzLjgyNDcsMjM2LjUsMTU3OS44MjQ3IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyMTguNSIgeDI9IjIxOC41IiB5MT0iMTUzNS44MjQ3IiB5Mj0iMTU2Ny44MjQ3Ii8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIyMTQuNSwxNTU3LjgyNDcsMjE4LjUsMTU2Ny44MjQ3LDIyMi41LDE1NTcuODI0NywyMTguNSwxNTYxLjgyNDciIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjIxOC41IiB4Mj0iMjE4LjUiIHkxPSIxMDkxLjQzNzUiIHkyPSIxMTI2Ljg1NiIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjE0LjUsMTExNi44NTYsMjE4LjUsMTEyNi44NTYsMjIyLjUsMTExNi44NTYsMjE4LjUsMTEyMC44NTYiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjIxOC41IiB4Mj0iMjE4LjUiIHkxPSIxNjc1LjgwNTIiIHkyPSIxNzA2LjUyIi8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIyMTQuNSwxNjk2LjUyLDIxOC41LDE3MDYuNTIsMjIyLjUsMTY5Ni41MiwyMTguNSwxNzAwLjUyIiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyMTguNSIgeDI9IjIxOC41IiB5MT0iMTc0MC40ODg4IiB5Mj0iMTc2MC40ODg4Ii8+PHBvbHlnb24gZmlsbD0iIzM4MzgzOCIgcG9pbnRzPSIyMTQuNSwxNzUwLjQ4ODgsMjE4LjUsMTc2MC40ODg4LDIyMi41LDE3NTAuNDg4OCwyMTguNSwxNzU0LjQ4ODgiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjIxOC41IiB4Mj0iMjE4LjUiIHkxPSIxNzk0LjQ1NzUiIHkyPSIxODE3LjYwNiIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjE0LjUsMTgwNy42MDYsMjE4LjUsMTgxNy42MDYsMjIyLjUsMTgwNy42MDYsMjE4LjUsMTgxMS42MDYiIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzM4MzgzODtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjIxOC41IiB4Mj0iMjE4LjUiIHkxPSIxNTkxLjgyNDciIHkyPSIxNjQxLjgzNjQiLz48cG9seWdvbiBmaWxsPSIjMzgzODM4IiBwb2ludHM9IjIxNC41LDE2MzEuODM2NCwyMTguNSwxNjQxLjgzNjQsMjIyLjUsMTYzMS44MzY0LDIxOC41LDE2MzUuODM2NCIgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMzgzODM4O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjE4LjUiIHgyPSIyMTguNSIgeTE9IjE4NTEuNTc0NyIgeTI9IjE4ODMuNTc0NyIvPjxwb2x5Z29uIGZpbGw9IiMzODM4MzgiIHBvaW50cz0iMjE0LjUsMTg3My41NzQ3LDIxOC41LDE4ODMuNTc0NywyMjIuNSwxODczLjU3NDcsMjE4LjUsMTg3Ny41NzQ3IiBzdHlsZT0ic3Ryb2tlOiMzODM4Mzg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48IS0tTUQ1PVtjYTRhYTNlNzA0MzBlODdhYzAyNTgyMTI4YjIzOTY2MF0KQHN0YXJ0dW1sDQpza2lucGFyYW0gbW9ub2Nocm9tZSB0cnVlDQoNCnRpdGxlIGF2b2lkYW5jZSBwYXRoIHBsYW5uaW5nDQpzdGFydA0KDQo6Y2FsY0F2b2lkYW5jZVBsYW5uaW5nRGF0YTsNCm5vdGUgcmlnaHQNCiAtIGNlbnRlciBsaW5lDQogLSByZWZlcmVuY2UgcGF0aDoNCiAgICAgIGdlbmVyYXRlZCBieSBzcGxpbmUgaW50ZXJwb2xhdGlvbiBvZiBjZW50ZXJsaW5lIHBhdGgNCiAgICAgIHdpdGggZGVuc2UgaW50ZXJ2YWwNCiAtIGRyaXZpbmcgbGFuZWxldHMNCiAtIG9iamVjdHMNCmVuZCBub3RlDQoNCjpjYWxjQXZvaWRhbmNlVGFyZ2V0T2JqZWN0czsNCm5vdGUgcmlnaHQNCiBGaW5kIG9iamVjdHMgdGhhdCBzYXRpc2ZpZXMgYWxsIG9mIHRoZSBmb2xsb3dpbmc6DQogIC0gdGFyZ2V0IG9iamVjdCB0eXBlDQogIC0gYmVpbmcgc3RvcHBlZA0KICAtIGJlaW5nIGFyb3VuZCB0aGUgZWdvLWRyaXZpbmcgbGFuZQ0KICAtIGJlaW5nIG9uIHRoZSBlZGdlIG9mIHRoZSBsYW5lDQplbmQgbm90ZQ0KDQppZiAoSXMgdGFyZ2V0IG9iamVjdCBmb3VuZD8pIHRoZW4gKCB5ZXMpDQplbHNlIChcbiBubykNCiAgaWYgKERvZXMgcGF0aF9zaGlmdGVyIGFscmVhZHkgaGF2ZSBzaGlmdCBwb2ludHM/KSB0aGVuIChubykNCiAgICA6ZXhpdCBhdm9pZGFuY2UgbW9kdWxlOw0KICAgIHN0b3ANCiAgZWxzZSAoeWVzKQ0KICBlbmRpZg0KZW5kaWYNCg0KcGFydGl0aW9uIHNoaWZ0LXBvaW50XG5nZW5lcmF0aW9uIHsNCg0KOmNhbGNSYXdTaGlmdFBvaW50c0Zyb21PYmplY3RzOw0Kbm90ZSByaWdodA0KIGdlbmVyYXRlICJyYXdfc2hpZnRfcG9pbnRzIiBmb3IgZWFjaCB0YXJnZXQgb2JqZWN0cy4NCiB0aGUgc2hpZnQgcG9pbnQgY29udGFpbnM6DQogIC0gYXZvaWRpbmcgc2hpZnQNCiAgLSByZXR1cm4tdG8tY2VudGVyIHNoaWZ0DQogIHdpdGggY29uc2lkZXJpbmcgdGhlIGxhdGVyYWwgamVyayByYW5nZS4NCmVuZCBub3RlDQoNCjpjb21iaW5lUmF3U2hpZnRQb2ludHNXaXRoVW5pcXVlQ2hlY2s7DQpub3RlIHJpZ2h0DQogY29tYmluZSB3aXRoICJhbHJlYWR5LXJlZ2lzdGVyZWQgcmF3X3NoaWZ0X3BvaW50cyIuDQoNCiBUaGUgcmF3X3NoaWZ0X3BvaW50IGlzIHNhdmVkIHdoZW4gdGhlIHJlbGV2YW50DQogc2hpZnQgaXMgZXhlY3V0ZWQuIEhlcmUgdGhlIHJlZ2lzdGVyZWQNCiByYXdfc2hpZnRfcG9pbnRzIGFyZSBhZGRlZCB3aXRoIHRoZSByYXdfc2hpZnRfUG9pbnQNCiBjYWxjdWxhdGVkIGluIHRoaXMgc3RlcC4NCmVuZCBub3RlDQoNCjphZGRSZXR1cm5TaGlmdFBvaW50RnJvbUVnbzsNCm5vdGUgcmlnaHQNCiBBZGQgcmV0dXJuLXRvLWNlbnRlciBzaGlmdCBwb2ludCBmcm9tIHRoZSBsYXN0DQogc2hpZnQgcG9pbnQsIGlmIG5lZWRlZC4gSWYgdGhlcmUgaXMgbm8gc2hpZnQgcG9pbnRzLA0KIHNldCByZXR1cm4tdG8gY2VudGVyIHNoaWZ0IGZyb20gZWdvLg0KZW5kIG5vdGUNCg0KOm1lcmdlU2hpZnRQb2ludHM7DQpub3RlIHJpZ2h0DQpzaGlmdCBwb2ludHMgZm9yIGVhY2ggb2JqZWN0cyBhcmUgbWVyZ2VkIHRvIGNvbnNpZGVyDQpvdmVybGFwcGluZyByZWdpb24sIGV0YyBhbmQgbmV3IHNoaWZ0IHBvaW50cyBhcmUgY3JlYXRlZA0KZm9yIHRoZSBjdXJyZW50IHJlZmVyZW5jZSB0cmFqZWN0b3J5Lg0KZW5kIG5vdGUNCg0KOnRyaW1TaGlmdFBvaW50Ow0Kbm90ZSByaWdodA0KbW9kaWZ5IHNoaWZ0IHBvaW50cyBvciByZW1vdmUgdW5uZWNlc3NhcnkgcG9pbnRzLg0KaXQgY29udGFpbnMgc29tZSBvcGVyYXRpb25zOg0KIC0gcXVhbnRpemUgc2hpZnQgbGVuZ3RoDQogLSB0cmltIHNtYWxsIHNoaWZ0DQogLSB0cmltIHNpbWlsYXIgZ3JhZGllbnQNCiAtIHRyaW0gbW9tZW50YXJ5IHJldHVybg0KZW5kIG5vdGUNCg0KDQoNCn0NCg0KOmZpbmROZXdTaGlmdFBvaW50Ow0Kbm90ZSByaWdodA0KIElmIHRoZXJlIGlzIGEgc2hpZnQgcG9pbnQgdGhhdCBoYXMgYSBsYXJnZQ0KIGRldmlhdGlvbiBmcm9tIHByZXZpb3VzIHBsYW5uZWQgcGF0aCwNCiBpdCBpcyBjb25zaWRlcmVkIGFzIGEgbmV3IHNoaWZ0IHBvaW50Lg0KZW5kIG5vdGUNCg0KaWYgKElzIHRoZSBuZXcgc2hpZnQgcG9pbnQgZm91bmQ/KSB0aGVuICggeWVzKQ0KICBwYXJ0aXRpb24gc2V0LXNoaWZ0LXBvaW50c1xud2l0aC1hcHByb3ZhbC1oYW5kbGluZyB7DQogICAgOmNoZWNrIGFwcHJvdmFsIGNvbmRpdGlvbjsNCiAgICBpZiAoSXMgYXBwcm92ZWQ/KSB0aGVuIChubykNCiAgICAgIDpzZXQgYXBwcm92YWxfaGFuZGxlciB0bw0KICAgICAgV0FJVElOR19BUFBST1ZBTDsNCiAgICAgIDpnZW5lcmF0ZSBjYW5kaWRhdGUgcGF0aA0KICAgICAgd2l0aCB0aGUgbmV3IHNoaWZ0czsNCiAgICBlbHNlIChcbiB5ZXMpDQogICAgICA6c2V0IG5ldyBzaGlmdCBwb2ludHMgdG8gcGF0aF9zaGlmdGVyOw0KICAgICAgbm90ZSByaWdodA0KICAgICAgICBUaGlzIHByb2Nlc3MgbWFrZXMgY2hhbmdlcw0KICAgICAgICB0byB0aGUgZmluYWwgcGF0aCBzaGFwZS4NCiAgICAgIGVuZCBub3RlDQogICAgICA6cmVnaXN0ZXIgYXNzb2NpYXRlZCByYXdfc2hpZnRfcG9pbnRzOw0KICAgICAgbm90ZSByaWdodA0KICAgICAgICBVc2VkIHRvIGtlZXAgdGhlIHBsYW5uaW5nIGNvbnNpc3RlbmN5DQogICAgICAgIGluIHRoZSBzaGlmdCBwb2ludHMgZ2VuZXJhdGlvbi4NCiAgICAgIGVuZCBub3RlDQogICAgICA6Y2xlYXIgV0FJVElOR19BUFBST1ZBTA0KICAgICAgaW4gYXBwcm92YWxfaGFuZGxlcjsNCiAgICBlbmRpZg0KICB9DQplbHNlIChcbiBubykNCmVuZGlmDQoNCnBhcnRpdGlvbiBwYXRoLWdlbmVyYXRpb24gew0KDQo6Z2VuZXJhdGVBdm9pZGFuY2VQYXRoOw0Kbm90ZSByaWdodA0KIEZpbmFsIHBhdGggaXMgZ2VuZXJhdGVkIGJ5IHBhdGhfc2hpZnRlcg0KIGZyb20gdGhlIGNhbGN1bGF0ZWQgc2hpZnQgcG9pbnRzIHdpdGgNCiBDbG90aG9pZC1MaWtlIGN1cnZlIHByaW1pdGl2ZXMuDQplbmQgbm90ZQ0KDQo6Z2VuZXJhdGVFeHRlbmRlZERyaXZhYmxlQXJlYTsNCg0KOm1vZGlmeVBhdGhWZWxvY2l0eVRvUHJldmVudEFjY2VsZXJhdGlvbk9uQXZvaWRhbmNlOw0Kbm90ZSByaWdodA0KIFJlZHVjZSBhY2NlbGVyYXRpb24gZHVyaW5nDQogYXZvaWRhbmNlIHRvIGltcHJvdmUgcmlkZSBjb21mb3J0Lg0KZW5kIG5vdGUNCg0KOnJlc2FtcGxlIHBhdGg7DQpub3RlIHJpZ2h0DQogVG8gcmVkdWNlIHBhdGggcG9pbnRzIGZvciBsYXRlciBub2RlLg0KZW5kIG5vdGUNCg0KfQ0Kc3RvcA0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIxLjE2YmV0YTMoVW5rbm93biBjb21waWxlIHRpbWUpCihHUEwgc291cmNlIGRpc3RyaWJ1dGlvbikKSmF2YSBSdW50aW1lOiBKYXZhKFRNKSBTRSBSdW50aW1lIEVudmlyb25tZW50CkpWTTogSmF2YSBIb3RTcG90KFRNKSA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IFVURi04Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+" class="uml" alt="uml diagram" title="" /></p>
-<h3 id="details-of-functions">Details of Functions<a class="headerlink" href="#details-of-functions" title="Permanent link">#</a></h3>
-<h4 id="how-to-decide-the-target-obstacles">How to decide the target obstacles<a class="headerlink" href="#how-to-decide-the-target-obstacles" title="Permanent link">#</a></h4>
-<p>The avoidance target should be limited to stationary objects (you should not avoid a vehicle waiting at a traffic light even if it blocks your path). Therefore, target vehicles for avoidance should meet the following specific conditions.</p>
-<ul>
-<li>It is in the vicinity of your lane (parametrized)</li>
-<li>It is stopped (estimated speed is lower than threshold)<ul>
-<li>This means that overtaking is not supported (will be supported in the future).</li>
-</ul>
-</li>
-<li>It is a specific class.<ul>
-<li>User can limit avoidance targets (e.g. do not avoid unknown-class targets).</li>
-</ul>
-</li>
-<li>It is not being in the center of the route<ul>
-<li>This means that the vehicle is parked on the edge of the lane. This prevents the vehicle from avoiding a vehicle waiting at a traffic light in the middle of the lane. However, this is not an appropriate implementation for the purpose. Even if a vehicle is in the center of the lane, it should be avoided if it has its hazard lights on, and this is a point that should be improved in the future as the recognition performance improves.</li>
-</ul>
-</li>
-</ul>
-<p><img alt="fig1" src="../image/avoidance_design/target_vehicle_selection.drawio.svg" /></p>
-<h5 id="compensation-for-detection-lost">Compensation for detection lost<a class="headerlink" href="#compensation-for-detection-lost" title="Permanent link">#</a></h5>
-<p>In order to prevent chattering of recognition results, once an obstacle is targeted, it is hold for a while even if it disappears. This is effective when recognition is unstable. However, since it will result in over-detection (increase a number of false-positive), it is necessary to adjust parameters according to the recognition accuracy (if <code>object_hold_max_count = 0</code>, the recognition result is 100% trusted).</p>
-<h4 id="how-to-decide-the-path-shape">How to decide the path shape<a class="headerlink" href="#how-to-decide-the-path-shape" title="Permanent link">#</a></h4>
-<p>Generate shift points for obstacles with given lateral jerk. These points are integrated to generate an avoidance path. The detailed process flow for each case corresponding to the obstacle placement are described below. The actual implementation is not separated for each case, but the function corresponding to <code>multiple obstacle case (both directions)</code> is always running.</p>
-<h5 id="one-obstacle-case">One obstacle case<a class="headerlink" href="#one-obstacle-case" title="Permanent link">#</a></h5>
-<p>The lateral shift distance to the obstacle is calculated, and then the shift point is generated from the ego vehicle speed and the given lateral jerk as shown in the figure below. A smooth avoidance path is then calculated based on the shift point.</p>
-<p>Additionally, the following processes are executed in special cases.</p>
-<h6 id="lateral-jerk-relaxation-conditions">Lateral jerk relaxation conditions<a class="headerlink" href="#lateral-jerk-relaxation-conditions" title="Permanent link">#</a></h6>
-<ul>
-<li>If the ego vehicle is close to the avoidance target, the lateral jerk will be relaxed up to the maximum jerk</li>
-<li>When returning to the center line after avoidance, if there is not enough distance left to the goal (end of path), the jerk condition will be relaxed as above.</li>
-</ul>
-<h6 id="minimum-velocity-relaxation-conditions">Minimum velocity relaxation conditions<a class="headerlink" href="#minimum-velocity-relaxation-conditions" title="Permanent link">#</a></h6>
-<p>There is a problem that we can not know the actual speed during avoidance in advance. This is especially critical when the ego vehicle speed is 0.
-To solve that, this module provides a parameter for the minimum avoidance speed, which is used for the lateral jerk calculation when the vehicle speed is low.</p>
-<ul>
-<li>If the ego vehicle speed is lower than "nominal" minimum speed, use the minimum speed in the calculation of the jerk.</li>
-<li>If the ego vehicle speed is lower than "sharp" minimum speed and a nominal lateral jerk is not enough for avoidance (the case where the ego vehicle is stopped close to the obstacle), use the "sharp" minimum speed in the calculation of the jerk (it should be lower than "nominal" speed).</li>
-</ul>
-<p><img alt="fig1" src="../image/avoidance_design/how_to_decide_path_shape_one_object.drawio.svg" /></p>
-<h5 id="multiple-obstacle-case-one-direction">Multiple obstacle case (one direction)<a class="headerlink" href="#multiple-obstacle-case-one-direction" title="Permanent link">#</a></h5>
-<p>Generate shift points for multiple obstacles. All of them are merged to generate new shift points along the reference path. The new points are filtered (e.g. remove small-impact shift points), and the avoidance path is computed for the filtered shift points.</p>
-<p><strong>Merge process of raw shift points</strong>: check the shift length on each path points. If the shift points are overlapped, the maximum shift value is selected for the same direction.</p>
-<p>For the details of the shift point filtering, see <a href="#filtering-for-shift-points">filtering for shift points</a>.</p>
-<p><img alt="fig1" src="../image/avoidance_design/how_to_decide_path_shape_multi_object_one_direction.drawio.svg" /></p>
-<h5 id="multiple-obstacle-case-both-direction">Multiple obstacle case (both direction)<a class="headerlink" href="#multiple-obstacle-case-both-direction" title="Permanent link">#</a></h5>
-<p>Generate shift points for multiple obstacles. All of them are merged to generate new shift points. If there are areas where the desired shifts conflict in different directions, the sum of the maximum shift amounts of these areas is used as the final shift amount. The rest of the process is the same as in the case of one direction.</p>
-<p><img alt="fig1" src="../image/avoidance_design/how_to_decide_path_shape_multi_object_both_direction.drawio.svg" /></p>
-<h5 id="filtering-for-shift-points">Filtering for shift points<a class="headerlink" href="#filtering-for-shift-points" title="Permanent link">#</a></h5>
-<p>The shift points are modified by a filtering process in order to get the expected shape of the avoidance path. It contains the following filters.</p>
-<ul>
-<li>Quantization: Quantize the avoidance width in order to ignore small shifts.</li>
-<li>Small shifts removal: Shifts with small changes with respect to the previous shift point are unified in the previous shift width.</li>
-<li>Similar gradient removal: Connect two shift points with a straight line, and remove the shift points in between if their shift amount is in the vicinity of the straight line.</li>
-<li>Remove momentary returns: For shift points that reduce the avoidance width (for going back to the center line), if there is enough long distance in the longitudinal direction, remove them.</li>
-</ul>
-<h4 id="how-to-keep-the-consistency-of-the-planning">How to keep the consistency of the planning<a class="headerlink" href="#how-to-keep-the-consistency-of-the-planning" title="Permanent link">#</a></h4>
-<p>TODO</p>
-<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
-<h3 id="avoidance-path-generation">Avoidance path generation<a class="headerlink" href="#avoidance-path-generation" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Unit</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">resample_interval_for_planning</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Path resample interval for avoidance planning path.</td>
-<td align="left">0.3</td>
-</tr>
-<tr>
-<td align="left">resample_interval_for_output</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Path resample interval for output path. Too short interval increases computational cost for latter modules.</td>
-<td align="left">3.0</td>
-</tr>
-<tr>
-<td align="left">lateral_collision_margin</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">The lateral distance between ego and avoidance targets.</td>
-<td align="left">2.0</td>
-</tr>
-<tr>
-<td align="left">longitudinal_collision_margin_min_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">when complete avoidance motion, there is a distance margin with the object for longitudinal direction.</td>
-<td align="left">0.0</td>
-</tr>
-<tr>
-<td align="left">longitudinal_collision_margin_time</td>
-<td align="left">[s]</td>
-<td align="left">double</td>
-<td align="left">when complete avoidance motion, there is a time margin with the object for longitudinal direction.</td>
-<td align="left">0.0</td>
-</tr>
-<tr>
-<td align="left">prepare_time</td>
-<td align="left">[s]</td>
-<td align="left">double</td>
-<td align="left">Avoidance shift starts from point ahead of this time x ego_speed to avoid sudden path change.</td>
-<td align="left">1.0</td>
-</tr>
-<tr>
-<td align="left">min_prepare_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Minimum distance for "prepare_time" x "ego_speed".</td>
-<td align="left">1.0</td>
-</tr>
-<tr>
-<td align="left">nominal_lateral_jerk</td>
-<td align="left">[m/s3]</td>
-<td align="left">double</td>
-<td align="left">Avoidance path is generated with this jerk when there is enough distance from ego.</td>
-<td align="left">0.3</td>
-</tr>
-<tr>
-<td align="left">max_lateral_jerk</td>
-<td align="left">[m/s3]</td>
-<td align="left">double</td>
-<td align="left">Avoidance path gets sharp up to this jerk limit when there is not enough distance from ego.</td>
-<td align="left">2.0</td>
-</tr>
-<tr>
-<td align="left">min_avoidance_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Minimum distance of avoidance path (i.e. this distance is needed even if its lateral jerk is very low)</td>
-<td align="left">10.0</td>
-</tr>
-<tr>
-<td align="left">min_nominal_avoidance_speed</td>
-<td align="left">[m/s]</td>
-<td align="left">double</td>
-<td align="left">Minimum speed for jerk calculation in a nominal situation (*1).</td>
-<td align="left">5.0</td>
-</tr>
-<tr>
-<td align="left">min_sharp_avoidance_speed</td>
-<td align="left">[m/s]</td>
-<td align="left">double</td>
-<td align="left">Minimum speed for jerk calculation in a sharp situation (*1).</td>
-<td align="left">1.0</td>
-</tr>
-<tr>
-<td align="left">max_right_shift_length</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Maximum shift length for right direction</td>
-<td align="left">5.0</td>
-</tr>
-<tr>
-<td align="left">max_left_shift_length</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Maximum shift length for left direction</td>
-<td align="left">5.0</td>
-</tr>
-</tbody>
-</table>
-<h3 id="speed-limit-modification">Speed limit modification<a class="headerlink" href="#speed-limit-modification" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Unit</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">min_avoidance_speed_for_acc_prevention</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Minimum speed limit to be applied to prevent acceleration during avoidance.</td>
-<td align="left">3.0</td>
-</tr>
-<tr>
-<td align="left">max_avoidance_acceleration</td>
-<td align="left">[m/ss]</td>
-<td align="left">double</td>
-<td align="left">Maximum acceleration during avoidance.</td>
-<td align="left">0.5</td>
-</tr>
-</tbody>
-</table>
-<h3 id="object-selection">Object selection<a class="headerlink" href="#object-selection" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Unit</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">object_check_forward_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Forward distance to search the avoidance target.</td>
-<td align="left">150.0</td>
-</tr>
-<tr>
-<td align="left">object_check_backward_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Backward distance to search the avoidance target.</td>
-<td align="left">2.0</td>
-</tr>
-<tr>
-<td align="left">threshold_distance_object_is_on_center</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Vehicles around the center line within this distance will be excluded from avoidance target.</td>
-<td align="left">1.0</td>
-</tr>
-<tr>
-<td align="left">threshold_speed_object_is_stopped</td>
-<td align="left">[m/s]</td>
-<td align="left">double</td>
-<td align="left">Vehicles with speed greater than this will be excluded from avoidance target.</td>
-<td align="left">1.0</td>
-</tr>
-<tr>
-<td align="left">detection_area_right_expand_dist</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Lanelet expand length for right side to find avoidance target vehicles.</td>
-<td align="left">0.0</td>
-</tr>
-<tr>
-<td align="left">detection_area_left_expand_dist</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">Lanelet expand length for left side to find avoidance target vehicles.</td>
-<td align="left">1.0</td>
-</tr>
-<tr>
-<td align="left">object_hold_max_count</td>
-<td align="left">[-]</td>
-<td align="left">int</td>
-<td align="left">For the compensation of the detection lost. The object is registered once it is observed as an avoidance target. When the detection loses, it counts up the lost_count and the object will be un-registered when the count exceeds this limit.</td>
-<td align="left">20</td>
-</tr>
-</tbody>
-</table>
-<h3 id="system">System<a class="headerlink" href="#system" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Unit</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">publish_debug_marker</td>
-<td align="left">[-]</td>
-<td align="left">double</td>
-<td align="left">Flag to publish debug marker (set false as default since it takes considerable cost).</td>
-<td align="left">false</td>
-</tr>
-<tr>
-<td align="left">print_debug_info</td>
-<td align="left">[-]</td>
-<td align="left">double</td>
-<td align="left">Flag to print debug info (set false as default since it takes considerable cost).</td>
-<td align="left">false</td>
-</tr>
-</tbody>
-</table>
-<h2 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
-<ul>
-<li>
-<p><strong>Design of the limit distance of the avoidance width</strong></p>
-<ul>
-<li>Currently, the avoidance width limit is given as a fixed value as a parameter for both left and right. Therefore, even if there is a wall, this module generates an avoidance path towards the wall. It is needed to calculate the area that the vehicle can move and generate an avoidance path within the area.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p><strong>Dynamic calculation of avoidance width</strong></p>
-<ul>
-<li>The length of the avoidance shift needs to be adjusted according to the situation. For example, the length of the margin between the ego and the target object can be large if the another lane is clear and safe. In another case, it may be small if there are other vehicles in the oncoming lane. The ability to set such an appropriate avoidance margin has not yet been implemented, and currently the largest margin is always used for the avoidance.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>Planning on the intersection</strong><ul>
-<li>If it is known that the ego vehicle is going to stop in the middle of avoidance execution (for example, at a red traffic light), sometimes the avoidance should not be executed until the vehicle is ready to move. This is because it is impossible to predict how the environment will change during the stop.　 This is especially important at intersections.</li>
-</ul>
-</li>
-</ul>
-<p><img alt="fig1" src="../image/avoidance_design/intersection_problem.drawio.svg" /></p>
-<ul>
-<li>
-<p><strong>Safety Check</strong></p>
-<ul>
-<li>In the current implementation, it is only the jerk limit that permits the avoidance execution. It is needed to consider the collision with other vehicles when change the path shape.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p><strong>Consideration of the speed of the avoidance target</strong></p>
-<ul>
-<li>In the current implementation, only stopped vehicle is targeted as an avoidance target. It is needed to support the overtaking function for low-speed vehicles, such as a bicycle. (It is actually possible to overtake the low-speed objects by changing the parameter, but the logic is not supported and thus the safety cannot be guaranteed.)</li>
-<li>The overtaking (e.g., to overtake a vehicle running in front at 20 km/h at 40 km/h) may need to be handled outside the avoidance module. It should be discussed which module should handle it.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p><strong>Cancel avoidance when target disappears</strong></p>
-<ul>
-<li>In the current implementation, even if the avoidance target disappears, the avoidance path will remain. If there is no longer a need to avoid, it must be canceled.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p><strong>Improved performance of avoidance target selection</strong></p>
-<ul>
-<li>Essentially, avoidance targets are judged based on whether they are static objects or not. For example, a vehicle waiting at a traffic light should not be avoided because we know that it will start moving in the future. However this decision cannot be made in the current Autoware due to the lack of the perception functions. Therefore, the current avoidance module limits the avoidance target to vehicles parked on the shoulder of the road, and executes avoidance only for vehicles that are stopped away from the center of the lane. However, this logic cannot avoid a vehicle that has broken down and is stopped in the center of the lane, which should be recognized as a static object by the perception module. There is room for improvement in the performance of this decision.</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>Resampling path</strong><ul>
-<li>Now the rough resolution resampling is processed to the output path in order to reduce the computational cost for the later modules. This resolution is set to a uniformly large value 　(e.g. <code>5m</code>), but small resolution should be applied for complex paths.</li>
-</ul>
-</li>
-</ul>
-<h2 id="how-to-debug">How to debug<a class="headerlink" href="#how-to-debug" title="Permanent link">#</a></h2>
-<p>The behavior_path_planner will publish debug marker when <code>publish_debug_marker</code> parameter is <code>true</code>. It will visualize all outputs of the each avoidance planning process such as target vehicles, shift points for each object, shift points after each filtering process, etc., so that developer can see what is going on in the each process one by one.</p>
-<p><img alt="fig1" src="../image/avoidance_design/avoidance-debug-marker.png" /></p>
+<h1 id="control_launch">control_launch<a class="headerlink" href="#control_launch" title="Permanent link">#</a></h1>
+<h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">#</a></h2>
+<p><img alt="control_launch" src="control_launch.drawio.svg" /></p>
+<h2 id="package-dependencies">Package Dependencies<a class="headerlink" href="#package-dependencies" title="Permanent link">#</a></h2>
+<p>Please see <code>&lt;exec_depend&gt;</code> in <code>package.xml</code>.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<p>You can include as follows in <code>*.launch.xml</code> to use <code>control.launch.py</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share control_launch)/launch/control.launch.py&quot;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- options for lateral_controller_mode: mpc_follower, pure_pursuit --&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;lateral_controller_mode&quot;</span> <span class="na">value=</span><span class="s">&quot;mpc_follower&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/include&gt;</span>
+</code></pre></div>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
+<p>For reducing processing load, we use the <a href="https://docs.ros.org/en/galactic/Concepts/About-Composition.html">Component</a> feature in ROS2 (similar to Nodelet in ROS1 )</p>
 
               
             </article>
@@ -8105,7 +7338,7 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Behavior Path Planner" rel="prev">
+        <a href="../../control/vehicle_cmd_gate/" class="md-footer__link md-footer__link--prev" aria-label="Previous: vehicle_cmd_gate" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -8114,20 +7347,20 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
               <span class="md-footer__direction">
                 Previous
               </span>
-              Behavior Path Planner
+              vehicle_cmd_gate
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../behavior_velocity_planner/" class="md-footer__link md-footer__link--next" aria-label="Next: Behavior Velocity Planner" rel="next">
+        <a href="../../localization/ekf_localizer/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Behavior Velocity Planner
+              Overview
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -8161,10 +7394,10 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.cefbb252.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.cefbb252.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.17f42bbf.min.js"></script>
+      <script src="../../assets/javascripts/bundle.17f42bbf.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
