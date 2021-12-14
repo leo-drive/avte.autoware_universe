@@ -16,57 +16,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_datetime_rviz_plugin/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_debug_tools/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_global_parameter_loader/Readme/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_localization_rviz_plugin/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_perception_rviz_plugin/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_planning_rviz_plugin/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_rosbag_recorder/Readme/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_state_rviz_plugin/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_utils/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_vehicle_rviz_plugin/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_web_controller/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/global_parameter_loader/Readme/</loc>
          <lastmod>2021-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -106,7 +56,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/control/autoware_joy_controller/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/tier4_autoware_utils/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/tier4_datetime_rviz_plugin/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/tier4_debug_tools/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/tier4_localization_rviz_plugin/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/tier4_perception_rviz_plugin/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/tier4_planning_rviz_plugin/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/tier4_state_rviz_plugin/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/tier4_vehicle_rviz_plugin/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/web_controller/</loc>
          <lastmod>2021-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -117,6 +107,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/control/external_cmd_selector/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/control/joy_controller/</loc>
          <lastmod>2021-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -651,17 +646,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/system/autoware_error_monitor/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/system/autoware_state_monitor/</loc>
-         <lastmod>2021-12-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/system/autoware_version/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/system/ad_service_state_monitor/</loc>
          <lastmod>2021-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -677,6 +662,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/system/emergency_handler/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/system/system_error_monitor/</loc>
          <lastmod>2021-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
