@@ -206,6 +206,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/launch/vehicle_launch/</loc>
+         <lastmod>2021-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/localization/ekf_localizer/</loc>
          <lastmod>2021-12-14</lastmod>
          <changefreq>daily</changefreq>

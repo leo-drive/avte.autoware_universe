@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/tier4-proposal/launch/map_launch/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/tier4-proposal/launch/vehicle_launch/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
     
     
       
-        <title>map_launch - Autoware Universe Documentation</title>
+        <title>vehicle_launch - Autoware Universe Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#map_launch" class="md-skip">
+        <a href="#vehicle_launch" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              map_launch
+              vehicle_launch
             
           </span>
         </div>
@@ -2468,16 +2468,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" data-md-state="indeterminate" type="checkbox" id="__nav_5_3" checked>
       
       
       
@@ -2490,8 +2488,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Map launch</a>
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../map_launch/">Map launch</a>
           
         </div>
       
@@ -2654,14 +2652,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7" data-md-state="indeterminate" type="checkbox" id="__nav_5_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7" type="checkbox" id="__nav_5_7" checked>
       
       
       
@@ -2674,8 +2674,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../vehicle_launch/">Vehicle launch</a>
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Vehicle launch</a>
           
         </div>
       
@@ -7577,6 +7577,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#vehiclexacro" class="md-nav__link">
+    vehicle.xacro
+  </a>
+  
+    <nav class="md-nav" aria-label="vehicle.xacro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage_1" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -7589,29 +7616,70 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/autowarefoundation/autoware.universe/edit/main/launch/map_launch/README.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/autowarefoundation/autoware.universe/edit/main/launch/vehicle_launch/README.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="map_launch">map_launch<a class="headerlink" href="#map_launch" title="Permanent link">#</a></h1>
+<h1 id="vehicle_launch">vehicle_launch<a class="headerlink" href="#vehicle_launch" title="Permanent link">#</a></h1>
 <h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">#</a></h2>
-<p><img alt="map_launch" src="map_launch.drawio.svg" /></p>
+<p><img alt="vehicle_launch" src="vehicle_launch.drawio.svg" /></p>
 <h2 id="package-dependencies">Package Dependencies<a class="headerlink" href="#package-dependencies" title="Permanent link">#</a></h2>
 <p>Please see <code>&lt;exec_depend&gt;</code> in <code>package.xml</code>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
-<p>You can include as follows in <code>*.launch.xml</code> to use <code>map.launch.py</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;map_path&quot;</span> <span class="na">description=</span><span class="s">&quot;point cloud and lanelet2 map directory path&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;lanelet2_map_file&quot;</span> <span class="na">default=</span><span class="s">&quot;lanelet2_map.osm&quot;</span> <span class="na">description=</span><span class="s">&quot;lanelet2 map file name&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;pointcloud_map_file&quot;</span> <span class="na">default=</span><span class="s">&quot;pointcloud_map.pcd&quot;</span> <span class="na">description=</span><span class="s">&quot;pointcloud map file name&quot;</span><span class="nt">/&gt;</span>
+<p>You can include as follows in <code>*.launch.xml</code> to use <code>vehicle.launch.xml</code>.</p>
+<div class="highlight"><pre><span></span><code>  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;vehicle_model&quot;</span> <span class="na">default=</span><span class="s">&quot;lexus&quot;</span> <span class="na">description=</span><span class="s">&quot;vehicle model name&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;sensor_model&quot;</span> <span class="na">default=</span><span class="s">&quot;aip_xx1&quot;</span> <span class="na">description=</span><span class="s">&quot;sensor model name&quot;</span><span class="nt">/&gt;</span>
 
-<span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share map_launch)/launch/map.launch.py&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;lanelet2_map_path&quot;</span> <span class="na">value=</span><span class="s">&quot;$(var map_path)/$(var lanelet2_map_file)&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;pointcloud_map_path&quot;</span> <span class="na">value=</span><span class="s">&quot;$(var map_path)/$(var pointcloud_map_file)&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/include&gt;</span>
+  <span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share vehicle_launch)/launch/vehicle.launch.xml&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;vehicle_model&quot;</span> <span class="na">value=</span><span class="s">&quot;$(var vehicle_model)&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;sensor_model&quot;</span> <span class="na">value=</span><span class="s">&quot;$(var sensor_model)&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/include&gt;</span>
 </code></pre></div>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
-<p>For reducing processing load, we use the <a href="https://docs.ros.org/en/galactic/Concepts/About-Composition.html">Component</a> feature in ROS2 (similar to Nodelet in ROS1 )</p>
+<p>This package finds some external packages and settings with variables and package names.</p>
+<p>ex.)</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;let</span> <span class="na">name=</span><span class="s">&quot;vehicle_model_pkg&quot;</span> <span class="na">value=</span><span class="s">&quot;$(find-pkg-share $(var vehicle_model)_description)&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div>
+<p><a href="https://github.com/tier4/autoware_launcher/blob/d880474/vehicle_launch/launch/vehicle_description.launch.xml#L11">https://github.com/tier4/autoware_launcher/blob/d880474/vehicle_launch/launch/vehicle_description.launch.xml#L11</a></p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;config_dir&quot;</span> <span class="na">default=</span><span class="s">&quot;$(find-pkg-share individual_params)/config/$(var vehicle_id)/$(var sensor_model)&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div>
+<h2 id="vehiclexacro">vehicle.xacro<a class="headerlink" href="#vehiclexacro" title="Permanent link">#</a></h2>
+<h3 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sensor_model</td>
+<td>String</td>
+<td>sensor model name</td>
+<td>""</td>
+</tr>
+<tr>
+<td>vehicle_model</td>
+<td>String</td>
+<td>vehicle model name</td>
+<td>""</td>
+</tr>
+</tbody>
+</table>
+<h3 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h3>
+<p>You can write as follows in <code>*.launch.xml</code>.</p>
+<div class="highlight"><pre><span></span><code>  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;vehicle_model&quot;</span> <span class="na">default=</span><span class="s">&quot;lexus&quot;</span> <span class="na">description=</span><span class="s">&quot;vehicle model name&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;sensor_model&quot;</span> <span class="na">default=</span><span class="s">&quot;aip_xx1&quot;</span> <span class="na">description=</span><span class="s">&quot;sensor model name&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;model&quot;</span> <span class="na">default=</span><span class="s">&quot;$(find-pkg-share vehicle_launch)/urdf/vehicle.xacro&quot;</span><span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;node</span> <span class="na">name=</span><span class="s">&quot;robot_state_publisher&quot;</span> <span class="na">pkg=</span><span class="s">&quot;robot_state_publisher&quot;</span> <span class="na">exec=</span><span class="s">&quot;robot_state_publisher&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;robot_description&quot;</span> <span class="na">value=</span><span class="s">&quot;$(command &#39;xacro $(var model) vehicle_model:=$(var vehicle_model) sensor_model:=$(var sensor_model)&#39;)&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/node&gt;</span>
+</code></pre></div>
 
               
             </article>
@@ -7630,7 +7698,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../localization_launch/" class="md-footer__link md-footer__link--prev" aria-label="Previous: localization_launch" rel="prev">
+        <a href="../system_launch/" class="md-footer__link md-footer__link--prev" aria-label="Previous: system_launch" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -7639,20 +7707,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              localization_launch
+              system_launch
             </div>
           </div>
         </a>
       
       
         
-        <a href="../perception_launch/" class="md-footer__link md-footer__link--next" aria-label="Next: perception_launch" rel="next">
+        <a href="../../localization/ekf_localizer/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              perception_launch
+              Overview
             </div>
           </div>
           <div class="md-footer__button md-icon">
