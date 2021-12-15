@@ -11,7 +11,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_auto_cmake/design/autoware_auto_cmake-design/</loc>
+         <lastmod>2021-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_auto_common/design/comparisons/</loc>
+         <lastmod>2021-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_auto_geometry/design/interval/</loc>
+         <lastmod>2021-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_auto_geometry/design/polygon_intersection_2d-design/</loc>
+         <lastmod>2021-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_auto_geometry/design/spatial-hash-design/</loc>
+         <lastmod>2021-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_auto_perception_rviz_plugin/</loc>
+         <lastmod>2021-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_auto_tf2/design/autoware-auto-tf2-design/</loc>
+         <lastmod>2021-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/autoware_testing/design/autoware_testing-design/</loc>
+         <lastmod>2021-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/fake_test_node/design/fake_test_node-design/</loc>
          <lastmod>2021-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -92,6 +132,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/tier4_vehicle_rviz_plugin/</loc>
+         <lastmod>2021-12-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/vehicle_constants_manager/design/vehicle_constants_manager-design/</loc>
          <lastmod>2021-12-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
