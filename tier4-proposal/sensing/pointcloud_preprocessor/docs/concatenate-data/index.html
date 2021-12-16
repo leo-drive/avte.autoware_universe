@@ -7015,34 +7015,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#optional-error-detection-and-handling" class="md-nav__link">
-    (Optional) Error detection and handling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-performance-characterization" class="md-nav__link">
-    (Optional) Performance characterization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-referencesexternal-links" class="md-nav__link">
-    (Optional) References/External links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-future-extensions-unimplemented-parts" class="md-nav__link">
-    (Optional) Future extensions / Unimplemented parts
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -8537,34 +8509,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#optional-error-detection-and-handling" class="md-nav__link">
-    (Optional) Error detection and handling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-performance-characterization" class="md-nav__link">
-    (Optional) Performance characterization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-referencesexternal-links" class="md-nav__link">
-    (Optional) References/External links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-future-extensions-unimplemented-parts" class="md-nav__link">
-    (Optional) Future extensions / Unimplemented parts
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -8584,8 +8528,11 @@
 
 <h1 id="concatenate_data">concatenate_data<a class="headerlink" href="#concatenate_data" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
-<p>The <code>concatenate_data</code> is a node that concatenates multiple pointclouds acquired by multiple LiDARs into a pointcloud.</p>
+<p>Many self-driving cars combine multiple LiDARs to expand the sensing range. Therefore, a function to combine a plurality of point clouds is required.</p>
+<p>To combine multiple sensor data with a similar timestamp, the <a href="https://github.com/ros2/message_filters">message_filters</a> is often used in the ROS-based system, but this requires the assumption that all inputs can be received. Since safety must be strongly considered in autonomous driving, the point clouds concatenate node must be designed so that even if one sensor fails, the remaining sensor information can be output.</p>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
+<p>The figure below represents the reception time of each sensor data and how it is combined in the case.</p>
+<p><img alt="concatenate_data_timing_chart" src="../image/concatenate_data.drawio.svg" /></p>
 <h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
 <h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
 <table>
@@ -8598,14 +8545,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>~/input/points</code></td>
-<td><code>sensor_msgs::msg::Pointcloud2</code></td>
-<td>reference points</td>
-</tr>
-<tr>
 <td><code>~/input/twist</code></td>
 <td><code>autoware_auto_vehicle_msgs::msg::VelocityReport</code></td>
-<td>vehicle velocity</td>
+<td>The vehicle odometry is used to interpolate the timestamp of each sensor data</td>
 </tr>
 </tbody>
 </table>
@@ -8622,7 +8564,7 @@
 <tr>
 <td><code>~/output/points</code></td>
 <td><code>sensor_msgs::msg::Pointcloud2</code></td>
-<td>filtered points</td>
+<td>concatenated point clouds</td>
 </tr>
 </tbody>
 </table>
@@ -8638,15 +8580,21 @@
 </thead>
 <tbody>
 <tr>
+<td><code>input/points</code></td>
+<td>vector of string</td>
+<td>[]</td>
+<td>input topic names that type must be <code>sensor_msgs::msg::Pointcloud2</code></td>
+</tr>
+<tr>
 <td><code>input_frame</code></td>
 <td>string</td>
-<td>" "</td>
+<td>""</td>
 <td>input frame id</td>
 </tr>
 <tr>
 <td><code>output_frame</code></td>
 <td>string</td>
-<td>" "</td>
+<td>""</td>
 <td>output frame id</td>
 </tr>
 <tr>
@@ -8677,10 +8625,7 @@
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<h2 id="optional-error-detection-and-handling">(Optional) Error detection and handling<a class="headerlink" href="#optional-error-detection-and-handling" title="Permanent link">#</a></h2>
-<h2 id="optional-performance-characterization">(Optional) Performance characterization<a class="headerlink" href="#optional-performance-characterization" title="Permanent link">#</a></h2>
-<h2 id="optional-referencesexternal-links">(Optional) References/External links<a class="headerlink" href="#optional-referencesexternal-links" title="Permanent link">#</a></h2>
-<h2 id="optional-future-extensions-unimplemented-parts">(Optional) Future extensions / Unimplemented parts<a class="headerlink" href="#optional-future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
+<p>It is necessary to assume that the vehicle odometry value exists, the sensor data and odometry timestamp are correct, and the TF from <code>base_link</code> to <code>sensor_frame</code> is also correct.</p>
 
               
             </article>
