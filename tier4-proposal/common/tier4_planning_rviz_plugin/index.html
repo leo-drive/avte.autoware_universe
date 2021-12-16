@@ -8402,6 +8402,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#drivablearea" class="md-nav__link">
+    DrivableArea
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pathfootprint" class="md-nav__link">
     PathFootprint
   </a>
@@ -8464,7 +8471,7 @@
 
 
 <h1 id="tier4_planning_rviz_plugin">tier4_planning_rviz_plugin<a class="headerlink" href="#tier4_planning_rviz_plugin" title="Permanent link">#</a></h1>
-<p>This package is including jsk code.<br />
+<p>This package is including jsk code.
 Note that jsk_overlay_utils.cpp and jsk_overlay_utils.hpp are BSD license.</p>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>This plugin displays the path, trajectory, and maximum speed.</p>
@@ -8519,7 +8526,7 @@ Note that jsk_overlay_utils.cpp and jsk_overlay_utils.hpp are BSD license.</p>
 <table>
 <thead>
 <tr>
-<th>Name 　</th>
+<th>Name</th>
 <th>Type</th>
 <th>Default Value</th>
 <th>Description</th>
@@ -8527,31 +8534,31 @@ Note that jsk_overlay_utils.cpp and jsk_overlay_utils.hpp are BSD license.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>pose_topic_property_</code>　</td>
+<td><code>pose_topic_property_</code></td>
 <td>string</td>
 <td><code>mission_checkpoint</code></td>
 <td>The topic on which to publish checkpoint</td>
 </tr>
 <tr>
-<td><code>std_dev_x_</code> 　</td>
+<td><code>std_dev_x_</code></td>
 <td>float</td>
 <td>0.5</td>
 <td>X standard deviation for checkpoint pose [m]</td>
 </tr>
 <tr>
-<td><code>std_dev_y_</code> 　</td>
+<td><code>std_dev_y_</code></td>
 <td>float</td>
 <td>0.5</td>
 <td>Y standard deviation for checkpoint pose [m]</td>
 </tr>
 <tr>
-<td><code>std_dev_theta_</code> 　</td>
+<td><code>std_dev_theta_</code></td>
 <td>float</td>
 <td>M_PI / 12.0</td>
 <td>Theta standard deviation for checkpoint pose [rad]</td>
 </tr>
 <tr>
-<td><code>position_z_</code> 　</td>
+<td><code>position_z_</code></td>
 <td>float</td>
 <td>0.0</td>
 <td>Z position for checkpoint pose [m]</td>
@@ -8634,6 +8641,37 @@ Note that jsk_overlay_utils.cpp and jsk_overlay_utils.hpp are BSD license.</p>
 <td>float</td>
 <td>3.0</td>
 <td>Max velocity [m/s]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="drivablearea">DrivableArea<a class="headerlink" href="#drivablearea" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color_scheme_property_</code></td>
+<td>int</td>
+<td>0</td>
+<td>Color scheme of DrivableArea property</td>
+</tr>
+<tr>
+<td><code>alpha_property_</code></td>
+<td>float</td>
+<td>0.2</td>
+<td>Alpha of DrivableArea property</td>
+</tr>
+<tr>
+<td><code>draw_under_property_</code></td>
+<td>bool</td>
+<td>false</td>
+<td>Draw as background or not</td>
 </tr>
 </tbody>
 </table>
