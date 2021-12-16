@@ -7043,34 +7043,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#optional-error-detection-and-handling" class="md-nav__link">
-    (Optional) Error detection and handling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-performance-characterization" class="md-nav__link">
-    (Optional) Performance characterization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-referencesexternal-links" class="md-nav__link">
-    (Optional) References/External links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-future-extensions-unimplemented-parts" class="md-nav__link">
-    (Optional) Future extensions / Unimplemented parts
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -8537,34 +8509,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#optional-error-detection-and-handling" class="md-nav__link">
-    (Optional) Error detection and handling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-performance-characterization" class="md-nav__link">
-    (Optional) Performance characterization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-referencesexternal-links" class="md-nav__link">
-    (Optional) References/External links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-future-extensions-unimplemented-parts" class="md-nav__link">
-    (Optional) Future extensions / Unimplemented parts
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -8585,7 +8529,17 @@
 <h1 id="distortion_corrector">distortion_corrector<a class="headerlink" href="#distortion_corrector" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>The <code>distortion_corrector</code> is a node that compensates pointcloud distortion caused by ego vehicle's movement during 1 scan.</p>
+<p>Since the LiDAR sensor scans by rotating an internal laser, the resulting point cloud will be distorted if the ego-vehicle moves during a single scan (as shown by the figure below). The node corrects this by interpolating sensor data using odometry of ego-vehicle.</p>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
+<ul>
+<li>Use the equations below (specific to the Velodyne 32C sensor) to obtain an accurate timestamp for each scan data point.</li>
+<li>Use twist information to determine the distance the ego-vehicle has travelled between the time that the scan started and the corrected timestamp of each point, and then correct the position of the point.</li>
+</ul>
+<p>The offset equation is given by
+$ TimeOffset = (55.296 \mu s <em>SequenceIndex) + (2.304 \mu s</em> DataPointIndex) $</p>
+<p>To calculate the exact point time, add the TimeOffset to the timestamp.
+$ ExactPointTime = TimeStamp + TimeOffset $</p>
+<p><img alt="distortion corrector figure" src="../image/distortion_corrector.jpg" /></p>
 <h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
 <h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
 <table>
@@ -8647,10 +8601,6 @@
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<h2 id="optional-error-detection-and-handling">(Optional) Error detection and handling<a class="headerlink" href="#optional-error-detection-and-handling" title="Permanent link">#</a></h2>
-<h2 id="optional-performance-characterization">(Optional) Performance characterization<a class="headerlink" href="#optional-performance-characterization" title="Permanent link">#</a></h2>
-<h2 id="optional-referencesexternal-links">(Optional) References/External links<a class="headerlink" href="#optional-referencesexternal-links" title="Permanent link">#</a></h2>
-<h2 id="optional-future-extensions-unimplemented-parts">(Optional) Future extensions / Unimplemented parts<a class="headerlink" href="#optional-future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
 
               
             </article>
