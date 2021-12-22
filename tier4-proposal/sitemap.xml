@@ -656,6 +656,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/sensing/pointcloud_preprocessor/docs/dual-return-outlier-filter/</loc>
+         <lastmod>2021-12-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/sensing/pointcloud_preprocessor/docs/outlier-filter/</loc>
          <lastmod>2021-12-22</lastmod>
          <changefreq>daily</changefreq>
@@ -671,7 +676,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/sensing/pointcloud_preprocessor/docs/radius-search-2d-outlier-filter/</loc>
+         <lastmod>2021-12-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/sensing/pointcloud_preprocessor/docs/ring-outlier-filter/</loc>
+         <lastmod>2021-12-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/sensing/pointcloud_preprocessor/docs/vector-map-filter/</loc>
+         <lastmod>2021-12-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/sensing/pointcloud_preprocessor/docs/voxel-grid-outlier-filter/</loc>
          <lastmod>2021-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
