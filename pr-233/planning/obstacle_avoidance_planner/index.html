@@ -15,7 +15,7 @@
     
     
       
-        <title>Obstacle Avoidance Planner - Autoware Universe Documentation</title>
+        <title>Index - Autoware Universe Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#obstacle-avoidance-planner" class="md-skip">
+        <a href="#purpose" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Obstacle Avoidance Planner
+              Index
             
           </span>
         </div>
@@ -8138,8 +8138,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -8430,7 +8428,8 @@
 </a>
 
 
-<h1 id="obstacle-avoidance-planner">Obstacle Avoidance Planner<a class="headerlink" href="#obstacle-avoidance-planner" title="Permanent link">#</a></h1>
+  <h1>Index</h1>
+
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>This package generates a trajectory that is feasible to drive and collision free based on a reference path, drivable area, and static/dynamic obstacles.
 Only position and orientation of trajectory are calculated in this module, and velocity or acceleration will be updated in the latter modules.</p>
@@ -8863,17 +8862,31 @@ Therefore, we have to apply the steer angle limitation to <span class="arithmate
 </div>
 <h5 id="free-boundary-conditioned-time-series-state-equation">Free-boundary-conditioned time-series state equation<a class="headerlink" href="#free-boundary-conditioned-time-series-state-equation" title="Permanent link">#</a></h5>
 <p>For path planning which does not start from the current ego pose, <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{x}_0</span><script type="math/tex">\boldsymbol{x}_0</script></span> should be the design variable of optimization.
-Therefore, we make <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{x}'</span><script type="math/tex">\boldsymbol{x}'</script></span> and <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{u}'</span><script type="math/tex">\boldsymbol{u}'</script></span> by concatenating <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{x}_0</span><script type="math/tex">\boldsymbol{x}_0</script></span> and <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{x}</span><script type="math/tex">\boldsymbol{x}</script></span>, <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{u}</span><script type="math/tex">\boldsymbol{u}</script></span> respectively.
-Then we get the following state equation</p>
+Therefore, we make <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{u}'</span><script type="math/tex">\boldsymbol{u}'</script></span> by concatenating <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{x}_0</span><script type="math/tex">\boldsymbol{x}_0</script></span> and <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{u}</span><script type="math/tex">\boldsymbol{u}</script></span>, and redefine <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{x}</span><script type="math/tex">\boldsymbol{x}</script></span> as follows.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 \begin{align}
-  \boldsymbol{x}' = B' \boldsymbol{u}' + \boldsymbol{w},
+  \boldsymbol{u}' &amp; = (\boldsymbol{x}^T_0, \boldsymbol{u}^T)^T \\
+  \boldsymbol{x} &amp; = (\boldsymbol{x}^T_0, \boldsymbol{x}^T_1, \boldsymbol{x}^T_2, \dots, \boldsymbol{x}^T_{n-1})^T
 \end{align}
 </div>
 <script type="math/tex; mode=display">
 \begin{align}
-  \boldsymbol{x}' = B' \boldsymbol{u}' + \boldsymbol{w},
+  \boldsymbol{u}' & = (\boldsymbol{x}^T_0, \boldsymbol{u}^T)^T \\
+  \boldsymbol{x} & = (\boldsymbol{x}^T_0, \boldsymbol{x}^T_1, \boldsymbol{x}^T_2, \dots, \boldsymbol{x}^T_{n-1})^T
+\end{align}
+</script>
+</div>
+<p>Then we get the following state equation</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  \boldsymbol{x}' = B \boldsymbol{u}' + \boldsymbol{w},
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  \boldsymbol{x}' = B \boldsymbol{u}' + \boldsymbol{w},
 \end{align}
 </script>
 </div>
@@ -8971,16 +8984,20 @@ Then we get the following state equation</p>
 </script>
 </div>
 <h5 id="objective-function">Objective function<a class="headerlink" href="#objective-function" title="Permanent link">#</a></h5>
-<p>The objective function for smoothing and tracking is shown as follows.</p>
+<p>The objective function for smoothing and tracking is shown as follows, which can be formulated with value function matrices <span class="arithmatex"><span class="MathJax_Preview">Q, R</span><script type="math/tex">Q, R</script></span>.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 \begin{align}
-J_1 &amp; (y_{0...N-1}, \theta_{0...N-1}, \delta_{0...N-1}) \\ &amp; = w_y \sum_{k} y_k^2 + w_{\theta} \sum_{k} \theta_k^2 + w_{\delta} \sum_k \delta_k^2 + w_{\dot{\delta}} \sum_k \dot{\delta}_k^2 + w_{\ddot{\delta}} \sum_k \ddot{\delta}_k^2
+J_1 (\boldsymbol{x}', \boldsymbol{u}') &amp; = w_y \sum_{k} y_k^2 + w_{\theta} \sum_{k} \theta_k^2 + w_{\delta} \sum_k \delta_k^2 + w_{\dot{\delta}} \sum_k \dot{\delta}_k^2 + w_{\ddot{\delta}} \sum_k \ddot{\delta}_k^2 \\
+&amp; = \boldsymbol{x}'^T Q \boldsymbol{x}' + \boldsymbol{u}'^T R \boldsymbol{u}' \\
+&amp; = \boldsymbol{u}'^T H \boldsymbol{u}' + \boldsymbol{u}'^T \boldsymbol{f}
 \end{align}
 </div>
 <script type="math/tex; mode=display">
 \begin{align}
-J_1 & (y_{0...N-1}, \theta_{0...N-1}, \delta_{0...N-1}) \\ & = w_y \sum_{k} y_k^2 + w_{\theta} \sum_{k} \theta_k^2 + w_{\delta} \sum_k \delta_k^2 + w_{\dot{\delta}} \sum_k \dot{\delta}_k^2 + w_{\ddot{\delta}} \sum_k \ddot{\delta}_k^2
+J_1 (\boldsymbol{x}', \boldsymbol{u}') & = w_y \sum_{k} y_k^2 + w_{\theta} \sum_{k} \theta_k^2 + w_{\delta} \sum_k \delta_k^2 + w_{\dot{\delta}} \sum_k \dot{\delta}_k^2 + w_{\ddot{\delta}} \sum_k \ddot{\delta}_k^2 \\
+& = \boldsymbol{x}'^T Q \boldsymbol{x}' + \boldsymbol{u}'^T R \boldsymbol{u}' \\
+& = \boldsymbol{u}'^T H \boldsymbol{u}' + \boldsymbol{u}'^T \boldsymbol{f}
 \end{align}
 </script>
 </div>
@@ -8990,43 +9007,51 @@ Assuming that the lateral distance to the road boundaries or obstacles from the 
 <div class="MathJax_Preview">
 y_{\mathrm{base}, k, \min} - \lambda_{\mathrm{base}, k} \leq y_{\mathrm{base}, k} (y_k)  \leq y_{\mathrm{base}, k, \max} + \lambda_{\mathrm{base}, k}\\
 y_{\mathrm{top}, k, \min} - \lambda_{\mathrm{top}, k} \leq y_{\mathrm{top}, k} (y_k) \leq y_{\mathrm{top}, k, \max} + \lambda_{\mathrm{top}, k}\\
-y_{\mathrm{mid}, k, \min} - \lambda_{\mathrm{mid}, k} \leq y_{\mathrm{mid}, k} (y_k) \leq y_{\mathrm{mid}, k, \max} + \lambda_{\mathrm{mid}, k}
+y_{\mathrm{mid}, k, \min} - \lambda_{\mathrm{mid}, k} \leq y_{\mathrm{mid}, k} (y_k) \leq y_{\mathrm{mid}, k, \max} + \lambda_{\mathrm{mid}, k} \\
+0 \leq \lambda_{\mathrm{base}, k} \\
+0 \leq \lambda_{\mathrm{top}, k} \\
+0 \leq \lambda_{\mathrm{mid}, k}
 </div>
 <script type="math/tex; mode=display">
 y_{\mathrm{base}, k, \min} - \lambda_{\mathrm{base}, k} \leq y_{\mathrm{base}, k} (y_k)  \leq y_{\mathrm{base}, k, \max} + \lambda_{\mathrm{base}, k}\\
 y_{\mathrm{top}, k, \min} - \lambda_{\mathrm{top}, k} \leq y_{\mathrm{top}, k} (y_k) \leq y_{\mathrm{top}, k, \max} + \lambda_{\mathrm{top}, k}\\
-y_{\mathrm{mid}, k, \min} - \lambda_{\mathrm{mid}, k} \leq y_{\mathrm{mid}, k} (y_k) \leq y_{\mathrm{mid}, k, \max} + \lambda_{\mathrm{mid}, k}
+y_{\mathrm{mid}, k, \min} - \lambda_{\mathrm{mid}, k} \leq y_{\mathrm{mid}, k} (y_k) \leq y_{\mathrm{mid}, k, \max} + \lambda_{\mathrm{mid}, k} \\
+0 \leq \lambda_{\mathrm{base}, k} \\
+0 \leq \lambda_{\mathrm{top}, k} \\
+0 \leq \lambda_{\mathrm{mid}, k}
 </script>
 </div>
 <p>Since <span class="arithmatex"><span class="MathJax_Preview">y_{\mathrm{base}, k}, y_{\mathrm{top}, k}, y_{\mathrm{mid}, k}</span><script type="math/tex">y_{\mathrm{base}, k}, y_{\mathrm{top}, k}, y_{\mathrm{mid}, k}</script></span> is formulated as a linear function of <span class="arithmatex"><span class="MathJax_Preview">y_k</span><script type="math/tex">y_k</script></span>, the objective function for soft constraints is formulated as follows.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 \begin{align}
-J_2 &amp; (\lambda_{\mathrm{base}, 0...N-1}, \lambda_{\mathrm{mid}, 0...N-1}, \lambda_{\mathrm{top}, 0...N-1}) \\ &amp; = w_{\mathrm{base}} \sum_{k} \lambda_{\mathrm{base}, k}^2 + w_{\mathrm{mid}} \sum_k \lambda_{\mathrm{mid}, k}^2 + w_{\mathrm{top}} \sum_k \lambda_{\mathrm{top}, k}^2
+J_2 &amp; (\boldsymbol{\lambda}_\mathrm{base}, \boldsymbol{\lambda}_\mathrm{top}, \boldsymbol {\lambda}_\mathrm{mid})\\
+&amp; = w_{\mathrm{base}} \sum_{k} \lambda_{\mathrm{base}, k} + w_{\mathrm{mid}} \sum_k \lambda_{\mathrm{mid}, k} + w_{\mathrm{top}} \sum_k \lambda_{\mathrm{top}, k}
 \end{align}
 </div>
 <script type="math/tex; mode=display">
 \begin{align}
-J_2 & (\lambda_{\mathrm{base}, 0...N-1}, \lambda_{\mathrm{mid}, 0...N-1}, \lambda_{\mathrm{top}, 0...N-1}) \\ & = w_{\mathrm{base}} \sum_{k} \lambda_{\mathrm{base}, k}^2 + w_{\mathrm{mid}} \sum_k \lambda_{\mathrm{mid}, k}^2 + w_{\mathrm{top}} \sum_k \lambda_{\mathrm{top}, k}^2
+J_2 & (\boldsymbol{\lambda}_\mathrm{base}, \boldsymbol{\lambda}_\mathrm{top}, \boldsymbol {\lambda}_\mathrm{mid})\\
+& = w_{\mathrm{base}} \sum_{k} \lambda_{\mathrm{base}, k} + w_{\mathrm{mid}} \sum_k \lambda_{\mathrm{mid}, k} + w_{\mathrm{top}} \sum_k \lambda_{\mathrm{top}, k}
 \end{align}
 </script>
 </div>
 <p>Slack variables are also design variables for optimization.
-We define a vector <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{x}</span><script type="math/tex">\boldsymbol{x}</script></span>, that concatenates all the design variables.</p>
+We define a vector <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{v}</span><script type="math/tex">\boldsymbol{v}</script></span>, that concatenates all the design variables.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 \begin{align}
-\boldsymbol{x} =
+\boldsymbol{v} =
 \begin{pmatrix}
-... &amp; y_k &amp; \lambda_{\mathrm{base}, k} &amp; \lambda_{\mathrm{top}, k} &amp; \lambda_{\mathrm{mid}, k} &amp;  ...
+  \boldsymbol{u}^T &amp; \boldsymbol{\lambda}_\mathrm{base}^T &amp; \boldsymbol{\lambda}_\mathrm{top}^T &amp; \boldsymbol{\lambda}_\mathrm{mid}^T
 \end{pmatrix}^T
 \end{align}
 </div>
 <script type="math/tex; mode=display">
 \begin{align}
-\boldsymbol{x} =
+\boldsymbol{v} =
 \begin{pmatrix}
-... & y_k & \lambda_{\mathrm{base}, k} & \lambda_{\mathrm{top}, k} & \lambda_{\mathrm{mid}, k} &  ...
+  \boldsymbol{u}^T & \boldsymbol{\lambda}_\mathrm{base}^T & \boldsymbol{\lambda}_\mathrm{top}^T & \boldsymbol{\lambda}_\mathrm{mid}^T
 \end{pmatrix}^T
 \end{align}
 </script>
@@ -9035,12 +9060,12 @@ We define a vector <span class="arithmatex"><span class="MathJax_Preview">\bolds
 <div class="arithmatex">
 <div class="MathJax_Preview">
 \begin{align}
-\min_{\boldsymbol{x}} J (\boldsymbol{x}) = \min_{\boldsymbol{x}} J_1 &amp; (y_{0...N-1}, \theta_{0...N-1}, \delta_{0...N-1}) + J_2 (\lambda_{\mathrm{base}, 0...N-1}, \lambda_{\mathrm{mid}, 0...N-1}, \lambda_{\mathrm{top}, 0...N-1})
+\min_{\boldsymbol{v}} J (\boldsymbol{v}) = \min_{\boldsymbol{v}} J_1 (\boldsymbol{u}') + J_2 (\boldsymbol{\lambda}_\mathrm{base}, \boldsymbol{\lambda}_\mathrm{top}, \boldsymbol{\lambda}_\mathrm{mid})
 \end{align}
 </div>
 <script type="math/tex; mode=display">
 \begin{align}
-\min_{\boldsymbol{x}} J (\boldsymbol{x}) = \min_{\boldsymbol{x}} J_1 & (y_{0...N-1}, \theta_{0...N-1}, \delta_{0...N-1}) + J_2 (\lambda_{\mathrm{base}, 0...N-1}, \lambda_{\mathrm{mid}, 0...N-1}, \lambda_{\mathrm{top}, 0...N-1})
+\min_{\boldsymbol{v}} J (\boldsymbol{v}) = \min_{\boldsymbol{v}} J_1 (\boldsymbol{u}') + J_2 (\boldsymbol{\lambda}_\mathrm{base}, \boldsymbol{\lambda}_\mathrm{top}, \boldsymbol{\lambda}_\mathrm{mid})
 \end{align}
 </script>
 </div>
@@ -9062,14 +9087,14 @@ This hard constraints is formulated as follows.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 \begin{align}
-\min_{\boldsymbol{x}} \ &amp; \frac{1}{2} \boldsymbol{x}^T \boldsymbol{P} \boldsymbol{x} + \boldsymbol{q} \boldsymbol{x} \\
-\mathrm{s.t.} \ &amp; \boldsymbol{b}_l \leq \boldsymbol{A} \boldsymbol{x} \leq \boldsymbol{b}_u
+\min_{\boldsymbol{v}} \ &amp; \frac{1}{2} \boldsymbol{v}^T \boldsymbol{H} \boldsymbol{v} + \boldsymbol{f} \boldsymbol{v} \\
+\mathrm{s.t.} \ &amp; \boldsymbol{b}_{lower} \leq \boldsymbol{A} \boldsymbol{v} \leq \boldsymbol{b}_{upper}
 \end{align}
 </div>
 <script type="math/tex; mode=display">
 \begin{align}
-\min_{\boldsymbol{x}} \ & \frac{1}{2} \boldsymbol{x}^T \boldsymbol{P} \boldsymbol{x} + \boldsymbol{q} \boldsymbol{x} \\
-\mathrm{s.t.} \ & \boldsymbol{b}_l \leq \boldsymbol{A} \boldsymbol{x} \leq \boldsymbol{b}_u
+\min_{\boldsymbol{v}} \ & \frac{1}{2} \boldsymbol{v}^T \boldsymbol{H} \boldsymbol{v} + \boldsymbol{f} \boldsymbol{v} \\
+\mathrm{s.t.} \ & \boldsymbol{b}_{lower} \leq \boldsymbol{A} \boldsymbol{v} \leq \boldsymbol{b}_{upper}
 \end{align}
 </script>
 </div>
