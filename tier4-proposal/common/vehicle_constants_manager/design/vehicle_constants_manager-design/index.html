@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/tier4-proposal/common/vehicle_constants_manager/design/vehicle_constants_manager-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.edf004c2.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.bb3983ee.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -8203,21 +8203,21 @@ into the node and obtain a <code>VehicleConstants</code> object.</p>
 <p>This library assumes the vehicle is defined with Ackermann steering geometry.</p>
 <p><code>declare_and_get_vehicle_constants</code> method requires the passed node to have following parameters overridden:</p>
 <p>(Pay attention to the <code>vehicle</code> namespace)
-<div class="highlight"><pre><span></span><code><span class="nt">vehicle</span><span class="p">:</span>
-  <span class="nt">wheel_radius</span><span class="p">:</span>
-  <span class="nt">wheel_width</span><span class="p">:</span>
-  <span class="nt">wheel_base</span><span class="p">:</span>
-  <span class="nt">wheel_tread</span><span class="p">:</span>
-  <span class="nt">overhang_front</span><span class="p">:</span>
-  <span class="nt">overhang_rear</span><span class="p">:</span>
-  <span class="nt">overhang_left</span><span class="p">:</span>
-  <span class="nt">overhang_right</span><span class="p">:</span>
-  <span class="nt">vehicle_height</span><span class="p">:</span>
-  <span class="nt">cg_to_rear</span><span class="p">:</span>
-  <span class="nt">tire_cornering_stiffness_front_n_per_deg</span><span class="p">:</span>
-  <span class="nt">tire_cornering_stiffness_rear_n_per_deg</span><span class="p">:</span>
-  <span class="nt">mass_vehicle</span><span class="p">:</span>
-  <span class="nt">inertia_yaw_kg_m_2</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">vehicle</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">wheel_radius</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">wheel_width</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">wheel_base</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">wheel_tread</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">overhang_front</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">overhang_rear</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">overhang_left</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">overhang_right</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">vehicle_height</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">cg_to_rear</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">tire_cornering_stiffness_front_n_per_deg</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">tire_cornering_stiffness_rear_n_per_deg</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">mass_vehicle</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">inertia_yaw_kg_m_2</span><span class="p">:</span><span class="w"></span>
 </code></pre></div></p>
 <h2 id="vehicle-constants-manager-package-design-inputs">Inputs / Outputs / API<a class="headerlink" href="#vehicle-constants-manager-package-design-inputs" title="Permanent link">#</a></h2>
 <!-- Required -->
@@ -8336,10 +8336,10 @@ front and rear axles.)</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.0bbba5b5.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.361d90f1.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.289a2a4b.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
