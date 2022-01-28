@@ -8262,6 +8262,7 @@
 <li><code>IDEAL_STEER_VEL</code></li>
 <li><code>IDEAL_STEER_ACC</code></li>
 <li><code>IDEAL_STEER_ACC_GEARED</code></li>
+<li><code>DELAY_STEER_VEL</code></li>
 <li><code>DELAY_STEER_ACC</code></li>
 <li><code>DELAY_STEER_ACC_GEARED</code></li>
 </ul>
@@ -8276,6 +8277,7 @@
 <th align="left">I_ST_V</th>
 <th align="left">I_ST_A</th>
 <th align="left">I_ST_A_G</th>
+<th align="left">D_ST_V</th>
 <th align="left">D_ST_A</th>
 <th align="left">D_ST_A_G</th>
 <th align="left">Default value</th>
@@ -8287,6 +8289,7 @@
 <td align="left">acc_time_delay</td>
 <td align="left">double</td>
 <td align="left">dead time for the acceleration input</td>
+<td align="left">x</td>
 <td align="left">x</td>
 <td align="left">x</td>
 <td align="left">x</td>
@@ -8304,13 +8307,28 @@
 <td align="left">x</td>
 <td align="left">o</td>
 <td align="left">o</td>
+<td align="left">o</td>
 <td align="left">0.24</td>
+<td align="left">[s]</td>
+</tr>
+<tr>
+<td align="left">vel_time_delay</td>
+<td align="left">double</td>
+<td align="left">dead time for the velocity input</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">o</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">0.25</td>
 <td align="left">[s]</td>
 </tr>
 <tr>
 <td align="left">acc_time_constant</td>
 <td align="left">double</td>
 <td align="left">time constant of the 1st-order acceleration dynamics</td>
+<td align="left">x</td>
 <td align="left">x</td>
 <td align="left">x</td>
 <td align="left">x</td>
@@ -8328,7 +8346,21 @@
 <td align="left">x</td>
 <td align="left">o</td>
 <td align="left">o</td>
+<td align="left">o</td>
 <td align="left">0.27</td>
+<td align="left">[s]</td>
+</tr>
+<tr>
+<td align="left">vel_time_constant</td>
+<td align="left">double</td>
+<td align="left">time constant of the 1st-order velocity dynamics</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">o</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">0.5</td>
 <td align="left">[s]</td>
 </tr>
 <tr>
@@ -8338,6 +8370,7 @@
 <td align="left">x</td>
 <td align="left">x</td>
 <td align="left">x</td>
+<td align="left">o</td>
 <td align="left">o</td>
 <td align="left">o</td>
 <td align="left">50.0</td>
@@ -8352,6 +8385,7 @@
 <td align="left">x</td>
 <td align="left">o</td>
 <td align="left">o</td>
+<td align="left">o</td>
 <td align="left">7.0</td>
 <td align="left">[m/ss]</td>
 </tr>
@@ -8364,6 +8398,7 @@
 <td align="left">x</td>
 <td align="left">o</td>
 <td align="left">o</td>
+<td align="left">o</td>
 <td align="left">1.0</td>
 <td align="left">[rad]</td>
 </tr>
@@ -8374,6 +8409,7 @@
 <td align="left">x</td>
 <td align="left">x</td>
 <td align="left">x</td>
+<td align="left">o</td>
 <td align="left">o</td>
 <td align="left">o</td>
 <td align="left">5.0</td>
