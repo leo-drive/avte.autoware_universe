@@ -8613,7 +8613,7 @@
 </ul>
 <h2 id="flowchart">Flowchart<a class="headerlink" href="#flowchart" title="Permanent link">#</a></h2>
 <p>フローチャートとともに、各機能の概要をおおまかに説明する。</p>
-<p><img alt="obstacle_avoidance_planner_flowchart" src="../media/obstacle_avoidance_planner_flowchart.drawio.svg" /></p>
+<p><img alt="obstacle_avoidance_planner_flowchart" src="./media/obstacle_avoidance_planner_flowchart.drawio.svg" /></p>
 <h3 id="manage-trajectory-generation">Manage trajectory generation<a class="headerlink" href="#manage-trajectory-generation" title="Permanent link">#</a></h3>
 <p>以下の条件のいずれかが満たされたときに、経路生成の関数を呼ぶ。それ以外の時は前回生成された経路を出力する。</p>
 <ul>
@@ -8928,14 +8928,14 @@ J_2 & (\lambda_{\mathrm{base}, 0...N-1}, \lambda_{\mathrm{mid}, 0...N-1}, \lambd
 </ul>
 </li>
 </ul>
-<p><img alt="interpolated_points_marker" src="../media/interpolated_points_marker.png" /></p>
+<p><img alt="interpolated_points_marker" src="./media/interpolated_points_marker.png" /></p>
 <ul>
 <li><strong>smoothed_points_text</strong><ul>
 <li>Elastic Band の計算結果。点群ではなく小さい数字が描画される。平滑化されたこの経路が道路内からはみ出ていないか、歪んでいないかなどを確認。</li>
 </ul>
 </li>
 </ul>
-<p><img alt="smoothed_points_text" src="../media/smoothed_points_text.png" /></p>
+<p><img alt="smoothed_points_text" src="./media/smoothed_points_text.png" /></p>
 <ul>
 <li><strong>(base/top/mid)_bounds_line</strong><ul>
 <li>壁との衝突判定における横方向の道路境界までの距離（正確には - vehicle_width / 2.0）。</li>
@@ -8944,21 +8944,21 @@ J_2 & (\lambda_{\mathrm{base}, 0...N-1}, \lambda_{\mathrm{mid}, 0...N-1}, \lambd
 </ul>
 </li>
 </ul>
-<p><img alt="bounds_line" src="../media/bounds_line.png" /></p>
+<p><img alt="bounds_line" src="./media/bounds_line.png" /></p>
 <ul>
 <li><strong>optimized_points_marker</strong><ul>
 <li>MPT の計算結果。道路からはみ出ていないか、振動していないかなどを確認</li>
 </ul>
 </li>
 </ul>
-<p><img alt="optimized_points_marker" src="../media/optimized_points_marker.png" /></p>
+<p><img alt="optimized_points_marker" src="./media/optimized_points_marker.png" /></p>
 <ul>
 <li><strong>Trajectory with footprint</strong><ul>
 <li>TrajectoryFootprint の rviz_plugin を用いて経路上の footprint を描画することが可能。これを用いて obstacle_avoidance_planner への入出力の footprint、経路に収まっているかどうか等を確認する。</li>
 </ul>
 </li>
 </ul>
-<p><img alt="trajectory_with_footprint" src="../media/trajectory_with_footprint.png" /></p>
+<p><img alt="trajectory_with_footprint" src="./media/trajectory_with_footprint.png" /></p>
 <ul>
 <li><strong>Drivable Area</strong><ul>
 <li>obstacle avoidance への入力の走行可能領域を表示する。Drivable Area の生成に不具合があると生成経路が歪む可能性がある。</li>
@@ -8975,7 +8975,7 @@ J_2 & (\lambda_{\mathrm{base}, 0...N-1}, \lambda_{\mathrm{mid}, 0...N-1}, \lambd
 </ul>
 </li>
 </ul>
-<p><img alt="area_with_objects" src="../media/area_with_objects.png" /></p>
+<p><img alt="area_with_objects" src="./media/area_with_objects.png" /></p>
 <ul>
 <li><strong>object_clearance_map</strong><ul>
 <li>回避対象の障害物からの距離を可視化したもの。</li>
@@ -8983,7 +8983,7 @@ J_2 & (\lambda_{\mathrm{base}, 0...N-1}, \lambda_{\mathrm{mid}, 0...N-1}, \lambd
 </ul>
 </li>
 </ul>
-<p><img alt="object_clearance_map" src="../media/object_clearance_map.png" /></p>
+<p><img alt="object_clearance_map" src="./media/object_clearance_map.png" /></p>
 <ul>
 <li><strong>clearance_map</strong><ul>
 <li>入力された走行可能領域からの距離を可視化したもの。</li>
@@ -8991,7 +8991,7 @@ J_2 & (\lambda_{\mathrm{base}, 0...N-1}, \lambda_{\mathrm{mid}, 0...N-1}, \lambd
 </ul>
 </li>
 </ul>
-<p><img alt="clearance_map" src="../media/clearance_map.png" /></p>
+<p><img alt="clearance_map" src="./media/clearance_map.png" /></p>
 
               
             </article>
