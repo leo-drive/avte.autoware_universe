@@ -8508,9 +8508,9 @@
 <li>deceleration limit[m/s2]</li>
 <li>delay response time[s]</li>
 <li>time to collision of pedestrian[s]
-  with these parameters we can briefly define safe motion before occlusion spot for ideal environment.</li>
+  with these parameters we can briefly define safe motion before occlusion spot for ideal environment.
+  <img alt="occupancy_grid" src="../docs/occlusion_spot/safe_motion.svg" /></li>
 </ul>
-<p>since these parameters consider ideal case of deceleration motion. <code>safety_ratio</code> should be set correctly to have a safe margin for acceleration and jerk for emergency brake.</p>
 <h5 id="safe-behavior-after-passing-safe-margin-point">Safe Behavior After Passing Safe Margin Point<a class="headerlink" href="#safe-behavior-after-passing-safe-margin-point" title="Permanent link">#</a></h5>
 <p>This module defines safe margin consider ego distance to stop and collision path point geometrically.
 while ego is cruising from safe margin to collision path point ego keeps same velocity as occlusion spot safe velocity.</p>
