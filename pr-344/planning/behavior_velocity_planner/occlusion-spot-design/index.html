@@ -5479,8 +5479,6 @@
         
           
         
-          
-        
       
       
         
@@ -5790,94 +5788,6 @@
       <a href="../traffic-light-design/" class="md-nav__link">
         Traffic light design
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2_11" data-md-state="indeterminate" type="checkbox" id="__nav_8_2_11" checked>
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_8_2_11">
-          Docs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Docs" data-md-level="3">
-        <label class="md-nav__title" for="__nav_8_2_11">
-          <span class="md-nav__icon md-icon"></span>
-          Docs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2_11_1" data-md-state="indeterminate" type="checkbox" id="__nav_8_2_11_1" checked>
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_8_2_11_1">
-          Occlusion spot
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Occlusion spot" data-md-level="4">
-        <label class="md-nav__title" for="__nav_8_2_11_1">
-          <span class="md-nav__icon md-icon"></span>
-          Occlusion spot
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../docs/occlusion_spot/how-to-debug/" class="md-nav__link">
-        How to debug
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -8598,8 +8508,7 @@
 <li>deceleration limit[m/s2]</li>
 <li>delay response time[s]</li>
 <li>time to collision of pedestrian[s]
-  with these parameters we can briefly define safe motion before occlusion spot for ideal environment.
-  <img alt="brief" src="../docs/occlusion_spot/jerk_limit.svg" /></li>
+  with these parameters we can briefly define safe motion before occlusion spot for ideal environment.</li>
 </ul>
 <p>since these parameters consider ideal case of deceleration motion. <code>safety_ratio</code> should be set correctly to have a safe margin for acceleration and jerk for emergency brake.</p>
 <h5 id="safe-behavior-after-passing-safe-margin-point">Safe Behavior After Passing Safe Margin Point<a class="headerlink" href="#safe-behavior-after-passing-safe-margin-point" title="Permanent link">#</a></h5>
@@ -8664,7 +8573,7 @@ while ego is cruising from safe margin to collision path point ego keeps same ve
 <td>[-] safety ratio for jerk and acceleration</td>
 </tr>
 <tr>
-<td><code>a_min</code></td>
+<td><code>max_slow_down_accel</code></td>
 <td>double</td>
 <td>[m/s^2] deceleration to assume for predictive braking system</td>
 </tr>
@@ -8674,12 +8583,12 @@ while ego is cruising from safe margin to collision path point ego keeps same ve
 <td>[m/s] minimum velocity not to stop</td>
 </tr>
 <tr>
-<td><code>t_buf</code></td>
+<td><code>delay_time</code></td>
 <td>double</td>
 <td>[m/s] time buffer for the system delay</td>
 </tr>
 <tr>
-<td><code>d_max</code></td>
+<td><code>safe_margin</code></td>
 <td>double</td>
 <td>[m] maximum error to stop with emergency braking system.</td>
 </tr>
