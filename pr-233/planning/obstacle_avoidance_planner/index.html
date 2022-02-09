@@ -8253,8 +8253,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#assign-trajectory-velocity" class="md-nav__link">
-    Assign trajectory velocity
+  <a href="#alignvelocity" class="md-nav__link">
+    alignVelocity
   </a>
   
 </li>
@@ -8371,8 +8371,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#steer-angle-limitaion" class="md-nav__link">
-    Steer angle limitaion
+  <a href="#steer-angle-limitation" class="md-nav__link">
+    Steer angle limitation
   </a>
   
 </li>
@@ -8543,7 +8543,7 @@
 
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>This package generates a trajectory that is feasible to drive and collision free based on a reference path, drivable area, and static/dynamic obstacles.
-Only position and orientation of trajectory are calculated in this module, and velocity or acceleration will be updated in the latter modules.</p>
+Only position and orientation of trajectory are calculated in this module (velocity is just aligned from the one in the path), and velocity or acceleration will be updated in the latter modules.</p>
 <h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
 <h3 id="input">input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
 <table>
@@ -8588,26 +8588,26 @@ Only position and orientation of trajectory are calculated in this module, and v
 </thead>
 <tbody>
 <tr>
-<td><code>~/output/path</code></td>
+<td><code>~/output/trajectory</code></td>
 <td>autoware_auto_planning_msgs/Trajectory</td>
 <td>Optimized trajectory that is feasible to drive and collision-free</td>
 </tr>
 </tbody>
 </table>
 <h2 id="flowchart">Flowchart<a class="headerlink" href="#flowchart" title="Permanent link">#</a></h2>
-<p>Each module is explained briefly here based on the flowchart.</p>
+<p>Flowchart of functions is explained here.</p>
 <p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMTMwN3B4IiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0id2lkdGg6NDI5cHg7aGVpZ2h0OjEzMDdweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA0MjkgMTMwNyIgd2lkdGg9IjQyOXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcz48ZmlsdGVyIGhlaWdodD0iMzAwJSIgaWQ9ImYzYmY0aXV6cjI2OGgiIHdpZHRoPSIzMDAlIiB4PSItMSIgeT0iLTEiPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImJsdXJPdXQiIHN0ZERldmlhdGlvbj0iMi4wIi8+PGZlQ29sb3JNYXRyaXggaW49ImJsdXJPdXQiIHJlc3VsdD0iYmx1ck91dDIiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAuNCAwIi8+PGZlT2Zmc2V0IGR4PSI0LjAiIGR5PSI0LjAiIGluPSJibHVyT3V0MiIgcmVzdWx0PSJibHVyT3V0MyIvPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXJPdXQzIiBtb2RlPSJub3JtYWwiLz48L2ZpbHRlcj48L2RlZnM+PGc+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTIwIiB4PSIxNTMuNSIgeT0iMjYuNzA4Ij5wYXRoQ2FsbGJhY2s8L3RleHQ+PGVsbGlwc2UgY3g9IjI0Ny4yNSIgY3k9IjQwLjk1MzEiIGZpbGw9IiMwMDAwMDAiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgcng9IjEwIiByeT0iMTAiIHN0eWxlPSJzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgaGVpZ2h0PSI4MjQuOTQ5MiIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoyLjA7IiB3aWR0aD0iNDAxIiB4PSIxMSIgeT0iNjAuOTUzMSIvPjxwYXRoIGQ9Ik0yMzcsNjAuOTUzMSBMMjM3LDcwLjI1IEwyMjcsODAuMjUgTDExLDgwLjI1ICIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoyLjA7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjE2IiB4PSIxNCIgeT0iNzQuOTQ4MiI+Z2VuZXJhdGVPcHRpbWl6ZWRUcmFqZWN0b3J5PC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9Ijk2IiB4PSIxOTkuMjUiIHk9Ijk3LjI1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNzYiIHg9IjIwOS4yNSIgeT0iMTE4LjM4ODciPmNoZWNrUmVwbGFuPC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgcG9pbnRzPSIxODguMjUsMTUxLjIxODgsMzA2LjI1LDE1MS4yMTg4LDMxOC4yNSwxNjMuMjE4OCwzMDYuMjUsMTc1LjIxODgsMTg4LjI1LDE3NS4yMTg4LDE3Ni4yNSwxNjMuMjE4OCwxODguMjUsMTUxLjIxODgiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExOCIgeD0iMTg4LjI1IiB5PSIxNjcuMDI2OSI+cmVwbGFubmluZyByZXF1aXJlZD88L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjEiIHg9IjE1NS4yNSIgeT0iMTYwLjYyNDUiPnllczwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNCIgeD0iMzE4LjI1IiB5PSIxNjAuNjI0NSI+bm88L3RleHQ+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgZmlsdGVyPSJ1cmwoI2YzYmY0aXV6cjI2OGgpIiBoZWlnaHQ9IjI0NC4xNzE5IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjIuMDsiIHdpZHRoPSIxOTkiIHg9IjQ4LjUiIHk9IjE4NS4yMTg4Ii8+PHBhdGggZD0iTTEyMC41LDE4NS4yMTg4IEwxMjAuNSwxOTQuNTE1NiBMMTEwLjUsMjA0LjUxNTYgTDQ4LjUsMjA0LjUxNTYgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjIuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2MiIgeD0iNTEuNSIgeT0iMTk5LjIxMzkiPmdldE1hcHM8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2YzYmY0aXV6cjI2OGgpIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTE4IiB4PSI4OSIgeT0iMjIxLjUxNTYiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5OCIgeD0iOTkiIHk9IjI0Mi42NTQzIj5nZXREcml2YWJsZUFyZWE8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2YzYmY0aXV6cjI2OGgpIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTU1IiB4PSI3MC41IiB5PSIyNzUuNDg0NCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEzNSIgeD0iODAuNSIgeT0iMjk2LjYyMyI+Z2V0Um9hZENsZWFyYW5jZU1hcDwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjNiZjRpdXpyMjY4aCkiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxNTgiIHg9IjY5IiB5PSIzMjkuNDUzMSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEzOCIgeD0iNzkiIHk9IjM1MC41OTE4Ij5kcmF3T2JzdGFjbGVPbkltYWdlPC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjE3OSIgeD0iNTguNSIgeT0iMzgzLjQyMTkiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNTkiIHg9IjY4LjUiIHk9IjQwNC41NjA1Ij5nZXRPYnN0YWNsZUNsZWFyYW5jZU1hcDwvdGV4dD48cmVjdCBmaWxsPSIjRkZGRkZGIiBmaWx0ZXI9InVybCgjZjNiZjRpdXpyMjY4aCkiIGhlaWdodD0iMjk2LjU3NDIiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6Mi4wOyIgd2lkdGg9IjIxNyIgeD0iMzkuNSIgeT0iNDM5LjM5MDYiLz48cGF0aCBkPSJNMTg4LjUsNDM5LjM5MDYgTDE4OC41LDQ0OC42ODc1IEwxNzguNSw0NTguNjg3NSBMMzkuNSw0NTguNjg3NSAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6Mi4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEzOSIgeD0iNDIuNSIgeT0iNDUzLjM4NTciPm9wdGltaXplVHJhamVjdG9yeTwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjNiZjRpdXpyMjY4aCkiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxMTYiIHg9IjkwIiB5PSI0NzUuNjg3NSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk2IiB4PSIxMDAiIHk9IjQ5Ni44MjYyIj5nZXRFQlRyYWplY3Rvcnk8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2YzYmY0aXV6cjI2OGgpIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTk3IiB4PSI0OS41IiB5PSI1MjkuNjU2MyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE3NyIgeD0iNTkuNSIgeT0iNTUwLjc5NDkiPmdldE1vZGVsUHJlZGljdGl2ZVRyYWplY3Rvcnk8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2YzYmY0aXV6cjI2OGgpIiBoZWlnaHQ9IjQ3LjkzNzUiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTA3IiB4PSI5NC41IiB5PSI2MzIuMDI3MyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg3IiB4PSIxMDQuNSIgeT0iNjUzLjE2NiI+c2VuZCBwcmV2aW91czwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI1OCIgeD0iMTA4LjUiIHk9IjY2Ny4xMzQ4Ij50cmFqZWN0b3J5PC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgcG9pbnRzPSI5Miw1ODMuNjI1LDIwNCw1ODMuNjI1LDIxNiw1OTUuNjI1LDIwNCw2MDcuNjI1LDkyLDYwNy42MjUsODAsNTk1LjYyNSw5Miw1ODMuNjI1IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMSIgeD0iMTUyIiB5PSI2MTcuODM1NCI+eWVzPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExMiIgeD0iOTIiIHk9IjU5OS40MzMxIj5vcHRpbWl6YXRpb24gZmFpbGVkPzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNCIgeD0iMjE2IiB5PSI1OTMuMDMwOCI+bm88L3RleHQ+PHBvbHlnb24gZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2YzYmY0aXV6cjI2OGgpIiBwb2ludHM9IjE0OCw2OTkuOTY0OCwxNjAsNzExLjk2NDgsMTQ4LDcyMy45NjQ4LDEzNiw3MTEuOTY0OCwxNDgsNjk5Ljk2NDgiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjI1MCIgeD0iMjMiIHk9Ijc1NS45NjQ4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjMwIiB4PSIzMyIgeT0iNzc3LjEwMzUiPmluc2VydFplcm9WZWxvaXR5T3V0c2lkZURyaXZhYmxlQXJlYTwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjNiZjRpdXpyMjY4aCkiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIyMTUiIHg9IjQwLjUiIHk9IjgwOS45MzM2Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTk1IiB4PSI1MC41IiB5PSI4MzEuMDcyMyI+cHVibGlzaERlYnVnRGF0YUluT3B0aW1pemF0aW9uPC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgaGVpZ2h0PSI0Ny45Mzc1IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjEwNyIgeD0iMjkzIiB5PSIxODUuMjE4OCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg3IiB4PSIzMDMiIHk9IjIwNi4zNTc0Ij5zZW5kIHByZXZpb3VzPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjU4IiB4PSIzMDciIHk9IjIyMC4zMjYyIj50cmFqZWN0b3J5PC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgcG9pbnRzPSIyNDcuMjUsODQ5LjkwMjMsMjU5LjI1LDg2MS45MDIzLDI0Ny4yNSw4NzMuOTAyMywyMzUuMjUsODYxLjkwMjMsMjQ3LjI1LDg0OS45MDIzIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBmaWx0ZXI9InVybCgjZjNiZjRpdXpyMjY4aCkiIGhlaWdodD0iMjQ0LjE3MTkiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6Mi4wOyIgd2lkdGg9IjI2NSIgeD0iMTE0Ljc1IiB5PSI4OTYuNzA0MSIvPjxwYXRoIGQ9Ik0zNjkuNzUsODk2LjcwNDEgTDM2OS43NSw5MDYuMDAxIEwzNTkuNzUsOTE2LjAwMSBMMTE0Ljc1LDkxNi4wMDEgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjIuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNDUiIHg9IjExNy43NSIgeT0iOTEwLjY5OTIiPmdlbmVyYXRlUG9zdFByb2Nlc3NlZFRyYWplY3Rvcnk8L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2YzYmY0aXV6cjI2OGgpIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMjIwIiB4PSIxMzcuMjUiIHk9IjkzMy4wMDEiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMDAiIHg9IjE0Ny4yNSIgeT0iOTU0LjEzOTYiPmdldEV4dGVuZGVkT3B0aW1pemVkVHJhamVjdG9yeTwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjNiZjRpdXpyMjY4aCkiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxMjEiIHg9IjE4Ni43NSIgeT0iOTg2Ljk2OTciLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDEiIHg9IjE5Ni43NSIgeT0iMTAwOC4xMDg0Ij5jb25jYXRUcmFqZWN0b3J5PC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjE5NiIgeD0iMTQ5LjI1IiB5PSIxMDQwLjkzODUiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNzYiIHg9IjE1OS4yNSIgeT0iMTA2Mi4wNzcxIj5nZW5lcmF0ZUZpbmVUcmFqZWN0b3J5UG9pbnRzPC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9Ijk2IiB4PSIxOTkuMjUiIHk9IjEwOTQuOTA3MiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijc2IiB4PSIyMDkuMjUiIHk9IjExMTYuMDQ1OSI+YWxpZ25WZWxvY2l0eTwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjNiZjRpdXpyMjY4aCkiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxNDIiIHg9IjE3Ni4yNSIgeT0iMTE2MC44NzYiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMjIiIHg9IjE4Ni4yNSIgeT0iMTE4Mi4wMTQ2Ij5jb252ZXJ0VG9UcmFqZWN0b3J5PC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjE2NyIgeD0iMTYzLjc1IiB5PSIxMjE0Ljg0NDciLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNDciIHg9IjE3My43NSIgeT0iMTIzNS45ODM0Ij5wdWJsaXNoRGVidWdEYXRhSW5NYWluPC90ZXh0PjxlbGxpcHNlIGN4PSIyNDcuMjUiIGN5PSIxMjc5LjgxMzUiIGZpbGw9IiNGRkZGRkYiIGZpbHRlcj0idXJsKCNmM2JmNGl1enIyNjhoKSIgcng9IjExIiByeT0iMTEiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS4wOyIvPjxlbGxpcHNlIGN4PSIyNDcuMjUiIGN5PSIxMjc5LjgxMzUiIGZpbGw9IiMwMDAwMDAiIHJ4PSI2IiByeT0iNiIgc3R5bGU9InN0cm9rZTojN0Y3RjdGO3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMTQ4IiB4Mj0iMTQ4IiB5MT0iMjU1LjQ4NDQiIHkyPSIyNzUuNDg0NCIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMTQ0LDI2NS40ODQ0LDE0OCwyNzUuNDg0NCwxNTIsMjY1LjQ4NDQsMTQ4LDI2OS40ODQ0IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIxNDgiIHgyPSIxNDgiIHkxPSIzMDkuNDUzMSIgeTI9IjMyOS40NTMxIi8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxNDQsMzE5LjQ1MzEsMTQ4LDMyOS40NTMxLDE1MiwzMTkuNDUzMSwxNDgsMzIzLjQ1MzEiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjE0OCIgeDI9IjE0OCIgeTE9IjM2My40MjE5IiB5Mj0iMzgzLjQyMTkiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjE0NCwzNzMuNDIxOSwxNDgsMzgzLjQyMTksMTUyLDM3My40MjE5LDE0OCwzNzcuNDIxOSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMTQ4IiB4Mj0iMTQ4IiB5MT0iNTA5LjY1NjMiIHkyPSI1MjkuNjU2MyIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMTQ0LDUxOS42NTYzLDE0OCw1MjkuNjU2MywxNTIsNTE5LjY1NjMsMTQ4LDUyMy42NTYzIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIxNDgiIHgyPSIxNDgiIHkxPSI2MDcuNjI1IiB5Mj0iNjMyLjAyNzMiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjE0NCw2MjIuMDI3MywxNDgsNjMyLjAyNzMsMTUyLDYyMi4wMjczLDE0OCw2MjYuMDI3MyIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjE2IiB4Mj0iMjI4IiB5MT0iNTk1LjYyNSIgeTI9IjU5NS42MjUiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjIyNCw2NDUuOTk2MSwyMjgsNjU1Ljk5NjEsMjMyLDY0NS45OTYxLDIyOCw2NDkuOTk2MSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjI4IiB4Mj0iMjI4IiB5MT0iNTk1LjYyNSIgeTI9IjcxMS45NjQ4Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjI4IiB4Mj0iMTYwIiB5MT0iNzExLjk2NDgiIHkyPSI3MTEuOTY0OCIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMTcwLDcwNy45NjQ4LDE2MCw3MTEuOTY0OCwxNzAsNzE1Ljk2NDgsMTY2LDcxMS45NjQ4IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIxNDgiIHgyPSIxNDgiIHkxPSI2NzkuOTY0OCIgeTI9IjY5OS45NjQ4Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxNDQsNjg5Ljk2NDgsMTQ4LDY5OS45NjQ4LDE1Miw2ODkuOTY0OCwxNDgsNjkzLjk2NDgiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjE0OCIgeDI9IjE0OCIgeTE9IjU2My42MjUiIHkyPSI1ODMuNjI1Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxNDQsNTczLjYyNSwxNDgsNTgzLjYyNSwxNTIsNTczLjYyNSwxNDgsNTc3LjYyNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMTQ4IiB4Mj0iMTQ4IiB5MT0iNDE3LjM5MDYiIHkyPSI0NzUuNjg3NSIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMTQ0LDQ2NS42ODc1LDE0OCw0NzUuNjg3NSwxNTIsNDY1LjY4NzUsMTQ4LDQ2OS42ODc1IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIxNDgiIHgyPSIxNDgiIHkxPSI3MjMuOTY0OCIgeTI9Ijc1NS45NjQ4Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxNDQsNzQ1Ljk2NDgsMTQ4LDc1NS45NjQ4LDE1Miw3NDUuOTY0OCwxNDgsNzQ5Ljk2NDgiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjE0OCIgeDI9IjE0OCIgeTE9Ijc4OS45MzM2IiB5Mj0iODA5LjkzMzYiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjE0NCw3OTkuOTMzNiwxNDgsODA5LjkzMzYsMTUyLDc5OS45MzM2LDE0OCw4MDMuOTMzNiIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMTc2LjI1IiB4Mj0iMTQ4IiB5MT0iMTYzLjIxODgiIHkyPSIxNjMuMjE4OCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjE0OCIgeDI9IjE0OCIgeTE9IjE2My4yMTg4IiB5Mj0iMjIxLjUxNTYiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjE0NCwyMTEuNTE1NiwxNDgsMjIxLjUxNTYsMTUyLDIxMS41MTU2LDE0OCwyMTUuNTE1NiIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMzE4LjI1IiB4Mj0iMzQ2LjUiIHkxPSIxNjMuMjE4OCIgeTI9IjE2My4yMTg4Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMzQ2LjUiIHgyPSIzNDYuNSIgeTE9IjE2My4yMTg4IiB5Mj0iMTg1LjIxODgiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjM0Mi41LDE3NS4yMTg4LDM0Ni41LDE4NS4yMTg4LDM1MC41LDE3NS4yMTg4LDM0Ni41LDE3OS4yMTg4IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIxNDgiIHgyPSIxNDgiIHkxPSI4NDMuOTAyMyIgeTI9Ijg2MS45MDIzIi8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMTQ4IiB4Mj0iMjM1LjI1IiB5MT0iODYxLjkwMjMiIHkyPSI4NjEuOTAyMyIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMjI1LjI1LDg1Ny45MDIzLDIzNS4yNSw4NjEuOTAyMywyMjUuMjUsODY1LjkwMjMsMjI5LjI1LDg2MS45MDIzIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIzNDYuNSIgeDI9IjM0Ni41IiB5MT0iMjMzLjE1NjMiIHkyPSI4NjEuOTAyMyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjM0Ni41IiB4Mj0iMjU5LjI1IiB5MT0iODYxLjkwMjMiIHkyPSI4NjEuOTAyMyIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMjY5LjI1LDg1Ny45MDIzLDI1OS4yNSw4NjEuOTAyMywyNjkuMjUsODY1LjkwMjMsMjY1LjI1LDg2MS45MDIzIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyNDcuMjUiIHgyPSIyNDcuMjUiIHkxPSIxMzEuMjE4OCIgeTI9IjE1MS4yMTg4Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIyNDMuMjUsMTQxLjIxODgsMjQ3LjI1LDE1MS4yMTg4LDI1MS4yNSwxNDEuMjE4OCwyNDcuMjUsMTQ1LjIxODgiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjI0Ny4yNSIgeDI9IjI0Ny4yNSIgeTE9IjUwLjk1MzEiIHkyPSI5Ny4yNSIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMjQzLjI1LDg3LjI1LDI0Ny4yNSw5Ny4yNSwyNTEuMjUsODcuMjUsMjQ3LjI1LDkxLjI1IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyNDcuMjUiIHgyPSIyNDcuMjUiIHkxPSI5NjYuOTY5NyIgeTI9Ijk4Ni45Njk3Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIyNDMuMjUsOTc2Ljk2OTcsMjQ3LjI1LDk4Ni45Njk3LDI1MS4yNSw5NzYuOTY5NywyNDcuMjUsOTgwLjk2OTciIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjI0Ny4yNSIgeDI9IjI0Ny4yNSIgeTE9IjEwMjAuOTM4NSIgeTI9IjEwNDAuOTM4NSIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMjQzLjI1LDEwMzAuOTM4NSwyNDcuMjUsMTA0MC45Mzg1LDI1MS4yNSwxMDMwLjkzODUsMjQ3LjI1LDEwMzQuOTM4NSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjQ3LjI1IiB4Mj0iMjQ3LjI1IiB5MT0iMTA3NC45MDcyIiB5Mj0iMTA5NC45MDcyIi8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIyNDMuMjUsMTA4NC45MDcyLDI0Ny4yNSwxMDk0LjkwNzIsMjUxLjI1LDEwODQuOTA3MiwyNDcuMjUsMTA4OC45MDcyIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyNDcuMjUiIHgyPSIyNDcuMjUiIHkxPSI4NzMuOTAyMyIgeTI9IjkzMy4wMDEiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjI0My4yNSw5MjMuMDAxLDI0Ny4yNSw5MzMuMDAxLDI1MS4yNSw5MjMuMDAxLDI0Ny4yNSw5MjcuMDAxIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIyNDcuMjUiIHgyPSIyNDcuMjUiIHkxPSIxMTI4Ljg3NiIgeTI9IjExNjAuODc2Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIyNDMuMjUsMTE1MC44NzYsMjQ3LjI1LDExNjAuODc2LDI1MS4yNSwxMTUwLjg3NiwyNDcuMjUsMTE1NC44NzYiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjI0Ny4yNSIgeDI9IjI0Ny4yNSIgeTE9IjExOTQuODQ0NyIgeTI9IjEyMTQuODQ0NyIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMjQzLjI1LDEyMDQuODQ0NywyNDcuMjUsMTIxNC44NDQ3LDI1MS4yNSwxMjA0Ljg0NDcsMjQ3LjI1LDEyMDguODQ0NyIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMjQ3LjI1IiB4Mj0iMjQ3LjI1IiB5MT0iMTI0OC44MTM1IiB5Mj0iMTI2OC44MTM1Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIyNDMuMjUsMTI1OC44MTM1LDI0Ny4yNSwxMjY4LjgxMzUsMjUxLjI1LDEyNTguODEzNSwyNDcuMjUsMTI2Mi44MTM1IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48IS0tTUQ1PVs2MzE4NDMwODE2NTM4ZTBiYWJkZTkyNDlhZGU0NzJhNV0KQHN0YXJ0dW1sDQp0aXRsZSBwYXRoQ2FsbGJhY2sNCnN0YXJ0DQoNCmdyb3VwIGdlbmVyYXRlT3B0aW1pemVkVHJhamVjdG9yeQ0KICA6Y2hlY2tSZXBsYW47DQogIGlmIChyZXBsYW5uaW5nIHJlcXVpcmVkPykgdGhlbiAoeWVzKQ0KICAgIGdyb3VwIGdldE1hcHMNCiAgICAgIDpnZXREcml2YWJsZUFyZWE7DQogICAgICA6Z2V0Um9hZENsZWFyYW5jZU1hcDsNCiAgICAgIDpkcmF3T2JzdGFjbGVPbkltYWdlOw0KICAgICAgOmdldE9ic3RhY2xlQ2xlYXJhbmNlTWFwOw0KICAgIGVuZCBncm91cA0KDQogICAgZ3JvdXAgb3B0aW1pemVUcmFqZWN0b3J5DQogICAgICA6Z2V0RUJUcmFqZWN0b3J5Ow0KICAgICAgOmdldE1vZGVsUHJlZGljdGl2ZVRyYWplY3Rvcnk7DQoNCiAgICAgIGlmIChvcHRpbWl6YXRpb24gZmFpbGVkPykgdGhlbiAobm8pDQogICAgICBlbHNlICh5ZXMpDQogICAgICAgIDpzZW5kIHByZXZpb3VzXG4gdHJhamVjdG9yeTsNCiAgICAgIGVuZGlmDQogICAgZW5kIGdyb3VwDQoNCiAgICA6aW5zZXJ0WmVyb1ZlbG9pdHlPdXRzaWRlRHJpdmFibGVBcmVhOw0KDQogICAgOnB1Ymxpc2hEZWJ1Z0RhdGFJbk9wdGltaXphdGlvbjsNCiAgZWxzZSAobm8pDQogICAgOnNlbmQgcHJldmlvdXNcbiB0cmFqZWN0b3J5Ow0KICBlbmRpZg0KZW5kIGdyb3VwDQoNCg0KZ3JvdXAgZ2VuZXJhdGVQb3N0UHJvY2Vzc2VkVHJhamVjdG9yeQ0KICA6Z2V0RXh0ZW5kZWRPcHRpbWl6ZWRUcmFqZWN0b3J5Ow0KICA6Y29uY2F0VHJhamVjdG9yeTsNCiAgOmdlbmVyYXRlRmluZVRyYWplY3RvcnlQb2ludHM7DQogIDphbGlnblZlbG9jaXR5Ow0KZW5kIGdyb3VwDQoNCjpjb252ZXJ0VG9UcmFqZWN0b3J5Ow0KDQo6cHVibGlzaERlYnVnRGF0YUluTWFpbjsNCg0Kc3RvcA0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIyLjJiZXRhMShVbmtub3duIGNvbXBpbGUgdGltZSkKKEdQTCBzb3VyY2UgZGlzdHJpYnV0aW9uKQpKYXZhIFJ1bnRpbWU6IEphdmEoVE0pIFNFIFJ1bnRpbWUgRW52aXJvbm1lbnQKSlZNOiBKYXZhIEhvdFNwb3QoVE0pIDY0LUJpdCBTZXJ2ZXIgVk0KRGVmYXVsdCBFbmNvZGluZzogVVRGLTgKTGFuZ3VhZ2U6IGVuCkNvdW50cnk6IFVTCi0tPjwvZz48L3N2Zz4=" class="uml" alt="uml diagram" title="" /></p>
 <h3 id="checkreplan">checkReplan<a class="headerlink" href="#checkreplan" title="Permanent link">#</a></h3>
-<p>When one of the following conditions area realized, callback function to generate a trajectory is called and publish the trajectory.
-Otherwise, previously generated trajectory is published.</p>
+<p>When one of the following conditions are realized, callback function to generate a trajectory is called and publish the trajectory.
+Otherwise, previously generated (optimized) trajectory is published just with aligning the velocity from the latest behavior path.</p>
 <ul>
 <li>Ego moves a certain distance compared to the previous ego pose (default: 3.0 [m])</li>
 <li>Time passes (default: 1.0 [s])</li>
 <li>Ego is far from the previously generated trajectory</li>
 </ul>
-<p>The previously generated trajectory is memorized, but it is not when the path shape is changed and ego is far from the previously generated trajectory.</p>
 <h3 id="getroadclearancemap">getRoadClearanceMap<a class="headerlink" href="#getroadclearancemap" title="Permanent link">#</a></h3>
-<p>Cost map is generated according to the distance to the target obstacles to be avoided.</p>
+<p>Cost map is generated according to the distance to the road boundaries.</p>
+<p>These cost maps are used in the optimization to generate a collision-free trajectory.</p>
 <h3 id="drawobstacleonimage">drawObstacleOnImage<a class="headerlink" href="#drawobstacleonimage" title="Permanent link">#</a></h3>
 <p>Only obstacles that are static and locate in a shoulder lane is decided to avoid.
 In detail, this equals to the following three conditions at the same time, and the red obstacles in the figure (id: 3, 4, 5) is to be avoided.</p>
@@ -8621,22 +8621,21 @@ In detail, this equals to the following three conditions at the same time, and t
 </ul>
 <p><img alt="obstacle_to_avoid" src="media/obstacle_to_avoid.drawio.svg" /></p>
 <h3 id="getobstacleclearancemap">getObstacleClearanceMap<a class="headerlink" href="#getobstacleclearancemap" title="Permanent link">#</a></h3>
-<p>Cost map is generated according to the distance to the road boundaries.</p>
-<p>These cost maps area used in the optimization to generate a collision-free trajectory.</p>
+<p>Cost map is generated according to the distance to the target obstacles to be avoided.</p>
 <h3 id="getebtrajectory">getEBTrajectory<a class="headerlink" href="#getebtrajectory" title="Permanent link">#</a></h3>
-<p>The latter optimization assumes that the reference path is smooth enough.
-Therefore the path from behavior is smoothed here, and send to the optimization as a format of trajectory.
-Obstacles are not considered.</p>
+<p>The latter optimization (MPT) assumes that the reference path is smooth enough.
+Therefore the path from behavior is made smooth here, and send to the optimization as a format of trajectory.
+Obstacles are ignored in this function.</p>
 <p>More details can be seen in the Elastic Band section.</p>
 <h3 id="getmodelpredictivetrajectory">getModelPredictiveTrajectory<a class="headerlink" href="#getmodelpredictivetrajectory" title="Permanent link">#</a></h3>
 <p>This module makes the trajectory kinematically-feasible and collision-free.
 We define vehicle pose in the frenet coordinate, and minimize tracking errors by optimization.
-This optimization also considers vehicle kinematics and collision checking with road boundary and obstacles.
-To decrease the computation cost, the optimization is applied to the shorter trajectory than the whole trajectory, and concatenate the remained trajectory with the optimized one at last.</p>
+This optimization considers vehicle kinematics and collision checking with road boundary and obstacles.
+To decrease the computation cost, the optimization is applied to the shorter trajectory (default: 50 [m]) than the whole trajectory, and concatenate the remained trajectory with the optimized one at last.</p>
 <p>The trajectory just in front of the ego must not be changed a lot so that the steering wheel will be stable.
 Therefore, we use the previously generated trajectory in front of the ego.</p>
 <p>Optimization center on the vehicle, that tries to locate just on the trajectory, can be tuned along side the vehicle vertical axis.
-This parameter <code>optimization center offset</code> is defined as the signed length from the back-wheel center to the optimization center.
+This parameter <code>mpt.kinematics.optimization center offset</code> is defined as the signed length from the back-wheel center to the optimization center.
 Some examples are shown in the following figure, and it is shown that the trajectory of vehicle shape differs according to the optimization center even if the reference trajectory (green one) is the same.</p>
 <p><img alt="mpt_optimization_offset" src="media/mpt_optimization_offset.svg" /></p>
 <p>More details can be seen in the Model Predictive Trajectory section.</p>
@@ -8667,11 +8666,11 @@ The output trajectory is memorized as a previously generated trajectory for the 
 <p><em>Rationale</em>
 In the current design, since there are some modelling errors, the constraints are considered to be soft constraints.
 Therefore, we have to make sure that the optimized trajectory is inside the drivable area or not after optimization.</p>
-<h3 id="assign-trajectory-velocity">Assign trajectory velocity<a class="headerlink" href="#assign-trajectory-velocity" title="Permanent link">#</a></h3>
-<p>Velocity is assigned in the result trajectory by the behavior path.
+<h3 id="alignvelocity">alignVelocity<a class="headerlink" href="#alignvelocity" title="Permanent link">#</a></h3>
+<p>Velocity is assigned in the result trajectory from the velocity in the behavior path.
 The shapes of the trajectory and the path are different, therefore the each nearest trajectory point to the path is searched and interpolated linearly.</p>
 <h2 id="algorithms">Algorithms<a class="headerlink" href="#algorithms" title="Permanent link">#</a></h2>
-<p>In this section, Elastic band (to smooth the path) and Model Predictive Trajectory (to optimize the trajectory) will be explained in detail.</p>
+<p>In this section, Elastic band (to make the path smooth) and Model Predictive Trajectory (to make the trajectory kinematically feasible and collision-free) will be explained in detail.</p>
 <h3 id="elastic-band">Elastic band<a class="headerlink" href="#elastic-band" title="Permanent link">#</a></h3>
 <h4 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link">#</a></h4>
 <p>Elastic band smooths the path generated in the behavior.
@@ -8686,24 +8685,45 @@ The beginning and end point are fixed during the optimization.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 \begin{align}
-\ J &amp; = min \sum_{k=1}^{n-1} ||\boldsymbol{p}_{k+1} - \boldsymbol{p}_{k}||^2 + ||\boldsymbol{p}_{k} - \boldsymbol{p}_{k-1}||^2 \\
-\ &amp; =min \sum_{k=1}^{n-1} ||(x_{k} - x_{k+1}, y_k - y_{k+1})||^2 + || (x_{k-1} - x_k, y_{k-1} - y_k) ||^2 \\
-\ &amp; = min (x_0, x_1, x_2,\dots,x_{n-2},x_{n-1}, x_n, y_0, y_1,y_2 \dots,y_{n-2} ,y_{n-1},y_n)
+\ J &amp; = \min \sum_{k=1}^{n-1} ||(\boldsymbol{p}_{k+1} - \boldsymbol{p}_{k}) - (\boldsymbol{p}_{k} - \boldsymbol{p}_{k-1})||^2 \\
+\ &amp; = \min \sum_{k=1}^{n-1} ||\boldsymbol{p}_{k+1} - 2 \boldsymbol{p}_{k} + \boldsymbol{p}_{k-1}||^2 \\
+\ &amp; = \min \sum_{k=1}^{n-1} \{(x_{k+1} - x_k + x_{k-1})^2 + (y_{k+1} - y_k + y_{k-1})^2\} \\
+\ &amp; = \min
     \begin{pmatrix}
-      1 &amp; -1 &amp; 0 &amp; \dots&amp; \\
-      -1 &amp; 3 &amp; -2 &amp; 0 &amp;\dots   \\
-      0 &amp; -2 &amp; 4 &amp; -2&amp;   \\
+        \ x_0 \\
+        \ x_1 \\
+        \ x_2 \\
+        \vdots \\
+        \ x_{n-2}\\
+        \ x_{n-1} \\
+        \ x_{n} \\
+        \ y_0 \\
+        \ y_1 \\
+        \ y_2 \\
+        \vdots \\
+        \ y_{n-2}\\
+        \ y_{n-1} \\
+        \ y_{n} \\
+    \end{pmatrix}^T
+    \begin{pmatrix}
+      1 &amp; -2 &amp; 1 &amp; 0 &amp; \dots&amp; \\
+      -2 &amp; 5 &amp; -4 &amp; 1 &amp; 0 &amp;\dots   \\
+      1 &amp; -4 &amp; 6 &amp; -4 &amp; 1 &amp; \\
+      0 &amp; 1 &amp; -4 &amp; 6 &amp; -4 &amp;   \\
       \vdots &amp; 0 &amp; \ddots&amp;\ddots&amp; \ddots   \\
-      &amp; \vdots &amp; &amp;-2&amp; 4 &amp; -2 \\
-      &amp; &amp; &amp; &amp;-2&amp; 3 &amp; -1 \\
-      &amp; &amp; &amp; &amp; &amp;-1&amp;  1&amp; \\
-      &amp; &amp; &amp; &amp; &amp; &amp; &amp;1&amp;-1&amp; \\
-      &amp; &amp; &amp; &amp; &amp; &amp; &amp;-1&amp;3&amp;-2\\
-      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;-2&amp;4&amp;-2 \\
-      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;\ddots&amp;\ddots&amp;\ddots \\
-      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;-2&amp; 4 &amp; -2 \\
-      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;-2&amp; 3 &amp; -1 \\
-      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;-1&amp;  1 \\
+      &amp; \vdots &amp; &amp; &amp; \\
+      &amp; &amp; &amp; 1 &amp; -4 &amp; 6 &amp; -4 &amp; 1 \\
+      &amp; &amp; &amp; &amp; 1 &amp; -4 &amp; 5 &amp; -2 \\
+      &amp; &amp; &amp; &amp; &amp; 1 &amp; -2 &amp;  1&amp; \\
+      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;1 &amp; -2 &amp; 1 &amp; 0 &amp; \dots&amp; \\
+      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;-2 &amp; 5 &amp; -4 &amp; 1 &amp; 0 &amp;\dots   \\
+      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;1 &amp; -4 &amp; 6 &amp; -4 &amp; 1 &amp; \\
+      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;0 &amp; 1 &amp; -4 &amp; 6 &amp; -4 &amp;   \\
+      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;\vdots &amp; 0 &amp; \ddots&amp;\ddots&amp; \ddots   \\
+      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \vdots &amp; &amp; &amp; \\
+      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 1 &amp; -4 &amp; 6 &amp; -4 &amp; 1 \\
+      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 1 &amp; -4 &amp; 5 &amp; -2 \\
+      &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 1 &amp; -2 &amp;  1&amp; \\
     \end{pmatrix}
     \begin{pmatrix}
         \ x_0 \\
@@ -8725,24 +8745,45 @@ The beginning and end point are fixed during the optimization.</p>
 </div>
 <script type="math/tex; mode=display">
 \begin{align}
-\ J & = min \sum_{k=1}^{n-1} ||\boldsymbol{p}_{k+1} - \boldsymbol{p}_{k}||^2 + ||\boldsymbol{p}_{k} - \boldsymbol{p}_{k-1}||^2 \\
-\ & =min \sum_{k=1}^{n-1} ||(x_{k} - x_{k+1}, y_k - y_{k+1})||^2 + || (x_{k-1} - x_k, y_{k-1} - y_k) ||^2 \\
-\ & = min (x_0, x_1, x_2,\dots,x_{n-2},x_{n-1}, x_n, y_0, y_1,y_2 \dots,y_{n-2} ,y_{n-1},y_n)
+\ J & = \min \sum_{k=1}^{n-1} ||(\boldsymbol{p}_{k+1} - \boldsymbol{p}_{k}) - (\boldsymbol{p}_{k} - \boldsymbol{p}_{k-1})||^2 \\
+\ & = \min \sum_{k=1}^{n-1} ||\boldsymbol{p}_{k+1} - 2 \boldsymbol{p}_{k} + \boldsymbol{p}_{k-1}||^2 \\
+\ & = \min \sum_{k=1}^{n-1} \{(x_{k+1} - x_k + x_{k-1})^2 + (y_{k+1} - y_k + y_{k-1})^2\} \\
+\ & = \min
     \begin{pmatrix}
-      1 & -1 & 0 & \dots& \\
-      -1 & 3 & -2 & 0 &\dots   \\
-      0 & -2 & 4 & -2&   \\
+        \ x_0 \\
+        \ x_1 \\
+        \ x_2 \\
+        \vdots \\
+        \ x_{n-2}\\
+        \ x_{n-1} \\
+        \ x_{n} \\
+        \ y_0 \\
+        \ y_1 \\
+        \ y_2 \\
+        \vdots \\
+        \ y_{n-2}\\
+        \ y_{n-1} \\
+        \ y_{n} \\
+    \end{pmatrix}^T
+    \begin{pmatrix}
+      1 & -2 & 1 & 0 & \dots& \\
+      -2 & 5 & -4 & 1 & 0 &\dots   \\
+      1 & -4 & 6 & -4 & 1 & \\
+      0 & 1 & -4 & 6 & -4 &   \\
       \vdots & 0 & \ddots&\ddots& \ddots   \\
-      & \vdots & &-2& 4 & -2 \\
-      & & & &-2& 3 & -1 \\
-      & & & & &-1&  1& \\
-      & & & & & & &1&-1& \\
-      & & & & & & &-1&3&-2\\
-      & & & & & & & &-2&4&-2 \\
-      & & & & & & & & &\ddots&\ddots&\ddots \\
-      & & & & & & & & & &-2& 4 & -2 \\
-      & & & & & & & & & & &-2& 3 & -1 \\
-      & & & & & & & & & & & &-1&  1 \\
+      & \vdots & & & \\
+      & & & 1 & -4 & 6 & -4 & 1 \\
+      & & & & 1 & -4 & 5 & -2 \\
+      & & & & & 1 & -2 &  1& \\
+      & & & & & & & &1 & -2 & 1 & 0 & \dots& \\
+      & & & & & & & &-2 & 5 & -4 & 1 & 0 &\dots   \\
+      & & & & & & & &1 & -4 & 6 & -4 & 1 & \\
+      & & & & & & & &0 & 1 & -4 & 6 & -4 &   \\
+      & & & & & & & &\vdots & 0 & \ddots&\ddots& \ddots   \\
+      & & & & & & & & & \vdots & & & \\
+      & & & & & & & & & & & 1 & -4 & 6 & -4 & 1 \\
+      & & & & & & & & & & & & 1 & -4 & 5 & -2 \\
+      & & & & & & & & & & & & & 1 & -2 &  1& \\
     \end{pmatrix}
     \begin{pmatrix}
         \ x_0 \\
@@ -9282,7 +9323,7 @@ This hard constraints is formulated as follows.</p>
 </script>
 </div>
 <h4 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">#</a></h4>
-<h5 id="steer-angle-limitaion">Steer angle limitaion<a class="headerlink" href="#steer-angle-limitaion" title="Permanent link">#</a></h5>
+<h5 id="steer-angle-limitation">Steer angle limitation<a class="headerlink" href="#steer-angle-limitation" title="Permanent link">#</a></h5>
 <p>Steer angle has a certain limitation (<span class="arithmatex"><span class="MathJax_Preview">\delta_{max}</span><script type="math/tex">\delta_{max}</script></span>, <span class="arithmatex"><span class="MathJax_Preview">\delta_{min}</span><script type="math/tex">\delta_{min}</script></span>).
 Therefore we add linear inequality equations.</p>
 <div class="arithmatex">
@@ -9373,7 +9414,7 @@ For example, if the boundaries are not vertical against the trajectory and there
         O
     \end{pmatrix}
     \in \boldsymbol{R}^{3 N_{ref}} \\
-    \boldsymbol{b}_{uppwer, blk} &amp; = \boldsymbol{\infty}
+    \boldsymbol{b}_{upper, blk} &amp; = \boldsymbol{\infinity}
     \in \boldsymbol{R}^{3 N_{ref}}
 \end{align}
 </div>
@@ -9393,7 +9434,7 @@ For example, if the boundaries are not vertical against the trajectory and there
         O
     \end{pmatrix}
     \in \boldsymbol{R}^{3 N_{ref}} \\
-    \boldsymbol{b}_{uppwer, blk} & = \boldsymbol{\infty}
+    \boldsymbol{b}_{upper, blk} & = \boldsymbol{\infinity}
     \in \boldsymbol{R}^{3 N_{ref}}
 \end{align}
 </script>
@@ -9505,7 +9546,7 @@ Instead, if we use L-infinity norm where slack variables are shared by enabling 
 <h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">#</a></h3>
 <ul>
 <li>EB optimized trajectory length should be longer than MPT optimized trajectory length<ul>
-<li>since MPT result may be jerkey because of non-fixed reference path (= EB optimized trajectory)</li>
+<li>since MPT result may be jerky because of non-fixed reference path (= EB optimized trajectory)</li>
 <li>At least, EB fixed optimized trajectory length must be longer than MPT fixed optimization trajectory length<ul>
 <li>This causes the case that there is a large difference between MPT fixed optimized point and MPT optimized point just after the point.</li>
 </ul>
@@ -9539,8 +9580,8 @@ Instead, if we use L-infinity norm where slack variables are shared by enabling 
 <ol>
 <li>make <code>eb.common.delta_arc_length_for_eb</code> large and <code>eb.common.num_sampling_points_for_eb</code> small</li>
 <li>This makes the number of design variables smaller</li>
-<li>Be careful about the trajectory length between MPT and EB as shown in Assuptions.</li>
-<li>However, empirically this causes overshooted curve at the corner (e.g. The vehicle turns a steering wheel to the posite side (=left) a bit just before the corner turning to right)</li>
+<li>Be careful about the trajectory length between MPT and EB as shown in Assumptions.</li>
+<li>However, empirically this causes large turn at the corner (e.g. The vehicle turns a steering wheel to the opposite side (=left) a bit just before the corner turning to right)</li>
 </ol>
 </li>
 <li>
@@ -9707,8 +9748,8 @@ Although it has a cons to converge to the local minima, it can get a good soluti
 </ul>
 <p><img alt="mpt_traj" src="media/mpt_traj.png" /></p>
 <ul>
-<li><strong>Ouput trajectory</strong><ul>
-<li>The output of obstacle_avoidance_planner. Whether this trajectory is smooth enough can be checed.</li>
+<li><strong>Output trajectory</strong><ul>
+<li>The output of obstacle_avoidance_planner. Whether this trajectory is smooth enough can be checked.</li>
 <li><code>Trajectory</code> or <code>TrajectoryFootprint</code> rviz plugin.</li>
 </ul>
 </li>
