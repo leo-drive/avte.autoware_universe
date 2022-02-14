@@ -8297,25 +8297,25 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <tr>
 <td align="left">enable_smooth_stop</td>
 <td align="left">bool</td>
-<td align="left">flag to enable stopping mode</td>
+<td align="left">flag to enable transition to STOPPING</td>
 <td align="left">true</td>
 </tr>
 <tr>
 <td align="left">enable_overshoot_emergency</td>
 <td align="left">bool</td>
-<td align="left">flag to enable transition to EMERGENCY when the ego is a certain distance ahead of the stop point</td>
+<td align="left">flag to enable transition to EMERGENCY when the ego is over the stop line with a certain distance. See <code>emergency_state_overshoot_stop_dist</code>.</td>
 <td align="left">true</td>
 </tr>
 <tr>
 <td align="left">enable_slope_compensation</td>
 <td align="left">bool</td>
-<td align="left">flag to update output acceleration with pitch angle for slope compensation</td>
+<td align="left">flag to modify output acceleration for slope compensation. The source of the slope angle can be selected from ego-pose or trajectory angle. See <code>use_trajectory_for_pitch_calculation</code>.</td>
 <td align="left">true</td>
 </tr>
 <tr>
 <td align="left">enable_brake_keeping_before_stop</td>
 <td align="left">bool</td>
-<td align="left">flag to keep a certain acceleration during DRIVE state before the ego stops</td>
+<td align="left">flag to keep a certain acceleration during DRIVE state before the ego stops. See <a href="#brake-keeping">Brake keeping</a>.</td>
 <td align="left">false</td>
 </tr>
 <tr>
@@ -8345,7 +8345,7 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <tr>
 <td align="left">use_trajectory_for_pitch_calculation</td>
 <td align="left">bool</td>
-<td align="left">If true, pitch is estimated from the pre-defined map instead of the ego pose estimated in the localization module</td>
+<td align="left">If true, the slope is estimated from trajectory z-level. Otherwise the pitch angle of the ego pose is used.</td>
 <td align="left">false</td>
 </tr>
 <tr>
@@ -8382,31 +8382,31 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <tr>
 <td align="left">drive_state_stop_dist</td>
 <td align="left">double</td>
-<td align="left">The state will transit to DRIVE when the distance to the stop point is larger than <code>drive_state_stop_dist</code> + <code>drive_state_offset_stop_dist</code> [m]</td>
+<td align="left">The state will transit to DRIVE when the distance to the stop point is longer than <code>drive_state_stop_dist</code> + <code>drive_state_offset_stop_dist</code> [m]</td>
 <td align="left">0.5</td>
 </tr>
 <tr>
 <td align="left">drive_state_offset_stop_dist</td>
 <td align="left">double</td>
-<td align="left">The state will transit to DRIVE when the distance to the stop point is larger than <code>drive_state_stop_dist</code> + <code>drive_state_offset_stop_dist</code> [m]</td>
+<td align="left">The state will transit to DRIVE when the distance to the stop point is longer than <code>drive_state_stop_dist</code> + <code>drive_state_offset_stop_dist</code> [m]</td>
 <td align="left">1.0</td>
 </tr>
 <tr>
 <td align="left">stopping_state_stop_dist</td>
 <td align="left">double</td>
-<td align="left">The state will transit to STOPPING when the distance to the stop point is smaller than <code>stopping_state_stop_dist</code> [m]</td>
+<td align="left">The state will transit to STOPPING when the distance to the stop point is shorter than <code>stopping_state_stop_dist</code> [m]</td>
 <td align="left">0.5</td>
 </tr>
 <tr>
 <td align="left">stopped_state_entry_vel</td>
 <td align="left">double</td>
-<td align="left">ego velocity to be considered as STOPPED state [m/s]</td>
+<td align="left">threshold of the ego velocity in transition to the STOPPED state [m/s]</td>
 <td align="left">0.01</td>
 </tr>
 <tr>
 <td align="left">stopped_state_entry_acc</td>
 <td align="left">double</td>
-<td align="left">ego acceleration to be considered as STOPPED state [m/s^2]</td>
+<td align="left">threshold of the ego acceleration in transition to the STOPPED state [m/s^2]</td>
 <td align="left">0.1</td>
 </tr>
 <tr>
@@ -8418,13 +8418,13 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <tr>
 <td align="left">emergency_state_traj_trans_dev</td>
 <td align="left">double</td>
-<td align="left">If the ego's position differs <code>emergency_state_traj_tran_dev</code> meter from the nearest trajectory point, the state will transit to EMERGENCY. [m]</td>
+<td align="left">If the ego's position is <code>emergency_state_traj_tran_dev</code> meter away from the nearest trajectory point, the state will transit to EMERGENCY. [m]</td>
 <td align="left">3.0</td>
 </tr>
 <tr>
 <td align="left">emergency_state_traj_rot_dev</td>
 <td align="left">double</td>
-<td align="left">If the ego's orientation differs <code>emergency_state_traj_rot_dev</code> rad from the nearest trajectory point, the state will transit to EMERGENCY. [rad]</td>
+<td align="left">If the ego's orientation is <code>emergency_state_traj_rot_dev</code> rad away from the nearest trajectory point orientation, the state will transit to EMERGENCY. [rad]</td>
 <td align="left">0.784</td>
 </tr>
 </tbody>
@@ -8515,13 +8515,13 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <tr>
 <td align="left">current_vel_threshold_pid_integration</td>
 <td align="left">double</td>
-<td align="left">Velocity error will be integrated if absolute value of current velocity is larger than this parameter. [m/s]</td>
+<td align="left">Velocity error is integrated for I-term only when the absolute value of current velocity is larger than this parameter. [m/s]</td>
 <td align="left">0.5</td>
 </tr>
 <tr>
 <td align="left">brake_keeping_acc</td>
 <td align="left">double</td>
-<td align="left">If <code>enable_brake_keeping_before_stop</code> is true, a certain acceleration is kept during DRIVE state before the ego stops [m/s^2]</td>
+<td align="left">If <code>enable_brake_keeping_before_stop</code> is true, a certain acceleration is kept during DRIVE state before the ego stops [m/s^2] See <a href="#brake-keeping">Brake keeping</a>.</td>
 <td align="left">0.2</td>
 </tr>
 </tbody>
@@ -8530,7 +8530,7 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <p>Smooth stop is enabled if <code>enable_smooth_stop</code> is true.
 In smooth stop, strong acceleration (<code>strong_acc</code>) will be output first to decrease the ego velocity.
 Then weak acceleration (<code>weak_acc</code>) will be output to stop smoothly by decreasing the ego jerk.
-If the ego does not stop in a certain time or some-meter ahead of the stop point, weak acceleration to stop right (<code>weak_stop_acc</code>) now will be output.
+If the ego does not stop in a certain time or some-meter over the stop point, weak acceleration to stop right (<code>weak_stop_acc</code>) now will be output.
 If the ego is still running, strong acceleration (<code>strong_stop_acc</code>) to stop right now will be output.</p>
 <table>
 <thead>
@@ -8569,7 +8569,7 @@ If the ego is still running, strong acceleration (<code>strong_stop_acc</code>) 
 <tr>
 <td align="left">smooth_stop_strong_stop_acc</td>
 <td align="left">double</td>
-<td align="left">strong acceleration to be output when the ego is <code>smooth_stop_strong_stop_dist</code>-meter ahead of the stop point. [m/s^2]</td>
+<td align="left">strong acceleration to be output when the ego is <code>smooth_stop_strong_stop_dist</code>-meter over the stop point. [m/s^2]</td>
 <td align="left">-3.4</td>
 </tr>
 <tr>
@@ -8605,7 +8605,7 @@ If the ego is still running, strong acceleration (<code>strong_stop_acc</code>) 
 <tr>
 <td align="left">smooth_stop_strong_stop_dist</td>
 <td align="left">double</td>
-<td align="left">Strong acceleration will be output when the ego is <code>smooth_stop_strong_stop_dist</code>-meter ahead of the stop point. [m]</td>
+<td align="left">Strong acceleration will be output when the ego is <code>smooth_stop_strong_stop_dist</code>-meter over the stop point. [m]</td>
 <td align="left">-0.5</td>
 </tr>
 </tbody>
