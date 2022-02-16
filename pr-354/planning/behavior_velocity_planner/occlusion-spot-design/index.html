@@ -8560,7 +8560,7 @@
 <p><img alt="occupancy_grid" src="../docs/occlusion_spot/occupancy_grid.svg" /></p>
 <h4 id="occlusion-spot-common">Occlusion Spot Common<a class="headerlink" href="#occlusion-spot-common" title="Permanent link">#</a></h4>
 <h5 id="the-concept-of-safe-velocity">The Concept of Safe Velocity<a class="headerlink" href="#the-concept-of-safe-velocity" title="Permanent link">#</a></h5>
-<p>Safe velocity is calculated from below parameters of ego emergency braking system and time to collision.</p>
+<p>Safe velocity is calculated from the below parameters of ego emergency braking system and time to collision.</p>
 <ul>
 <li>jerk limit[m/s^3]</li>
 <li>deceleration limit[m/s2]</li>
@@ -8570,11 +8570,12 @@
   <img alt="occupancy_grid" src="../docs/occlusion_spot/safe_motion.svg" /></li>
 </ul>
 <h5 id="safe-behavior-after-passing-safe-margin-point">Safe Behavior After Passing Safe Margin Point<a class="headerlink" href="#safe-behavior-after-passing-safe-margin-point" title="Permanent link">#</a></h5>
-<p>This module defines safe margin consider ego distance to stop and collision path point geometrically.
-while ego is cruising from safe margin to collision path point ego keeps same velocity as occlusion spot safe velocity.</p>
+<p>This module defines safe margin to consider ego distance to stop and collision path point geometrically.
+While ego is cruising from safe margin to collision path point, ego vehicle keeps the same velocity as occlusion spot safe velocity.</p>
 <p><img alt="brief" src="../docs/occlusion_spot/behavior_after_safe_margin.svg" /></p>
 <h5 id="detection-area-polygon">Detection area polygon<a class="headerlink" href="#detection-area-polygon" title="Permanent link">#</a></h5>
-<p>Occlusion spot computation: searching occlusion spots for all cells in the occupancy_grid inside "max lateral distance" requires a lot of computational cost, so this module use only one most notable occlusion spot for each partition.(currently offset is from baselink to from for safety)</p>
+<p>Occlusion spot computation: searching occlusion spots for all cells in the occupancy_grid inside "max lateral distance" requires a lot of computational cost, so this module use only one most notable occlusion spot for each partition. (currently offset is from baselink to front for safety)
+The maximum length of detection area depends on ego current vehicle velocity and acceleration.</p>
 <p><img alt="brief" src="../docs/occlusion_spot/detection_area_poly.svg" /></p>
 <h4 id="module-parameters">Module Parameters<a class="headerlink" href="#module-parameters" title="Permanent link">#</a></h4>
 <table>
