@@ -841,11 +841,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/vehicle/pacmod_interface/</loc>
-         <lastmod>2022-02-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/vehicle/raw_vehicle_cmd_converter/</loc>
          <lastmod>2022-02-16</lastmod>
          <changefreq>daily</changefreq>
