@@ -8293,11 +8293,6 @@
 </thead>
 <tbody>
 <tr>
-<td><code>twist</code></td>
-<td><code>geometry_msgs::msg::TwistStamped</code></td>
-<td>estimated twist</td>
-</tr>
-<tr>
 <td><code>twist_with_covariance</code></td>
 <td><code>geometry_msgs::msg::TwistWithCovarianceStamped</code></td>
 <td>estimated twist with covariance</td>
@@ -8322,7 +8317,21 @@
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<p>TBD.</p>
+<ul>
+<li>[Assumption] The frame_id of input twist message must be set to base_link.</li>
+</ul>
+<ul>
+<li>[Assumption] The covariance in the input messages must be properly assigned.</li>
+</ul>
+<ul>
+<li>[Assumption] The angular velocity is set to zero if both the longitudinal vehicle velocity and the angular velocity around the yaw axis are sufficiently small. This is for suppression of the IMU angular velocity bias. Without this process, we misestimate the vehicle status when stationary.</li>
+</ul>
+<ul>
+<li>[Limitation] The frequency of the output messages depends on the frequency of the input IMU message.</li>
+</ul>
+<ul>
+<li>[Limitation] We cannot produce reliable values for the lateral and vertical velocities. Therefore we assign large values to the corresponding elements in the output covariance matrix.</li>
+</ul>
 
               
             </article>
