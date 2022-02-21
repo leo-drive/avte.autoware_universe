@@ -216,11 +216,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/launch/tier4_autoware_launch/</loc>
-         <lastmod>2022-02-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/tier4-proposal/launch/tier4_control_launch/</loc>
          <lastmod>2022-02-21</lastmod>
          <changefreq>daily</changefreq>
