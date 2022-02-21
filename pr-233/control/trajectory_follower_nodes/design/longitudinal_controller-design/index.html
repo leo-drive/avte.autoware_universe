@@ -11,15 +11,15 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-233/control/trajectory_follower_nodes/design/longitudinal_controller-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
     
     
       
-        <title>Longitudinal controller design - Autoware Universe Documentation</title>
+        <title>Longitudinal Controller {#longitudinal-controller-design} - Autoware Universe Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.d6be258b.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -93,7 +93,7 @@
     <a href="../../../.." title="Autoware Universe Documentation" class="md-header__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Longitudinal controller design
+              Longitudinal Controller {#longitudinal-controller-design}
             
           </span>
         </div>
@@ -178,7 +178,7 @@
         <a href="https://github.com/autowarefoundation/autoware.universe/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -505,7 +505,7 @@
     <a href="../../../.." title="Autoware Universe Documentation" class="md-nav__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M499.99 176h-59.87l-16.64-41.6C406.38 91.63 365.57 64 319.5 64h-127c-46.06 0-86.88 27.63-103.99 70.4L71.87 176H12.01C4.2 176-1.53 183.34.37 190.91l6 24C7.7 220.25 12.5 224 18.01 224h20.07C24.65 235.73 16 252.78 16 272v48c0 16.12 6.16 30.67 16 41.93V416c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-32h256v32c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32v-54.07c9.84-11.25 16-25.8 16-41.93v-48c0-19.22-8.65-36.27-22.07-48H494c5.51 0 10.31-3.75 11.64-9.09l6-24c1.89-7.57-3.84-14.91-11.65-14.91zm-352.06-17.83c7.29-18.22 24.94-30.17 44.57-30.17h127c19.63 0 37.28 11.95 44.57 30.17L384 208H128l19.93-49.83zM96 319.8c-19.2 0-32-12.76-32-31.9S76.8 256 96 256s48 28.71 48 47.85-28.8 15.95-48 15.95zm320 0c-19.2 0-48 3.19-48-15.95S396.8 256 416 256s32 12.76 32 31.9-12.8 31.9-32 31.9z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
 
     </a>
     Autoware Universe Documentation
@@ -515,7 +515,7 @@
       <a href="https://github.com/autowarefoundation/autoware.universe/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -555,6 +555,8 @@
       
       
       
+        
+          
         
           
         
@@ -1969,14 +1971,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../common/tier4_state_rviz_plugin/">Tier4 state rviz plugin</a>
+          <a href="../../../../common/tier4_simulated_clock_rviz_plugin/">Tier4 simulated clock rviz plugin</a>
           
         </div>
       
-      <nav class="md-nav" aria-label="Tier4 state rviz plugin" data-md-level="2">
+      <nav class="md-nav" aria-label="Tier4 simulated clock rviz plugin" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_22">
           <span class="md-nav__icon md-icon"></span>
-          Tier4 state rviz plugin
+          Tier4 simulated clock rviz plugin
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2014,14 +2016,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../common/tier4_vehicle_rviz_plugin/">Tier4 vehicle rviz plugin</a>
+          <a href="../../../../common/tier4_state_rviz_plugin/">Tier4 state rviz plugin</a>
           
         </div>
       
-      <nav class="md-nav" aria-label="Tier4 vehicle rviz plugin" data-md-level="2">
+      <nav class="md-nav" aria-label="Tier4 state rviz plugin" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_23">
           <span class="md-nav__icon md-icon"></span>
-          Tier4 vehicle rviz plugin
+          Tier4 state rviz plugin
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2051,16 +2053,61 @@
       
         
           
+            
+          
         
       
       
-        <label class="md-nav__link" for="__nav_2_24">
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../common/tier4_vehicle_rviz_plugin/">Tier4 vehicle rviz plugin</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tier4 vehicle rviz plugin" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_24">
+          <span class="md-nav__icon md-icon"></span>
+          Tier4 vehicle rviz plugin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_25" data-md-state="indeterminate" type="checkbox" id="__nav_2_25" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_25">
           Vehicle constants manager
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Vehicle constants manager" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_24">
+        <label class="md-nav__title" for="__nav_2_25">
           <span class="md-nav__icon md-icon"></span>
           Vehicle constants manager
         </label>
@@ -2075,7 +2122,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_24_1" data-md-state="indeterminate" type="checkbox" id="__nav_2_24_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_25_1" data-md-state="indeterminate" type="checkbox" id="__nav_2_25_1" checked>
       
       
       
@@ -2084,13 +2131,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_24_1">
+        <label class="md-nav__link" for="__nav_2_25_1">
           Design
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_24_1">
+        <label class="md-nav__title" for="__nav_2_25_1">
           <span class="md-nav__icon md-icon"></span>
           Design
         </label>
@@ -2135,7 +2182,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_25" data-md-state="indeterminate" type="checkbox" id="__nav_2_25" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_26" data-md-state="indeterminate" type="checkbox" id="__nav_2_26" checked>
       
       
       
@@ -2154,7 +2201,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Web controller" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_25">
+        <label class="md-nav__title" for="__nav_2_26">
           <span class="md-nav__icon md-icon"></span>
           Web controller
         </label>
@@ -2733,7 +2780,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Longitudinal controller design
+        Longitudinal Controller {#longitudinal-controller-design}
       </a>
       
     </li>
@@ -5358,6 +5405,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_8">
@@ -6116,14 +6165,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../planning/route_handler/">Route handler</a>
+          <a href="../../../../planning/planning_evaluator/">Planning evaluator</a>
           
         </div>
       
-      <nav class="md-nav" aria-label="Route handler" data-md-level="2">
+      <nav class="md-nav" aria-label="Planning evaluator" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_12">
           <span class="md-nav__icon md-icon"></span>
-          Route handler
+          Planning evaluator
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -6161,14 +6210,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../planning/scenario_selector/">Scenario selector</a>
+          <a href="../../../../planning/route_handler/">Route handler</a>
           
         </div>
       
-      <nav class="md-nav" aria-label="Scenario selector" data-md-level="2">
+      <nav class="md-nav" aria-label="Route handler" data-md-level="2">
         <label class="md-nav__title" for="__nav_8_13">
           <span class="md-nav__icon md-icon"></span>
-          Scenario selector
+          Route handler
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -6201,6 +6250,51 @@
             
           
         
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../planning/scenario_selector/">Scenario selector</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Scenario selector" data-md-level="2">
+        <label class="md-nav__title" for="__nav_8_14">
+          <span class="md-nav__icon md-icon"></span>
+          Scenario selector
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_15" data-md-state="indeterminate" type="checkbox" id="__nav_8_15" checked>
+      
+      
+      
+        
+          
+            
+          
+        
           
         
       
@@ -6210,14 +6304,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../../planning/surround_obstacle_checker/">Surround obstacle checker</a>
           
-            <label for="__nav_8_14">
+            <label for="__nav_8_15">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Surround obstacle checker" data-md-level="2">
-        <label class="md-nav__title" for="__nav_8_14">
+        <label class="md-nav__title" for="__nav_8_15">
           <span class="md-nav__icon md-icon"></span>
           Surround obstacle checker
         </label>
@@ -7857,8 +7951,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_12">
@@ -8025,14 +8117,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../vehicle/pacmod_interface/">Pacmod interface</a>
+          <a href="../../../../vehicle/raw_vehicle_cmd_converter/">Raw vehicle cmd converter</a>
           
         </div>
       
-      <nav class="md-nav" aria-label="Pacmod interface" data-md-level="2">
+      <nav class="md-nav" aria-label="Raw vehicle cmd converter" data-md-level="2">
         <label class="md-nav__title" for="__nav_12_3">
           <span class="md-nav__icon md-icon"></span>
-          Pacmod interface
+          Raw vehicle cmd converter
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -8062,61 +8154,16 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../vehicle/raw_vehicle_cmd_converter/">Raw vehicle cmd converter</a>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Raw vehicle cmd converter" data-md-level="2">
-        <label class="md-nav__title" for="__nav_12_4">
-          <span class="md-nav__icon md-icon"></span>
-          Raw vehicle cmd converter
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5" data-md-state="indeterminate" type="checkbox" id="__nav_12_5" checked>
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_12_5">
+        <label class="md-nav__link" for="__nav_12_4">
           Vehicle info util
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Vehicle info util" data-md-level="2">
-        <label class="md-nav__title" for="__nav_12_5">
+        <label class="md-nav__title" for="__nav_12_4">
           <span class="md-nav__icon md-icon"></span>
           Vehicle info util
         </label>
@@ -8182,6 +8229,7 @@
 <a href="https://github.com/autowarefoundation/autoware.universe/edit/main/control/trajectory_follower_nodes/design/longitudinal_controller-design.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
+
 
 
 <h1 id="longitudinal-controller-design">Longitudinal Controller<a class="headerlink" href="#longitudinal-controller-design" title="Permanent link">#</a></h1>
@@ -8305,11 +8353,414 @@ This may be replaced by a higher performance controller (adaptive control or rob
 <p>At high speeds, the delay of actuator systems such as gas pedals and brakes has a significant impact on driving accuracy.
 Depending on the actuating principle of the vehicle, the mechanism that physically controls the gas pedal and brake typically has a delay of about a hundred millisecond.</p>
 <p>In this controller, the predicted ego-velocity and the target velocity after the delay time are calculated and used for the feedback to address the time delay problem.</p>
+<h2 id="parameter-description">Parameter description<a class="headerlink" href="#parameter-description" title="Permanent link">#</a></h2>
+<p>The default parameters defined in <code>param/lateral_controller_defaults.yaml</code> are adjusted to the
+AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">control_rate</td>
+<td align="left">double</td>
+<td align="left">control rate [Hz]</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="left">delay_compensation_time</td>
+<td align="left">double</td>
+<td align="left">delay for longitudinal control [s]</td>
+<td align="left">0.17</td>
+</tr>
+<tr>
+<td align="left">enable_smooth_stop</td>
+<td align="left">bool</td>
+<td align="left">flag to enable transition to STOPPING</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">enable_overshoot_emergency</td>
+<td align="left">bool</td>
+<td align="left">flag to enable transition to EMERGENCY when the ego is over the stop line with a certain distance. See <code>emergency_state_overshoot_stop_dist</code>.</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">enable_slope_compensation</td>
+<td align="left">bool</td>
+<td align="left">flag to modify output acceleration for slope compensation. The source of the slope angle can be selected from ego-pose or trajectory angle. See <code>use_trajectory_for_pitch_calculation</code>.</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">enable_brake_keeping_before_stop</td>
+<td align="left">bool</td>
+<td align="left">flag to keep a certain acceleration during DRIVE state before the ego stops. See <a href="#brake-keeping">Brake keeping</a>.</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">max_acc</td>
+<td align="left">double</td>
+<td align="left">max value of output acceleration [m/s^2]</td>
+<td align="left">3.0</td>
+</tr>
+<tr>
+<td align="left">min_acc</td>
+<td align="left">double</td>
+<td align="left">min value of output acceleration [m/s^2]</td>
+<td align="left">-5.0</td>
+</tr>
+<tr>
+<td align="left">max_jerk</td>
+<td align="left">double</td>
+<td align="left">max value of jerk of output acceleration [m/s^3]</td>
+<td align="left">2.0</td>
+</tr>
+<tr>
+<td align="left">min_jerk</td>
+<td align="left">double</td>
+<td align="left">min value of jerk of output acceleration [m/s^3]</td>
+<td align="left">-5.0</td>
+</tr>
+<tr>
+<td align="left">use_trajectory_for_pitch_calculation</td>
+<td align="left">bool</td>
+<td align="left">If true, the slope is estimated from trajectory z-level. Otherwise the pitch angle of the ego pose is used.</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">lpf_pitch_gain</td>
+<td align="left">double</td>
+<td align="left">gain of low-pass filter for pitch estimation</td>
+<td align="left">0.95</td>
+</tr>
+<tr>
+<td align="left">max_pitch_rad</td>
+<td align="left">double</td>
+<td align="left">max value of estimated pitch [rad]</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left">min_pitch_rad</td>
+<td align="left">double</td>
+<td align="left">min value of estimated pitch [rad]</td>
+<td align="left">-0.1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="state-transition">State transition<a class="headerlink" href="#state-transition" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">drive_state_stop_dist</td>
+<td align="left">double</td>
+<td align="left">The state will transit to DRIVE when the distance to the stop point is longer than <code>drive_state_stop_dist</code> + <code>drive_state_offset_stop_dist</code> [m]</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left">drive_state_offset_stop_dist</td>
+<td align="left">double</td>
+<td align="left">The state will transit to DRIVE when the distance to the stop point is longer than <code>drive_state_stop_dist</code> + <code>drive_state_offset_stop_dist</code> [m]</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">stopping_state_stop_dist</td>
+<td align="left">double</td>
+<td align="left">The state will transit to STOPPING when the distance to the stop point is shorter than <code>stopping_state_stop_dist</code> [m]</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left">stopped_state_entry_vel</td>
+<td align="left">double</td>
+<td align="left">threshold of the ego velocity in transition to the STOPPED state [m/s]</td>
+<td align="left">0.01</td>
+</tr>
+<tr>
+<td align="left">stopped_state_entry_acc</td>
+<td align="left">double</td>
+<td align="left">threshold of the ego acceleration in transition to the STOPPED state [m/s^2]</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left">emergency_state_overshoot_stop_dist</td>
+<td align="left">double</td>
+<td align="left">If <code>enable_overshoot_emergency</code> is true and the ego is <code>emergency_state_overshoot_stop_dist</code>-meter ahead of the stop point, the state will transit to EMERGENCY. [m]</td>
+<td align="left">1.5</td>
+</tr>
+<tr>
+<td align="left">emergency_state_traj_trans_dev</td>
+<td align="left">double</td>
+<td align="left">If the ego's position is <code>emergency_state_traj_tran_dev</code> meter away from the nearest trajectory point, the state will transit to EMERGENCY. [m]</td>
+<td align="left">3.0</td>
+</tr>
+<tr>
+<td align="left">emergency_state_traj_rot_dev</td>
+<td align="left">double</td>
+<td align="left">If the ego's orientation is <code>emergency_state_traj_rot_dev</code> rad away from the nearest trajectory point orientation, the state will transit to EMERGENCY. [rad]</td>
+<td align="left">0.784</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drive-parameter">DRIVE Parameter<a class="headerlink" href="#drive-parameter" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">kp</td>
+<td align="left">double</td>
+<td align="left">p gain for longitudinal control</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">ki</td>
+<td align="left">double</td>
+<td align="left">i gain for longitudinal control</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left">kd</td>
+<td align="left">double</td>
+<td align="left">d gain for longitudinal control</td>
+<td align="left">0.0</td>
+</tr>
+<tr>
+<td align="left">max_out</td>
+<td align="left">double</td>
+<td align="left">max value of PID's output acceleration during DRIVE state [m/s^2]</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">min_out</td>
+<td align="left">double</td>
+<td align="left">min value of PID's output acceleration during DRIVE state [m/s^2]</td>
+<td align="left">-1.0</td>
+</tr>
+<tr>
+<td align="left">max_p_effort</td>
+<td align="left">double</td>
+<td align="left">max value of acceleration with p gain</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">min_p_effort</td>
+<td align="left">double</td>
+<td align="left">min value of acceleration with p gain</td>
+<td align="left">-1.0</td>
+</tr>
+<tr>
+<td align="left">max_i_effort</td>
+<td align="left">double</td>
+<td align="left">max value of acceleration with i gain</td>
+<td align="left">0.3</td>
+</tr>
+<tr>
+<td align="left">min_i_effort</td>
+<td align="left">double</td>
+<td align="left">min value of acceleration with i gain</td>
+<td align="left">-0.3</td>
+</tr>
+<tr>
+<td align="left">max_d_effort</td>
+<td align="left">double</td>
+<td align="left">max value of acceleration with d gain</td>
+<td align="left">0.0</td>
+</tr>
+<tr>
+<td align="left">min_d_effort</td>
+<td align="left">double</td>
+<td align="left">min value of acceleration with d gain</td>
+<td align="left">0.0</td>
+</tr>
+<tr>
+<td align="left">lpf_vel_error_gain</td>
+<td align="left">double</td>
+<td align="left">gain of low-pass filter for velocity error</td>
+<td align="left">0.9</td>
+</tr>
+<tr>
+<td align="left">current_vel_threshold_pid_integration</td>
+<td align="left">double</td>
+<td align="left">Velocity error is integrated for I-term only when the absolute value of current velocity is larger than this parameter. [m/s]</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left">brake_keeping_acc</td>
+<td align="left">double</td>
+<td align="left">If <code>enable_brake_keeping_before_stop</code> is true, a certain acceleration is kept during DRIVE state before the ego stops [m/s^2] See <a href="#brake-keeping">Brake keeping</a>.</td>
+<td align="left">0.2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stopping-parameter-smooth-stop">STOPPING Parameter (smooth stop)<a class="headerlink" href="#stopping-parameter-smooth-stop" title="Permanent link">#</a></h3>
+<p>Smooth stop is enabled if <code>enable_smooth_stop</code> is true.
+In smooth stop, strong acceleration (<code>strong_acc</code>) will be output first to decrease the ego velocity.
+Then weak acceleration (<code>weak_acc</code>) will be output to stop smoothly by decreasing the ego jerk.
+If the ego does not stop in a certain time or some-meter over the stop point, weak acceleration to stop right (<code>weak_stop_acc</code>) now will be output.
+If the ego is still running, strong acceleration (<code>strong_stop_acc</code>) to stop right now will be output.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">smooth_stop_max_strong_acc</td>
+<td align="left">double</td>
+<td align="left">max strong acceleration [m/s^2]</td>
+<td align="left">-0.5</td>
+</tr>
+<tr>
+<td align="left">smooth_stop_min_strong_acc</td>
+<td align="left">double</td>
+<td align="left">min strong acceleration [m/s^2]</td>
+<td align="left">-0.8</td>
+</tr>
+<tr>
+<td align="left">smooth_stop_weak_acc</td>
+<td align="left">double</td>
+<td align="left">weak acceleration [m/s^2]</td>
+<td align="left">-0.3</td>
+</tr>
+<tr>
+<td align="left">smooth_stop_weak_stop_acc</td>
+<td align="left">double</td>
+<td align="left">weak acceleration to stop right now [m/s^2]</td>
+<td align="left">-0.8</td>
+</tr>
+<tr>
+<td align="left">smooth_stop_strong_stop_acc</td>
+<td align="left">double</td>
+<td align="left">strong acceleration to be output when the ego is <code>smooth_stop_strong_stop_dist</code>-meter over the stop point. [m/s^2]</td>
+<td align="left">-3.4</td>
+</tr>
+<tr>
+<td align="left">smooth_stop_max_fast_vel</td>
+<td align="left">double</td>
+<td align="left">max fast vel to judge the ego is running fast [m/s]. If the ego is running fast, strong acceleration will be output.</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left">smooth_stop_min_running_vel</td>
+<td align="left">double</td>
+<td align="left">min ego velocity to judge if the ego is running or not [m/s]</td>
+<td align="left">0.01</td>
+</tr>
+<tr>
+<td align="left">smooth_stop_min_running_acc</td>
+<td align="left">double</td>
+<td align="left">min ego acceleration to judge if the ego is running or not [m/s^2]</td>
+<td align="left">0.01</td>
+</tr>
+<tr>
+<td align="left">smooth_stop_weak_stop_time</td>
+<td align="left">double</td>
+<td align="left">max time to output weak acceleration [s]. After this, strong acceleration will be output.</td>
+<td align="left">0.8</td>
+</tr>
+<tr>
+<td align="left">smooth_stop_weak_stop_dist</td>
+<td align="left">double</td>
+<td align="left">Weak acceleration will be output when the ego is <code>smooth_stop_weak_stop_dist</code>-meter before the stop point. [m]</td>
+<td align="left">-0.3</td>
+</tr>
+<tr>
+<td align="left">smooth_stop_strong_stop_dist</td>
+<td align="left">double</td>
+<td align="left">Strong acceleration will be output when the ego is <code>smooth_stop_strong_stop_dist</code>-meter over the stop point. [m]</td>
+<td align="left">-0.5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stopped-parameter">STOPPED Parameter<a class="headerlink" href="#stopped-parameter" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">stopped_vel</td>
+<td align="left">double</td>
+<td align="left">target velocity in STOPPED state [m/s]</td>
+<td align="left">0.0</td>
+</tr>
+<tr>
+<td align="left">stopped_acc</td>
+<td align="left">double</td>
+<td align="left">target acceleration in STOPPED state [m/s^2]</td>
+<td align="left">-3.4</td>
+</tr>
+<tr>
+<td align="left">stopped_jerk</td>
+<td align="left">double</td>
+<td align="left">target jerk in STOPPED state [m/s^3]</td>
+<td align="left">-5.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="emergency-parameter">EMERGENCY Parameter<a class="headerlink" href="#emergency-parameter" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">emergency_vel</td>
+<td align="left">double</td>
+<td align="left">target velocity in EMERGENCY state [m/s]</td>
+<td align="left">0.0</td>
+</tr>
+<tr>
+<td align="left">emergency_acc</td>
+<td align="left">double</td>
+<td align="left">target acceleration in an EMERGENCY state [m/s^2]</td>
+<td align="left">-5.0</td>
+</tr>
+<tr>
+<td align="left">emergency_jerk</td>
+<td align="left">double</td>
+<td align="left">target jerk in an EMERGENCY state [m/s^3]</td>
+<td align="left">-3.0</td>
+</tr>
+</tbody>
+</table>
 <h1 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h1>
 <h1 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h1>
 <h1 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h1>
 <ul>
-<li>https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1058</li>
+<li><a href="https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1058">https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1058</a></li>
 </ul>
 
               
@@ -8366,7 +8817,7 @@ Depending on the actuating principle of the vehicle, the mechanism that physical
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2021 The Autoware Foundation
+      Copyright &copy; 2022 The Autoware Foundation
     </div>
   
   
@@ -8385,10 +8836,10 @@ Depending on the actuating principle of the vehicle, the mechanism that physical
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.092fa1f6.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.bd0b6b67.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.e3b2bf44.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.8aa65030.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
