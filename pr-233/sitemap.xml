@@ -121,6 +121,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-233/common/tier4_simulated_clock_rviz_plugin/</loc>
+         <lastmod>2022-02-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-233/common/tier4_state_rviz_plugin/</loc>
          <lastmod>2022-02-22</lastmod>
          <changefreq>daily</changefreq>
@@ -207,11 +212,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-233/control/vehicle_cmd_gate/</loc>
-         <lastmod>2022-02-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-233/launch/tier4_autoware_launch/</loc>
          <lastmod>2022-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -481,6 +481,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-233/planning/behavior_path_planner/behavior_path_planner_design_limitations/</loc>
+         <lastmod>2022-02-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-233/planning/behavior_velocity_planner/</loc>
          <lastmod>2022-02-22</lastmod>
          <changefreq>daily</changefreq>
@@ -582,6 +587,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-233/planning/planning_error_monitor/</loc>
+         <lastmod>2022-02-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-233/planning/planning_evaluator/</loc>
          <lastmod>2022-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -832,11 +842,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-233/vehicle/external_cmd_converter/</loc>
-         <lastmod>2022-02-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-233/vehicle/pacmod_interface/</loc>
          <lastmod>2022-02-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
