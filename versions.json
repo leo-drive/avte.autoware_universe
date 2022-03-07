@@ -1,1 +1,22 @@
-[{"version": "pr-245", "title": "pr-245", "aliases": []}, {"version": "pr-233", "title": "pr-233", "aliases": []}, {"version": "main", "title": "main", "aliases": []}]
+[
+  {
+    "version": "pr-482",
+    "title": "pr-482",
+    "aliases": []
+  },
+  {
+    "version": "pr-245",
+    "title": "pr-245",
+    "aliases": []
+  },
+  {
+    "version": "pr-233",
+    "title": "pr-233",
+    "aliases": []
+  },
+  {
+    "version": "main",
+    "title": "main",
+    "aliases": []
+  }
+]
