@@ -15,7 +15,7 @@
     
     
       
-        <title>Map Based Prediction - Autoware Universe Documentation</title>
+        <title>map_based_prediction - Autoware Universe Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#map-based-prediction" class="md-skip">
+        <a href="#map_based_prediction" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Map Based Prediction
+              map_based_prediction
             
           </span>
         </div>
@@ -4805,12 +4805,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Map Based Prediction
+          map_based_prediction
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Map Based Prediction
+        map_based_prediction
       </a>
       
         
@@ -4829,22 +4829,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    Purpose
+  <a href="#role" class="md-nav__link">
+    Role
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#algorithm" class="md-nav__link">
-    Algorithm
+  <a href="#inner-workings-algorithms" class="md-nav__link">
+    Inner-workings / Algorithms
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#assumptionsknown-limits" class="md-nav__link">
-    Assumptions/Known Limits
+  <a href="#inputs-outputs" class="md-nav__link">
+    Inputs / Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs / Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    Input
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    Output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumptions-known-limits" class="md-nav__link">
+    Assumptions / Known limits
   </a>
   
 </li>
@@ -8215,22 +8249,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    Purpose
+  <a href="#role" class="md-nav__link">
+    Role
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#algorithm" class="md-nav__link">
-    Algorithm
+  <a href="#inner-workings-algorithms" class="md-nav__link">
+    Inner-workings / Algorithms
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#assumptionsknown-limits" class="md-nav__link">
-    Assumptions/Known Limits
+  <a href="#inputs-outputs" class="md-nav__link">
+    Inputs / Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs / Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    Input
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    Output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumptions-known-limits" class="md-nav__link">
+    Assumptions / Known limits
   </a>
   
 </li>
@@ -8260,10 +8328,10 @@
 
 
 
-<h1 id="map-based-prediction">Map Based Prediction<a class="headerlink" href="#map-based-prediction" title="Permanent link">#</a></h1>
-<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
-<p><code>map_based_prediction</code> is a module that predicts future trajectories of obstacles based on road shapes and obstacle pose.</p>
-<h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">#</a></h2>
+<h1 id="map_based_prediction">map_based_prediction<a class="headerlink" href="#map_based_prediction" title="Permanent link">#</a></h1>
+<h2 id="role">Role<a class="headerlink" href="#role" title="Permanent link">#</a></h2>
+<p><code>map_based_prediction</code> is a module to predict the future paths of other vehicles and pedestrians according to the shape of the map and the surrounding environment.</p>
+<h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
 <ol>
 <li>
 <p>Get lanelet path
@@ -8288,7 +8356,134 @@
    From the current position and reference trajectories that we get in the step1, we create predicted trajectories by using Quintic polynomial. Note that, since this algorithm consider lateral and longitudinal motions separately, it sometimes generates dynamically-infeasible trajectories when the vehicle travels at a low speed. To deal with this problem, we only make straight line predictions when the vehicle speed is lower than a certain value (which is given as a parameter).</p>
 </li>
 </ol>
-<h2 id="assumptionsknown-limits">Assumptions/Known Limits<a class="headerlink" href="#assumptionsknown-limits" title="Permanent link">#</a></h2>
+<h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
+<h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/perception/object_recognition/tracking/objects</code></td>
+<td><code>autoware_auto_perception_msgs::msg::TrackedObjects</code></td>
+<td>tracking objects without predicted path.</td>
+</tr>
+<tr>
+<td><code>~/vector_map</code></td>
+<td><code>autoware_auto_mapping_msgs::msg::HADMapBin</code></td>
+<td>binary data of Lanelet2 Map.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/objects</code></td>
+<td><code>autoware_auto_perception_msgs::msg::PredictedObjects</code></td>
+<td>tracking objects with predicted path.</td>
+</tr>
+<tr>
+<td><code>~/objects_path_markers</code></td>
+<td><code>visualization_msgs::msg::MarkerArray</code></td>
+<td>marker for visualization.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enable_delay_compensation</code></td>
+<td>bool</td>
+<td>flag to enable the time delay compensation for the position of the object</td>
+</tr>
+<tr>
+<td><code>prediction_time_horizon</code></td>
+<td>double</td>
+<td>predict time duration for predicted path [s]</td>
+</tr>
+<tr>
+<td><code>prediction_sampling_delta_time</code></td>
+<td>double</td>
+<td>sampling time for points in predicted path [s]</td>
+</tr>
+<tr>
+<td><code>min_velocity_for_map_based_prediction</code></td>
+<td>double</td>
+<td>apply map-based prediction to the objects with higher velocity than this value</td>
+</tr>
+<tr>
+<td><code>dist_threshold_for_searching_lanelet</code></td>
+<td>double</td>
+<td>The threshold of the angle used when searching for the lane to which the object belongs [rad]</td>
+</tr>
+<tr>
+<td><code>delta_yaw_threshold_for_searching_lanelet</code></td>
+<td>double</td>
+<td>The threshold of the distance used when searching for the lane to which the object belongs [m]</td>
+</tr>
+<tr>
+<td><code>sigma_lateral_offset</code></td>
+<td>double</td>
+<td>Standard deviation for lateral position of objects [m]</td>
+</tr>
+<tr>
+<td><code>sigma_yaw_angle</code></td>
+<td>double</td>
+<td>Standard deviation yaw angle of objects [rad]</td>
+</tr>
+<tr>
+<td><code>object_buffer_time_length</code></td>
+<td>double</td>
+<td>Time span of object history to store the information [s]</td>
+</tr>
+<tr>
+<td><code>history_time_length</code></td>
+<td>double</td>
+<td>Time span of object information used for prediction [s]</td>
+</tr>
+<tr>
+<td><code>dist_ratio_threshold_to_left_bound</code></td>
+<td>double</td>
+<td>Conditions for using lane change detection of objects. Distance to the left bound of lanelet.</td>
+</tr>
+<tr>
+<td><code>dist_ratio_threshold_to_right_bound</code></td>
+<td>double</td>
+<td>Conditions for using lane change detection of objects. Distance to the right bound of lanelet.</td>
+</tr>
+<tr>
+<td><code>diff_dist_threshold_to_left_bound</code></td>
+<td>double</td>
+<td>Conditions for using lane change detection of objects. Differential value of horizontal position of objects.</td>
+</tr>
+<tr>
+<td><code>diff_dist_threshold_to_right_bound</code></td>
+<td>double</td>
+<td>Conditions for using lane change detection of objects. Differential value of horizontal position of objects.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
 <p><code>map_based_prediction</code> can only predict future trajectories for cars, tracks and buses.</p>
 <h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">#</a></h2>
 <ol>
