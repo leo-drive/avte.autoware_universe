@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vehicle-constants-manager-package-design" class="md-skip">
+        <a href="#macro-syntax-error" class="md-skip">
           Skip to content
         </a>
       
@@ -8166,120 +8166,10 @@
 
 
 
-<h1 id="vehicle-constants-manager-package-design">vehicle_constants_manager<a class="headerlink" href="#vehicle-constants-manager-package-design" title="Permanent link">#</a></h1>
-<p>This is the design document for the <code>vehicle_constants_manager</code> package.</p>
-<h1 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h1>
-<!-- Required -->
-<!-- Things to consider:
-    - Why did we implement this feature? -->
-
-<p>This library provides a struct for holding vehicle specific constants. It also
-provides a helper method to declare vehicle specific constants which have
-already been passed into a node and provide a <code>VehicleConstants</code> object.</p>
-<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
-<!-- Required -->
-<!-- Things to consider:
-    - How does it work? -->
-<p>Provided <code>VehicleConstants</code> struct holds vehicle parameters. Its parameters can
-be split in 2 categories:
-(The detailed descriptions and units of the variables is in the
-<code>vehicle_constants_manager.hpp</code> file.)</p>
-<ul>
-<li>Primary Constants
-    - wheel_radius
-    - wheel_width
-    - wheel_base
-    - wheel_tread
-    - overhang_front
-    - overhang_rear
-    - overhang_left
-    - overhang_right
-    - vehicle_height
-    - cg_to_rear
-    - tire_cornering_stiffness_front_n_per_deg
-    - tire_cornering_stiffness_rear_n_per_deg
-    - mass_vehicle
-    - inertia_yaw_kg_m_2</li>
-<li>Derived Constants
-    - cg_to_front
-    - vehicle_length
-    - vehicle_width
-    - offset_longitudinal_min
-    - offset_longitudinal_max
-    - offset_lateral_min
-    - offset_lateral_max
-    - offset_height_min
-    - offset_height_max</li>
-</ul>
-<p>The <code>VehicleConstants</code> constructor is initialized with the primary parameters.</p>
-<p>The library also provides a <code>declare_and_get_vehicle_constants</code> method. Using
-this method, the user can declare vehicle parameters that are already passed
-into the node and obtain a <code>VehicleConstants</code> object.</p>
-<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<!-- Required -->
-
-<p>This library assumes the vehicle is defined with Ackermann steering geometry.</p>
-<p><code>declare_and_get_vehicle_constants</code> method requires the passed node to have following parameters overridden:</p>
-<p>(Pay attention to the <code>vehicle</code> namespace)
-<div class="highlight"><pre><span></span><code><span class="nt">vehicle</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">wheel_radius</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">wheel_width</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">wheel_base</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">wheel_tread</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">overhang_front</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">overhang_rear</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">overhang_left</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">overhang_right</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">vehicle_height</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">cg_to_rear</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">tire_cornering_stiffness_front_n_per_deg</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">tire_cornering_stiffness_rear_n_per_deg</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mass_vehicle</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">inertia_yaw_kg_m_2</span><span class="p">:</span><span class="w"></span>
+<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
+<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
+<div class="highlight"><pre><span></span><code><span class="n">vehicle_constants_manager</span> <span class="p">{</span><span class="c1">#vehicle-constants-manager-package-design}</span>
 </code></pre></div></p>
-<h2 id="vehicle-constants-manager-package-design-inputs">Inputs / Outputs / API<a class="headerlink" href="#vehicle-constants-manager-package-design-inputs" title="Permanent link">#</a></h2>
-<!-- Required -->
-<!-- Things to consider:
-    - How do you use the package / API? -->
-
-<p>The constructor of <code>VehicleConstants</code> takes the primary vehicle constants and
-generates the derived parameters.</p>
-<p><code>declare_and_get_vehicle_constants</code> method takes a <code>rclcpp::Node</code> object. And 
-returns a <code>VehicleConstants</code> object if it succeeds.</p>
-<p>Example usage:
-<div class="highlight"><pre><span></span><code><span class="c1">// In the constructor of a node which received primary vehicle parameters from a</span>
-<span class="c1">// .yaml file or run args.</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">vehicle_constants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">declare_and_get_vehicle_constants</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
-<!-- If applicable -->
-<p>Not Available.</p>
-<h2 id="error-detection-and-handling">Error detection and handling<a class="headerlink" href="#error-detection-and-handling" title="Permanent link">#</a></h2>
-<!-- Required -->
-
-<p>The <code>VehicleConstants</code> struct performs some sanity checks upon construction.</p>
-<p>It will throw <code>std::runtime_error</code> in case certain parameters are negative or
-cg_to_rear is larger than wheel_base (to ensure center of gravity is within
-front and rear axles.)</p>
-<h1 id="security-considerations">Security considerations<a class="headerlink" href="#security-considerations" title="Permanent link">#</a></h1>
-<!-- Required -->
-<!-- Things to consider:
-- Spoofing (How do you check for and handle fake input?)
-- Tampering (How do you check for and handle tampered input?)
-- Repudiation (How are you affected by the actions of external actors?).
-- Information Disclosure (Can data leak?).
-- Denial of Service (How do you handle spamming?).
-- Elevation of Privilege (Do you need to change permission levels during execution?) -->
-<p>To Be Determined.</p>
-<h1 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h1>
-<!-- Optional -->
-<p>Not Available.</p>
-<h1 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h1>
-<!-- Optional -->
-<p>Not Available.</p>
-<h1 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h1>
-<!-- Required -->
-<p>https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1294</p>
 
               
             </article>
