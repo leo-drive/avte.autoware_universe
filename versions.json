@@ -12,7 +12,9 @@
   {
     "version": "pr-245",
     "title": "pr-245",
-    "aliases": []
+    "aliases": [
+      "latest"
+    ]
   },
   {
     "version": "pr-233",
@@ -22,8 +24,6 @@
   {
     "version": "main",
     "title": "main",
-    "aliases": [
-      "latest"
-    ]
+    "aliases": []
   }
 ]
