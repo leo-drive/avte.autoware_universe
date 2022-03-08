@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-245/common/autoware_auto_tf2/design/autoware-auto-tf2-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/common/autoware_auto_tf2/design/autoware-auto-tf2-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#autoware-auto-tf2-design" class="md-skip">
           Skip to content
         </a>
       
@@ -4786,17 +4786,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4805,6 +4801,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -5494,8 +5502,6 @@
         
           
         
-          
-        
       
       
         
@@ -5638,20 +5644,6 @@
     <li class="md-nav__item">
       <a href="../../../../planning/behavior_velocity_planner/traffic-light-design/" class="md-nav__link">
         Traffic light design
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../planning/behavior_velocity_planner/virtual-traffic-light-design/" class="md-nav__link">
-        Virtual traffic light design
       </a>
     </li>
   
@@ -8182,10 +8174,144 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="n">autoware_auto_tf2</span> <span class="p">{</span><span class="c1">#autoware-auto-tf2-design}</span>
+<h1 id="autoware-auto-tf2-design">autoware_auto_tf2<a class="headerlink" href="#autoware-auto-tf2-design" title="Permanent link">#</a></h1>
+<p>This is the design document for the <code>autoware_auto_tf2</code> package.</p>
+<h1 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h1>
+<p>In general, users of ROS rely on tf (and its successor, tf2) for publishing and utilizing coordinate
+frame transforms. This is true even to the extent that the tf2 contains the packages
+<code>tf2_geometry_msgs</code> and <code>tf2_sensor_msgs</code> which allow for easy conversion to and from the message
+types defined in <code>geometry_msgs</code> and <code>sensor_msgs</code>, respectively. However, AutowareAuto contains
+some specialized message types which are not transformable between frames using the ROS2 library.
+The <code>autoware_auto_tf2</code> package aims to provide developers with tools to transform applicable
+<code>autoware_auto_msgs</code> types. In addition to this, this package also provides transform tools for
+messages types in <code>geometry_msgs</code> missing in <code>tf2_geometry_msgs</code>.</p>
+<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
+<p>While writing <code>tf2_some_msgs</code> or contributing to <code>tf2_geometry_msgs</code>, compatibility and design
+intent was ensured with the following files in the existing tf2 framework:
+ * <code>tf2/convert.h</code>
+ * <code>tf2_ros/buffer_interface.h</code></p>
+<p>For example:
+<div class="highlight"><pre><span></span><code>void tf2::convert( const A &amp; a,B &amp; b)
 </code></pre></div></p>
+<p>The method <code>tf2::convert</code> is dependent on the following:
+<div class="highlight"><pre><span></span><code>template&lt;typename A, typename B&gt;
+  B tf2::toMsg(const A&amp; a);
+template&lt;typename A, typename B&gt;
+  void tf2::fromMsg(const A&amp;, B&amp; b);
+
+// New way to transform instead of using tf2::doTransform() directly
+tf2_ros::BufferInterface::transform(...)
+</code></pre></div></p>
+<p>Which, in turn, is dependent on the following:
+<div class="highlight"><pre><span></span><code>void tf2::convert( const A &amp; a,B &amp; b)
+const std::string&amp; tf2::getFrameId(const T&amp; t)
+const ros::Time&amp; tf2::getTimestamp(const T&amp; t);
+</code></pre></div></p>
+<h2 id="current-implementation-of-tf2_geometry_msgs">Current Implementation of tf2_geometry_msgs<a class="headerlink" href="#current-implementation-of-tf2_geometry_msgs" title="Permanent link">#</a></h2>
+<p>In both ROS1 and ROS2 stamped msgs like <code>Vector3Stamped</code>, <code>QuaternionStamped</code> have associated
+functions like:
+ * <code>getTimestamp</code>
+ * <code>getFrameId</code>
+ * <code>doTransform</code>
+ * <code>toMsg</code>
+ * <code>fromMsg</code></p>
+<p>In ROS1, to support <code>tf2::convert</code> and need in <code>doTransform</code> of the stamped data, non-stamped
+underlying data like <code>Vector3</code>, <code>Point</code>, have implementations of the following functions:
+ * <code>toMsg</code>
+ * <code>fromMsg</code></p>
+<p>In ROS2, much of the <code>doTransform</code> method is not using <code>toMsg</code> and <code>fromMsg</code> as data types from tf2
+are not used. Instead <code>doTransform</code> is done using <code>KDL</code>, thus functions relating to underlying data
+were not added; such as <code>Vector3</code>, <code>Point</code>, or ported in this commit ros/geometry2/commit/6f2a82.
+The non-stamped data with <code>toMsg</code> and <code>fromMsg</code> are <code>Quaternion</code>, <code>Transform</code>. <code>Pose</code> has the
+modified <code>toMsg</code> and not used by <code>PoseStamped</code>.</p>
+<h2 id="plan-for-autoware_auto_perception_msgsmsgboundingboxarray">Plan for autoware_auto_perception_msgs::msg::BoundingBoxArray<a class="headerlink" href="#plan-for-autoware_auto_perception_msgsmsgboundingboxarray" title="Permanent link">#</a></h2>
+<p>The initial rough plan was to implement some of the common tf2 functions like <code>toMsg</code>, <code>fromMsg</code>,
+and <code>doTransform</code>, as needed for all the underlying data types in <code>BoundingBoxArray</code>. Examples
+of the data types include: <code>BoundingBox</code>, <code>Quaternion32</code>, and <code>Point32</code>. In addition, the
+implementation should be done such that upstream contributions could also be made to <code>geometry_msgs</code>.</p>
+<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
+<p>Due to conflicts in a function signatures, the predefined template of <code>convert.h</code>/
+<code>transform_functions.h</code> is not followed and compatibility with <code>tf2::convert(..)</code> is broken and
+<code>toMsg</code> is written differently.
+<div class="highlight"><pre><span></span><code>// Old style
+geometry_msgs::Vector3 toMsg(const tf2::Vector3&amp; in)
+geometry_msgs::Point&amp; toMsg(const tf2::Vector3&amp; in)
+
+// New style
+geometry_msgs::Point&amp; toMsg(const tf2::Vector3&amp; in, geometry_msgs::Point&amp; out)
+</code></pre></div></p>
+<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
+<!-- Required -->
+
+<p>The library provides API <code>doTransform</code> for the following data-types that are either not available
+in <code>tf2_geometry_msgs</code> or the messages types are part of <code>autoware_auto_msgs</code> and are therefore
+custom and not inherently supported by any of the tf2 libraries. The following APIs are provided
+for the following data types:</p>
+<ul>
+<li><code>Point32</code>
+<div class="highlight"><pre><span></span><code>inline void doTransform(
+  const geometry_msgs::msg::Point32 &amp; t_in,
+  geometry_msgs::msg::Point32 &amp; t_out,
+  const geometry_msgs::msg::TransformStamped &amp; transform)
+</code></pre></div></li>
+<li><code>Quarternion32</code> (<code>autoware_auto_msgs</code>)
+<div class="highlight"><pre><span></span><code>inline void doTransform(
+  const autoware_auto_geometry_msgs::msg::Quaternion32 &amp; t_in,
+  autoware_auto_geometry_msgs::msg::Quaternion32 &amp; t_out,
+  const geometry_msgs::msg::TransformStamped &amp; transform)
+</code></pre></div></li>
+<li><code>BoundingBox</code> (<code>autoware_auto_msgs</code>)
+<div class="highlight"><pre><span></span><code>inline void doTransform(
+  const BoundingBox &amp; t_in, BoundingBox &amp; t_out,
+  const geometry_msgs::msg::TransformStamped &amp; transform)
+</code></pre></div></li>
+<li><code>BoundingBoxArray</code>
+<div class="highlight"><pre><span></span><code>inline void doTransform(
+  const BoundingBoxArray &amp; t_in,
+  BoundingBoxArray &amp; t_out,
+  const geometry_msgs::msg::TransformStamped &amp; transform)
+</code></pre></div></li>
+</ul>
+<p>In addition, the following helper methods are also added:
+* <code>BoundingBoxArray</code>
+<div class="highlight"><pre><span></span><code>inline tf2::TimePoint getTimestamp(const BoundingBoxArray &amp; t)
+
+inline std::string getFrameId(const BoundingBoxArray &amp; t)
+</code></pre></div></p>
+<!-- ## Inner-workings / Algorithms -->
+<!-- If applicable -->
+
+<!-- ## Error detection and handling -->
+<!-- Required -->
+
+<!-- # Security considerations -->
+<!-- Required -->
+<!-- Things to consider:
+- Spoofing (How do you check for and handle fake input?)
+- Tampering (How do you check for and handle tampered input?)
+- Repudiation (How are you affected by the actions of external actors?).
+- Information Disclosure (Can data leak?).
+- Denial of Service (How do you handle spamming?).
+- Elevation of Privilege (Do you need to change permission levels during execution?) -->
+
+<!-- # References / External links -->
+<!-- Optional -->
+
+<h1 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h1>
+<h2 id="challenges">Challenges<a class="headerlink" href="#challenges" title="Permanent link">#</a></h2>
+<ul>
+<li><code>tf2_geometry_msgs</code> does not implement <code>doTransform</code> for any non-stamped datatypes, but it is
+ possible with the same function template. It is needed when transforming sub-data, with main data
+ that does have a stamp and can call doTransform on the sub-data with the same transform. Is this a useful upstream contribution?</li>
+<li><code>tf2_geometry_msgs</code> does not have <code>Point</code>, <code>Point32</code>, does not seem it needs one, also the
+ implementation of non-standard <code>toMsg</code> would not help the convert.</li>
+<li><code>BoundingBox</code> uses 32-bit float like <code>Quaternion32</code> and <code>Point32</code> to save space, as they are used
+ repeatedly in <code>BoundingBoxArray</code>. While transforming is it better to convert to 64-bit <code>Quaternion</code>,
+ <code>Point</code>, or <code>PoseStamped</code>, to re-use existing implementation of <code>doTransform</code>, or does it need to be
+ implemented? Templatization may not be simple.</li>
+</ul>
+<!-- # Related issues -->
+<!-- Required -->
 
               
             </article>

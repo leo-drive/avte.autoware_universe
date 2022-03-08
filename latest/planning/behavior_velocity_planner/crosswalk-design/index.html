@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-245/planning/behavior_velocity_planner/crosswalk-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/planning/behavior_velocity_planner/crosswalk-design/">
       
       <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -4770,17 +4770,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4789,6 +4785,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -5482,8 +5490,6 @@
         
           
         
-          
-        
       
       
         
@@ -5805,20 +5811,6 @@
     <li class="md-nav__item">
       <a href="../traffic-light-design/" class="md-nav__link">
         Traffic light design
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../virtual-traffic-light-design/" class="md-nav__link">
-        Virtual traffic light design
       </a>
     </li>
   
@@ -8597,14 +8589,14 @@
 <p>flow chart is almost the same as stop line.</p>
 <h3 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">#</a></h3>
 <h4 id="crosswalk_1">Crosswalk<a class="headerlink" href="#crosswalk_1" title="Permanent link">#</a></h4>
-<p>横断歩道モジュールで停止を送る場合自車両が注視すべき箇所であるかどうかにかかわらず経路上のすべての横断歩道での停止が機能してしまいます。</p>
 <ul>
-<li>External crosswalk stop commands are applied to all registered crosswalk instances, because this module cannot specify which stop should be activated externally.
-  減速速度は 10[km/h]と一定の値を取っていますが、自車が停止に必要な距離などは考慮されていません。</li>
-<li>The deceleration speed from the deceleration area logic is set to a constant value (10 [km/h]), which means this module does not consider exact distance to stop.</li>
+<li>The logic for determining speed should be set more strictly from safety reasons.</li>
+<li>The deceleration speed from the deceleration area logic is set to a constant value (10 [km/h]), which does not take into account the safety distance from obstacles.</li>
 </ul>
 <h4 id="walkway">Walkway<a class="headerlink" href="#walkway" title="Permanent link">#</a></h4>
-<p>tbd.</p>
+<ul>
+<li>If the vehicle exceeds the stop line more than the threshold distance, this module will get stuck in STOP state and will not start moving.</li>
+</ul>
 
               
             </article>

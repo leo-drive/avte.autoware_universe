@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-245/common/autoware_auto_common/design/comparisons/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/common/autoware_auto_common/design/comparisons/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#helper-comparisons" class="md-skip">
           Skip to content
         </a>
       
@@ -4786,17 +4786,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4805,6 +4801,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -5494,8 +5502,6 @@
         
           
         
-          
-        
       
       
         
@@ -5638,20 +5644,6 @@
     <li class="md-nav__item">
       <a href="../../../../planning/behavior_velocity_planner/traffic-light-design/" class="md-nav__link">
         Traffic light design
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../planning/behavior_velocity_planner/virtual-traffic-light-design/" class="md-nav__link">
-        Virtual traffic light design
       </a>
     </li>
   
@@ -8182,10 +8174,63 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="n">Comparisons</span> <span class="p">{</span><span class="c1">#helper-comparisons}</span>
-</code></pre></div></p>
+<h1 id="helper-comparisons">Comparisons<a class="headerlink" href="#helper-comparisons" title="Permanent link">#</a></h1>
+<p>The <code>float_comparisons.hpp</code> library is a simple set of functions for performing approximate numerical comparisons.
+There are separate functions for performing comparisons using absolute bounds and relative bounds. Absolute comparison checks are prefixed with <code>abs_</code> and relative checks are prefixed with <code>rel_</code>.</p>
+<p>The <code>bool_comparisons.hpp</code> library additionally contains an XOR operator.</p>
+<p>The intent of the library is to improve readability of code and reduce likelihood of typographical errors when using numerical and boolean comparisons.</p>
+<h1 id="target-use-cases">Target use cases<a class="headerlink" href="#target-use-cases" title="Permanent link">#</a></h1>
+<p>The approximate comparisons are intended to be used to check whether two numbers lie within some absolute or relative interval.
+The <code>exclusive_or</code> function will test whether two values cast to different boolean values.</p>
+<h1 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">#</a></h1>
+<ul>
+<li>The approximate comparisons all take an <code>epsilon</code> parameter.
+The value of this parameter must be &gt;= 0.</li>
+<li>The library is only intended to be used with floating point types.
+A static assertion will be thrown if the library is used with a non-floating point type.</li>
+</ul>
+<h1 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link">#</a></h1>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;common/bool_comparisons.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;common/float_comparisons.hpp&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// using-directive is just for illustration; don&#39;t do this in practice</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">autoware</span><span class="o">::</span><span class="nn">common</span><span class="o">::</span><span class="nn">helper_functions</span><span class="o">::</span><span class="nn">comparisons</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">epsilon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">relative_epsilon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.01</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">exclusive_or</span><span class="p">(</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Prints: true</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">rel_eq</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="n">relative_epsilon</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Prints: false</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">approx_eq</span><span class="p">(</span><span class="mf">10000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">10010.0</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">,</span><span class="w"> </span><span class="n">relative_epsilon</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Prints: true</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">abs_eq</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.2</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Prints: true</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">abs_ne</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.2</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Prints: false</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">abs_eq_zero</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Prints: false</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">abs_lt</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.25</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Prints: true</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">abs_lte</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Prints: true</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">abs_gt</span><span class="p">(</span><span class="mf">1.25</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Prints: true</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">abs_gte</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">epsilon</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// Prints: false</span>
+</code></pre></div>
 
               
             </article>

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-245/common/osqp_interface/design/osqp_interface-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/common/osqp_interface/design/osqp_interface-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#osqp_interface-package-design" class="md-skip">
           Skip to content
         </a>
       
@@ -4786,17 +4786,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4805,6 +4801,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -5494,8 +5502,6 @@
         
           
         
-          
-        
       
       
         
@@ -5638,20 +5644,6 @@
     <li class="md-nav__item">
       <a href="../../../../planning/behavior_velocity_planner/traffic-light-design/" class="md-nav__link">
         Traffic light design
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../planning/behavior_velocity_planner/virtual-traffic-light-design/" class="md-nav__link">
-        Virtual traffic light design
       </a>
     </li>
   
@@ -8182,10 +8174,54 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="n">Interface</span> <span class="k">for</span> <span class="n">the</span> <span class="n">OSQP</span> <span class="n">library</span> <span class="p">{</span><span class="c1">#osqp_interface-package-design}</span>
+<h1 id="osqp_interface-package-design">Interface for the OSQP library<a class="headerlink" href="#osqp_interface-package-design" title="Permanent link">#</a></h1>
+<p>This is the design document for the <code>osqp_interface</code> package.</p>
+<h1 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h1>
+<!-- Required -->
+<!-- Things to consider:
+    - Why did we implement this feature? -->
+<p>This packages provides a C++ interface for the <a href="https://osqp.org/docs/solver/index.html">OSQP library</a>.</p>
+<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
+<!-- Required -->
+<!-- Things to consider:
+    - How does it work? -->
+<p>The class <code>OSQPInterface</code> takes a problem formulation as Eigen matrices and vectors, converts these objects into
+C-style Compressed-Column-Sparse matrices and dynamic arrays, loads the data into the OSQP workspace dataholder, and runs the optimizer.</p>
+<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+    - How do you use the package / API? -->
+<p>The interface can be used in several ways:</p>
+<p>1. Initialize the interface WITHOUT data. Load the problem formulation at the optimization call.
+   <div class="highlight"><pre><span></span><code>     osqp_interface = OSQPInterface();
+     osqp_interface.optimize(P, A, q, l, u);
 </code></pre></div></p>
+<p>2. Initialize the interface WITH data.
+   <div class="highlight"><pre><span></span><code>     osqp_interface = OSQPInterface(P, A, q, l, u);
+     osqp_interface.optimize();
+</code></pre></div></p>
+<p>3. WARM START OPTIMIZATION by modifying the problem formulation between optimization runs.
+   <div class="highlight"><pre><span></span><code>     osqp_interface = OSQPInterface(P, A, q, l, u);
+     osqp_interface.optimize();
+     osqp.initializeProblem(P_new, A_new, q_new, l_new, u_new);
+     osqp_interface.optimize();
+</code></pre></div></p>
+<p>The optimization results are returned as a vector by the optimization function.
+<div class="highlight"><pre><span></span><code> std::tuple&lt;std::vector&lt;double&gt;, std::vector&lt;double&gt;&gt; result = osqp_interface.optimize();
+ std::vector&lt;double&gt; param = std::get&lt;0&gt;(result);
+ double x_0 = param[0];
+ double x_1 = param[1];
+</code></pre></div></p>
+<h1 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h1>
+<!-- Optional -->
+<ul>
+<li>OSQP library: https://osqp.org/</li>
+</ul>
+<h1 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h1>
+<!-- Required -->
+<ul>
+<li>This package was introduced as a dependency of the MPC-based lateral controller: https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1057</li>
+</ul>
 
               
             </article>
