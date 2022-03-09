@@ -8883,8 +8883,16 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
 <td align="left">Prevents the generated path to come too close to the road shoulders.</td>
 <td align="left">0.5</td>
 </tr>
+<tr>
+<td align="left">avoidance_execution_lateral_threshold</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">The lateral distance deviation threshold between the current path and suggested avoidance point to execute avoidance. (*2)</td>
+<td align="left">0.5</td>
+</tr>
 </tbody>
 </table>
+<p>(*2) If there are multiple vehicles in a row to be avoided, no new avoidance path will be generated unless their lateral margin difference exceeds this value.</p>
 <h3 id="speed-limit-modification">Speed limit modification<a class="headerlink" href="#speed-limit-modification" title="Permanent link">#</a></h3>
 <table>
 <thead>
