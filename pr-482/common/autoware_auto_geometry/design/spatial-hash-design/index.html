@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#geometry-spatial-hash" class="md-skip">
+        <a href="#macro-syntax-error" class="md-skip">
           Skip to content
         </a>
       
@@ -8166,83 +8166,10 @@
 
 
 
-<h1 id="geometry-spatial-hash">Spatial Hash<a class="headerlink" href="#geometry-spatial-hash" title="Permanent link">#</a></h1>
-<p>The spatial hash is a data structure designed for efficient fixed-radius near-neighbor queries in
-low dimensions.</p>
-<p>The fixed-radius near-neighbors problem is defined as follows:</p>
-<p><code>For point p, find all points p' s.t. d(p, p') &lt; r</code></p>
-<p>Where in this case <code>d(p, p')</code> is euclidean distance, and <code>r</code> is the fixed
-radius.</p>
-<p>For <code>n</code> points with an average of <code>k</code> neighbors each, this data structure can
-perform <code>m</code> near-neighbor queries (to generate lists of near-neighbors for <code>m</code>
-  different points) in <code>O(mk)</code> time.</p>
-<p>By contrast, using a k-d tree for successive nearest-neighbor queries results in
-a running time of <code>O(m log n)</code>.</p>
-<p>The spatial hash works as follows:</p>
-<ul>
-<li>Each point is assigned to a bin in the predefined bounding area defined by
-<code>x_min/x_max</code> and <code>y_min/y_max</code></li>
-<li>This can be done by converting x and y position into x and y index
-respectively
-    - For example with the bin containing <code>x_min</code> and <code>y_min</code> as index <code>(0, 0)</code>
-    - The two (or more) indices can then be converted into a single index</li>
-<li>Once every point of interest has been inserted into the hash, near-neighbor
-queries can begin:
-    - The bin of the reference point is first computed
-    - For each point in each adjacent bin, perform an explicit distance computation
-  between said point and the reference point. If the distance is below the given
-  radius, said point is considered to be a near-neighbor</li>
-</ul>
-<p>Under the hood, an <code>std::unordered_multimap</code> is used, where the key is a bin/voxel index.
-The bin size was computed to be the same as the lookup distance.</p>
-<p>In addition, this data structure can support 2D or 3D queries. This is determined during
-configuration, and baked into the data structure via the configuration class. The purpose of
-this was to avoid if statements in tight loops. The configuration class specializations themself
-use CRTP (Curiously Recurring Template Patterns) to do "static polymorphism", and avoid
-a dispatching call.</p>
-<h1 id="performance-characterization">Performance characterization<a class="headerlink" href="#performance-characterization" title="Permanent link">#</a></h1>
-<h2 id="time">Time<a class="headerlink" href="#time" title="Permanent link">#</a></h2>
-<p>Insertion is <code>O(n)</code> because lookup time for the underlying hashmap is <code>O(n)</code> for
-hashmaps. In practice, lookup time for hashmaps and thus insertion time should
-be <code>O(1)</code>.</p>
-<p>Removing a point is <code>O(1)</code> because the current API only supports removal via
-direct reference to a node.</p>
-<p>Finding <code>k</code> near-neighbors is worst case <code>O(n)</code> in the case of an adversarial
-example, but in practice <code>O(k)</code>.</p>
-<h2 id="space">Space<a class="headerlink" href="#space" title="Permanent link">#</a></h2>
-<p>The module consists of the following components:</p>
-<ul>
-<li>The internal hashmap is <code>O(n + n + A * n)</code>, where <code>A</code> is an arbitrary
-constant (load factor)</li>
-<li>The other components of the spatial hash are <code>O(n + n)</code></li>
-</ul>
-<p>This results in <code>O(n)</code> space complexity.</p>
-<h1 id="states">States<a class="headerlink" href="#states" title="Permanent link">#</a></h1>
-<p>The spatial hash's state is dictated by the status of the underlying unordered_multimap.</p>
-<p>The data structure is wholly configured by a
-<a href="@ref autoware::common::geometry::spatial_hash::Config">config</a> class. The constructor
-of the class determines in the data structure accepts strictly 2D or strictly 3D queries.</p>
-<h1 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h1>
-<p>The primary method of introducing data into the data structure is via the
-<a href="@ref autoware::common::geometry::spatial_hash::SpatialHashBase::insert">insert</a> method.</p>
-<h1 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h1>
-<p>The primary method of retrieving data from the data structure is via the
-<a href="@ref autoware::common::geometry::spatial_hash::SpatialHash&lt;PointT, Config2d&gt;::near">near</a><span class="arithmatex"><span class="MathJax_Preview">2D
-configuration</span><script type="math/tex">2D
-configuration</script></span>
-or <a href="@ref autoware::common::geometry::spatial_hash::SpatialHash&lt;PointT, Config3d&gt;::near">near</a>
-<span class="arithmatex"><span class="MathJax_Preview">3D configuration</span><script type="math/tex">3D configuration</script></span> method.</p>
-<p>The whole data structure can also be traversed using standard constant iterators.</p>
-<h2 id="future-work">Future Work<a class="headerlink" href="#future-work" title="Permanent link">#</a></h2>
-<ul>
-<li>Performance tuning and optimization</li>
-</ul>
-<h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
-<ul>
-<li>
-<h1 id="28-port-to-autowareauto">28: Port to autoware.Auto<a class="headerlink" href="#28-port-to-autowareauto" title="Permanent link">#</a></h1>
-</li>
-</ul>
+<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
+<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
+<div class="highlight"><pre><span></span><code><span class="n">Spatial</span> <span class="n">Hash</span> <span class="p">{</span><span class="c1">#geometry-spatial-hash}</span>
+</code></pre></div></p>
 
               
             </article>

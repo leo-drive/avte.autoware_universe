@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#geometry-interval" class="md-skip">
+        <a href="#macro-syntax-error" class="md-skip">
           Skip to content
         </a>
       
@@ -8166,113 +8166,10 @@
 
 
 
-<h1 id="geometry-interval">Interval<a class="headerlink" href="#geometry-interval" title="Permanent link">#</a></h1>
-<p>The interval is a standard 1D real-valued interval.
-The class implements a representation and operations on the interval type and guarantees interval validity on construction.
-Basic operations and  accessors are implemented, as well as other common operations.
-See 'Example Usage' below.</p>
-<h1 id="target-use-cases">Target use cases<a class="headerlink" href="#target-use-cases" title="Permanent link">#</a></h1>
-<ul>
-<li>Range or containment checks.
-The interval class simplifies code that involves checking membership of a value to a range, or intersecting two ranges.
-It also provides consistent behavior and consistent handling of edge cases.</li>
-</ul>
-<h1 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">#</a></h1>
-<ul>
-<li><strong>empty</strong>: An empty interval is equivalent to an empty set.
-It contains no elements.
-It is a valid interval, but because it is empty, the notion of measure (length) is undefined; the measure of an empty interval is <em>not</em> zero.
-The implementation represents the measure of an empty interval with <code>NaN</code>.</li>
-<li><strong>zero measure</strong>: An interval with zero measure is an interval whose bounds are exactly equal.
-The measure is zero because the interval contains only a single point, and points have zero measure.
-However, because it does contain a single element, the interval is <em>not</em> empty.</li>
-<li><strong>valid</strong>: A valid interval is either empty or has min/max bounds such that (min &lt;= max). On construction, interval objects are guaranteed to be valid.
-An attempt to construct an invalid interval results in a runtime_error exception being thrown.</li>
-<li><strong>pseudo-immutable</strong>: Once constructed the only way to change the value of an interval is to overwrite it with a new one; an existing object cannot be modified.</li>
-</ul>
-<h1 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">#</a></h1>
-<ul>
-<li>All operations on interval objects are defined as static class methods on the interval class.
-This is a functional-style of programming that basically turns the class into a namespace that grants functions access to private member variables of the object they operate on.</li>
-</ul>
-<h1 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">#</a></h1>
-<ul>
-<li>The interval is only intended for floating point types.
-This is enforced via static assertion.</li>
-<li>The constructor for non-empty intervals takes two arguments 'min' and 'max', and they must be ordered (i.e., min &lt;= max).
-If this assumption is violated, an exception is emitted and construction fails.</li>
-</ul>
-<h1 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link">#</a></h1>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;geometry/interval.hpp&quot;</span><span class="cp"></span>
-
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="c1">// using-directive is just for illustration; don&#39;t do this in practice</span>
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">autoware</span><span class="o">::</span><span class="nn">common</span><span class="o">::</span><span class="nn">geometry</span><span class="p">;</span><span class="w"></span>
-
-<span class="c1">// bounds for example interval</span>
-<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
-<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span><span class="w"></span>
-
-<span class="c1">//</span>
-<span class="c1">// Try to construct an invalid interval. This will give the following error:</span>
-<span class="c1">// &#39;Attempted to construct an invalid interval: {&quot;min&quot;: 1.0, &quot;max&quot;: 0.0}&#39;</span>
-<span class="c1">//</span>
-
-<span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Interval_d</span><span class="p">(</span><span class="n">MAX</span><span class="p">,</span><span class="w"> </span><span class="n">MIN</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1">//</span>
-<span class="c1">// Construct a double precision interval from 0 to 1</span>
-<span class="c1">//</span>
-
-<span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Interval_d</span><span class="p">(</span><span class="n">MIN</span><span class="p">,</span><span class="w"> </span><span class="n">MAX</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">//</span>
-<span class="c1">// Test accessors and properties</span>
-<span class="c1">//</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">  </span>
-<span class="c1">// Prints: 0.0 1.0</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">empty</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">length</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="c1">// Prints: false 1.0</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">contains</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="c1">// Prints: true</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">is_subset_eq</span><span class="p">(</span><span class="n">Interval_d</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="c1">// Prints: true</span>
-
-<span class="c1">//</span>
-<span class="c1">// Test operations.</span>
-<span class="c1">//</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">intersect</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">Interval</span><span class="p">(</span><span class="mf">-1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="c1">// Prints: {&quot;min&quot;: 0.0, &quot;max&quot;: 0.3}</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">project_to_interval</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"></span>
-<span class="w">          </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">project_to_interval</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mf">-1.3</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="c1">// Prints: 0.5 0.0</span>
-
-<span class="c1">//</span>
-<span class="c1">// Distinguish empty/zero measure</span>
-<span class="c1">//</span>
-
-<span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">i_empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Interval</span><span class="p">();</span><span class="w"></span>
-<span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">i_zero_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Interval</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span><span class="w"></span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">empty</span><span class="p">(</span><span class="n">i_empty</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"></span>
-<span class="w">          </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">empty</span><span class="p">(</span><span class="n">i_zero_length</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="c1">// Prints: true false</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">zero_measure</span><span class="p">(</span><span class="n">i_empty</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"></span>
-<span class="w">          </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Interval_d</span><span class="o">::</span><span class="n">zero_measure</span><span class="p">(</span><span class="n">i_zero_length</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="c1">// Prints: false false</span>
-</code></pre></div>
+<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
+<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
+<div class="highlight"><pre><span></span><code><span class="n">Interval</span> <span class="p">{</span><span class="c1">#geometry-interval}</span>
+</code></pre></div></p>
 
               
             </article>
