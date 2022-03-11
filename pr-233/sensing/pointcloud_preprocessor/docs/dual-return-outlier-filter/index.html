@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-233/sensing/pointcloud_preprocessor/docs/dual-return-outlier-filter/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.4">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
     
     
       
@@ -8418,9 +8418,17 @@
 <p><img alt="outlier_filter-return_type" src="../image/outlier_filter-return_type.drawio.svg" /></p>
 <p>Therefore, in order to use this node, the sensor driver must publish custom data including <code>return_type</code>. please refer to <a href="https://github.com/tier4/AutowareArchitectureProposal.iv/blob/5d8dff0db51634f0c42d2a3e87ca423fbee84348/sensing/preprocessor/pointcloud/pointcloud_preprocessor/include/pointcloud_preprocessor/outlier_filter/dual_return_outlier_filter_nodelet.hpp#L86-L96">PointXYZIRADT</a> data structure.</p>
 <p>Another feature of this node is that it publishes visibility as a diagnostic topic. With this function, for example, in heavy rain, the sensing module can notify that the processing performance has reached its limit, which can lead to ensuring the safety of the vehicle.</p>
+<p>In some complicated road scenes where normal objects also reflect the light in two stages, for instance plants, leaves, some plastic net etc, the visibility faces some drop in fine weather condition. To deal with that, optional settings of a region of interest (ROI) are added.</p>
+<ol>
+<li><code>Fixed_xyz_ROI</code> mode: Visibility estimation based on the weak points in a fixed cuboid surrounding region of ego-vehicle, defined by x, y, z in base_link perspective.</li>
+<li><code>Fixed_azimuth_ROI</code> mode: Visibility estimation based on the weak points in a fixed surrounding region of ego-vehicle, defined by azimuth and distance of LiDAR perspective.</li>
+</ol>
+<p>When select 2 fixed ROI modes, due to the range of weak points is shrink, the sensitivity of visibility is decrease so that a trade of between <code>weak_first_local_noise_threshold</code> and <code>visibility_threshold</code> is needed.</p>
 <p><img alt="outlier_filter-dual_return_overall" src="../image/outlier_filter-dual_return_overall.drawio.svg" /></p>
 <p>The figure below describe how the node works.
 <img alt="outlier_filter-dual_return_detail" src="../image/outlier_filter-dual_return_detail.drawio.svg" /></p>
+<p>The below picture shows the ROI options.</p>
+<p><img alt="outlier_filter-dual_return_ROI_setting_options" src="../image/outlier_filter-dual_return_ROI_setting_options.png" /></p>
 <h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
 <p>This implementation inherits <code>pointcloud_preprocessor::Filter</code> class, please refer <a href="../../">README</a>.</p>
 <h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
@@ -8489,9 +8497,64 @@
 <td>The parameter for determining whether it is noise</td>
 </tr>
 <tr>
-<td><code>visibility_threshold</code></td>
+<td><code>visibility_error_threshold</code></td>
+<td>float</td>
+<td>When the percentage of white pixels in the binary histogram falls below this parameter the diagnostic status becomes ERR</td>
+</tr>
+<tr>
+<td><code>visibility_warn_threshold</code></td>
 <td>float</td>
 <td>When the percentage of white pixels in the binary histogram falls below this parameter the diagnostic status becomes WARN</td>
+</tr>
+<tr>
+<td><code>roi_mode</code></td>
+<td>string</td>
+<td>The name of ROI mode for switching</td>
+</tr>
+<tr>
+<td><code>min_azimuth_deg</code></td>
+<td>float</td>
+<td>The left limit of azimuth for <code>Fixed_azimuth_ROI</code> mode</td>
+</tr>
+<tr>
+<td><code>max_azimuth_deg</code></td>
+<td>float</td>
+<td>The right limit of azimuth for <code>Fixed_azimuth_ROI</code> mode</td>
+</tr>
+<tr>
+<td><code>max_distance</code></td>
+<td>float</td>
+<td>The limit distance for for <code>Fixed_azimuth_ROI</code> mode</td>
+</tr>
+<tr>
+<td><code>x_max</code></td>
+<td>float</td>
+<td>Maximum of x for <code>Fixed_xyz_ROI</code> mode</td>
+</tr>
+<tr>
+<td><code>x_min</code></td>
+<td>float</td>
+<td>Minimum of x for <code>Fixed_xyz_ROI</code> mode</td>
+</tr>
+<tr>
+<td><code>y_max</code></td>
+<td>float</td>
+<td>Maximum of y for <code>Fixed_xyz_ROI</code> mode</td>
+</tr>
+<tr>
+<td><code>y_min</code></td>
+<td>float</td>
+<td>Minimum of y for <code>Fixed_xyz_ROI</code> mode</td>
+</tr>
+<tr>
+<td><code>z_max</code></td>
+<td>float</td>
+<td>Maximum of z for <code>Fixed_xyz_ROI</code> mode</td>
+</tr>
+<tr>
+<td><code>z_min</code></td>
+<td>float</td>
+<td>Minimum of z for <code>Fixed_xyz_ROI</code> mode</td>
 </tr>
 </tbody>
 </table>
@@ -8579,7 +8642,7 @@ Input data must be <code>PointXYZIRADT</code> type data including <code>return_t
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.bd0b6b67.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.5413a266.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.467223ff.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

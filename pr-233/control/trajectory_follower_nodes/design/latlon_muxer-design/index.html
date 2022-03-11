@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-233/control/trajectory_follower_nodes/design/latlon_muxer-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.4">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
     
     
       
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#latlon-muxer-design" class="md-skip">
+        <a href="#macro-syntax-error" class="md-skip">
           Skip to content
         </a>
       
@@ -8186,31 +8186,10 @@
 
 
 
-<h1 id="latlon-muxer-design">Lateral/Longitudinal Control Muxer<a class="headerlink" href="#latlon-muxer-design" title="Permanent link">#</a></h1>
-<h1 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h1>
-<p>When using controllers that independently compute lateral and longitudinal commands,
-this node combines the resulting messages into a single control command message.</p>
-<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
-<p>Inputs.
-- <code>AckermannLateralCommand</code>: lateral command.
-- <code>LongitudinalCommand</code>: longitudinal command.</p>
-<p>Output.
-- <code>AckermannControlCommand</code>: message containing both lateral and longitudinal commands.</p>
-<p>Parameter.
-- <code>timeout_thr_sec</code>: duration in second after which input messages are discarded.</p>
-<p>Each time the node receives an input message it publishes an <code>AckermannControlCommand</code>
-if the following two conditions are met.
-1. Both inputs have been received.
-2. The last received input messages are not older than defined by <code>timeout_thr_sec</code>.</p>
-<h1 id="implementation-details">Implementation Details<a class="headerlink" href="#implementation-details" title="Permanent link">#</a></h1>
-<p>Callbacks <code>latCtrlCmdCallback</code> and <code>lonCtrlCmdCallback</code> are defined for each input message.
-Upon reception, the message is stored and function <code>publishCmd</code> is called.</p>
-<p>Function <code>publishCmd</code> first checks that both messages have been received
-and that the stored messages are not older than the timeout.
-If both conditions are true, the combined control message is built and published.</p>
-<p><code>checkTimeout</code> is used to check that the stored messages are not too old
-by comparing the timeout parameter <code>timeout_thr_sec</code>
-with the difference between <code>rclcpp::Time stamp</code> and the current time <code>now()</code>.</p>
+<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
+<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
+<div class="highlight"><pre><span></span><code><span class="n">Lateral</span><span class="o">/</span><span class="n">Longitudinal</span> <span class="n">Control</span> <span class="n">Muxer</span> <span class="p">{</span><span class="c1">#latlon-muxer-design}</span>
+</code></pre></div></p>
 
               
             </article>
@@ -8288,7 +8267,7 @@ with the difference between <code>rclcpp::Time stamp</code> and the current time
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.bd0b6b67.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.5413a266.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.467223ff.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
