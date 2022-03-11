@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/control/trajectory_follower_nodes/design/latlon_muxer-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/control/trajectory_follower_nodes/design/latlon_muxer-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#latlon-muxer-design" class="md-skip">
           Skip to content
         </a>
       
@@ -4786,17 +4786,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4805,6 +4801,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -8166,10 +8174,31 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="n">Lateral</span><span class="o">/</span><span class="n">Longitudinal</span> <span class="n">Control</span> <span class="n">Muxer</span> <span class="p">{</span><span class="c1">#latlon-muxer-design}</span>
-</code></pre></div></p>
+<h1 id="latlon-muxer-design">Lateral/Longitudinal Control Muxer<a class="headerlink" href="#latlon-muxer-design" title="Permanent link">#</a></h1>
+<h1 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h1>
+<p>When using controllers that independently compute lateral and longitudinal commands,
+this node combines the resulting messages into a single control command message.</p>
+<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
+<p>Inputs.
+- <code>AckermannLateralCommand</code>: lateral command.
+- <code>LongitudinalCommand</code>: longitudinal command.</p>
+<p>Output.
+- <code>AckermannControlCommand</code>: message containing both lateral and longitudinal commands.</p>
+<p>Parameter.
+- <code>timeout_thr_sec</code>: duration in second after which input messages are discarded.</p>
+<p>Each time the node receives an input message it publishes an <code>AckermannControlCommand</code>
+if the following two conditions are met.
+1. Both inputs have been received.
+2. The last received input messages are not older than defined by <code>timeout_thr_sec</code>.</p>
+<h1 id="implementation-details">Implementation Details<a class="headerlink" href="#implementation-details" title="Permanent link">#</a></h1>
+<p>Callbacks <code>latCtrlCmdCallback</code> and <code>lonCtrlCmdCallback</code> are defined for each input message.
+Upon reception, the message is stored and function <code>publishCmd</code> is called.</p>
+<p>Function <code>publishCmd</code> first checks that both messages have been received
+and that the stored messages are not older than the timeout.
+If both conditions are true, the combined control message is built and published.</p>
+<p><code>checkTimeout</code> is used to check that the stored messages are not too old
+by comparing the timeout parameter <code>timeout_thr_sec</code>
+with the difference between <code>rclcpp::Time stamp</code> and the current time <code>now()</code>.</p>
 
               
             </article>

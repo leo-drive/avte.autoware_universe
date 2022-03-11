@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/control/trajectory_follower/design/trajectory_follower-pid-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/control/trajectory_follower/design/trajectory_follower-pid-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#trajectory_follower-pid-design" class="md-skip">
           Skip to content
         </a>
       
@@ -4786,17 +4786,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4805,6 +4801,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -8166,10 +8174,91 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="n">PID</span> <span class="p">(</span><span class="n">Trajectory</span> <span class="n">Follower</span><span class="p">)</span> <span class="p">{</span><span class="c1">#trajectory_follower-pid-design}</span>
-</code></pre></div></p>
+<h1 id="trajectory_follower-pid-design">PID (Trajectory Follower)<a class="headerlink" href="#trajectory_follower-pid-design" title="Permanent link">#</a></h1>
+<p>This is the design document for the PID implemented in the <code>trajectory_follower</code> package.</p>
+<h1 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h1>
+<!-- Required -->
+<!-- Things to consider:
+    - Why did we implement this feature? -->
+<p>PID control is used by the <code>trajectory_follower</code>
+to calculate longitudinal commands corresponding to a velocity and an acceleration.</p>
+<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
+<!-- Required -->
+<!-- Things to consider:
+    - How does it work? -->
+<p>This PID control calculates the target acceleration from the deviation between the current ego-velocity and the target velocity.</p>
+<p>This PID logic has a maximum value for the output of each term. This is to prevent the following:</p>
+<ul>
+<li>Large integral terms may cause unintended behavior by users.</li>
+<li>Unintended noise may cause the output of the derivative term to be very large.</li>
+</ul>
+<p>Also, the integral term is not accumulated when the vehicle is stopped. This is to prevent unintended accumulation of the integral term in cases such as "Autoware assumes that the vehicle is engaged, but an external system has locked the vehicle to start.
+On the other hand, if the vehicle gets stuck in a depression in the road surface when starting, the vehicle will not start forever, which is currently being addressed by developers.</p>
+<p>At present, PID control is implemented from the viewpoint of trade-off between development/maintenance cost and performance.
+This may be replaced by a higher performance controller (adaptive control or robust control) in future development.</p>
+<p>@image html images/trajectory_follower-pid-diagram.svg "PID controller diagram"</p>
+<h2 id="states">States<a class="headerlink" href="#states" title="Permanent link">#</a></h2>
+<p>This module has four state transitions as shown below in order to handle special processing in a specific situation.</p>
+<ul>
+<li><strong>DRIVE</strong><ul>
+<li>Executes target velocity tracking by PID control.</li>
+<li>It also applies the delay compensation and slope compensation.</li>
+</ul>
+</li>
+<li><strong>STOPPING</strong><ul>
+<li>Controls the motion just before stopping.</li>
+<li>Special sequence is performed to achieve accurate and smooth stopping.</li>
+</ul>
+</li>
+<li><strong>STOPPED</strong><ul>
+<li>Performs operations in the stopped state (e.g. brake hold)</li>
+</ul>
+</li>
+<li><strong>EMERGENCY</strong>.<ul>
+<li>Enters an emergency state when certain conditions are met (e.g., when the vehicle has crossed a certain distance of a stop line).</li>
+<li>The recovery condition (whether or not to keep emergency state until the vehicle completely stops) or the deceleration in the emergency state are defined by parameters.</li>
+</ul>
+</li>
+</ul>
+<p>The state transition diagram is shown below.</p>
+<p>@image html images/trajectory_follower-pid-states-diagram.svg "State Transitions"</p>
+<h2 id="time-delay-compensation">Time delay compensation<a class="headerlink" href="#time-delay-compensation" title="Permanent link">#</a></h2>
+<p>At high speeds, the delay of actuator systems such as gas pedals and brakes has a significant impact on driving accuracy.
+Depending on the actuating principle of the vehicle,
+the mechanism that physically controls the gas pedal and brake typically has a delay of about a hundred millisecond.</p>
+<p>In this controller,
+the predicted ego-velocity and the target velocity after the delay time are calculated and used for the feedback to address the time delay problem.</p>
+<h2 id="slope-compensation">Slope compensation<a class="headerlink" href="#slope-compensation" title="Permanent link">#</a></h2>
+<p>Based on the slope information, a compensation term is added to the target acceleration.</p>
+<p>There are two sources of the slope information, which can be switched by a parameter.</p>
+<ul>
+<li>Pitch of the estimated ego-pose (default)<ul>
+<li>Calculates the current slope from the pitch angle of the estimated ego-pose</li>
+<li>Pros: Easily available</li>
+<li>Cons: Cannot extract accurate slope information due to the influence of vehicle vibration.</li>
+</ul>
+</li>
+<li>Z coordinate on the trajectory<ul>
+<li>Calculates the road slope from the difference of z-coordinates between the front and rear wheel positions in the target trajectory</li>
+<li>Pros: More accurate than pitch information, if the z-coordinates of the route are properly maintained</li>
+<li>Pros: Can be used in combination with delay compensation (not yet implemented)</li>
+<li>Cons: z-coordinates of high-precision map is needed.</li>
+<li>Cons: Does not support free space planning (for now)</li>
+</ul>
+</li>
+</ul>
+<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+    - How do you use the package / API? -->
+<p>The <code>PIDController</code> class is straightforward to use.
+First, gains and limits must be set (using <code>setGains()</code> and <code>setLimits()</code>) for the proportional (P), integral (I), and derivative (D) components.
+Then, the velocity can be calculated by providing the current error and time step duration to the <code>calculate()</code> function.</p>
+<h1 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h1>
+<!-- Required -->
+<ul>
+<li>https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1058</li>
+</ul>
 
               
             </article>

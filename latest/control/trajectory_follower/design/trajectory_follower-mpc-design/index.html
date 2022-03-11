@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/control/trajectory_follower/design/trajectory_follower-mpc-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/control/trajectory_follower/design/trajectory_follower-mpc-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#trajectory_follower-mpc-design" class="md-skip">
           Skip to content
         </a>
       
@@ -4786,17 +4786,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4805,6 +4801,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -8166,10 +8174,61 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="n">MPC</span> <span class="p">(</span><span class="n">Trajectory</span> <span class="n">Follower</span><span class="p">)</span> <span class="p">{</span><span class="c1">#trajectory_follower-mpc-design}</span>
-</code></pre></div></p>
+<h1 id="trajectory_follower-mpc-design">MPC (Trajectory Follower)<a class="headerlink" href="#trajectory_follower-mpc-design" title="Permanent link">#</a></h1>
+<p>This is the design document for the MPC implemented in the <code>trajectory_follower</code> package.</p>
+<h1 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h1>
+<!-- Required -->
+<!-- Things to consider:
+    - Why did we implement this feature? -->
+<p>Model Predictive Control (MPC) is used by the <code>trajectory_follower</code>
+to calculate the lateral commands corresponding to a steering angle and a steering rate.</p>
+<p>This implementation differs from the one in the <code>mpc_controller</code> package in several aspects.
+- This is a linear MPC that only computes the steering command whereas
+the <code>mpc_controller</code> uses a non-linear MPC which calculates coupled steering and velocity commands.
+- The optimization problem solved by the linear MPC is simpler, making it less likely to fail.
+- Tuning of the linear MPC is easier.</p>
+<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
+<!-- Required -->
+<!-- Things to consider:
+    - How does it work? -->
+<p>MPC uses predictions of the vehicle's motion to optimize the immediate control command.</p>
+<p>Different vehicle models are implemented:
+- <code>kinematics</code> : bicycle kinematics model with steering 1st-order delay.
+- <code>kinematics_no_delay</code> : bicycle kinematics model without steering delay.
+- <code>dynamics</code> : bicycle dynamics model considering slip angle.</p>
+<p>The <code>kinematics</code> model is being used by default. Please see the reference [1] for more details.</p>
+<p>For the optimization, a Quadratric Programming (QP) solver is used
+with two options are currently implemented:
+- <code>unconstraint</code> : use least square method to solve unconstraint QP with eigen.
+- <code>unconstraint_fast</code> : similar to unconstraint. This is faster, but lower accuracy for optimization.</p>
+<h2 id="filtering">Filtering<a class="headerlink" href="#filtering" title="Permanent link">#</a></h2>
+<p>Filtering is required for good noise reduction.
+A <a href="https://en.wikipedia.org/wiki/Butterworth_filter">Butterworth filter</a> is used for the yaw and lateral errors used as input of the MPC as well as for
+the output steering angle.
+Other filtering methods can be considered as long as the noise reduction performances are good
+enough.
+The moving average filter for example is not suited and can yield worse results than without any
+filtering.</p>
+<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+    - How do you use the package / API? -->
+<p>The <code>MPC</code> class (defined in <code>mpc.hpp</code>) provides the interface with the MPC algorithm.
+Once a vehicle model, a QP solver, and the reference trajectory to follow have been set
+(using <code>setVehicleModel()</code>, <code>setQPSolver()</code>, <code>setReferenceTrajectory()</code>), a lateral control command
+can be calculated by providing the current steer, velocity, and pose to function <code>calculateMPC()</code>.</p>
+<h1 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h1>
+<!-- Optional -->
+<ul>
+<li>[1] Jarrod M. Snider, "Automatic Steering Methods for Autonomous Automobile Path Tracking",
+Robotics Institute, Carnegie Mellon University, February 2009.</li>
+</ul>
+<h1 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h1>
+<!-- Required -->
+<ul>
+<li>https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1057</li>
+<li>https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1058</li>
+</ul>
 
               
             </article>

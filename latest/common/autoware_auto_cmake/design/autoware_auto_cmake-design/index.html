@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/common/autoware_auto_cmake/design/autoware_auto_cmake-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/common/autoware_auto_cmake/design/autoware_auto_cmake-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#autoware-auto-cmake-design" class="md-skip">
           Skip to content
         </a>
       
@@ -4786,17 +4786,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4805,6 +4801,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -8166,10 +8174,42 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="n">autoware_auto_cmake</span> <span class="p">{</span><span class="c1">#autoware-auto-cmake-design}</span>
-</code></pre></div></p>
+<h1 id="autoware-auto-cmake-design">autoware_auto_cmake<a class="headerlink" href="#autoware-auto-cmake-design" title="Permanent link">#</a></h1>
+<p>This is the design document for the <code>autoware_auto_cmake</code> package.</p>
+<h1 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h1>
+<p>Provide common CMake variables and functions to Autoware packages.</p>
+<p>Those include:</p>
+<ul>
+<li>Setting the language standard</li>
+<li>Getting user-provided variables</li>
+<li>Providing functions to:<ul>
+<li>set compiler flags</li>
+<li>turn off optimizations</li>
+</ul>
+</li>
+</ul>
+<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<p>Add <code>autoware_auto_cmake</code> as a "build_depend" in the dependent packages.</p>
+<h3 id="cmake-config-variables">CMake variables<a class="headerlink" href="#cmake-config-variables" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Descritpion</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DOWNLOAD_ARTIFACTS</code></td>
+<td><em>BOOL</em></td>
+<td>Allow downloading artifacts at build time.</td>
+<td><code>OFF</code></td>
+</tr>
+</tbody>
+</table>
 
               
             </article>

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/common/fake_test_node/design/fake_test_node-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/common/fake_test_node/design/fake_test_node-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#fake-test-node-design" class="md-skip">
           Skip to content
         </a>
       
@@ -4786,17 +4786,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4805,6 +4801,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -8166,10 +8174,62 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="n">Fake</span> <span class="n">Test</span> <span class="n">Node</span> <span class="p">{</span><span class="c1">#fake-test-node-design}</span>
-</code></pre></div></p>
+<h1 id="fake-test-node-design">Fake Test Node<a class="headerlink" href="#fake-test-node-design" title="Permanent link">#</a></h1>
+<h1 id="what-this-package-provides">What this package provides<a class="headerlink" href="#what-this-package-provides" title="Permanent link">#</a></h1>
+<p>When writing an integration test for a node in C++ using GTest, there is quite some boilerplate code
+that needs to be written to set up a fake node that would publish expected messages on an expected
+topic and subscribes to messages on some other topic. This is usually implemented as a custom GTest
+fixture.</p>
+<p>This package contains a library that introduces two utility classes that can be used in place of
+custom fixtures described above to write integration tests for a node:
+- <code>autoware::tools::testing::FakeTestNode</code> - to use as a custom test fixture with <code>TEST_F</code> tests
+- <code>autoware::tools::testing::FakeTestNodeParametrized</code> - to use a custom test fixture with the
+  parametrized <code>TEST_P</code> tests (accepts a template parameter that gets forwarded to
+  <code>testing::TestWithParam&lt;T&gt;</code>)</p>
+<p>These fixtures take care of initializing and re-initializing rclcpp as well as of checking that all
+subscribers and publishers have a match, thus reducing the amount of boilerplate code that the user
+needs to write.</p>
+<h1 id="how-to-use-this-library">How to use this library<a class="headerlink" href="#how-to-use-this-library" title="Permanent link">#</a></h1>
+<p>After including the relevant header the user can use a typedef to use a custom fixture name and use
+the provided classes as fixtures in <code>TEST_F</code> and <code>TEST_P</code> tests directly.</p>
+<h2 id="example-usage">Example usage<a class="headerlink" href="#example-usage" title="Permanent link">#</a></h2>
+<p>Let's say there is a node <code>NodeUnderTest</code> that requires testing. It just
+subscribes to <code>std_msgs::msg::Int32</code> messages and publishes a
+<code>std_msgs::msg::Bool</code> to indicate that the input is positive. To test such a
+node the following code can be used utilizing the
+<code>autoware::tools::testing::FakeTestNode</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">FakeNodeFixture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">autoware</span><span class="o">::</span><span class="n">tools</span><span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">FakeTestNode</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">/// @test Test that we can use a non-parametrized test.</span>
+<span class="n">TEST_F</span><span class="p">(</span><span class="n">FakeNodeFixture</span><span class="p">,</span><span class="w"> </span><span class="n">Test</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">Int32</span><span class="w"> </span><span class="n">msg</span><span class="p">{};</span><span class="w"></span>
+<span class="w">  </span><span class="n">msg</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">NodeUnderTest</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">Bool</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">last_received_msg</span><span class="p">{};</span><span class="w"></span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">fake_odom_publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_publisher</span><span class="o">&lt;</span><span class="n">Int32</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;/input_topic&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">result_odom_subscription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_subscription</span><span class="o">&lt;</span><span class="n">Bool</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;/output_topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="o">&amp;</span><span class="n">last_received_msg</span><span class="p">](</span><span class="k">const</span><span class="w"> </span><span class="n">Bool</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="n">last_received_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg</span><span class="p">;});</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">dt</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">{</span><span class="mf">100L</span><span class="n">L</span><span class="p">}};</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">max_wait_time</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">{</span><span class="mf">10L</span><span class="n">L</span><span class="p">}};</span><span class="w"></span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">time_passed</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">{</span><span class="mf">0L</span><span class="n">L</span><span class="p">}};</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">last_received_msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">fake_odom_publisher</span><span class="o">-&gt;</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin_some</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin_some</span><span class="p">(</span><span class="n">get_fake_node</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">dt</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">time_passed</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dt</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">time_passed</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max_wait_time</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">FAIL</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Did not receive a message soon enough.&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">EXPECT_TRUE</span><span class="p">(</span><span class="n">last_received_msg</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">SUCCEED</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Here only the <code>TEST_F</code> example is shown but a <code>TEST_P</code> usage is very similar with a little bit more
+boilerplate to set up all the parameter values, see <code>test_fake_test_node.cpp</code> for an example usage.</p>
 
               
             </article>

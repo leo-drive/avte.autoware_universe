@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/control/trajectory_follower_nodes/design/trajectory_follower-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/control/trajectory_follower_nodes/design/trajectory_follower-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#trajectory_follower_nodes-package-design" class="md-skip">
           Skip to content
         </a>
       
@@ -4786,17 +4786,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4805,6 +4801,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -8166,10 +8174,21 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="n">Trajectory</span> <span class="n">Follower</span> <span class="n">Nodes</span> <span class="p">{</span><span class="c1">#trajectory_follower_nodes-package-design}</span>
-</code></pre></div></p>
+<h1 id="trajectory_follower_nodes-package-design">Trajectory Follower Nodes<a class="headerlink" href="#trajectory_follower_nodes-package-design" title="Permanent link">#</a></h1>
+<h1 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h1>
+<p>Generate control commands to follow a given Trajectory.</p>
+<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
+<p>This functionality is decomposed into three nodes.
+- @subpage lateral-controller-design : generates lateral control messages.
+- @subpage longitudinal-controller-design : generates longitudinal control messages.
+- @subpage latlon-muxer-design : combines the lateral and longitudinal control commands
+into a single control command.</p>
+<p>Core functionalities are implemented in the @subpage trajectory_follower-package-design package.</p>
+<p>@image html images/trajectory_follower-diagram.png "Overview of the Trajectory Follower package"</p>
+<h1 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">#</a></h1>
+<p>Debug information are published by the lateral and longitudinal controller using <code>autoware_auto_msgs/Float32MultiArrayDiagnostic</code> messages.</p>
+<p>A configuration file for <a href="https://github.com/facontidavide/PlotJuggler">PlotJuggler</a> is provided in the <code>config</code> folder which, when loaded, allow to automatically subscribe and visualize information useful for debugging.</p>
+<p>In addition, the predicted MPC trajectory is published on topic <code>output/lateral/predicted_trajectory</code> and can be visualized in Rviz.</p>
 
               
             </article>

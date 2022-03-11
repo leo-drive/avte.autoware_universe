@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/common/autoware_auto_geometry/design/polygon_intersection_2d-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-491/common/autoware_auto_geometry/design/polygon_intersection_2d-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#convex-polygon-intersection-2d" class="md-skip">
           Skip to content
         </a>
       
@@ -4786,17 +4786,13 @@
       
         
           
-            
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../perception/map_based_prediction/">Map based prediction</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_9">
+          Map based prediction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Map based prediction" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_9">
@@ -4805,6 +4801,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../perception/map_based_prediction/Readme/" class="md-nav__link">
+        map_based_prediction
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -8166,10 +8174,50 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="mi">2</span><span class="n">D</span> <span class="n">Convex</span> <span class="n">Polygon</span> <span class="n">Intersection</span> <span class="p">{</span><span class="c1">#convex-polygon-intersection-2d}</span>
-</code></pre></div></p>
+<h1 id="convex-polygon-intersection-2d">2D Convex Polygon Intersection<a class="headerlink" href="#convex-polygon-intersection-2d" title="Permanent link">#</a></h1>
+<p>Two convex polygon's intersection can be visualized on the image below as the blue area:</p>
+<p><img src="convex_polygon_intersection.png"></p>
+<h1 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h1>
+<p>Computing the intersection between two polygons can be useful in many applications of scene
+understanding. It can be used to estimate collision detection, shape alignment, shape 
+association and in any application that deals with the objects around the perceiving agent.</p>
+<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
+<p><a href="https://www.osti.gov/servlets/purl/7309916/"><span class="arithmatex"><span class="MathJax_Preview">Livermore, Calif, 1977</span><script type="math/tex">Livermore, Calif, 1977</script></span></a> mention the following 
+observations about convex polygon intersection:</p>
+<ul>
+<li>Intersection of two convex polygons is a convex polygon</li>
+<li>A vertex from a polygon that is contained in the other polygon is a vertex of the intersection 
+shape. (Vertices A, C, D in the shape above)</li>
+<li>An edge from a polygon that is contained in the other polygon is an edge in the intersection 
+shape. (edge C-D in the shape above)</li>
+<li>Edge intersections between two polygons are vertices in the intersection shape. (Vertices B, 
+E in the shape above.)</li>
+</ul>
+<h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
+<p>With the observation mentioned above, the current algorithm operates in the following way:</p>
+<ul>
+<li>Compute and find the vertices from each polygon that is contained in the other polygon 
+(Vertices A, C, D)</li>
+<li>Compute and find the intersection points between each polygon (Verties B, E)</li>
+<li>Compute the convex hull shaped by these vertices by ordering them CCW.</li>
+</ul>
+<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
+<p>Inputs:
+* Two iterables that contain vertices of the convex polygons ordered in the CCW direction.</p>
+<p>Outputs:
+* A list of vertices of the intersection shape ordered in the CCW direction.</p>
+<h2 id="future-work">Future Work<a class="headerlink" href="#future-work" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<h1 id="1230-applying-efficient-algorithms">1230: Applying efficient algorithms.<a class="headerlink" href="#1230-applying-efficient-algorithms" title="Permanent link">#</a></h1>
+</li>
+</ul>
+<h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<h1 id="983-integrate-vision-detections-in-object-tracker">983: Integrate vision detections in object tracker<a class="headerlink" href="#983-integrate-vision-detections-in-object-tracker" title="Permanent link">#</a></h1>
+</li>
+</ul>
 
               
             </article>
