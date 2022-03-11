@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#autoware_testing-package-design" class="md-skip">
+        <a href="#macro-syntax-error" class="md-skip">
           Skip to content
         </a>
       
@@ -8174,48 +8174,10 @@
 
 
 
-<h1 id="autoware_testing-package-design">autoware_testing<a class="headerlink" href="#autoware_testing-package-design" title="Permanent link">#</a></h1>
-<p>This is the design document for the <code>autoware_testing</code> package.</p>
-<h1 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h1>
-<p>The package aims to provide a unified way to add standard testing functionality to the package, currently supporting:
-- Smoke testing (<code>add_smoke_test</code>): launch a node with default configuration and ensure that it starts up and does not crash.</p>
-<h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h1>
-<p>Uses <code>ros_testing</code> (which is an extension of <code>launch_testing</code>) and provides some parametrized, reusable standard tests to run.</p>
-<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<p>Parametrization is limited to package, executable names, parameters filename and executable arguments. Test namespace is set as 'test'.
-Parameters file for the package is expected to be in <code>param</code> directory inside package.</p>
-<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
-<p>To add a smoke test to your package tests, add test dependency on <code>autoware_testing</code> to <code>package.xml</code></p>
-<div class="highlight"><pre><span></span><code>&lt;test_depend&gt;autoware_testing&lt;/test_depend&gt;
-</code></pre></div>
-<p>and add the following two lines to <code>CMakeLists.txt</code> in the <code>IF (BUILD_TESTING)</code> section:</p>
-<div class="highlight"><pre><span></span><code>find_package(autoware_testing REQUIRED)
-add_smoke_test(&lt;package_name&gt; &lt;executable_name&gt; [PARAM_FILENAME &lt;param_filename&gt;] [EXECUTABLE_ARGUMENTS &lt;arguments&gt;])
-</code></pre></div>
-<p>Where </p>
-<p><code>&lt;package_name&gt;</code> - [required] tested node package name.</p>
-<p><code>&lt;executable_name&gt;</code> - [required] tested node executable name.</p>
-<p><code>&lt;param_filename&gt;</code> - [optional] param filename. Default value is <code>test.param.yaml</code>. Required mostly in situation where there are multiple smoke tests in a package and each requires different paramteres set</p>
-<p><code>&lt;arguments&gt;</code> - [optional] arguments passed to executable. By default no arguments are passed.</p>
-<p>which adds <code>&lt;executable_name&gt;_smoke_test</code> test to suite.</p>
-<p>Example test result:</p>
-<div class="highlight"><pre><span></span><code>build/&lt;package_name&gt;/test_results/&lt;package_name&gt;/&lt;executable_name&gt;_smoke_test.xunit.xml: 1 test, 0 errors, 0 failures, 0 skipped
-</code></pre></div>
-<h1 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h1>
-<ul>
-<li>https://en.wikipedia.org/wiki/Smoke_testing_(software)</li>
-<li>https://github.com/ros2/ros_testing</li>
-<li>https://github.com/ros2/launch/blob/master/launch_testing</li>
-</ul>
-<h1 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h1>
-<ul>
-<li>Adding more types of standard tests.</li>
-</ul>
-<h1 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h1>
-<ul>
-<li>Issue #700: add smoke test</li>
-<li>Issue #1224: Port other packages with smoke tests to use <code>autoware_testing</code></li>
-</ul>
+<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
+<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
+<div class="highlight"><pre><span></span><code><span class="n">autoware_testing</span> <span class="p">{</span><span class="c1">#autoware_testing-package-design}</span>
+</code></pre></div></p>
 
               
             </article>
