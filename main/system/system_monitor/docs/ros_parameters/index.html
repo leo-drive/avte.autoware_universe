@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/system/system_monitor/docs/ros_parameters/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.7">
     
     
       
@@ -8485,14 +8485,28 @@
 <td align="center">float</td>
 <td align="center">%(1e-2)</td>
 <td align="center">0.90</td>
-<td align="left">Generates warning when CPU usage reaches a specified value or higher.</td>
+<td align="left">Generates warning when CPU usage reaches a specified value or higher and last for usage_warn_count counts.</td>
 </tr>
 <tr>
 <td align="left">usage_error</td>
 <td align="center">float</td>
 <td align="center">%(1e-2)</td>
 <td align="center">1.00</td>
-<td align="left">Generates error when CPU usage reaches a specified value or higher.</td>
+<td align="left">Generates error when CPU usage reaches a specified value or higher and last for usage_error_count counts.</td>
+</tr>
+<tr>
+<td align="left">usage_warn_count</td>
+<td align="center">int</td>
+<td align="center">n/a</td>
+<td align="center">2</td>
+<td align="left">Generates warning when CPU usage reaches usage_warn value or higher and last for a specified counts.</td>
+</tr>
+<tr>
+<td align="left">usage_error_count</td>
+<td align="center">int</td>
+<td align="center">n/a</td>
+<td align="center">2</td>
+<td align="left">Generates error when CPU usage reaches usage_error value or higher and last for a specified counts.</td>
 </tr>
 <tr>
 <td align="left">load1_warn</td>
