@@ -15,7 +15,7 @@
     
     
       
-        <title>detected_object_validation (occupancy grid based validator) - Autoware Universe Documentation</title>
+        <title>detected_object_validation - Autoware Universe Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#detected_object_validation-occupancy-grid-based-validator" class="md-skip">
+        <a href="#detected_object_validation" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              detected_object_validation (occupancy grid based validator)
+              detected_object_validation
             
           </span>
         </div>
@@ -4452,12 +4452,20 @@
             
           
         
+          
+        
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
           <a href="./">Detected object validation</a>
+          
+            <label for="__nav_10_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -4468,6 +4476,34 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="obstacle-pointcloud-based-validator/" class="md-nav__link">
+        obstacle pointcloud based validator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="occupancy-grid-based-validator/" class="md-nav__link">
+        occupancy grid based validator
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -8308,77 +8344,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inner-workings-algorithms" class="md-nav__link">
-    Inner-workings / Algorithms
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inputs-outputs" class="md-nav__link">
-    Inputs / Outputs
-  </a>
-  
-    <nav class="md-nav" aria-label="Inputs / Outputs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#input" class="md-nav__link">
-    Input
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#output" class="md-nav__link">
-    Output
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assumptions-known-limits" class="md-nav__link">
-    Assumptions / Known limits
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-error-detection-and-handling" class="md-nav__link">
-    (Optional) Error detection and handling
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-performance-characterization" class="md-nav__link">
-    (Optional) Performance characterization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-referencesexternal-links" class="md-nav__link">
-    (Optional) References/External links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-future-extensions-unimplemented-parts" class="md-nav__link">
-    (Optional) Future extensions / Unimplemented parts
+  <a href="#referencesexternal-links" class="md-nav__link">
+    References/External links
   </a>
   
 </li>
@@ -8401,83 +8368,14 @@
 
 
 
-<h1 id="detected_object_validation-occupancy-grid-based-validator">detected_object_validation (occupancy grid based validator)<a class="headerlink" href="#detected_object_validation-occupancy-grid-based-validator" title="Permanent link">#</a></h1>
+<h1 id="detected_object_validation">detected_object_validation<a class="headerlink" href="#detected_object_validation" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>The purpose of this package is to eliminate obvious false positives of DetectedObjects.</p>
-<h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
-<p>Compare the occupancy grid map with the DetectedObject, and if a larger percentage of obstacles are in freespace, delete them.</p>
-<p><img alt="debug sample image" src="image/debug_image.png" /></p>
-<p>Basically, it takes an occupancy grid map as input and generates a binary image of freespace or other.</p>
-<p>A mask image is generated for each DetectedObject and the average value (percentage) in the mask image is calculated.
-If the percentage is low, it is deleted.</p>
-<h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
-<h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>~/input/detected_objects</code></td>
-<td><code>autoware_auto_perception_msgs::msg::DetectedObjects</code></td>
-<td>DetectedObjects</td>
-</tr>
-<tr>
-<td><code>~/input/occupancy_grid_map</code></td>
-<td><code>nav_msgs::msg::OccupancyGrid</code></td>
-<td>OccupancyGrid with no time series calculation is preferred.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>~/output/objects</code></td>
-<td><code>autoware_auto_perception_msgs::msg::DetectedObjects</code></td>
-<td>validated DetectedObjects</td>
-</tr>
-</tbody>
-</table>
-<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>mean_threshold</code></td>
-<td>float</td>
-<td>The percentage threshold of allowed non-freespace.</td>
-</tr>
-<tr>
-<td><code>enable_debug</code></td>
-<td>bool</td>
-<td>Whether to display debug images or not?</td>
-</tr>
-</tbody>
-</table>
-<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<p>Currently, only vehicle represented as BoundingBox are supported.</p>
-<h2 id="optional-error-detection-and-handling">(Optional) Error detection and handling<a class="headerlink" href="#optional-error-detection-and-handling" title="Permanent link">#</a></h2>
-<h2 id="optional-performance-characterization">(Optional) Performance characterization<a class="headerlink" href="#optional-performance-characterization" title="Permanent link">#</a></h2>
-<h2 id="optional-referencesexternal-links">(Optional) References/External links<a class="headerlink" href="#optional-referencesexternal-links" title="Permanent link">#</a></h2>
-<h2 id="optional-future-extensions-unimplemented-parts">(Optional) Future extensions / Unimplemented parts<a class="headerlink" href="#optional-future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
+<h2 id="referencesexternal-links">References/External links<a class="headerlink" href="#referencesexternal-links" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="obstacle-pointcloud-based-validator/">Obstacle pointcloud based validator</a></li>
+<li><a href="occupancy-grid-based-validator/">Occupancy grid based validator</a></li>
+</ul>
 
               
             </article>
@@ -8512,13 +8410,13 @@ If the percentage is low, it is deleted.</p>
       
       
         
-        <a href="../detection_by_tracker/" class="md-footer__link md-footer__link--next" aria-label="Next: detection_by_tracker" rel="next">
+        <a href="obstacle-pointcloud-based-validator/" class="md-footer__link md-footer__link--next" aria-label="Next: obstacle pointcloud based validator" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              detection_by_tracker
+              obstacle pointcloud based validator
             </div>
           </div>
           <div class="md-footer__button md-icon">
