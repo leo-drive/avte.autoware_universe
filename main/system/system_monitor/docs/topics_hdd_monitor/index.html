@@ -15,7 +15,7 @@
     
     
       
-        <title>ROS topics: CPU Monitor - Autoware Universe Documentation</title>
+        <title>ROS topics: HDD Monitor - Autoware Universe Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ros-topics-cpu-monitor" class="md-skip">
+        <a href="#ros-topics-hdd-monitor" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ROS topics: CPU Monitor
+              ROS topics: HDD Monitor
             
           </span>
         </div>
@@ -7865,12 +7865,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          ROS topics: CPU Monitor
+          ROS topics: HDD Monitor
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        ROS topics: CPU Monitor
+        ROS topics: HDD Monitor
       </a>
       
         
@@ -7891,6 +7891,20 @@
         <li class="md-nav__item">
   <a href="#hdd-temperature" class="md-nav__link">
     HDD Temperature
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-poweronhours" class="md-nav__link">
+    HDD PowerOnHours
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-totaldatawritten" class="md-nav__link">
+    HDD TotalDataWritten
   </a>
   
 </li>
@@ -8410,6 +8424,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hdd-poweronhours" class="md-nav__link">
+    HDD PowerOnHours
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-totaldatawritten" class="md-nav__link">
+    HDD TotalDataWritten
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hdd-usage" class="md-nav__link">
     HDD Usage
   </a>
@@ -8434,7 +8462,7 @@
 
 
 
-<h1 id="ros-topics-cpu-monitor">ROS topics: CPU Monitor<a class="headerlink" href="#ros-topics-cpu-monitor" title="Permanent link">#</a></h1>
+<h1 id="ros-topics-hdd-monitor">ROS topics: HDD Monitor<a class="headerlink" href="#ros-topics-hdd-monitor" title="Permanent link">#</a></h1>
 <h2 id="hdd-temperature"><u>HDD Temperature</u><a class="headerlink" href="#hdd-temperature" title="Permanent link">#</a></h2>
 <p>/diagnostics/hdd_monitor: HDD Temperature</p>
 <p><b>[summary]</b></p>
@@ -8488,6 +8516,110 @@
 <tr>
 <td>HDD [0-9]: temperature</td>
 <td>37.0 DegC</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hdd-poweronhours"><u>HDD PowerOnHours</u><a class="headerlink" href="#hdd-poweronhours" title="Permanent link">#</a></h2>
+<p>/diagnostics/hdd_monitor: HDD PowerOnHours</p>
+<p><b>[summary]</b></p>
+<table>
+<thead>
+<tr>
+<th>level</th>
+<th>message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>lifetime limit</td>
+</tr>
+</tbody>
+</table>
+<p><b>[values]</b></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDD [0-9]: status</td>
+<td>OK / lifetime limit</td>
+</tr>
+<tr>
+<td>HDD [0-9]: name</td>
+<td>/dev/nvme0</td>
+</tr>
+<tr>
+<td>HDD [0-9]: model</td>
+<td>PHISON PS5012-E12S-512G</td>
+</tr>
+<tr>
+<td>HDD [0-9]: serial</td>
+<td>FB590709182505050767</td>
+</tr>
+<tr>
+<td>HDD [0-9]: power on hours</td>
+<td>4834 Hours</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hdd-totaldatawritten"><u>HDD TotalDataWritten</u><a class="headerlink" href="#hdd-totaldatawritten" title="Permanent link">#</a></h2>
+<p>/diagnostics/hdd_monitor: HDD TotalDataWritten</p>
+<p><b>[summary]</b></p>
+<table>
+<thead>
+<tr>
+<th>level</th>
+<th>message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>warranty period</td>
+</tr>
+</tbody>
+</table>
+<p><b>[values]</b></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDD [0-9]: status</td>
+<td>OK / warranty period</td>
+</tr>
+<tr>
+<td>HDD [0-9]: name</td>
+<td>/dev/nvme0</td>
+</tr>
+<tr>
+<td>HDD [0-9]: model</td>
+<td>PHISON PS5012-E12S-512G</td>
+</tr>
+<tr>
+<td>HDD [0-9]: serial</td>
+<td>FB590709182505050767</td>
+</tr>
+<tr>
+<td>HDD [0-9]: total data written</td>
+<td>146295330 <br> not available</td>
 </tr>
 </tbody>
 </table>

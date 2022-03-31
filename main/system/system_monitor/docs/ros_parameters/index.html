@@ -7939,7 +7939,7 @@
   
     <li class="md-nav__item">
       <a href="../topics_hdd_monitor/" class="md-nav__link">
-        ROS topics: CPU Monitor
+        ROS topics: HDD Monitor
       </a>
     </li>
   
@@ -8605,7 +8605,7 @@
 <td align="left">The disk name to monitor temperature. (e.g. /dev/sda)</td>
 </tr>
 <tr>
-<td align="left">temp_error</td>
+<td align="left">temp_warn</td>
 <td align="center">float</td>
 <td align="center">DegC</td>
 <td align="center">55.0</td>
@@ -8617,6 +8617,34 @@
 <td align="center">DegC</td>
 <td align="center">70.0</td>
 <td align="left">Generates error when HDD temperature reaches a specified value or higher.</td>
+</tr>
+<tr>
+<td align="left">power_on_hours_warn</td>
+<td align="center">int</td>
+<td align="center">Hour</td>
+<td align="center">3000000</td>
+<td align="left">Generates warning when HDD power-on hours reaches a specified value or higher.</td>
+</tr>
+<tr>
+<td align="left">total_data_written_attribute_id</td>
+<td align="center">int</td>
+<td align="center">n/a</td>
+<td align="center">0xF1</td>
+<td align="left">S.M.A.R.T attribute ID of total data written.</td>
+</tr>
+<tr>
+<td align="left">total_data_written_warn</td>
+<td align="center">int</td>
+<td align="center">depends on device</td>
+<td align="center">4915200</td>
+<td align="left">Generates warning when HDD total data written reaches a specified value or higher.</td>
+</tr>
+<tr>
+<td align="left">total_data_written_safety_factor</td>
+<td align="center">int</td>
+<td align="center">%(1e-2)</td>
+<td align="center">0.05</td>
+<td align="left">Safety factor of HDD total data written.</td>
 </tr>
 </tbody>
 </table>

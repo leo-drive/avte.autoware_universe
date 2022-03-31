@@ -7945,7 +7945,7 @@
   
     <li class="md-nav__item">
       <a href="../topics_hdd_monitor/" class="md-nav__link">
-        ROS topics: CPU Monitor
+        ROS topics: HDD Monitor
       </a>
     </li>
   
@@ -8518,11 +8518,11 @@
 
 <h1 id="hdd_reader">hdd_reader<a class="headerlink" href="#hdd_reader" title="Permanent link">#</a></h1>
 <h2 id="name">Name<a class="headerlink" href="#name" title="Permanent link">#</a></h2>
-<p>hdd_reader - Read S.M.A.R.T. information for monitoring HDD temperature</p>
+<p>hdd_reader - Read S.M.A.R.T. information for monitoring HDD temperature and life of HDD</p>
 <h2 id="synopsis">Synopsis<a class="headerlink" href="#synopsis" title="Permanent link">#</a></h2>
 <p>hdd_reader [OPTION]</p>
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
-<p>Read S.M.A.R.T. information for monitoring HDD temperature.<br>
+<p>Read S.M.A.R.T. information for monitoring HDD temperature and life of HDD.<br>
 This runs as a daemon process and listens to a TCP/IP port (7635 by default).</p>
 <p><strong>Options:</strong><br>
 <em>-h, --help</em><br>
@@ -8532,7 +8532,7 @@ This runs as a daemon process and listens to a TCP/IP port (7635 by default).</p
 <p><strong>Exit status:</strong><br>
 Returns 0 if OK; non-zero otherwise.</p>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
-<p>The 'hdd_reader' accesses minimal data enough to get Model number, Serial number, and HDD temperature.<br>
+<p>The 'hdd_reader' accesses minimal data enough to get Model number, Serial number, HDD temperature, and life of HDD.<br>
 This is an approach to limit its functionality, however, the functionality can be expanded for further improvements and considerations in the future.<br><br></p>
 <h3 id="ata">[ATA]<a class="headerlink" href="#ata" title="Permanent link">#</a></h3>
 <table>
@@ -8550,7 +8550,7 @@ This is an approach to limit its functionality, however, the functionality can b
 <td>256 words(512 bytes)</td>
 </tr>
 <tr>
-<td>HDD temperature</td>
+<td>HDD temperature, life of HDD</td>
 <td>SMART READ DATA</td>
 <td>256 words(512 bytes)</td>
 </tr>
@@ -8579,9 +8579,9 @@ This is an approach to limit its functionality, however, the functionality can b
 <td>4096 bytes</td>
 </tr>
 <tr>
-<td>HDD temperature</td>
+<td>HDD temperature, life of HDD</td>
 <td>SMART / Health Information</td>
-<td>1 Dword(4 bytes)</td>
+<td>36 Dword(144 bytes)</td>
 </tr>
 </tbody>
 </table>

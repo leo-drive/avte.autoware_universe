@@ -7854,7 +7854,7 @@
   
     <li class="md-nav__item">
       <a href="docs/topics_hdd_monitor/" class="md-nav__link">
-        ROS topics: CPU Monitor
+        ROS topics: HDD Monitor
       </a>
     </li>
   
@@ -8739,12 +8739,12 @@ install/system_monitor/lib/system_monitor/msr_reader
 <h3 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">#</a></h3>
 <p><a href="docs/msr_reader/">msr_reader</a></p>
 <h2 id="hdd-monitor"><u>HDD Monitor</u><a class="headerlink" href="#hdd-monitor" title="Permanent link">#</a></h2>
-<p>Generally, S.M.A.R.T. information is used to monitor HDD temperature, and normally accessing disk device node is allowed for root user or disk group.<br>
+<p>Generally, S.M.A.R.T. information is used to monitor HDD temperature and life of HDD, and normally accessing disk device node is allowed for root user or disk group.<br>
 As with the CPU monitor, this package provides an approach to minimize security risks as much as possible:<br></p>
 <ul>
-<li>Provide a small program named 'hdd_reader' which accesses S.M.A.R.T. information and sends HDD temperature to HDD monitor by using socket programming.</li>
+<li>Provide a small program named 'hdd_reader' which accesses S.M.A.R.T. information and sends some items of it to HDD monitor by using socket programming.</li>
 <li>Run 'hdd_reader' as a specific user.</li>
-<li>HDD monitor is able to know HDD temperature as an unprivileged user since HDD temperature is sent by socket communication.</li>
+<li>HDD monitor is able to know some items of S.M.A.R.T. information as an unprivileged user since those are sent by socket communication.</li>
 </ul>
 <h3 id="instructions-before-starting_1">Instructions before starting<a class="headerlink" href="#instructions-before-starting_1" title="Permanent link">#</a></h3>
 <ol>
