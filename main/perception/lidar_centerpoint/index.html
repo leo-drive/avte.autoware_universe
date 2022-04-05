@@ -8505,11 +8505,6 @@
 <td><code>autoware_auto_perception_msgs::msg::DetectedObjects</code></td>
 <td>detected objects</td>
 </tr>
-<tr>
-<td><code>~/debug/pointcloud_densification</code></td>
-<td><code>sensor_msgs::msg::PointCloud2</code></td>
-<td>densification pointcloud</td>
-</tr>
 </tbody>
 </table>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
@@ -8543,18 +8538,6 @@
 <td>the number of past frames to fuse with the current frame</td>
 </tr>
 <tr>
-<td><code>use_encoder_trt</code></td>
-<td>bool</td>
-<td><code>false</code></td>
-<td>use TensorRT VoxelFeatureEncoder</td>
-</tr>
-<tr>
-<td><code>use_head_trt</code></td>
-<td>bool</td>
-<td><code>true</code></td>
-<td>use TensorRT DetectionHead</td>
-</tr>
-<tr>
 <td><code>trt_precision</code></td>
 <td>string</td>
 <td><code>fp16</code></td>
@@ -8573,12 +8556,6 @@
 <td>path to VoxelFeatureEncoder TensorRT Engine file</td>
 </tr>
 <tr>
-<td><code>encoder_pt_path</code></td>
-<td>string</td>
-<td><code>""</code></td>
-<td>path to VoxelFeatureEncoder TorchScript file</td>
-</tr>
-<tr>
 <td><code>head_onnx_path</code></td>
 <td>string</td>
 <td><code>""</code></td>
@@ -8590,29 +8567,11 @@
 <td><code>""</code></td>
 <td>path to DetectionHead TensorRT Engine file</td>
 </tr>
-<tr>
-<td><code>head_pt_path</code></td>
-<td>string</td>
-<td><code>""</code></td>
-<td>path to DetectionHead TorchScript file</td>
-</tr>
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
 <ul>
 <li>The <code>object.existence_probability</code> is stored the value of classification confidence of a DNN, not probability.</li>
-</ul>
-<ul>
-<li>
-<p>If you have an error like <code>'GOMP_4.5' not found</code>, replace the OpenMP library in libtorch.</p>
-<div class="highlight"><pre><span></span><code>sudo apt install libgomp1 -y
-sudo rm /usr/local/libtorch/lib/libgomp-75eea7e8.so.1
-sudo ln -s /usr/lib/x86_64-linux-gnu/libgomp.so.1 /usr/local/libtorch/lib/libgomp-75eea7e8.so.1
-</code></pre></div>
-</li>
-</ul>
-<ul>
-<li>if <code>use_encoder_trt</code> is set <code>use_encoder_trt</code>, more GPU memory is allocated.</li>
 </ul>
 <h2 id="optional-error-detection-and-handling">(Optional) Error detection and handling<a class="headerlink" href="#optional-error-detection-and-handling" title="Permanent link">#</a></h2>
 <!-- Write how to detect errors and how to recover from them.
@@ -8640,11 +8599,8 @@ Example:
 <p>[3] <a href="https://github.com/tianweiy/CenterPoint">https://github.com/tianweiy/CenterPoint</a></p>
 <p>[4] <a href="https://github.com/open-mmlab/mmdetection3d">https://github.com/open-mmlab/mmdetection3d</a></p>
 <p>[5] <a href="https://github.com/open-mmlab/OpenPCDet">https://github.com/open-mmlab/OpenPCDet</a></p>
-<p>[6] <a href="https://github.com/poodarchu/Det3D">https://github.com/poodarchu/Det3D</a></p>
-<p>[7] <a href="https://github.com/xingyizhou/CenterNet">https://github.com/xingyizhou/CenterNet</a></p>
-<p>[8] <a href="https://github.com/lzccccc/SMOKE">https://github.com/lzccccc/SMOKE</a></p>
-<p>[9] <a href="https://github.com/yukkysaito/autoware_perception">https://github.com/yukkysaito/autoware_perception</a></p>
-<p>[10] <a href="https://github.com/pytorch/pytorch">https://github.com/pytorch/pytorch</a></p>
+<p>[6] <a href="https://github.com/yukkysaito/autoware_perception">https://github.com/yukkysaito/autoware_perception</a></p>
+<p>[7] <a href="https://github.com/NVIDIA-AI-IOT/CUDA-PointPillars">https://github.com/NVIDIA-AI-IOT/CUDA-PointPillars</a></p>
 <h2 id="optional-future-extensions-unimplemented-parts">(Optional) Future extensions / Unimplemented parts<a class="headerlink" href="#optional-future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
 <!-- Write future extensions of this package.
 
