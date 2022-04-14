@@ -436,6 +436,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/image_projection_based_fusion/</loc>
+         <lastmod>2022-04-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/image_projection_based_fusion/docs/roi-cluster-fusion/</loc>
+         <lastmod>2022-04-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/image_projection_based_fusion/docs/roi-detected-object-fusion/</loc>
+         <lastmod>2022-04-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/lidar_apollo_instance_segmentation/</loc>
          <lastmod>2022-04-14</lastmod>
          <changefreq>daily</changefreq>
@@ -472,11 +487,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/occupancy_grid_map_outlier_filter/</loc>
-         <lastmod>2022-04-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/roi_cluster_fusion/</loc>
          <lastmod>2022-04-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
