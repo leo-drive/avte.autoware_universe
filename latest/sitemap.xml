@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/common/autoware_ad_api_msgs/</loc>
+         <lastmod>2022-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/common/autoware_auto_cmake/design/autoware_auto_cmake-design/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
@@ -57,6 +62,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/common/autoware_testing/design/autoware_testing-design/</loc>
+         <lastmod>2022-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/common/component_interface_utils/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
