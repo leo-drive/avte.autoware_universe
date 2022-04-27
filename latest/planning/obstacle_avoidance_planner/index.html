@@ -8921,6 +8921,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#boundary-search" class="md-nav__link">
+    Boundary search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#assumptions" class="md-nav__link">
     Assumptions
   </a>
@@ -10034,6 +10041,17 @@ Instead, if we use L-infinity norm where slack variables are shared by enabling 
 <ul>
 <li>max steering wheel degree<ul>
 <li><code>mpt.kinematics.max_steer_deg</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="boundary-search">Boundary search<a class="headerlink" href="#boundary-search" title="Permanent link">#</a></h3>
+<ul>
+<li><code>advanced.mpt.bounds_search_widths</code><ul>
+<li>In order to efficiently search precise lateral boundaries on each trajectory point, different resolutions of search widths are defined.</li>
+<li>By default, [0.45, 0.15, 0.05, 0.01] is used. In this case, the goal is to get the boundaries' length on each trajectory point with 0.01 [m] resolution.</li>
+<li>Firstly, lateral boundaries are searhed with a rough resolution (= 0.45 [m]).</li>
+<li>Then, within its 0.45 [m] resolution which boundaries are inside, they are searched again with a bit precise resolution (= 0.15 [m]).</li>
+<li>Following this rule, finally boundaries with 0.01 [m] will be found.</li>
 </ul>
 </li>
 </ul>
