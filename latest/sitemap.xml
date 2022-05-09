@@ -591,6 +591,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/behavior_velocity_planner/virtual-traffic-light-design/</loc>
+         <lastmod>2022-05-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/costmap_generator/</loc>
          <lastmod>2022-05-09</lastmod>
          <changefreq>daily</changefreq>
