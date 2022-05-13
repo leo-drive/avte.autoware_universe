@@ -8723,10 +8723,18 @@
 </ul>
 </li>
 </ul>
-<p>When the stop point that has 0 velocity is inserted, the point is inserted in front of the target point cloud by the distance of <code>baselink to front</code> + <code>stop margin</code>. The <code>baselink to front</code> means the distance between <code>base_link</code>(center of rear-wheel axis) and front of the car. <code>stop margin</code> is determined by the parameters described below.</p>
-<p><img alt="insert_stop_velocity" src="docs/insert_velocity.drawio.svg" /></p>
+<p>In order to stop with a <code>stop margin</code> from the obstacle exists, the stop point (<code>v=0</code>) is inserted at a distance of <code>baselink to front</code> + <code>stop margin</code> from the obstacle. The <code>baselink to front</code> means the distance between <code>base_link</code>(center of rear-wheel axis) and front of the car.</p>
+<p>If a stop point has already been inserted by other nodes between the obstacle and a position which is <code>stop margin</code> meters away from the obstacle, the stop point is inserted at a distance of <code>baselink to front</code> + <code>min behavior stop margin</code> from the obstacle.</p>
+<div align="center">
+  <img src="./docs/insert_velocity1.drawio.svg" width=45%>
+  <img src="./docs/insert_velocity2.drawio.svg" width=45%>
+</div>
+
 <p>When the deceleration section is inserted, the start point of the section is inserted in front of the target point cloud by the distance of <code>baselink to front</code> + <code>slow down forward margin</code>. the end point of the section is inserted behind the target point cloud by the distance of <code>slow down backward margin</code> + <code>baselink to rear</code>. The <code>baselink to rear</code> means the distance between <code>base_link</code> and rear of the car. The velocities of points in the deceleration section are modified to the deceleration velocity. <code>slow down backward margin</code> and <code>slow down forward margin</code> are determined by the parameters described below.</p>
-<p><img alt="insert_stop_velocity" src="docs/insert_decel_velocity.drawio.svg" /></p>
+<div align="center">
+  <img src="./docs/insert_decel_velocity.drawio.svg" width=45%>
+</div>
+
 <h2 id="input-topics">Input topics<a class="headerlink" href="#input-topics" title="Permanent link">#</a></h2>
 <table>
 <thead>
