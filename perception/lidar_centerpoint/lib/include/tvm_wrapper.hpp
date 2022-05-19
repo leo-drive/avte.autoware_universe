@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TENSORRT_WRAPPER_HPP_
-#define TENSORRT_WRAPPER_HPP_
+#ifndef TVM_WRAPPER_HPP_
+#define TVM_WRAPPER_HPP_
 
 #include <NvInfer.h>
 
@@ -53,10 +53,10 @@ private:
   bool verbose_{false};
 };
 
-class TensorRTWrapper
+class TVMWrapper
 {
 public:
-  explicit TensorRTWrapper(bool verbose);
+  explicit TVMWrapper(bool verbose);
 
   bool init(
     const std::string & onnx_path, const std::string & engine_path, const std::string & precision);
@@ -88,4 +88,4 @@ private:
 
 }  // namespace centerpoint
 
-#endif  // TENSORRT_WRAPPER_HPP_
+#endif  // TVM_WRAPPER_HPP_

@@ -40,7 +40,7 @@ bool VoxelEncoderTRT::setProfile(
 }
 
 HeadTRT::HeadTRT(const std::size_t num_class, const bool verbose)
-: TensorRTWrapper(verbose), num_class_(num_class)
+: TVMWrapper(verbose), num_class_(num_class)
 {
 }
 

@@ -66,114 +66,105 @@ else()
   set(CUDNN_AVAIL OFF)
 endif()
 
-if(TRT_AVAIL AND CUDA_AVAIL AND CUDNN_AVAIL)
+
 # Download trained models
-  find_program(GDOWN_AVAIL "gdown")
-  if(NOT GDOWN_AVAIL)
-    message("gdown: command not found. External files could not be downloaded.")
-  endif()
+find_program(GDOWN_AVAIL "gdown")
+if(NOT GDOWN_AVAIL)
+  message("gdown: command not found. External files could not be downloaded.")
+endif()
 
-  set(DATA_PATH ${CMAKE_CURRENT_SOURCE_DIR}/data)
-  execute_process(COMMAND mkdir -p ${DATA_PATH})
+set(DATA_PATH ${CMAKE_CURRENT_SOURCE_DIR}/data)
+execute_process(COMMAND mkdir -p ${DATA_PATH})
 
-  function(download FILE_NAME GFILE_ID FILE_HASH)
-    # https://drive.google.com/file/d/GFILE_ID/view
-    message(STATUS "Checking and downloading ${FILE_NAME}")
-    set(FILE_PATH ${DATA_PATH}/${FILE_NAME})
-    if(EXISTS ${FILE_PATH})
-      file(MD5 ${FILE_PATH} EXISTING_FILE_HASH)
-      if(${FILE_HASH} EQUAL ${EXISTING_FILE_HASH})
-        message(STATUS "File already exists.")
-      else()
-        message(STATUS "File hash changes. Downloading now ...")
-        execute_process(COMMAND gdown --quiet https://drive.google.com/uc?id=${GFILE_ID} -O ${FILE_PATH})
-        # file(MD5 ${FILE_PATH} DOWNLOADED_FILE_HASH)  # disable to pass ci
-        message(STATUS "Downloaded file hash: ${DOWNLOADED_FILE_HASH}")
-      endif()
+function(download FILE_NAME GFILE_ID FILE_HASH)
+  # https://drive.google.com/file/d/GFILE_ID/view
+  message(STATUS "Checking and downloading ${FILE_NAME}")
+  set(FILE_PATH ${DATA_PATH}/${FILE_NAME})
+  if(EXISTS ${FILE_PATH})
+    file(MD5 ${FILE_PATH} EXISTING_FILE_HASH)
+    if(${FILE_HASH} EQUAL ${EXISTING_FILE_HASH})
+      message(STATUS "File already exists.")
     else()
-      message(STATUS "File doesn't exists. Downloading now ...")
+      message(STATUS "File hash changes. Downloading now ...")
       execute_process(COMMAND gdown --quiet https://drive.google.com/uc?id=${GFILE_ID} -O ${FILE_PATH})
       # file(MD5 ${FILE_PATH} DOWNLOADED_FILE_HASH)  # disable to pass ci
       message(STATUS "Downloaded file hash: ${DOWNLOADED_FILE_HASH}")
     endif()
-  endfunction()
+  else()
+    message(STATUS "File doesn't exists. Downloading now ...")
+    execute_process(COMMAND gdown --quiet https://drive.google.com/uc?id=${GFILE_ID} -O ${FILE_PATH})
+    # file(MD5 ${FILE_PATH} DOWNLOADED_FILE_HASH)  # disable to pass ci
+    message(STATUS "Downloaded file hash: ${DOWNLOADED_FILE_HASH}")
+  endif()
+endfunction()
 
-  # default model
-  download(pts_voxel_encoder_default.onnx 1KFhmA4oFT6CtZx5806QeMzn5H2tKa3oD 410f730c537968cb27fbd70c941849a8)
-  download(pts_backbone_neck_head_default.onnx 1iyk5VoQ4uNBGPZwypVZIMjSuSYAI1RxP e97c165c7877222c0e27e44409a07517)
+# default model
+download(pts_voxel_encoder_default.onnx 1KFhmA4oFT6CtZx5806QeMzn5H2tKa3oD 410f730c537968cb27fbd70c941849a8)
+download(pts_backbone_neck_head_default.onnx 1iyk5VoQ4uNBGPZwypVZIMjSuSYAI1RxP e97c165c7877222c0e27e44409a07517)
 
-  # aip_x2 model
-  download(pts_voxel_encoder_aip_x2.onnx 13aYPRHx17Ge4BqxzW9drAUSWTppjtUV5 3ae5e9efd7b2ed12115e6f0b28cac58d)
-  download(pts_backbone_neck_head_aip_x2.onnx 14PJ_L3Jpz6Yi8GzoctVOEbGWcaCLArGp 6a406a19e05660677c162486ab332de8)
+# aip_x2 model
+download(pts_voxel_encoder_aip_x2.onnx 13aYPRHx17Ge4BqxzW9drAUSWTppjtUV5 3ae5e9efd7b2ed12115e6f0b28cac58d)
+download(pts_backbone_neck_head_aip_x2.onnx 14PJ_L3Jpz6Yi8GzoctVOEbGWcaCLArGp 6a406a19e05660677c162486ab332de8)
 
-  find_package(ament_cmake_auto REQUIRED)
-  ament_auto_find_build_dependencies()
+find_package(ament_cmake_auto REQUIRED)
+ament_auto_find_build_dependencies()
 
-  include_directories(
-    lib/include
+include_directories(
+  lib/include
+  ${CUDA_INCLUDE_DIRS}
+)
+
+### centerpoint ###
+ament_auto_add_library(centerpoint SHARED
+  lib/src/centerpoint_trt.cpp
+  lib/src/pointcloud_densification.cpp
+  lib/src/voxel_generator.cpp
+  lib/src/tvm_wrapper.cpp
+  lib/src/network_trt.cpp
+  lib/src/utils.cpp
+)
+
+cuda_add_library(centerpoint_cuda_libraries SHARED
+  lib/src/circle_nms_kernel.cu
+  lib/src/postprocess_kernel.cu
+  lib/src/preprocess_kernel.cu
+  lib/src/scatter_kernel.cu
+)
+
+target_link_libraries(centerpoint
+  ${NVINFER}
+  ${NVONNXPARSER}
+  ${CUDA_LIBRARIES}
+  ${CUBLAS_LIBRARIES}
+  ${CUDA_curand_LIBRARY}
+  ${CUDNN_LIBRARY}
+  centerpoint_cuda_libraries
+)
+
+# To suppress unknown-pragmas error. The root-cause is CUB library in CUDA 11.6.
+# This issue was fixed by https://github.com/NVIDIA/cub/commit/7d608bf1dc14553e2fb219eabeed80b76621b6fe
+target_include_directories(centerpoint
+  SYSTEM PUBLIC
     ${CUDA_INCLUDE_DIRS}
-  )
+)
 
-  ### centerpoint ###
-  ament_auto_add_library(centerpoint SHARED
-    lib/src/centerpoint_trt.cpp
-    lib/src/pointcloud_densification.cpp
-    lib/src/voxel_generator.cpp
-    lib/src/tensorrt_wrapper.cpp
-    lib/src/network_trt.cpp
-    lib/src/utils.cpp
-  )
+## node ##
+ament_auto_add_library(lidar_centerpoint_component SHARED
+  src/node.cpp
+)
 
-  cuda_add_library(centerpoint_cuda_libraries SHARED
-    lib/src/circle_nms_kernel.cu
-    lib/src/postprocess_kernel.cu
-    lib/src/preprocess_kernel.cu
-    lib/src/scatter_kernel.cu
-  )
+target_link_libraries(lidar_centerpoint_component
+  centerpoint
+)
 
-  target_link_libraries(centerpoint
-    ${NVINFER}
-    ${NVONNXPARSER}
-    ${CUDA_LIBRARIES}
-    ${CUBLAS_LIBRARIES}
-    ${CUDA_curand_LIBRARY}
-    ${CUDNN_LIBRARY}
-    centerpoint_cuda_libraries
-  )
+rclcpp_components_register_node(lidar_centerpoint_component
+  PLUGIN "centerpoint::LidarCenterPointNode"
+  EXECUTABLE lidar_centerpoint_node
+)
 
-  # To suppress unknown-pragmas error. The root-cause is CUB library in CUDA 11.6.
-  # This issue was fixed by https://github.com/NVIDIA/cub/commit/7d608bf1dc14553e2fb219eabeed80b76621b6fe
-  target_include_directories(centerpoint
-    SYSTEM PUBLIC
-      ${CUDA_INCLUDE_DIRS}
-  )
-
-  ## node ##
-  ament_auto_add_library(lidar_centerpoint_component SHARED
-    src/node.cpp
-  )
-
-  target_link_libraries(lidar_centerpoint_component
-    centerpoint
-  )
-
-  rclcpp_components_register_node(lidar_centerpoint_component
-    PLUGIN "centerpoint::LidarCenterPointNode"
-    EXECUTABLE lidar_centerpoint_node
-  )
-
-  ament_auto_package(
-    INSTALL_TO_SHARE
-      launch
-      data
-      config
-  )
-else()
-  find_package(ament_cmake_auto REQUIRED)
-  ament_auto_find_build_dependencies()
-
-  ament_auto_package(
-    INSTALL_TO_SHARE
-      launch
-  )
-endif()
+ament_auto_package(
+  INSTALL_TO_SHARE
+    launch
+    data
+    config
+)

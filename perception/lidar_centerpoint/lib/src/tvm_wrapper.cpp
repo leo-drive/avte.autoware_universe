@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <tensorrt_wrapper.hpp>
+#include <tvm_wrapper.hpp>
 
 #include <NvOnnxParser.h>
 
@@ -22,9 +22,9 @@
 
 namespace centerpoint
 {
-TensorRTWrapper::TensorRTWrapper(bool verbose) : logger_(Logger(verbose)) {}
+TVMWrapper::TVMWrapper(bool verbose) : logger_(Logger(verbose)) {}
 
-bool TensorRTWrapper::init(
+bool TVMWrapper::init(
   const std::string & onnx_path, const std::string & engine_path, const std::string & precision)
 {
   runtime_ = unique_ptr<nvinfer1::IRuntime>(nvinfer1::createInferRuntime(logger_));
@@ -45,7 +45,7 @@ bool TensorRTWrapper::init(
   return success;
 }
 
-bool TensorRTWrapper::createContext()
+bool TVMWrapper::createContext()
 {
   if (!engine_) {
     std::cout << "Fail to create context: Engine isn't created" << std::endl;
@@ -61,7 +61,7 @@ bool TensorRTWrapper::createContext()
   return true;
 }
 
-bool TensorRTWrapper::parseONNX(
+bool TVMWrapper::parseONNX(
   const std::string & onnx_path, const std::string & engine_path, const std::string & precision,
   const size_t workspace_size)
 {
@@ -119,7 +119,7 @@ bool TensorRTWrapper::parseONNX(
   return saveEngine(engine_path);
 }
 
-bool TensorRTWrapper::saveEngine(const std::string & engine_path)
+bool TVMWrapper::saveEngine(const std::string & engine_path)
 {
   std::cout << "Writing to " << engine_path << std::endl;
   std::ofstream file(engine_path, std::ios::out | std::ios::binary);
@@ -127,7 +127,7 @@ bool TensorRTWrapper::saveEngine(const std::string & engine_path)
   return true;
 }
 
-bool TensorRTWrapper::loadEngine(const std::string & engine_path)
+bool TVMWrapper::loadEngine(const std::string & engine_path)
 {
   std::ifstream file(engine_path, std::ios::in | std::ios::binary);
   file.seekg(0, std::ifstream::end);

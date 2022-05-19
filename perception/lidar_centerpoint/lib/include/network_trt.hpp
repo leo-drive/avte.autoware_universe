@@ -15,14 +15,14 @@
 #ifndef NETWORK_TRT_HPP_
 #define NETWORK_TRT_HPP_
 
-#include <tensorrt_wrapper.hpp>
+#include <tvm_wrapper.hpp>
 
 namespace centerpoint
 {
-class VoxelEncoderTRT : public TensorRTWrapper
+class VoxelEncoderTRT : public TVMWrapper
 {
 public:
-  using TensorRTWrapper::TensorRTWrapper;
+  using TVMWrapper::TVMWrapper;
 
 protected:
   bool setProfile(
@@ -30,10 +30,10 @@ protected:
     nvinfer1::IBuilderConfig & config) override;
 };
 
-class HeadTRT : public TensorRTWrapper
+class HeadTRT : public TVMWrapper
 {
 public:
-  using TensorRTWrapper::TensorRTWrapper;
+  using TVMWrapper::TVMWrapper;
 
   HeadTRT(const std::size_t num_class, const bool verbose);
 
