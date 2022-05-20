@@ -641,11 +641,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/obstacle_avoidance_planner-design.ja/</loc>
-         <lastmod>2022-05-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_stop_planner/</loc>
          <lastmod>2022-05-20</lastmod>
          <changefreq>daily</changefreq>
