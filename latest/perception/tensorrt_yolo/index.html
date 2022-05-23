@@ -8810,6 +8810,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reference-repositories" class="md-nav__link">
     Reference repositories
   </a>
@@ -9010,6 +9017,10 @@
 </ul>
 <ul>
 <li><a href="https://drive.google.com/uc?id=1kAHuNJUCxpD-yWrS6t95H3zbAPfClLxI" title="YOLOv5x">YOLOv5x</a></li>
+</ul>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
+<ul>
+<li>If you want to run multiple instances of this node for multiple cameras using "yolo.launch.xml", first of all, create a TensorRT engine by running the "tensorrt_yolo.launch.xml" launch file separately for each GPU. Otherwise, multiple instances of the node trying to create the same TensorRT engine can cause potential problems.</li>
 </ul>
 <h2 id="reference-repositories">Reference repositories<a class="headerlink" href="#reference-repositories" title="Permanent link">#</a></h2>
 <ul>
