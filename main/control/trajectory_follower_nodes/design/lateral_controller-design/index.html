@@ -15,7 +15,7 @@
     
     
       
-        <title>Lateral Controller {#lateral-controller-design} - Autoware Universe Documentation</title>
+        <title>Lateral Controller - Autoware Universe Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#lateral-controller" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lateral Controller {#lateral-controller-design}
+              Lateral Controller
             
           </span>
         </div>
@@ -815,7 +815,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_auto_common/design/comparisons/" class="md-nav__link">
-        Comparisons {#helper-comparisons}
+        Comparisons
       </a>
     </li>
   
@@ -909,7 +909,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_auto_geometry/design/interval/" class="md-nav__link">
-        Interval {#geometry-interval}
+        Interval
       </a>
     </li>
   
@@ -923,7 +923,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_auto_geometry/design/polygon_intersection_2d-design/" class="md-nav__link">
-        2D Convex Polygon Intersection {#convex-polygon-intersection-2d}
+        2D Convex Polygon Intersection
       </a>
     </li>
   
@@ -937,7 +937,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_auto_geometry/design/spatial-hash-design/" class="md-nav__link">
-        Spatial Hash {#geometry-spatial-hash}
+        Spatial Hash
       </a>
     </li>
   
@@ -1072,7 +1072,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_auto_tf2/design/autoware-auto-tf2-design/" class="md-nav__link">
-        autoware_auto_tf2 {#autoware-auto-tf2-design}
+        autoware_auto_tf2
       </a>
     </li>
   
@@ -1162,7 +1162,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_testing/design/autoware_testing-design/" class="md-nav__link">
-        autoware_testing {#autoware_testing-package-design}
+        autoware_testing
       </a>
     </li>
   
@@ -1297,7 +1297,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/fake_test_node/design/fake_test_node-design/" class="md-nav__link">
-        Fake Test Node {#fake-test-node-design}
+        Fake Test Node
       </a>
     </li>
   
@@ -1583,7 +1583,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/osqp_interface/design/osqp_interface-design/" class="md-nav__link">
-        Interface for the OSQP library {#osqp_interface-package-design}
+        Interface for the OSQP library
       </a>
     </li>
   
@@ -2368,7 +2368,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/vehicle_constants_manager/design/vehicle_constants_manager-design/" class="md-nav__link">
-        vehicle_constants_manager {#vehicle-constants-manager-package-design}
+        vehicle_constants_manager
       </a>
     </li>
   
@@ -2833,7 +2833,7 @@
   
     <li class="md-nav__item">
       <a href="../../../trajectory_follower/design/trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower {#trajectory_follower-package-design}
+        Trajectory Follower
       </a>
     </li>
   
@@ -2847,7 +2847,7 @@
   
     <li class="md-nav__item">
       <a href="../../../trajectory_follower/design/trajectory_follower-mpc-design/" class="md-nav__link">
-        MPC (Trajectory Follower) {#trajectory_follower-mpc-design}
+        MPC (Trajectory Follower)
       </a>
     </li>
   
@@ -2861,7 +2861,7 @@
   
     <li class="md-nav__item">
       <a href="../../../trajectory_follower/design/trajectory_follower-pid-design/" class="md-nav__link">
-        PID (Trajectory Follower) {#trajectory_follower-pid-design}
+        PID (Trajectory Follower)
       </a>
     </li>
   
@@ -2969,9 +2969,108 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Lateral Controller
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Lateral Controller {#lateral-controller-design}
+        Lateral Controller
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-use-cases" class="md-nav__link">
+    Purpose / Use cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assumptions-known-limits" class="md-nav__link">
+    Assumptions / Known limits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputs-outputs-api" class="md-nav__link">
+    Inputs / Outputs / API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-description" class="md-nav__link">
+    Parameter description
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mpc-algorithm" class="md-nav__link">
+    MPC algorithm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle" class="md-nav__link">
+    Vehicle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-tune-mpc-parameters" class="md-nav__link">
+    How to tune MPC parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-issues" class="md-nav__link">
+    Related issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2985,7 +3084,7 @@
   
     <li class="md-nav__item">
       <a href="../latlon_muxer-design/" class="md-nav__link">
-        Lateral/Longitudinal Control Muxer {#latlon-muxer-design}
+        Lateral/Longitudinal Control Muxer
       </a>
     </li>
   
@@ -2999,7 +3098,7 @@
   
     <li class="md-nav__item">
       <a href="../longitudinal_controller-design/" class="md-nav__link">
-        Longitudinal Controller {#longitudinal-controller-design}
+        Longitudinal Controller
       </a>
     </li>
   
@@ -3013,7 +3112,7 @@
   
     <li class="md-nav__item">
       <a href="../trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower Nodes {#trajectory_follower_nodes-package-design}
+        Trajectory Follower Nodes
       </a>
     </li>
   
@@ -7700,7 +7799,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../simulator/simple_planning_simulator/design/simple_planning_simulator-design/" class="md-nav__link">
-        simple_planning_simulator {#simple_planning_simulator-package-design}
+        simple_planning_simulator
       </a>
     </li>
   
@@ -8693,6 +8792,89 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-use-cases" class="md-nav__link">
+    Purpose / Use cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assumptions-known-limits" class="md-nav__link">
+    Assumptions / Known limits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputs-outputs-api" class="md-nav__link">
+    Inputs / Outputs / API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-description" class="md-nav__link">
+    Parameter description
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mpc-algorithm" class="md-nav__link">
+    MPC algorithm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle" class="md-nav__link">
+    Vehicle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-tune-mpc-parameters" class="md-nav__link">
+    How to tune MPC parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-issues" class="md-nav__link">
+    Related issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -8709,10 +8891,343 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="c1"># Lateral Controller {#lateral-controller-design}</span>
-</code></pre></div></p>
+<h1 id="lateral-controller">Lateral Controller<a class="headerlink" href="#lateral-controller" title="Permanent link">#</a></h1>
+<p>This is the design document for the lateral controller node
+in the <code>trajectory_follower_nodes</code> package.</p>
+<h2 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+    - Why did we implement this feature? -->
+
+<p>This node is used to general lateral control commands (steering angle and steering rate)
+when following a path.</p>
+<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+    - How does it work? -->
+
+<p>The node uses an implementation of linear model predictive control (MPC) for accurate path tracking.
+The MPC uses a model of the vehicle to simulate the trajectory resulting from the control command.
+The optimization of the control command is formulated as a Quadratic Program (QP).</p>
+<p>These functionalities are implemented in the <code>trajectory_follower</code> package
+(see <a href="../../../trajectory_follower/design/trajectory_follower-mpc-design/#mpc-trajectory-follower">trajectory_follower-mpc-design</a>)</p>
+<h3 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h3>
+<!-- Required -->
+
+<p>The tracking is not accurate if the first point of the reference trajectory is at or in front of the current ego pose.</p>
+<ul>
+<li>Issue to add points behind ego: <a href="https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1273">https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1273</a></li>
+</ul>
+<h3 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h3>
+<!-- Required -->
+<!-- Things to consider:
+    - How do you use the package / API? -->
+
+<p>Inputs</p>
+<ul>
+<li><code>input/reference_trajectory</code> : reference trajectory to follow.</li>
+<li><code>input/current_kinematic_state</code>: current state of the vehicle (position, velocity, etc).
+  Output</li>
+<li><code>output/lateral_control_cmd</code>: generated lateral control command.</li>
+</ul>
+<h3 id="parameter-description">Parameter description<a class="headerlink" href="#parameter-description" title="Permanent link">#</a></h3>
+<p>The default parameters defined in <code>param/lateral_controller_defaults.param.yaml</code> are adjusted to the
+AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">show_debug_info</td>
+<td align="left">bool</td>
+<td align="left">display debug info</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">ctrl_period</td>
+<td align="left">double</td>
+<td align="left">control period [s]</td>
+<td align="left">0.03</td>
+</tr>
+<tr>
+<td align="left">traj_resample_dist</td>
+<td align="left">double</td>
+<td align="left">distance of waypoints in resampling [m]</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left">enable_path_smoothing</td>
+<td align="left">bool</td>
+<td align="left">path smoothing flag. This should be true when uses path resampling to reduce resampling noise.</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">path_filter_moving_ave_num</td>
+<td align="left">int</td>
+<td align="left">number of data points moving average filter for path smoothing</td>
+<td align="left">35</td>
+</tr>
+<tr>
+<td align="left">path_smoothing_times</td>
+<td align="left">int</td>
+<td align="left">number of times of applying path smoothing filter</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">curvature_smoothing_num_ref_steer</td>
+<td align="left">double</td>
+<td align="left">index distance of points used in curvature calculation for reference steer command: p(i-num), p(i), p(i+num). larger num makes less noisy values.</td>
+<td align="left">35</td>
+</tr>
+<tr>
+<td align="left">curvature_smoothing_num_traj</td>
+<td align="left">double</td>
+<td align="left">index distance of points used in curvature calculation for trajectory: p(i-num), p(i), p(i+num). larger num makes less noisy values.</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">steering_lpf_cutoff_hz</td>
+<td align="left">double</td>
+<td align="left">cutoff frequency of lowpass filter for steering output command [hz]</td>
+<td align="left">3.0</td>
+</tr>
+<tr>
+<td align="left">admissible_position_error</td>
+<td align="left">double</td>
+<td align="left">stop vehicle when following position error is larger than this value [m].</td>
+<td align="left">5.0</td>
+</tr>
+<tr>
+<td align="left">admissible_yaw_error_rad</td>
+<td align="left">double</td>
+<td align="left">stop vehicle when following yaw angle error is larger than this value [rad].</td>
+<td align="left">1.57</td>
+</tr>
+<tr>
+<td align="left">stop_state_entry_ego_speed <sup>*1</sup></td>
+<td align="left">double</td>
+<td align="left">threshold value of the ego vehicle speed used to the stop state entry condition</td>
+<td align="left">0.0</td>
+</tr>
+<tr>
+<td align="left">stop_state_entry_target_speed <sup>*1</sup></td>
+<td align="left">double</td>
+<td align="left">threshold value of the target speed used to the stop state entry condition</td>
+<td align="left">0.0</td>
+</tr>
+</tbody>
+</table>
+<p>(*1) To prevent unnecessary steering movement, the steering command is fixed to the previous value in the stop state.</p>
+<h4 id="mpc-algorithm">MPC algorithm<a class="headerlink" href="#mpc-algorithm" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">qp_solver_type</td>
+<td align="left">string</td>
+<td align="left">QP solver option. described below in detail.</td>
+<td align="left">unconstraint_fast</td>
+</tr>
+<tr>
+<td align="left">vehicle_model_type</td>
+<td align="left">string</td>
+<td align="left">vehicle model option. described below in detail.</td>
+<td align="left">kinematics</td>
+</tr>
+<tr>
+<td align="left">prediction_horizon</td>
+<td align="left">int</td>
+<td align="left">total prediction step for MPC</td>
+<td align="left">70</td>
+</tr>
+<tr>
+<td align="left">prediction_sampling_time</td>
+<td align="left">double</td>
+<td align="left">prediction period for one step [s]</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left">weight_lat_error</td>
+<td align="left">double</td>
+<td align="left">weight for lateral error</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left">weight_heading_error</td>
+<td align="left">double</td>
+<td align="left">weight for heading error</td>
+<td align="left">0.0</td>
+</tr>
+<tr>
+<td align="left">weight_heading_error_squared_vel_coeff</td>
+<td align="left">double</td>
+<td align="left">weight for heading error * velocity</td>
+<td align="left">5.0</td>
+</tr>
+<tr>
+<td align="left">weight_steering_input</td>
+<td align="left">double</td>
+<td align="left">weight for steering error (steer command - reference steer)</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">weight_steering_input_squared_vel_coeff</td>
+<td align="left">double</td>
+<td align="left">weight for steering error (steer command - reference steer) * velocity</td>
+<td align="left">0.25</td>
+</tr>
+<tr>
+<td align="left">weight_lat_jerk</td>
+<td align="left">double</td>
+<td align="left">weight for lateral jerk (steer(i) - steer(i-1)) * velocity</td>
+<td align="left">0.0</td>
+</tr>
+<tr>
+<td align="left">weight_terminal_lat_error</td>
+<td align="left">double</td>
+<td align="left">terminal cost weight for lateral error</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">weight_terminal_heading_error</td>
+<td align="left">double</td>
+<td align="left">terminal cost weight for heading error</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left">zero_ff_steer_deg</td>
+<td align="left">double</td>
+<td align="left">threshold of feedforward angle [deg]. feedforward angle smaller than this value is set to zero.</td>
+<td align="left">2.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vehicle">Vehicle<a class="headerlink" href="#vehicle" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">cg_to_front_m</td>
+<td align="left">double</td>
+<td align="left">distance from baselink to the front axle[m]</td>
+<td align="left">1.228</td>
+</tr>
+<tr>
+<td align="left">cg_to_rear_m</td>
+<td align="left">double</td>
+<td align="left">distance from baselink to the rear axle [m]</td>
+<td align="left">1.5618</td>
+</tr>
+<tr>
+<td align="left">mass_fl</td>
+<td align="left">double</td>
+<td align="left">mass applied to front left tire [kg]</td>
+<td align="left">600</td>
+</tr>
+<tr>
+<td align="left">mass_fr</td>
+<td align="left">double</td>
+<td align="left">mass applied to front right tire [kg]</td>
+<td align="left">600</td>
+</tr>
+<tr>
+<td align="left">mass_rl</td>
+<td align="left">double</td>
+<td align="left">mass applied to rear left tire [kg]</td>
+<td align="left">600</td>
+</tr>
+<tr>
+<td align="left">mass_rr</td>
+<td align="left">double</td>
+<td align="left">mass applied to rear right tire [kg]</td>
+<td align="left">600</td>
+</tr>
+<tr>
+<td align="left">cf</td>
+<td align="left">double</td>
+<td align="left">front cornering power [N/rad]</td>
+<td align="left">155494.663</td>
+</tr>
+<tr>
+<td align="left">cr</td>
+<td align="left">double</td>
+<td align="left">rear cornering power [N/rad]</td>
+<td align="left">155494.663</td>
+</tr>
+<tr>
+<td align="left">steering_tau</td>
+<td align="left">double</td>
+<td align="left">steering dynamics time constant (1d approximation) for vehicle model [s]</td>
+<td align="left">0.3</td>
+</tr>
+<tr>
+<td align="left">steer_lim_deg</td>
+<td align="left">double</td>
+<td align="left">steering angle limit for vehicle model [deg]. This is also used for QP constraint.</td>
+<td align="left">35.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-to-tune-mpc-parameters">How to tune MPC parameters<a class="headerlink" href="#how-to-tune-mpc-parameters" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>Set appropriate vehicle kinematics parameters for distance to front and rear axle, and <code>steer_lim_deg</code>.
+   Also check that the input <code>VehicleKinematicState</code> has appropriate values (speed: vehicle rear-wheels-center velocity [km/h], angle: steering (tire) angle [rad]).
+   These values give a vehicle information to the controller for path following.
+   Errors in these values cause fundamental tracking error.</p>
+</li>
+<li>
+<p>Set appropriate vehicle dynamics parameters of <code>steering_tau</code>, which is the approximated delay from steering angle command to actual steering angle.</p>
+</li>
+<li>
+<p>Set <code>weight_steering_input</code> = 1.0, <code>weight_lat_error</code> = 0.1, and other weights to 0.
+   If the vehicle oscillates when driving with low speed, set <code>weight_lat_error</code> smaller.</p>
+</li>
+<li>
+<p>Adjust other weights.
+   One of the simple way for tuning is to increase <code>weight_lat_error</code> until oscillation occurs.
+   If the vehicle is unstable with very small <code>weight_lat_error</code>, increase terminal weight :
+   <code>weight_terminal_lat_error</code> and <code>weight_terminal_heading_error</code> to improve tracking stability.
+   Larger <code>prediction_horizon</code> and smaller <code>prediction_sampling_time</code> is effective for tracking performance, but it is a trade-off between computational costs.
+   Other parameters can be adjusted like below.</p>
+</li>
+</ol>
+<ul>
+<li><code>weight_lat_error</code>: Reduce lateral tracking error. This acts like P gain in PID.</li>
+<li><code>weight_heading_error</code>: Make a drive straight. This acts like D gain in PID.</li>
+<li><code>weight_heading_error_squared_vel_coeff</code> : Make a drive straight in high speed range.</li>
+<li><code>weight_steering_input</code>: Reduce oscillation of tracking.</li>
+<li><code>weight_steering_input_squared_vel_coeff</code>: Reduce oscillation of tracking in high speed range.</li>
+<li><code>weight_lat_jerk</code>: Reduce lateral jerk.</li>
+<li><code>weight_terminal_lat_error</code>: Preferable to set a higher value than normal lateral weight <code>weight_lat_error</code> for stability.</li>
+<li><code>weight_terminal_heading_error</code>: Preferable to set a higher value than normal heading weight <code>weight_heading_error</code> for stability.</li>
+</ul>
+<h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
+<!-- Required -->
+
+<ul>
+<li><a href="https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1057">https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1057</a></li>
+</ul>
 
               
             </article>
@@ -8731,7 +9246,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../../trajectory_follower/design/trajectory_follower-pid-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PID (Trajectory Follower) {#trajectory_follower-pid-design}" rel="prev">
+        <a href="../../../trajectory_follower/design/trajectory_follower-pid-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PID (Trajectory Follower)" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -8740,20 +9255,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              PID (Trajectory Follower) {#trajectory_follower-pid-design}
+              PID (Trajectory Follower)
             </div>
           </div>
         </a>
       
       
         
-        <a href="../latlon_muxer-design/" class="md-footer__link md-footer__link--next" aria-label="Next: Lateral/Longitudinal Control Muxer {#latlon-muxer-design}" rel="next">
+        <a href="../latlon_muxer-design/" class="md-footer__link md-footer__link--next" aria-label="Next: Lateral/Longitudinal Control Muxer" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Lateral/Longitudinal Control Muxer {#latlon-muxer-design}
+              Lateral/Longitudinal Control Muxer
             </div>
           </div>
           <div class="md-footer__button md-icon">

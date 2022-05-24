@@ -15,7 +15,7 @@
     
     
       
-        <title>PID (Trajectory Follower) {#trajectory_follower-pid-design} - Autoware Universe Documentation</title>
+        <title>PID (Trajectory Follower) - Autoware Universe Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#pid-trajectory-follower" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PID (Trajectory Follower) {#trajectory_follower-pid-design}
+              PID (Trajectory Follower)
             
           </span>
         </div>
@@ -815,7 +815,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_auto_common/design/comparisons/" class="md-nav__link">
-        Comparisons {#helper-comparisons}
+        Comparisons
       </a>
     </li>
   
@@ -909,7 +909,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_auto_geometry/design/interval/" class="md-nav__link">
-        Interval {#geometry-interval}
+        Interval
       </a>
     </li>
   
@@ -923,7 +923,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_auto_geometry/design/polygon_intersection_2d-design/" class="md-nav__link">
-        2D Convex Polygon Intersection {#convex-polygon-intersection-2d}
+        2D Convex Polygon Intersection
       </a>
     </li>
   
@@ -937,7 +937,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_auto_geometry/design/spatial-hash-design/" class="md-nav__link">
-        Spatial Hash {#geometry-spatial-hash}
+        Spatial Hash
       </a>
     </li>
   
@@ -1072,7 +1072,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_auto_tf2/design/autoware-auto-tf2-design/" class="md-nav__link">
-        autoware_auto_tf2 {#autoware-auto-tf2-design}
+        autoware_auto_tf2
       </a>
     </li>
   
@@ -1162,7 +1162,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/autoware_testing/design/autoware_testing-design/" class="md-nav__link">
-        autoware_testing {#autoware_testing-package-design}
+        autoware_testing
       </a>
     </li>
   
@@ -1297,7 +1297,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/fake_test_node/design/fake_test_node-design/" class="md-nav__link">
-        Fake Test Node {#fake-test-node-design}
+        Fake Test Node
       </a>
     </li>
   
@@ -1583,7 +1583,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/osqp_interface/design/osqp_interface-design/" class="md-nav__link">
-        Interface for the OSQP library {#osqp_interface-package-design}
+        Interface for the OSQP library
       </a>
     </li>
   
@@ -2368,7 +2368,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../common/vehicle_constants_manager/design/vehicle_constants_manager-design/" class="md-nav__link">
-        vehicle_constants_manager {#vehicle-constants-manager-package-design}
+        vehicle_constants_manager
       </a>
     </li>
   
@@ -2837,7 +2837,7 @@
   
     <li class="md-nav__item">
       <a href="../trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower {#trajectory_follower-package-design}
+        Trajectory Follower
       </a>
     </li>
   
@@ -2851,7 +2851,7 @@
   
     <li class="md-nav__item">
       <a href="../trajectory_follower-mpc-design/" class="md-nav__link">
-        MPC (Trajectory Follower) {#trajectory_follower-mpc-design}
+        MPC (Trajectory Follower)
       </a>
     </li>
   
@@ -2873,9 +2873,88 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PID (Trajectory Follower)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        PID (Trajectory Follower) {#trajectory_follower-pid-design}
+        PID (Trajectory Follower)
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-use-cases" class="md-nav__link">
+    Purpose / Use cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#states" class="md-nav__link">
+    States
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-delay-compensation" class="md-nav__link">
+    Time delay compensation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slope-compensation" class="md-nav__link">
+    Slope compensation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputs-outputs-api" class="md-nav__link">
+    Inputs / Outputs / API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-issues" class="md-nav__link">
+    Related issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2971,7 +3050,7 @@
   
     <li class="md-nav__item">
       <a href="../../../trajectory_follower_nodes/design/lateral_controller-design/" class="md-nav__link">
-        Lateral Controller {#lateral-controller-design}
+        Lateral Controller
       </a>
     </li>
   
@@ -2985,7 +3064,7 @@
   
     <li class="md-nav__item">
       <a href="../../../trajectory_follower_nodes/design/latlon_muxer-design/" class="md-nav__link">
-        Lateral/Longitudinal Control Muxer {#latlon-muxer-design}
+        Lateral/Longitudinal Control Muxer
       </a>
     </li>
   
@@ -2999,7 +3078,7 @@
   
     <li class="md-nav__item">
       <a href="../../../trajectory_follower_nodes/design/longitudinal_controller-design/" class="md-nav__link">
-        Longitudinal Controller {#longitudinal-controller-design}
+        Longitudinal Controller
       </a>
     </li>
   
@@ -3013,7 +3092,7 @@
   
     <li class="md-nav__item">
       <a href="../../../trajectory_follower_nodes/design/trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower Nodes {#trajectory_follower_nodes-package-design}
+        Trajectory Follower Nodes
       </a>
     </li>
   
@@ -7700,7 +7779,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../simulator/simple_planning_simulator/design/simple_planning_simulator-design/" class="md-nav__link">
-        simple_planning_simulator {#simple_planning_simulator-package-design}
+        simple_planning_simulator
       </a>
     </li>
   
@@ -8693,6 +8772,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-use-cases" class="md-nav__link">
+    Purpose / Use cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#states" class="md-nav__link">
+    States
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-delay-compensation" class="md-nav__link">
+    Time delay compensation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slope-compensation" class="md-nav__link">
+    Slope compensation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputs-outputs-api" class="md-nav__link">
+    Inputs / Outputs / API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-issues" class="md-nav__link">
+    Related issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -8709,10 +8851,95 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="c1"># PID (Trajectory Follower) {#trajectory_follower-pid-design}</span>
-</code></pre></div></p>
+<h1 id="pid-trajectory-follower">PID (Trajectory Follower)<a class="headerlink" href="#pid-trajectory-follower" title="Permanent link">#</a></h1>
+<p>This is the design document for the PID implemented in the <code>trajectory_follower</code> package.</p>
+<h2 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+    - Why did we implement this feature? -->
+
+<p>PID control is used by the <code>trajectory_follower</code>
+to calculate longitudinal commands corresponding to a velocity and an acceleration.</p>
+<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+    - How does it work? -->
+
+<p>This PID control calculates the target acceleration from the deviation between the current ego-velocity and the target velocity.</p>
+<p>This PID logic has a maximum value for the output of each term. This is to prevent the following:</p>
+<ul>
+<li>Large integral terms may cause unintended behavior by users.</li>
+<li>Unintended noise may cause the output of the derivative term to be very large.</li>
+</ul>
+<p>Also, the integral term is not accumulated when the vehicle is stopped. This is to prevent unintended accumulation of the integral term in cases such as "Autoware assumes that the vehicle is engaged, but an external system has locked the vehicle to start.
+On the other hand, if the vehicle gets stuck in a depression in the road surface when starting, the vehicle will not start forever, which is currently being addressed by developers.</p>
+<p>At present, PID control is implemented from the viewpoint of trade-off between development/maintenance cost and performance.
+This may be replaced by a higher performance controller (adaptive control or robust control) in future development.</p>
+<p>@image html images/trajectory_follower-pid-diagram.svg "PID controller diagram"</p>
+<h3 id="states">States<a class="headerlink" href="#states" title="Permanent link">#</a></h3>
+<p>This module has four state transitions as shown below in order to handle special processing in a specific situation.</p>
+<ul>
+<li><strong>DRIVE</strong><ul>
+<li>Executes target velocity tracking by PID control.</li>
+<li>It also applies the delay compensation and slope compensation.</li>
+</ul>
+</li>
+<li><strong>STOPPING</strong><ul>
+<li>Controls the motion just before stopping.</li>
+<li>Special sequence is performed to achieve accurate and smooth stopping.</li>
+</ul>
+</li>
+<li><strong>STOPPED</strong><ul>
+<li>Performs operations in the stopped state (e.g. brake hold)</li>
+</ul>
+</li>
+<li><strong>EMERGENCY</strong>.<ul>
+<li>Enters an emergency state when certain conditions are met (e.g., when the vehicle has crossed a certain distance of a stop line).</li>
+<li>The recovery condition (whether or not to keep emergency state until the vehicle completely stops) or the deceleration in the emergency state are defined by parameters.</li>
+</ul>
+</li>
+</ul>
+<p>The state transition diagram is shown below.</p>
+<p>@image html images/trajectory_follower-pid-states-diagram.svg "State Transitions"</p>
+<h3 id="time-delay-compensation">Time delay compensation<a class="headerlink" href="#time-delay-compensation" title="Permanent link">#</a></h3>
+<p>At high speeds, the delay of actuator systems such as gas pedals and brakes has a significant impact on driving accuracy.
+Depending on the actuating principle of the vehicle,
+the mechanism that physically controls the gas pedal and brake typically has a delay of about a hundred millisecond.</p>
+<p>In this controller,
+the predicted ego-velocity and the target velocity after the delay time are calculated and used for the feedback to address the time delay problem.</p>
+<h3 id="slope-compensation">Slope compensation<a class="headerlink" href="#slope-compensation" title="Permanent link">#</a></h3>
+<p>Based on the slope information, a compensation term is added to the target acceleration.</p>
+<p>There are two sources of the slope information, which can be switched by a parameter.</p>
+<ul>
+<li>Pitch of the estimated ego-pose (default)<ul>
+<li>Calculates the current slope from the pitch angle of the estimated ego-pose</li>
+<li>Pros: Easily available</li>
+<li>Cons: Cannot extract accurate slope information due to the influence of vehicle vibration.</li>
+</ul>
+</li>
+<li>Z coordinate on the trajectory<ul>
+<li>Calculates the road slope from the difference of z-coordinates between the front and rear wheel positions in the target trajectory</li>
+<li>Pros: More accurate than pitch information, if the z-coordinates of the route are properly maintained</li>
+<li>Pros: Can be used in combination with delay compensation (not yet implemented)</li>
+<li>Cons: z-coordinates of high-precision map is needed.</li>
+<li>Cons: Does not support free space planning (for now)</li>
+</ul>
+</li>
+</ul>
+<h3 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h3>
+<!-- Required -->
+<!-- Things to consider:
+    - How do you use the package / API? -->
+
+<p>The <code>PIDController</code> class is straightforward to use.
+First, gains and limits must be set (using <code>setGains()</code> and <code>setLimits()</code>) for the proportional (P), integral (I), and derivative (D) components.
+Then, the velocity can be calculated by providing the current error and time step duration to the <code>calculate()</code> function.</p>
+<h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
+<!-- Required -->
+
+<ul>
+<li><a href="https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1058">https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1058</a></li>
+</ul>
 
               
             </article>
@@ -8731,7 +8958,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../trajectory_follower-mpc-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MPC (Trajectory Follower) {#trajectory_follower-mpc-design}" rel="prev">
+        <a href="../trajectory_follower-mpc-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MPC (Trajectory Follower)" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -8740,20 +8967,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              MPC (Trajectory Follower) {#trajectory_follower-mpc-design}
+              MPC (Trajectory Follower)
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../../trajectory_follower_nodes/design/lateral_controller-design/" class="md-footer__link md-footer__link--next" aria-label="Next: Lateral Controller {#lateral-controller-design}" rel="next">
+        <a href="../../../trajectory_follower_nodes/design/lateral_controller-design/" class="md-footer__link md-footer__link--next" aria-label="Next: Lateral Controller" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Lateral Controller {#lateral-controller-design}
+              Lateral Controller
             </div>
           </div>
           <div class="md-footer__button md-icon">
