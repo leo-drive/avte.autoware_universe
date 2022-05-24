@@ -15,7 +15,7 @@
     
     
       
-        <title>vehicle_constants_manager {#vehicle-constants-manager-package-design} - Autoware Universe Documentation</title>
+        <title>vehicle_constants_manager - Autoware Universe Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#vehicle_constants_manager" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              vehicle_constants_manager {#vehicle-constants-manager-package-design}
+              vehicle_constants_manager
             
           </span>
         </div>
@@ -817,7 +817,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_common/design/comparisons/" class="md-nav__link">
-        Comparisons {#helper-comparisons}
+        Comparisons
       </a>
     </li>
   
@@ -911,7 +911,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_geometry/design/interval/" class="md-nav__link">
-        Interval {#geometry-interval}
+        Interval
       </a>
     </li>
   
@@ -925,7 +925,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_geometry/design/polygon_intersection_2d-design/" class="md-nav__link">
-        2D Convex Polygon Intersection {#convex-polygon-intersection-2d}
+        2D Convex Polygon Intersection
       </a>
     </li>
   
@@ -939,7 +939,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_geometry/design/spatial-hash-design/" class="md-nav__link">
-        Spatial Hash {#geometry-spatial-hash}
+        Spatial Hash
       </a>
     </li>
   
@@ -1074,7 +1074,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_tf2/design/autoware-auto-tf2-design/" class="md-nav__link">
-        autoware_auto_tf2 {#autoware-auto-tf2-design}
+        autoware_auto_tf2
       </a>
     </li>
   
@@ -1164,7 +1164,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_testing/design/autoware_testing-design/" class="md-nav__link">
-        autoware_testing {#autoware_testing-package-design}
+        autoware_testing
       </a>
     </li>
   
@@ -1299,7 +1299,7 @@
   
     <li class="md-nav__item">
       <a href="../../../fake_test_node/design/fake_test_node-design/" class="md-nav__link">
-        Fake Test Node {#fake-test-node-design}
+        Fake Test Node
       </a>
     </li>
   
@@ -1585,7 +1585,7 @@
   
     <li class="md-nav__item">
       <a href="../../../osqp_interface/design/osqp_interface-design/" class="md-nav__link">
-        Interface for the OSQP library {#osqp_interface-package-design}
+        Interface for the OSQP library
       </a>
     </li>
   
@@ -2382,9 +2382,103 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          vehicle_constants_manager
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        vehicle_constants_manager {#vehicle-constants-manager-package-design}
+        vehicle_constants_manager
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-use-cases" class="md-nav__link">
+    Purpose / Use cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumptions-known-limits" class="md-nav__link">
+    Assumptions / Known limits
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs-outputs-api" class="md-nav__link">
+    Inputs / Outputs / API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inner-workings-algorithms" class="md-nav__link">
+    Inner-workings / Algorithms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-detection-and-handling" class="md-nav__link">
+    Error detection and handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    Security considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-external-links" class="md-nav__link">
+    References / External links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
+    Future extensions / Unimplemented parts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-issues" class="md-nav__link">
+    Related issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2847,7 +2941,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower/design/trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower {#trajectory_follower-package-design}
+        Trajectory Follower
       </a>
     </li>
   
@@ -2861,7 +2955,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower/design/trajectory_follower-mpc-design/" class="md-nav__link">
-        MPC (Trajectory Follower) {#trajectory_follower-mpc-design}
+        MPC (Trajectory Follower)
       </a>
     </li>
   
@@ -2875,7 +2969,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower/design/trajectory_follower-pid-design/" class="md-nav__link">
-        PID (Trajectory Follower) {#trajectory_follower-pid-design}
+        PID (Trajectory Follower)
       </a>
     </li>
   
@@ -2971,7 +3065,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/lateral_controller-design/" class="md-nav__link">
-        Lateral Controller {#lateral-controller-design}
+        Lateral Controller
       </a>
     </li>
   
@@ -2985,7 +3079,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/latlon_muxer-design/" class="md-nav__link">
-        Lateral/Longitudinal Control Muxer {#latlon-muxer-design}
+        Lateral/Longitudinal Control Muxer
       </a>
     </li>
   
@@ -2999,7 +3093,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/longitudinal_controller-design/" class="md-nav__link">
-        Longitudinal Controller {#longitudinal-controller-design}
+        Longitudinal Controller
       </a>
     </li>
   
@@ -3013,7 +3107,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower Nodes {#trajectory_follower_nodes-package-design}
+        Trajectory Follower Nodes
       </a>
     </li>
   
@@ -7700,7 +7794,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../simulator/simple_planning_simulator/design/simple_planning_simulator-design/" class="md-nav__link">
-        simple_planning_simulator {#simple_planning_simulator-package-design}
+        simple_planning_simulator
       </a>
     </li>
   
@@ -8693,6 +8787,84 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-use-cases" class="md-nav__link">
+    Purpose / Use cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumptions-known-limits" class="md-nav__link">
+    Assumptions / Known limits
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs-outputs-api" class="md-nav__link">
+    Inputs / Outputs / API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inner-workings-algorithms" class="md-nav__link">
+    Inner-workings / Algorithms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-detection-and-handling" class="md-nav__link">
+    Error detection and handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    Security considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-external-links" class="md-nav__link">
+    References / External links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
+    Future extensions / Unimplemented parts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-issues" class="md-nav__link">
+    Related issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -8709,10 +8881,130 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="c1"># vehicle_constants_manager {#vehicle-constants-manager-package-design}</span>
-</code></pre></div></p>
+<h1 id="vehicle_constants_manager">vehicle_constants_manager<a class="headerlink" href="#vehicle_constants_manager" title="Permanent link">#</a></h1>
+<p>This is the design document for the <code>vehicle_constants_manager</code> package.</p>
+<h2 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+    - Why did we implement this feature? -->
+
+<p>This library provides a struct for holding vehicle specific constants. It also
+provides a helper method to declare vehicle specific constants which have
+already been passed into a node and provide a <code>VehicleConstants</code> object.</p>
+<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+    - How does it work? -->
+
+<p>Provided <code>VehicleConstants</code> struct holds vehicle parameters. Its parameters can
+be split in 2 categories:
+(The detailed descriptions and units of the variables is in the
+<code>vehicle_constants_manager.hpp</code> file.)</p>
+<ul>
+<li>Primary Constants<ul>
+<li>wheel_radius</li>
+<li>wheel_width</li>
+<li>wheel_base</li>
+<li>wheel_tread</li>
+<li>overhang_front</li>
+<li>overhang_rear</li>
+<li>overhang_left</li>
+<li>overhang_right</li>
+<li>vehicle_height</li>
+<li>cg_to_rear</li>
+<li>tire_cornering_stiffness_front_n_per_deg</li>
+<li>tire_cornering_stiffness_rear_n_per_deg</li>
+<li>mass_vehicle</li>
+<li>inertia_yaw_kg_m_2</li>
+</ul>
+</li>
+<li>Derived Constants<ul>
+<li>cg_to_front</li>
+<li>vehicle_length</li>
+<li>vehicle_width</li>
+<li>offset_longitudinal_min</li>
+<li>offset_longitudinal_max</li>
+<li>offset_lateral_min</li>
+<li>offset_lateral_max</li>
+<li>offset_height_min</li>
+<li>offset_height_max</li>
+</ul>
+</li>
+</ul>
+<p>The <code>VehicleConstants</code> constructor is initialized with the primary parameters.</p>
+<p>The library also provides a <code>declare_and_get_vehicle_constants</code> method. Using
+this method, the user can declare vehicle parameters that are already passed
+into the node and obtain a <code>VehicleConstants</code> object.</p>
+<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
+<!-- Required -->
+
+<p>This library assumes the vehicle is defined with Ackermann steering geometry.</p>
+<p><code>declare_and_get_vehicle_constants</code> method requires the passed node to have following parameters overridden:</p>
+<p>(Pay attention to the <code>vehicle</code> namespace)</p>
+<div class="highlight"><pre><span></span><code><span class="nt">vehicle</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">wheel_radius</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">wheel_width</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">wheel_base</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">wheel_tread</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">overhang_front</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">overhang_rear</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">overhang_left</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">overhang_right</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">vehicle_height</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">cg_to_rear</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">tire_cornering_stiffness_front_n_per_deg</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">tire_cornering_stiffness_rear_n_per_deg</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">mass_vehicle</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">inertia_yaw_kg_m_2</span><span class="p">:</span><span class="w"></span>
+</code></pre></div>
+<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+    - How do you use the package / API? -->
+
+<p>The constructor of <code>VehicleConstants</code> takes the primary vehicle constants and
+generates the derived parameters.</p>
+<p><code>declare_and_get_vehicle_constants</code> method takes a <code>rclcpp::Node</code> object. And
+returns a <code>VehicleConstants</code> object if it succeeds.</p>
+<p>Example usage:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// In the constructor of a node which received primary vehicle parameters from a</span>
+<span class="c1">// .yaml file or run args.</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">vehicle_constants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">declare_and_get_vehicle_constants</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
+<!-- If applicable -->
+
+<p>Not Available.</p>
+<h2 id="error-detection-and-handling">Error detection and handling<a class="headerlink" href="#error-detection-and-handling" title="Permanent link">#</a></h2>
+<!-- Required -->
+
+<p>The <code>VehicleConstants</code> struct performs some sanity checks upon construction.</p>
+<p>It will throw <code>std::runtime_error</code> in case certain parameters are negative or
+cg_to_rear is larger than wheel_base (to ensure center of gravity is within
+front and rear axles.)</p>
+<h2 id="security-considerations">Security considerations<a class="headerlink" href="#security-considerations" title="Permanent link">#</a></h2>
+<!-- Required -->
+<!-- Things to consider:
+- Spoofing (How do you check for and handle fake input?)
+- Tampering (How do you check for and handle tampered input?)
+- Repudiation (How are you affected by the actions of external actors?).
+- Information Disclosure (Can data leak?).
+- Denial of Service (How do you handle spamming?).
+- Elevation of Privilege (Do you need to change permission levels during execution?) -->
+
+<p>To Be Determined.</p>
+<h2 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h2>
+<!-- Optional -->
+
+<p>Not Available.</p>
+<h2 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
+<!-- Optional -->
+
+<p>Not Available.</p>
+<h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
+<!-- Required -->
+
+<p><a href="https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1294">https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1294</a></p>
 
               
             </article>

@@ -15,7 +15,7 @@
     
     
       
-        <title>Spatial Hash {#geometry-spatial-hash} - Autoware Universe Documentation</title>
+        <title>Spatial Hash - Autoware Universe Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#spatial-hash" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Spatial Hash {#geometry-spatial-hash}
+              Spatial Hash
             
           </span>
         </div>
@@ -817,7 +817,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_common/design/comparisons/" class="md-nav__link">
-        Comparisons {#helper-comparisons}
+        Comparisons
       </a>
     </li>
   
@@ -915,7 +915,7 @@
   
     <li class="md-nav__item">
       <a href="../interval/" class="md-nav__link">
-        Interval {#geometry-interval}
+        Interval
       </a>
     </li>
   
@@ -929,7 +929,7 @@
   
     <li class="md-nav__item">
       <a href="../polygon_intersection_2d-design/" class="md-nav__link">
-        2D Convex Polygon Intersection {#convex-polygon-intersection-2d}
+        2D Convex Polygon Intersection
       </a>
     </li>
   
@@ -951,9 +951,95 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Spatial Hash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Spatial Hash {#geometry-spatial-hash}
+        Spatial Hash
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#performance-characterization" class="md-nav__link">
+    Performance characterization
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance characterization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    Time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space" class="md-nav__link">
+    Space
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#states" class="md-nav__link">
+    States
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-work" class="md-nav__link">
+    Future Work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-issues" class="md-nav__link">
+    Related issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1088,7 +1174,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_auto_tf2/design/autoware-auto-tf2-design/" class="md-nav__link">
-        autoware_auto_tf2 {#autoware-auto-tf2-design}
+        autoware_auto_tf2
       </a>
     </li>
   
@@ -1178,7 +1264,7 @@
   
     <li class="md-nav__item">
       <a href="../../../autoware_testing/design/autoware_testing-design/" class="md-nav__link">
-        autoware_testing {#autoware_testing-package-design}
+        autoware_testing
       </a>
     </li>
   
@@ -1313,7 +1399,7 @@
   
     <li class="md-nav__item">
       <a href="../../../fake_test_node/design/fake_test_node-design/" class="md-nav__link">
-        Fake Test Node {#fake-test-node-design}
+        Fake Test Node
       </a>
     </li>
   
@@ -1599,7 +1685,7 @@
   
     <li class="md-nav__item">
       <a href="../../../osqp_interface/design/osqp_interface-design/" class="md-nav__link">
-        Interface for the OSQP library {#osqp_interface-package-design}
+        Interface for the OSQP library
       </a>
     </li>
   
@@ -2384,7 +2470,7 @@
   
     <li class="md-nav__item">
       <a href="../../../vehicle_constants_manager/design/vehicle_constants_manager-design/" class="md-nav__link">
-        vehicle_constants_manager {#vehicle-constants-manager-package-design}
+        vehicle_constants_manager
       </a>
     </li>
   
@@ -2847,7 +2933,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower/design/trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower {#trajectory_follower-package-design}
+        Trajectory Follower
       </a>
     </li>
   
@@ -2861,7 +2947,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower/design/trajectory_follower-mpc-design/" class="md-nav__link">
-        MPC (Trajectory Follower) {#trajectory_follower-mpc-design}
+        MPC (Trajectory Follower)
       </a>
     </li>
   
@@ -2875,7 +2961,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower/design/trajectory_follower-pid-design/" class="md-nav__link">
-        PID (Trajectory Follower) {#trajectory_follower-pid-design}
+        PID (Trajectory Follower)
       </a>
     </li>
   
@@ -2971,7 +3057,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/lateral_controller-design/" class="md-nav__link">
-        Lateral Controller {#lateral-controller-design}
+        Lateral Controller
       </a>
     </li>
   
@@ -2985,7 +3071,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/latlon_muxer-design/" class="md-nav__link">
-        Lateral/Longitudinal Control Muxer {#latlon-muxer-design}
+        Lateral/Longitudinal Control Muxer
       </a>
     </li>
   
@@ -2999,7 +3085,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/longitudinal_controller-design/" class="md-nav__link">
-        Longitudinal Controller {#longitudinal-controller-design}
+        Longitudinal Controller
       </a>
     </li>
   
@@ -3013,7 +3099,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../control/trajectory_follower_nodes/design/trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower Nodes {#trajectory_follower_nodes-package-design}
+        Trajectory Follower Nodes
       </a>
     </li>
   
@@ -7700,7 +7786,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../simulator/simple_planning_simulator/design/simple_planning_simulator-design/" class="md-nav__link">
-        simple_planning_simulator {#simple_planning_simulator-package-design}
+        simple_planning_simulator
       </a>
     </li>
   
@@ -8693,6 +8779,76 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#performance-characterization" class="md-nav__link">
+    Performance characterization
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance characterization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    Time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space" class="md-nav__link">
+    Space
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#states" class="md-nav__link">
+    States
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-work" class="md-nav__link">
+    Future Work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-issues" class="md-nav__link">
+    Related issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -8709,10 +8865,89 @@
 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="c1"># Spatial Hash {#geometry-spatial-hash}</span>
-</code></pre></div></p>
+<h1 id="spatial-hash">Spatial Hash<a class="headerlink" href="#spatial-hash" title="Permanent link">#</a></h1>
+<p>The spatial hash is a data structure designed for efficient fixed-radius near-neighbor queries in
+low dimensions.</p>
+<p>The fixed-radius near-neighbors problem is defined as follows:</p>
+<p><code>For point p, find all points p' s.t. d(p, p') &lt; r</code></p>
+<p>Where in this case <code>d(p, p')</code> is euclidean distance, and <code>r</code> is the fixed
+radius.</p>
+<p>For <code>n</code> points with an average of <code>k</code> neighbors each, this data structure can
+perform <code>m</code> near-neighbor queries (to generate lists of near-neighbors for <code>m</code>
+different points) in <code>O(mk)</code> time.</p>
+<p>By contrast, using a k-d tree for successive nearest-neighbor queries results in
+a running time of <code>O(m log n)</code>.</p>
+<p>The spatial hash works as follows:</p>
+<ul>
+<li>Each point is assigned to a bin in the predefined bounding area defined by
+  <code>x_min/x_max</code> and <code>y_min/y_max</code></li>
+<li>This can be done by converting x and y position into x and y index
+  respectively<ul>
+<li>For example with the bin containing <code>x_min</code> and <code>y_min</code> as index <code>(0, 0)</code></li>
+<li>The two (or more) indices can then be converted into a single index</li>
+</ul>
+</li>
+<li>Once every point of interest has been inserted into the hash, near-neighbor
+  queries can begin:<ul>
+<li>The bin of the reference point is first computed</li>
+<li>For each point in each adjacent bin, perform an explicit distance computation
+  between said point and the reference point. If the distance is below the given
+  radius, said point is considered to be a near-neighbor</li>
+</ul>
+</li>
+</ul>
+<p>Under the hood, an <code>std::unordered_multimap</code> is used, where the key is a bin/voxel index.
+The bin size was computed to be the same as the lookup distance.</p>
+<!-- cspell:ignore CRTP -->
+
+<p>In addition, this data structure can support 2D or 3D queries. This is determined during
+configuration, and baked into the data structure via the configuration class. The purpose of
+this was to avoid if statements in tight loops. The configuration class specializations themselves
+use CRTP (Curiously Recurring Template Patterns) to do "static polymorphism", and avoid
+a dispatching call.</p>
+<h2 id="performance-characterization">Performance characterization<a class="headerlink" href="#performance-characterization" title="Permanent link">#</a></h2>
+<h3 id="time">Time<a class="headerlink" href="#time" title="Permanent link">#</a></h3>
+<p>Insertion is <code>O(n)</code> because lookup time for the underlying hashmap is <code>O(n)</code> for
+hashmaps. In practice, lookup time for hashmaps and thus insertion time should
+be <code>O(1)</code>.</p>
+<p>Removing a point is <code>O(1)</code> because the current API only supports removal via
+direct reference to a node.</p>
+<p>Finding <code>k</code> near-neighbors is worst case <code>O(n)</code> in the case of an adversarial
+example, but in practice <code>O(k)</code>.</p>
+<h3 id="space">Space<a class="headerlink" href="#space" title="Permanent link">#</a></h3>
+<p>The module consists of the following components:</p>
+<ul>
+<li>The internal hashmap is <code>O(n + n + A * n)</code>, where <code>A</code> is an arbitrary
+  constant (load factor)</li>
+<li>The other components of the spatial hash are <code>O(n + n)</code></li>
+</ul>
+<p>This results in <code>O(n)</code> space complexity.</p>
+<h2 id="states">States<a class="headerlink" href="#states" title="Permanent link">#</a></h2>
+<p>The spatial hash's state is dictated by the status of the underlying unordered_multimap.</p>
+<p>The data structure is wholly configured by a
+<a href="@ref autoware::common::geometry::spatial_hash::Config">config</a> class. The constructor
+of the class determines in the data structure accepts strictly 2D or strictly 3D queries.</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
+<p>The primary method of introducing data into the data structure is via the
+<a href="@ref autoware::common::geometry::spatial_hash::SpatialHashBase::insert">insert</a> method.</p>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h2>
+<p>The primary method of retrieving data from the data structure is via the
+<a href="@ref autoware::common::geometry::spatial_hash::SpatialHash&lt;PointT, Config2d&gt;::near">near</a><span class="arithmatex"><span class="MathJax_Preview">2D
+configuration</span><script type="math/tex">2D
+configuration</script></span>
+or <a href="@ref autoware::common::geometry::spatial_hash::SpatialHash&lt;PointT, Config3d&gt;::near">near</a>
+<span class="arithmatex"><span class="MathJax_Preview">3D configuration</span><script type="math/tex">3D configuration</script></span> method.</p>
+<p>The whole data structure can also be traversed using standard constant iterators.</p>
+<h2 id="future-work">Future Work<a class="headerlink" href="#future-work" title="Permanent link">#</a></h2>
+<ul>
+<li>Performance tuning and optimization</li>
+</ul>
+<h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<h1 id="28-port-to-autowareauto">28: Port to autoware.Auto<a class="headerlink" href="#28-port-to-autowareauto" title="Permanent link">#</a></h1>
+</li>
+</ul>
 
               
             </article>
@@ -8731,7 +8966,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../polygon_intersection_2d-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2D Convex Polygon Intersection {#convex-polygon-intersection-2d}" rel="prev">
+        <a href="../polygon_intersection_2d-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2D Convex Polygon Intersection" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -8740,7 +8975,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              2D Convex Polygon Intersection {#convex-polygon-intersection-2d}
+              2D Convex Polygon Intersection
             </div>
           </div>
         </a>
