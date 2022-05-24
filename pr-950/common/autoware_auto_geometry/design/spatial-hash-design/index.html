@@ -8898,6 +8898,8 @@ a running time of <code>O(m log n)</code>.</p>
 </ul>
 <p>Under the hood, an <code>std::unordered_multimap</code> is used, where the key is a bin/voxel index.
 The bin size was computed to be the same as the lookup distance.</p>
+<!-- cspell:ignore CRTP -->
+
 <p>In addition, this data structure can support 2D or 3D queries. This is determined during
 configuration, and baked into the data structure via the configuration class. The purpose of
 this was to avoid if statements in tight loops. The configuration class specializations themselves
