@@ -8941,7 +8941,7 @@ for the following data types:</p>
 <span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">TransformStamped</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">transform</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><code>Quarternion32</code> (<code>autoware_auto_msgs</code>)</li>
+<li><code>Quaternion32</code> (<code>autoware_auto_msgs</code>)</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">doTransform</span><span class="p">(</span><span class="w"></span>
 <span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">autoware_auto_geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Quaternion32</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t_in</span><span class="p">,</span><span class="w"></span>
@@ -9001,7 +9001,7 @@ for the following data types:</p>
 <li><code>BoundingBox</code> uses 32-bit float like <code>Quaternion32</code> and <code>Point32</code> to save space, as they are used
   repeatedly in <code>BoundingBoxArray</code>. While transforming is it better to convert to 64-bit <code>Quaternion</code>,
   <code>Point</code>, or <code>PoseStamped</code>, to re-use existing implementation of <code>doTransform</code>, or does it need to be
-  implemented? Templatization may not be simple.</li>
+  implemented? It may not be simple to template.</li>
 </ul>
 <!-- # Related issues -->
 <!-- Required -->
