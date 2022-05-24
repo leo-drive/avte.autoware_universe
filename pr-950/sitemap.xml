@@ -116,6 +116,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-950/common/tier4_autoware_utils/docs/vehicle/vehicle/</loc>
+         <lastmod>2022-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-950/common/tier4_datetime_rviz_plugin/</loc>
          <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
@@ -636,11 +641,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-950/planning/obstacle_avoidance_planner/obstacle_avoidance_planner-design.ja/</loc>
-         <lastmod>2022-05-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-950/planning/obstacle_stop_planner/</loc>
          <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
@@ -657,6 +657,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-950/planning/route_handler/</loc>
+         <lastmod>2022-05-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-950/planning/rtc_interface/</loc>
          <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
