@@ -6687,7 +6687,12 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#minor-functions" class="md-nav__link">
     Minor functions
   </a>
@@ -6704,6 +6709,63 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-for-debugging" class="md-nav__link">
+    Visualization for debugging
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualization for debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detection-area" class="md-nav__link">
+    Detection area
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collision-point" class="md-nav__link">
+    Collision point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-for-cruise" class="md-nav__link">
+    Obstacle for cruise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-for-stop" class="md-nav__link">
+    Obstacle for stop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-ignored-to-cruise-or-stop-intentionally" class="md-nav__link">
+    Obstacle ignored to cruise or stop intentionally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-stop-wall" class="md-nav__link">
+    Obstacle stop wall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-cruise-wall" class="md-nav__link">
+    Obstacle cruise wall
+  </a>
   
 </li>
         
@@ -9110,7 +9172,12 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#minor-functions" class="md-nav__link">
     Minor functions
   </a>
@@ -9127,6 +9194,63 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualization-for-debugging" class="md-nav__link">
+    Visualization for debugging
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualization for debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detection-area" class="md-nav__link">
+    Detection area
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collision-point" class="md-nav__link">
+    Collision point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-for-cruise" class="md-nav__link">
+    Obstacle for cruise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-for-stop" class="md-nav__link">
+    Obstacle for stop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-ignored-to-cruise-or-stop-intentionally" class="md-nav__link">
+    Obstacle ignored to cruise or stop intentionally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-stop-wall" class="md-nav__link">
+    Obstacle stop wall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obstacle-cruise-wall" class="md-nav__link">
+    Obstacle cruise wall
+  </a>
   
 </li>
         
@@ -9236,26 +9360,6 @@
 <td>tier4_planning_msgs::StopReasonArray</td>
 <td>reasons that make the vehicle to stop</td>
 </tr>
-<tr>
-<td><code>~output/debug/calculation_time</code></td>
-<td>tier4_planning_msgs::Float32Stamped</td>
-<td>whole calculation time</td>
-</tr>
-<tr>
-<td><code>~output/debug/slow_down_wall_marker</code></td>
-<td>visualization_msgs::msg::MarkerArray</td>
-<td>slow down wall marker</td>
-</tr>
-<tr>
-<td><code>~output/debug/stop_wall_marker</code></td>
-<td>visualization_msgs::msg::MarkerArray</td>
-<td>stop wall marker</td>
-</tr>
-<tr>
-<td><code>~output/debug/marker</code></td>
-<td>visualization_msgs::msg::MarkerArray</td>
-<td>other debug marker</td>
-</tr>
 </tbody>
 </table>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
@@ -9287,17 +9391,17 @@ By default, unknown and vehicles are obstacles to cruise and stop, and non vehic
 </thead>
 <tbody>
 <tr>
-<td><code>slow_down_obstacle_type.unknown</code></td>
+<td><code>cruise_obstacle_type.unknown</code></td>
 <td>bool</td>
 <td>flag to consider unknown objects as being cruised</td>
 </tr>
 <tr>
-<td><code>slow_down_obstacle_type.car</code></td>
+<td><code>cruise_obstacle_type.car</code></td>
 <td>bool</td>
 <td>flag to consider unknown objects as being cruised</td>
 </tr>
 <tr>
-<td><code>slow_down_obstacle_type.truck</code></td>
+<td><code>cruise_obstacle_type.truck</code></td>
 <td>bool</td>
 <td>flag to consider unknown objects as being cruised</td>
 </tr>
@@ -9320,9 +9424,10 @@ By default, unknown and vehicles are obstacles to cruise and stop, and non vehic
 </table>
 <h4 id="inside-the-detection-area">Inside the detection area<a class="headerlink" href="#inside-the-detection-area" title="Permanent link">#</a></h4>
 <p>To calculate obstacles inside the detection area, firstly, obstalces whose distance to the trajectory is less than <code>rough_detection_area_expand_width</code> are selected.
-Then, the detection area, which is a trajectory with some lateral margin, is calcualted.
+Then, the detection area, which is a trajectory with some lateral margin, is calcualted as shown in the figure.
 The detection area width is a vehicle's width + <code>detection_area_expand_width</code>, and it is represented as a polygon resampled with <code>decimate_trajectory_step_length</code> longitudinally.
 The roughly selected obstacles inside the detection area are considered as insided the detection area.</p>
+<p><img alt="detection_area" src="../image/detection_area.png" /></p>
 <p>This two-step detection is used for calculation efficiency since collision checking of polygons is heavy.
 Boost.Geometry is used as a library to check collision among polygons.</p>
 <p>In the <code>obstacle_filtering</code> namespace,</p>
@@ -9434,12 +9539,12 @@ t_1 - t_2 > \mathrm{margin\_for\_collision\_time}
 <tr>
 <td><code>common.min_strong_accel</code></td>
 <td>double</td>
-<td>ego's minimum acceleration to stop</td>
+<td>ego's minimum acceleration to stop [m/ss]</td>
 </tr>
 <tr>
 <td><code>common.safe_distance_margin</code></td>
 <td>double</td>
-<td>distance with obstacles for stop</td>
+<td>distance with obstacles for stop [m]</td>
 </tr>
 </tbody>
 </table>
@@ -9461,7 +9566,7 @@ If the acceleration is less than <code>common.min_strong_accel</code>, the stop 
 <tr>
 <td><code>common.safe_distance_margin</code></td>
 <td>double</td>
-<td>stop margin</td>
+<td>minimum distance with obstacles for cruise [m]</td>
 </tr>
 </tbody>
 </table>
@@ -9537,14 +9642,14 @@ Each planner will be explained in the following.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>max_slow_down_obstacle_velocity_to_stop</code></td>
+<td><code>max_cruise_obstacle_velocity_to_stop</code></td>
 <td>double</td>
-<td>obstacle velocity threshold to be stopped from cruised</td>
+<td>obstacle velocity threshold to be stopped from cruised [m/s]</td>
 </tr>
 </tbody>
 </table>
 <p>Only one obstacle is targeted for the stop planning.
-It is the obstacle among obstacle candidates whose velocity is less than <code>max_slow_down_obstacle_velocity_to_stop</code>, and which is the nearest to the ego along the trajectory. A stop point is inserted keeping<code>common.safe_distance_margin</code> distance between the ego and obstacle.</p>
+It is the obstacle among obstacle candidates whose velocity is less than <code>max_cruise_obstacle_velocity_to_stop</code>, and which is the nearest to the ego along the trajectory. A stop point is inserted keeping<code>common.safe_distance_margin</code> distance between the ego and obstacle.</p>
 <p>Note that, as explained in the stop planning design, a stop planning which requires a strong acceleration (less than <code>common.min_strong_accel</code>) will be canceled.</p>
 <h4 id="adaptive-cruise-planning_1">Adaptive cruise planning<a class="headerlink" href="#adaptive-cruise-planning_1" title="Permanent link">#</a></h4>
 <p>In the <code>rule_based_planner</code> namespace,</p>
@@ -9583,9 +9688,9 @@ It is the obstacle among obstacle candidates whose velocity is less than <code>m
 <td>target acceleration is target velocity * <code>vel_to_acc_weight</code> [-]</td>
 </tr>
 <tr>
-<td><code>min_slow_down_target_vel</code></td>
+<td><code>min_cruise_target_vel</code></td>
 <td>double</td>
-<td>minimum target velocity during slow down [m/s]</td>
+<td>minimum target velocity during cruise [m/s]</td>
 </tr>
 </tbody>
 </table>
@@ -9593,8 +9698,8 @@ It is the obstacle among obstacle candidates whose velocity is less than <code>m
 The target velocity and acceleration is respectively calcualted with the PID controller accoring to the error between the reference safe distance and the actual distance.</p>
 <h3 id="optimization-based-planner">Optimization-based planner<a class="headerlink" href="#optimization-based-planner" title="Permanent link">#</a></h3>
 <p>under construction</p>
-<h3 id="minor-functions">Minor functions<a class="headerlink" href="#minor-functions" title="Permanent link">#</a></h3>
-<h4 id="prioritization-of-behavior-modules-stop-point">Prioritization of behavior module's stop point<a class="headerlink" href="#prioritization-of-behavior-modules-stop-point" title="Permanent link">#</a></h4>
+<h2 id="minor-functions">Minor functions<a class="headerlink" href="#minor-functions" title="Permanent link">#</a></h2>
+<h3 id="prioritization-of-behavior-modules-stop-point">Prioritization of behavior module's stop point<a class="headerlink" href="#prioritization-of-behavior-modules-stop-point" title="Permanent link">#</a></h3>
 <p>When stopping for a pedestrian walking on the crosswalk, the behavior module inserts the zero velocity in the trajectory in front of the crosswalk.
 Also <code>obstacle_velocity_planner</code>'s stop planning also works, and the ego may not reach the behavior module's stop point since the safe disatnce defined in <code>obstacle_velocity_planner</code> may be longer than the behavior module's safe distance.
 To resolve this non-alignment of the stop point between the behavior module and <code>obstacle_velocity_planner</code>, <code>common.min_behavior_stop_margin</code> is defined.
@@ -9611,14 +9716,33 @@ In the case of the crosswalk described above, <code>obstacle_velocity_planner</c
 <tr>
 <td><code>common.min_behavior_stop_margin</code></td>
 <td>double</td>
-<td>minimum stop margin when stopping with the behavior module enabled</td>
+<td>minimum stop margin when stopping with the behavior module enabled [m]</td>
 </tr>
 </tbody>
 </table>
+<h2 id="visualization-for-debugging">Visualization for debugging<a class="headerlink" href="#visualization-for-debugging" title="Permanent link">#</a></h2>
+<h3 id="detection-area">Detection area<a class="headerlink" href="#detection-area" title="Permanent link">#</a></h3>
+<p>Green polygons which is a detection area is visualized by <code>detection_polygons</code> in the <code>~/debug/marker</code> topic.</p>
+<p><img alt="detection_area" src="../image/detection_area.png" /></p>
+<h3 id="collision-point">Collision point<a class="headerlink" href="#collision-point" title="Permanent link">#</a></h3>
+<p>Red point which is a collision point with obstacle is visualized by <code>collision_points</code> in the <code>~/debug/marker</code> topic.</p>
+<p><img alt="collision_point" src="../image/collision_point.png" /></p>
+<h3 id="obstacle-for-cruise">Obstacle for cruise<a class="headerlink" href="#obstacle-for-cruise" title="Permanent link">#</a></h3>
+<p>Yellow sphere which is a obstacle for cruise is visualized by <code>obstacles_to_cruise</code> in the <code>~/debug/marker</code> topic.</p>
+<p><img alt="obstacle_to_cruise" src="./image/obstacle_to_cruise.png" /></p>
+<h3 id="obstacle-for-stop">Obstacle for stop<a class="headerlink" href="#obstacle-for-stop" title="Permanent link">#</a></h3>
+<p>Red sphere which is a obstacle for stop is visualized by <code>obstacles_to_stop</code> in the <code>~/debug/marker</code> topic.</p>
+<p><img alt="obstacle_to_stop" src="../image/obstacle_to_stop.png" /></p>
+<h3 id="obstacle-ignored-to-cruise-or-stop-intentionally">Obstacle ignored to cruise or stop intentionally<a class="headerlink" href="#obstacle-ignored-to-cruise-or-stop-intentionally" title="Permanent link">#</a></h3>
+<p>Green sphere which is a obstacle ignored intentionally to cruise or stop is visualized by <code>intentionally_ignored_obstacles</code> in the <code>~/debug/marker</code> topic.</p>
+<p><img alt="intentionally_ignored_obstacle" src="./image/intentionally_ignored_obstacle.png" /></p>
+<h3 id="obstacle-stop-wall">Obstacle stop wall<a class="headerlink" href="#obstacle-stop-wall" title="Permanent link">#</a></h3>
+<h3 id="obstacle-cruise-wall">Obstacle cruise wall<a class="headerlink" href="#obstacle-cruise-wall" title="Permanent link">#</a></h3>
 <h2 id="known-limits">Known Limits<a class="headerlink" href="#known-limits" title="Permanent link">#</a></h2>
 <ul>
 <li>Common<ul>
 <li>When the obstacle pose or velocity estimation has a delay, the ego sometimes will go close to the front vehicle keeping deceleration.</li>
+<li>Current implementation only uses predicted objects message for static/dynamic obstacles and does not use pointcloud. Therefore, if object recognition is lost, the ego cannot deal with the lost obstacle.</li>
 </ul>
 </li>
 <li>Rule-based planner<ul>
