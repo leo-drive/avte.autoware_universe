@@ -9413,9 +9413,9 @@ By default, unknown and vehicles are obstacles to cruise and stop, and non vehic
 Then, the detection area, which is a trajectory with some lateral margin, is calcualted as shown in the figure.
 The detection area width is a vehicle's width + <code>detection_area_expand_width</code>, and it is represented as a polygon resampled with <code>decimate_trajectory_step_length</code> longitudinally.
 The roughly selected obstacles inside the detection area are considered as insided the detection area.</p>
-<p align="center">
-  <img src="./image/detection_area.png" width="600">
-</p>
+<div align="center">
+  <img src="./image/detection_area.png" width=50%>
+</div>
 
 <p>This two-step detection is used for calculation efficiency since collision checking of polygons is heavy.
 Boost.Geometry is used as a library to check collision among polygons.</p>
@@ -9712,27 +9712,27 @@ In the case of the crosswalk described above, <code>obstacle_velocity_planner</c
 <h2 id="visualization-for-debugging">Visualization for debugging<a class="headerlink" href="#visualization-for-debugging" title="Permanent link">#</a></h2>
 <h3 id="detection-area">Detection area<a class="headerlink" href="#detection-area" title="Permanent link">#</a></h3>
 <p>Green polygons which is a detection area is visualized by <code>detection_polygons</code> in the <code>~/debug/marker</code> topic.</p>
-<p align="center">
-  <img src="./image/detection_area.png" width="600">
-</p>
+<div align="center">
+  <img src="./image/detection_area.png" width=50%>
+</div>
 
 <h3 id="collision-point">Collision point<a class="headerlink" href="#collision-point" title="Permanent link">#</a></h3>
 <p>Red point which is a collision point with obstacle is visualized by <code>collision_points</code> in the <code>~/debug/marker</code> topic.</p>
-<p align="center">
-  <img src="./image/collision_point.png" width="600">
-</p>
+<div align="center">
+  <img src="./image/collision_point.png" width=50%>
+</div>
 
 <h3 id="obstacle-for-cruise">Obstacle for cruise<a class="headerlink" href="#obstacle-for-cruise" title="Permanent link">#</a></h3>
 <p>Yellow sphere which is a obstacle for cruise is visualized by <code>obstacles_to_cruise</code> in the <code>~/debug/marker</code> topic.</p>
-<p align="center">
-  <img src="./image/obstacle_to_cruise.png" width="600">
-</p>
+<div align="center">
+  <img src="./image/obstacle_to_cruise.png" width=50%>
+</div>
 
 <h3 id="obstacle-for-stop">Obstacle for stop<a class="headerlink" href="#obstacle-for-stop" title="Permanent link">#</a></h3>
 <p>Red sphere which is a obstacle for stop is visualized by <code>obstacles_to_stop</code> in the <code>~/debug/marker</code> topic.</p>
-<p align="center">
-  <img src="./image/obstacle_to_stop.png" width="600">
-</p>
+<div align="center">
+  <img src="./image/obstacle_to_stop.png" width=50%>
+</div>
 
 <!-- ### Obstacle ignored to cruise or stop intentionally -->
 
@@ -9742,15 +9742,15 @@ In the case of the crosswalk described above, <code>obstacle_velocity_planner</c
 
 <h3 id="obstacle-cruise-wall">Obstacle cruise wall<a class="headerlink" href="#obstacle-cruise-wall" title="Permanent link">#</a></h3>
 <p>Yellow wall which means a safe distance to cruise if the ego's front meets the wall is visualized in the <code>~/debug/cruise_wall_marker</code> topic.</p>
-<p align="center">
-  <img src="./image/obstacle_to_cruise.png" width="600">
-</p>
+<div align="center">
+  <img src="./image/obstacle_to_cruise.png" width=50%>
+</div>
 
 <h3 id="obstacle-stop-wall">Obstacle stop wall<a class="headerlink" href="#obstacle-stop-wall" title="Permanent link">#</a></h3>
 <p>Red wall which means a safe distance to stop if the ego's front meets the wall is visualized in the <code>~/debug/stop_wall_marker</code> topic.</p>
-<p align="center">
-  <img src="./image/obstacle_to_stop.png" width="600">
-</p>
+<div align="center">
+  <img src="./image/obstacle_to_stop.png" width=50%>
+</div>
 
 <h2 id="known-limits">Known Limits<a class="headerlink" href="#known-limits" title="Permanent link">#</a></h2>
 <ul>
