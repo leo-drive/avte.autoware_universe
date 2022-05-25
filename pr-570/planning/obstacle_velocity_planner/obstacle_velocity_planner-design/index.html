@@ -6681,9 +6681,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#optimization-based-planner" class="md-nav__link">
+    Optimization-based planner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#minor-functions" class="md-nav__link">
     Minor functions
   </a>
+  
+    <nav class="md-nav" aria-label="Minor functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prioritization-of-behavior-stop-point" class="md-nav__link">
+    Prioritization of behavior stop point
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -9084,9 +9104,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#optimization-based-planner" class="md-nav__link">
+    Optimization-based planner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#minor-functions" class="md-nav__link">
     Minor functions
   </a>
+  
+    <nav class="md-nav" aria-label="Minor functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prioritization-of-behavior-stop-point" class="md-nav__link">
+    Prioritization of behavior stop point
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -9333,10 +9373,10 @@ The roughly selected obstacles inside the detection area are considered as insid
 <p>Assuming <code>t_1</code> to be the time for the ego to reach the current crossing obstacle position with the constant velocity motion, and <code>t_2</code> to be the time for the crossing obstacle to go outside the detectino area, if the following condition is realized, the crossing vehicle will be ignored.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
-t_1 - t_2 &lt; margin\_for\_collision\_time
+t_1 - t_2 &lt; \mathrm{margin\_for\_collision\_time}
 </div>
 <script type="math/tex; mode=display">
-t_1 - t_2 < margin\_for\_collision\_time
+t_1 - t_2 < \mathrm{margin\_for\_collision\_time}
 </script>
 </div>
 <h4 id="cut-in-vehicles">Cut-in vehicles<a class="headerlink" href="#cut-in-vehicles" title="Permanent link">#</a></h4>
@@ -9470,18 +9510,74 @@ Each planner will be explained in the following.</p>
 It is the obstacle among filtered obstacles whose velocity is less than <code>max_slow_down_obstacle_velocity_to_stop, and which is the nearest to the ego along the trajectory. A stop point is inserted keeping</code>common.safe_distance_margin` distance between the ego and obstacle.</p>
 <p>Note that, as explained in the stop planning design, a stop planning which requires a strong acceleration (less than <code>common.min_strong_accel</code>) will be canceled.</p>
 <h4 id="adaptive-cruise-planning_1">Adaptive cruise planning<a class="headerlink" href="#adaptive-cruise-planning_1" title="Permanent link">#</a></h4>
-<p>In the <code>rule_based_planner</code> namespace,
-| Parameter | Type | Description |
-| --------------------------------------- | ------ | ----------------------------------------------------------------------------- |
-| <code>kp</code> | double| p gain for pid control |
-| <code>ki</code> | double| i gain for pid control |
-| <code>kd</code> | double| d gain for pid control |
-| <code>output_ratio_during_accel</code> | double| The output velocity will be multiplied by the ratio during acceleration to follow the front vehicle.|
-| <code>vel_to_acc_weight</code> | double| target acceleration is target velocity * <code>vel_to_acc_weight</code> |
-| <code>min_slow_down_target_vel</code> | double| minimum target velocity during slow down |</p>
+<p>In the <code>rule_based_planner</code> namespace,</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kp</code></td>
+<td>double</td>
+<td>p gain for pid control</td>
+</tr>
+<tr>
+<td><code>ki</code></td>
+<td>double</td>
+<td>i gain for pid control</td>
+</tr>
+<tr>
+<td><code>kd</code></td>
+<td>double</td>
+<td>d gain for pid control</td>
+</tr>
+<tr>
+<td><code>output_ratio_during_accel</code></td>
+<td>double</td>
+<td>The output velocity will be multiplied by the ratio during acceleration to follow the front vehicle.</td>
+</tr>
+<tr>
+<td><code>vel_to_acc_weight</code></td>
+<td>double</td>
+<td>target acceleration is target velocity * <code>vel_to_acc_weight</code></td>
+</tr>
+<tr>
+<td><code>min_slow_down_target_vel</code></td>
+<td>double</td>
+<td>minimum target velocity during slow down</td>
+</tr>
+</tbody>
+</table>
 <p>In order to keep the safe distance, the target velocity and acceleration is calculated and sent as an external velocity limit to the velocity smoothing package (<code>motion_velocity_smoother</code> by default).
 The target velocity and acceleration is respectively calcualted with the PID controller accoring to the error between the reference safe distance and the actual distance.</p>
+<h3 id="optimization-based-planner">Optimization-based planner<a class="headerlink" href="#optimization-based-planner" title="Permanent link">#</a></h3>
+<p>under construction</p>
 <h3 id="minor-functions">Minor functions<a class="headerlink" href="#minor-functions" title="Permanent link">#</a></h3>
+<h4 id="prioritization-of-behavior-stop-point">Prioritization of behavior stop point<a class="headerlink" href="#prioritization-of-behavior-stop-point" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>common.min_behavior_stop_margin</code></td>
+<td>double</td>
+<td>minimum stop margin when stopping in the behavior module is enabled</td>
+</tr>
+</tbody>
+</table>
+<p>When stopping in front of the pedestrian walking on the crosswalk, the behavior module inserts the zero velocity in the trajectory in front of the crosswalk.
+In this case, this package's stop planning also works, and the ego may does not reach the behavior's stop point since the safe disatnce defined in this package may be longer than the behavior's safe distance.
+To resolve this non-alignment of the stop point between the behavior and <code>obstacle_velocity_planner</code>, <code>common.min_behavior_stop_margin</code> is defined.
+In the case of the crosswalk described above, <code>obstacle_velocity_planner</code> inserts the stop point with a distance <code>common.min_behavior_stop_margin</code> at minimum between the ego and obstacle.</p>
 <h2 id="known-limits">Known Limits<a class="headerlink" href="#known-limits" title="Permanent link">#</a></h2>
 <ul>
 <li>Common<ul>
