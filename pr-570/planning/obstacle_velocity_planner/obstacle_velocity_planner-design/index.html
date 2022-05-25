@@ -6579,11 +6579,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#obstacle-candidate-selection" class="md-nav__link">
-    Obstacle candidate selection
+  <a href="#obstacle-candidates-selection" class="md-nav__link">
+    Obstacle candidates selection
   </a>
   
-    <nav class="md-nav" aria-label="Obstacle candidate selection">
+    <nav class="md-nav" aria-label="Obstacle candidates selection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -6601,8 +6601,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cut-in-vehicles" class="md-nav__link">
-    Cut-in vehicles
+  <a href="#near-cut-in-vehicles" class="md-nav__link">
+    Near Cut-in vehicles
   </a>
   
 </li>
@@ -6696,8 +6696,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prioritization-of-behavior-stop-point" class="md-nav__link">
-    Prioritization of behavior stop point
+  <a href="#prioritization-of-behavior-modules-stop-point" class="md-nav__link">
+    Prioritization of behavior module's stop point
   </a>
   
 </li>
@@ -9002,11 +9002,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#obstacle-candidate-selection" class="md-nav__link">
-    Obstacle candidate selection
+  <a href="#obstacle-candidates-selection" class="md-nav__link">
+    Obstacle candidates selection
   </a>
   
-    <nav class="md-nav" aria-label="Obstacle candidate selection">
+    <nav class="md-nav" aria-label="Obstacle candidates selection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9024,8 +9024,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cut-in-vehicles" class="md-nav__link">
-    Cut-in vehicles
+  <a href="#near-cut-in-vehicles" class="md-nav__link">
+    Near Cut-in vehicles
   </a>
   
 </li>
@@ -9119,8 +9119,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prioritization-of-behavior-stop-point" class="md-nav__link">
-    Prioritization of behavior stop point
+  <a href="#prioritization-of-behavior-modules-stop-point" class="md-nav__link">
+    Prioritization of behavior module's stop point
   </a>
   
 </li>
@@ -9162,14 +9162,14 @@
 
 <h1 id="obstacle-velocity-planner">Obstacle Velocity Planner<a class="headerlink" href="#obstacle-velocity-planner" title="Permanent link">#</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>The <code>obstacle_velocity_planner</code> package has following functions.</p>
+<p>The <code>obstacle_velocity_planner</code> package has following modules.</p>
 <ul>
 <li>obstacle stop planning<ul>
-<li>inserts a stop point in the trajectory when there is a static obstacle on the trajectory.</li>
+<li>inserting a stop point in the trajectory when there is a static obstacle on the trajectory.</li>
 </ul>
 </li>
 <li>adaptive cruise planning<ul>
-<li>sends an external velocity limit to <code>motion_velocity_smoother</code> when there is a dynamic obstacle to cruise on the trajectory</li>
+<li>sending an external velocity limit to <code>motion_velocity_smoother</code> when there is a dynamic obstacle to cruise on the trajectory</li>
 </ul>
 </li>
 </ul>
@@ -9261,11 +9261,70 @@
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
 <p>Design for the following functions is defined here.</p>
 <ul>
-<li>Obstacle candidate selection</li>
+<li>Obstacle candidates selection</li>
 <li>Obstacle stop planning</li>
 <li>Adaptive cruise planning</li>
 </ul>
-<h3 id="obstacle-candidate-selection">Obstacle candidate selection<a class="headerlink" href="#obstacle-candidate-selection" title="Permanent link">#</a></h3>
+<h3 id="obstacle-candidates-selection">Obstacle candidates selection<a class="headerlink" href="#obstacle-candidates-selection" title="Permanent link">#</a></h3>
+<p>In this function, target obstacles for stopping or cruising are selected based on their pose and velocity.</p>
+<p>By default, objects that realize one of the following conditions are considered to be the target obstacle candidates.
+Some terms will be defined in the following subsections.</p>
+<ul>
+<li>Vehicle objects \mathit{inside the detection area} other than \mathit{far crossing vehicles}.</li>
+<li>non vehicle objects \mathit{inside the detection area}</li>
+<li>\mathit{Near cut-in vehicles} outside the detection area</li>
+</ul>
+<p>Note that currently the obstacle candidates selection algorithm is for autonomous driving.
+However, we have following parameters as well for stop and cruise respectively so that we can extend the obstacles candidates selection algorithm for non vehicle robots.
+By default, unknown and vehicles are obstacles to cruise and stop, and non vehicles are obstacles just to stop.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>slow_down_obstacle_type.unknown</code></td>
+<td>bool</td>
+<td>flag to consider unknown objects as being cruised</td>
+</tr>
+<tr>
+<td><code>slow_down_obstacle_type.car</code></td>
+<td>bool</td>
+<td>flag to consider unknown objects as being cruised</td>
+</tr>
+<tr>
+<td><code>slow_down_obstacle_type.truck</code></td>
+<td>bool</td>
+<td>flag to consider unknown objects as being cruised</td>
+</tr>
+<tr>
+<td>...</td>
+<td>bool</td>
+<td>...</td>
+</tr>
+<tr>
+<td><code>stop_obstacle_type.unknown</code></td>
+<td>bool</td>
+<td>flag to consider unknown objects as being stopped</td>
+</tr>
+<tr>
+<td>...</td>
+<td>bool</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<h4 id="inside-the-detection-area">Inside the detection area<a class="headerlink" href="#inside-the-detection-area" title="Permanent link">#</a></h4>
+<p>To calculate obstacles inside the detection area, firstly, obstalces whose distance to the trajectory is less than <code>rough_detection_area_expand_width</code> are selected.
+Then, the detection area, which is a trajectory with some lateral margin, is calcualted.
+The detection area width is a vehicle's width + <code>detection_area_expand_width</code>, and it is represented as a polygon resampled with <code>decimate_trajectory_step_length</code> longitudinally.
+The roughly selected obstacles inside the detection area are considered as insided the detection area.</p>
+<p>This two-step detection is used for calculation efficiency since collision checking of polygons is heavy.
+Boost.Geometry is used as a library to check collision among polygons.</p>
 <p>In the <code>obstacle_filtering</code> namespace,</p>
 <table>
 <thead>
@@ -9279,55 +9338,36 @@
 <tr>
 <td><code>rough_detection_area_expand_width</code></td>
 <td>double</td>
-<td>rough lateral margin for rough obstacle filtering [m]</td>
+<td>rough lateral margin for rough detection area expansion [m]</td>
 </tr>
 <tr>
 <td><code>detection_area_expand_width</code></td>
 <td>double</td>
-<td>lateral margin for precise obstacle filtering [m]</td>
+<td>lateral margin for precise detection area expansion [m]</td>
 </tr>
 <tr>
 <td><code>decimate_trajectory_step_length</code></td>
 <td>double</td>
-<td>lateral margin for precise obstacle filtering [m]</td>
-</tr>
-<tr>
-<td><code>min_obstacle_crossing_velocity</code></td>
-<td>double</td>
-<td>a</td>
-</tr>
-<tr>
-<td><code>crossing_obstacle_traj_angle_threshold</code></td>
-<td>double</td>
-<td>a</td>
-</tr>
-<tr>
-<td><code>margin_for_collision_time</code></td>
-<td>double</td>
-<td>a</td>
-</tr>
-<tr>
-<td><code>max_ego_obj_overlap_time</code></td>
-<td>double</td>
-<td>a</td>
-</tr>
-<tr>
-<td><code>max_prediction_time_for_collision_check</code></td>
-<td>double</td>
-<td>a</td>
+<td>longitudinal step length to calculate trajectory polygon for collision checking [m]</td>
 </tr>
 </tbody>
 </table>
-<p>In this function, target obstacles for stopping or cruising are selected based on their pose and velocity.</p>
-<p>By default, objects that realize one of the following conditions are considered to be the target obstacles candidate.
-Some terms will be defined in the following subsections.</p>
+<h4 id="far-crossing-vehicles">Far crossing vehicles<a class="headerlink" href="#far-crossing-vehicles" title="Permanent link">#</a></h4>
+<p>Near crossing vehicles (= not far crossing vehicles) are defined as vehicle objects realizing either of following conditions.</p>
 <ul>
-<li>Vehicle objects \textit{inside the detection area} other than \textit{far crossing vehicles}.</li>
-<li>Non-vehicle objects \textit{inside the detection area}</li>
-<li>\textit{Near cut-in vehicles} outside the detection area</li>
+<li>whose yaw angle against the nearest trajectory point is greater than <code>crossing_obstacle_traj_angle_threshold</code></li>
+<li>whose velocity is less than <code>min_obstacle_crossing_velocity</code>.</li>
 </ul>
-<p>Note that currently the obstacle filtering algorithm is for autonomous driving.
-However, we have following parameters as well for stop and cruise respectively so that we can extend the filtering algorithm for non-vehicle robots.</p>
+<p>Assuming <code>t_1</code> to be the time for the ego to reach the current crossing obstacle position with the constant velocity motion, and <code>t_2</code> to be the time for the crossing obstacle to go outside the detectino area, if the following condition is realized, the crossing vehicle will be ignored.</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+t_1 - t_2 &gt; \mathrm{margin\_for\_collision\_time}
+</div>
+<script type="math/tex; mode=display">
+t_1 - t_2 > \mathrm{margin\_for\_collision\_time}
+</script>
+</div>
+<p>In the <code>obstacle_filtering</code> namespace,</p>
 <table>
 <thead>
 <tr>
@@ -9338,52 +9378,49 @@ However, we have following parameters as well for stop and cruise respectively s
 </thead>
 <tbody>
 <tr>
-<td><code>slow_down_obstacle_type.unknown</code></td>
-<td>bool</td>
-<td>flag to consider unknown objects for slow down</td>
+<td><code>min_obstacle_crossing_velocity</code></td>
+<td>double</td>
+<td>velocity threshold to decide crosing obstacle [m/s]</td>
 </tr>
 <tr>
-<td><code>slow_down_obstacle_type.car</code></td>
-<td>bool</td>
-<td>flag to consider car objects for slow down</td>
+<td><code>crossing_obstacle_traj_angle_threshold</code></td>
+<td>double</td>
+<td>yaw threshold of crossing obstacle against the nearest trajectory point [rad]</td>
 </tr>
 <tr>
-<td><code>slow_down_obstacle_type.truck</code></td>
-<td>bool</td>
-<td>flag to consider truck objects for slow down</td>
-</tr>
-<tr>
-<td>...</td>
-<td>bool</td>
-<td>...</td>
+<td><code>margin_for_collision_time</code></td>
+<td>double</td>
+<td>time threshold of collision between obstacle and ego [s]</td>
 </tr>
 </tbody>
 </table>
-<h4 id="inside-the-detection-area">Inside the detection area<a class="headerlink" href="#inside-the-detection-area" title="Permanent link">#</a></h4>
-<p>To calculate the obstacle inside a detection area, firstly, obstalces whose distance to the trajectory is less than <code>rough_detection_area_expand_width</code> are selected as rough target obstacles.
-Then, a detection area, which is a trajectory polygon with some margins, is calcualted.
-The detection area width is a vehicle's width + <code>detection_area_expand_width</code>, and it is represented as a polygon resampled with <code>decimate_trajectory_step_length</code> longitudinally.
-The roughly selected obstacles inside the detection area are considered as insided the detection area.</p>
-<h4 id="far-crossing-vehicles">Far crossing vehicles<a class="headerlink" href="#far-crossing-vehicles" title="Permanent link">#</a></h4>
-<p>Crossing vehicles are defined as vehicle objects</p>
+<h4 id="near-cut-in-vehicles">Near Cut-in vehicles<a class="headerlink" href="#near-cut-in-vehicles" title="Permanent link">#</a></h4>
+<p>Near Cut-in vehicles are defined as vehicle objects</p>
 <ul>
-<li>whose yaw angle against nearest trajectory points is higher than <code>crossing_obstacle_traj_angle_threshold</code></li>
-<li>whose velocity is higher than <code>min_obstacle_crossing_velocity</code>.</li>
+<li>whose predicted path's footprints from the current time to <code>max_prediction_time_for_collision_check</code> overlap with the detection area longer than <code>max_ego_obj_overlap_time</code>.</li>
 </ul>
-<p>Assuming <code>t_1</code> to be the time for the ego to reach the current crossing obstacle position with the constant velocity motion, and <code>t_2</code> to be the time for the crossing obstacle to go outside the detectino area, if the following condition is realized, the crossing vehicle will be ignored.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
-t_1 - t_2 &lt; \mathrm{margin\_for\_collision\_time}
-</div>
-<script type="math/tex; mode=display">
-t_1 - t_2 < \mathrm{margin\_for\_collision\_time}
-</script>
-</div>
-<h4 id="cut-in-vehicles">Cut-in vehicles<a class="headerlink" href="#cut-in-vehicles" title="Permanent link">#</a></h4>
-<p>Cut-in vehicles are defined as vehicle objects</p>
-<ul>
-<li>whose predicted path from the current time to <code>max_prediction_time_for_collision_check</code> overlaps with the detection area longer than <code>max_ego_obj_overlap_time</code>.</li>
-</ul>
+<p>In the <code>obstacle_filtering</code> namespace,</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max_ego_obj_overlap_time</code></td>
+<td>double</td>
+<td>time threshold to dedice cut-in obstacle for cruise or stop [s]</td>
+</tr>
+<tr>
+<td><code>max_prediction_time_for_collision_check</code></td>
+<td>double</td>
+<td>prediction time to check collision between obstacle and ego [s]</td>
+</tr>
+</tbody>
+</table>
 <h3 id="stop-planning">Stop planning<a class="headerlink" href="#stop-planning" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -9402,14 +9439,14 @@ t_1 - t_2 < \mathrm{margin\_for\_collision\_time}
 <tr>
 <td><code>common.safe_distance_margin</code></td>
 <td>double</td>
-<td>stop margin</td>
+<td>distance with obstacles for stop</td>
 </tr>
 </tbody>
 </table>
-<p>The role of the stop planning is keeping a safe distance with static non vehicle objects or dynamic/static vehicle objects.</p>
+<p>The role of the stop planning is keeping a safe distance with static vehicle objects or dynamic/static non vehicle objects.</p>
 <p>The stop planning just inserts the stop point in the trajectory to keep a distance with obstacles inside the detection area.
 The safe distance is parameterized as <code>common.safe_distance_margin</code>.</p>
-<p>When inserting the stop point, the required acceleration is calculated for the ego to stop in front of the stop point.
+<p>When inserting the stop point, the required acceleration for the ego to stop in front of the stop point is calculated.
 If the acceleration is less than <code>common.min_strong_accel</code>, the stop planning will be cancelled since this package does not assume a strong sudden brake for emergency.</p>
 <h3 id="adaptive-cruise-planning">Adaptive cruise planning<a class="headerlink" href="#adaptive-cruise-planning" title="Permanent link">#</a></h3>
 <table>
@@ -9439,7 +9476,7 @@ d = v_{ego} t_{idling} + \frac{1}{2} a_{ego} t_{idling} + \frac{v_{ego}^2}{2 a_{
 d = v_{ego} t_{idling} + \frac{1}{2} a_{ego} t_{idling} + \frac{v_{ego}^2}{2 a_{ego}} - \frac{v_{obstacle}^2}{2 a_{obstacle}},
 </script>
 </div>
-<p>assuming that <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> is the calculated safe distance, <span class="arithmatex"><span class="MathJax_Preview">t_{idling}</span><script type="math/tex">t_{idling}</script></span> is the idling time for the ego to detect the front vehicle's deceleration, <span class="arithmatex"><span class="MathJax_Preview">v_{ego}</span><script type="math/tex">v_{ego}</script></span> is the ego's current velocity, <span class="arithmatex"><span class="MathJax_Preview">v_{obstacle}</span><script type="math/tex">v_{obstacle}</script></span> is the front obstacle's current velocity, <span class="arithmatex"><span class="MathJax_Preview">a_{ego}</span><script type="math/tex">a_{ego}</script></span> is the ego's xxx acceleration, and <span class="arithmatex"><span class="MathJax_Preview">a_{obstacle}</span><script type="math/tex">a_{obstacle}</script></span> is the obstacle's xxx acceleration.
+<p>assuming that <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> is the calculated safe distance, <span class="arithmatex"><span class="MathJax_Preview">t_{idling}</span><script type="math/tex">t_{idling}</script></span> is the idling time for the ego to detect the front vehicle's deceleration, <span class="arithmatex"><span class="MathJax_Preview">v_{ego}</span><script type="math/tex">v_{ego}</script></span> is the ego's current velocity, <span class="arithmatex"><span class="MathJax_Preview">v_{obstacle}</span><script type="math/tex">v_{obstacle}</script></span> is the front obstacle's current velocity, <span class="arithmatex"><span class="MathJax_Preview">a_{ego}</span><script type="math/tex">a_{ego}</script></span> is the ego's acceleration, and <span class="arithmatex"><span class="MathJax_Preview">a_{obstacle}</span><script type="math/tex">a_{obstacle}</script></span> is the obstacle's acceleration.
 These values are parameterized as follows. Other common values such as ego's minimum acceleration is defined in <code>common.param.yaml</code>.</p>
 <table>
 <thead>
@@ -9453,20 +9490,20 @@ These values are parameterized as follows. Other common values such as ego's min
 <tr>
 <td><code>common.idling_time</code></td>
 <td>double</td>
-<td>idling time for the ego to detect the front vehicle's deceleration</td>
+<td>idling time for the ego to detect the front vehicle starting deceleration [s]</td>
 </tr>
 <tr>
 <td><code>common.min_object_accel</code></td>
 <td>double</td>
-<td>front obstacle's acceleration</td>
+<td>front obstacle's acceleration [m/ss]</td>
 </tr>
 </tbody>
 </table>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">#</a></h2>
 <h3 id="flowchart">Flowchart<a class="headerlink" href="#flowchart" title="Permanent link">#</a></h3>
-<p>Successive functions consists of <code>obstacle_velocity_planner</code> as follows.</p>
-<p>Various algorithms for stop and cruise planning will be implemented.
-Therefore, <code>generateTrajectory</code> function's implementation depends on the designated algorithm.</p>
+<p>Successive functions consist of <code>obstacle_velocity_planner</code> as follows.</p>
+<p>Various algorithms for stop and cruise planning will be implemented, and one of them is designated depending on the usecases.
+The core algorithm implementation <code>generateTrajectory</code> depends on the designated algorithm.</p>
 <p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSI0ODNweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjIzOXB4O2hlaWdodDo0ODNweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyMzkgNDgzIiB3aWR0aD0iMjM5cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48cmVjdCBoZWlnaHQ9IjI2LjI5NjkiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDAwO3N0cm9rZS13aWR0aDoxLjA7ZmlsbDpub25lOyIgd2lkdGg9IjE2MCIgeD0iMzgiIHk9IjE1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE1MCIgeD0iNDMiIHk9IjMyLjk5NTEiPnRyYWplY3RvcnlDYWxsYmFjazwvdGV4dD48ZWxsaXBzZSBjeD0iMTE5LjUiIGN5PSI1Ny4yOTY5IiBmaWxsPSIjMjIyMjIyIiByeD0iMTAiIHJ5PSIxMCIgc3R5bGU9InN0cm9rZTojMjIyMjIyO3N0cm9rZS13aWR0aDoxLjA7Ii8+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSI4Mi4yNjU2IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxNTUiIHg9IjQyIiB5PSI3OC4wOTg2Ii8+PHBhdGggZD0iTTE4Nyw3OC4wOTg2IEwxODcsODcuMzk1NSBMMTc3LDk3LjM5NTUgTDQyLDk3LjM5NTUgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMzUiIHg9IjQ1IiB5PSI5Mi4wOTM4Ij5jcmVhdGVQbGFubmVyRGF0YTwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTA4IiB4PSI2NS41IiB5PSIxMTQuMzk1NSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg4IiB4PSI3NS41IiB5PSIxMzUuNTM0MiI+ZmlsdGVyT2JzdGFjbGVzPC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMzYiIHg9IjUxLjUiIHk9IjE4MC4zNjQzIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTE2IiB4PSI2MS41IiB5PSIyMDEuNTAyOSI+Z2VuZXJhdGVUcmFqZWN0b3J5PC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMzgiIHg9IjUwLjUiIHk9IjIzNC4zMzMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMTgiIHg9IjYwLjUiIHk9IjI1NS40NzE3Ij5wdWJsaXNoVmVsb2NpdHlMaW1pdDwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTI1IiB4PSI1NyIgeT0iMjg4LjMwMTgiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDUiIHg9IjY3IiB5PSIzMDkuNDQwNCI+cHVibGlzaCB0cmFqZWN0b3J5PC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMzAiIHg9IjU0LjUiIHk9IjM0Mi4yNzA1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEwIiB4PSI2NC41IiB5PSIzNjMuNDA5MiI+cHVibGlzaERlYnVnRGF0YTwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMjE3IiB4PSIxMSIgeT0iMzk2LjIzOTMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxOTciIHg9IjIxIiB5PSI0MTcuMzc3OSI+cHVibGlzaCBhbmQgcHJpbnQgY2FsY3VsYXRpb24gdGltZTwvdGV4dD48ZWxsaXBzZSBjeD0iMTE5LjUiIGN5PSI0NjEuMjA4IiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMjIyMjIyO3N0cm9rZS13aWR0aDoxLjA7ZmlsbDpub25lOyIvPjxlbGxpcHNlIGN4PSIxMTkuNSIgY3k9IjQ2MS4yMDgiIGZpbGw9IiMyMjIyMjIiIHJ4PSI2IiByeT0iNiIgc3R5bGU9InN0cm9rZTojMTExMTExO3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTE5LjUiIHgyPSIxMTkuNSIgeTE9IjY3LjI5NjkiIHkyPSIxMTQuMzk1NSIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTE1LjUsMTA0LjM5NTUsMTE5LjUsMTE0LjM5NTUsMTIzLjUsMTA0LjM5NTUsMTE5LjUsMTA4LjM5NTUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjExOS41IiB4Mj0iMTE5LjUiIHkxPSIxNDguMzY0MyIgeTI9IjE4MC4zNjQzIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxMTUuNSwxNzAuMzY0MywxMTkuNSwxODAuMzY0MywxMjMuNSwxNzAuMzY0MywxMTkuNSwxNzQuMzY0MyIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTE5LjUiIHgyPSIxMTkuNSIgeTE9IjIxNC4zMzMiIHkyPSIyMzQuMzMzIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxMTUuNSwyMjQuMzMzLDExOS41LDIzNC4zMzMsMTIzLjUsMjI0LjMzMywxMTkuNSwyMjguMzMzIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxMTkuNSIgeDI9IjExOS41IiB5MT0iMjY4LjMwMTgiIHkyPSIyODguMzAxOCIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTE1LjUsMjc4LjMwMTgsMTE5LjUsMjg4LjMwMTgsMTIzLjUsMjc4LjMwMTgsMTE5LjUsMjgyLjMwMTgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjExOS41IiB4Mj0iMTE5LjUiIHkxPSIzMjIuMjcwNSIgeTI9IjM0Mi4yNzA1Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxMTUuNSwzMzIuMjcwNSwxMTkuNSwzNDIuMjcwNSwxMjMuNSwzMzIuMjcwNSwxMTkuNSwzMzYuMjcwNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTE5LjUiIHgyPSIxMTkuNSIgeTE9IjM3Ni4yMzkzIiB5Mj0iMzk2LjIzOTMiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjExNS41LDM4Ni4yMzkzLDExOS41LDM5Ni4yMzkzLDEyMy41LDM4Ni4yMzkzLDExOS41LDM5MC4yMzkzIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxMTkuNSIgeDI9IjExOS41IiB5MT0iNDMwLjIwOCIgeTI9IjQ1MC4yMDgiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjExNS41LDQ0MC4yMDgsMTE5LjUsNDUwLjIwOCwxMjMuNSw0NDAuMjA4LDExOS41LDQ0NC4yMDgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjwhLS1NRDU9WzAxMTk1MWY0NTgwOWIwNjM0NmQ0OTJhYWM5NjdjYTY3XQpAc3RhcnR1bWwNCnRpdGxlIHRyYWplY3RvcnlDYWxsYmFjaw0Kc3RhcnQNCg0KZ3JvdXAgY3JlYXRlUGxhbm5lckRhdGENCiAgOmZpbHRlck9ic3RhY2xlczsNCmVuZCBncm91cA0KDQo6Z2VuZXJhdGVUcmFqZWN0b3J5Ow0KDQo6cHVibGlzaFZlbG9jaXR5TGltaXQ7DQoNCjpwdWJsaXNoIHRyYWplY3Rvcnk7DQoNCjpwdWJsaXNoRGVidWdEYXRhOw0KDQo6cHVibGlzaCBhbmQgcHJpbnQgY2FsY3VsYXRpb24gdGltZTsNCg0Kc3RvcA0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIyLjZiZXRhMihVbmtub3duIGNvbXBpbGUgdGltZSkKKEdQTCBzb3VyY2UgZGlzdHJpYnV0aW9uKQpKYXZhIFJ1bnRpbWU6IEphdmEoVE0pIFNFIFJ1bnRpbWUgRW52aXJvbm1lbnQKSlZNOiBKYXZhIEhvdFNwb3QoVE0pIDY0LUJpdCBTZXJ2ZXIgVk0KRGVmYXVsdCBFbmNvZGluZzogVVRGLTgKTGFuZ3VhZ2U6IGVuCkNvdW50cnk6IFVTCi0tPjwvZz48L3N2Zz4=" class="uml" alt="uml diagram" title="" /></p>
 <h3 id="algorithm-selection">Algorithm selection<a class="headerlink" href="#algorithm-selection" title="Permanent link">#</a></h3>
 <p>Currently, only a rule-based planner is supported.
@@ -9483,7 +9520,7 @@ Each planner will be explained in the following.</p>
 <tr>
 <td><code>common.planning_method</code></td>
 <td>string</td>
-<td>"rule_base"</td>
+<td>cruise and stop planning algorithm, selected from "rule_base"</td>
 </tr>
 </tbody>
 </table>
@@ -9501,13 +9538,13 @@ Each planner will be explained in the following.</p>
 <tbody>
 <tr>
 <td><code>max_slow_down_obstacle_velocity_to_stop</code></td>
-<td>string</td>
-<td>max obstacle velocity to be stop from slow down</td>
+<td>double</td>
+<td>obstacle velocity threshold to be stopped from cruised</td>
 </tr>
 </tbody>
 </table>
-<p>Only one obstacle is targeted for stop planning.
-It is the obstacle among filtered obstacles whose velocity is less than <code>max_slow_down_obstacle_velocity_to_stop, and which is the nearest to the ego along the trajectory. A stop point is inserted keeping</code>common.safe_distance_margin` distance between the ego and obstacle.</p>
+<p>Only one obstacle is targeted for the stop planning.
+It is the obstacle among obstacle candidates whose velocity is less than <code>max_slow_down_obstacle_velocity_to_stop</code>, and which is the nearest to the ego along the trajectory. A stop point is inserted keeping<code>common.safe_distance_margin</code> distance between the ego and obstacle.</p>
 <p>Note that, as explained in the stop planning design, a stop planning which requires a strong acceleration (less than <code>common.min_strong_accel</code>) will be canceled.</p>
 <h4 id="adaptive-cruise-planning_1">Adaptive cruise planning<a class="headerlink" href="#adaptive-cruise-planning_1" title="Permanent link">#</a></h4>
 <p>In the <code>rule_based_planner</code> namespace,</p>
@@ -9523,32 +9560,32 @@ It is the obstacle among filtered obstacles whose velocity is less than <code>ma
 <tr>
 <td><code>kp</code></td>
 <td>double</td>
-<td>p gain for pid control</td>
+<td>p gain for pid control [-]</td>
 </tr>
 <tr>
 <td><code>ki</code></td>
 <td>double</td>
-<td>i gain for pid control</td>
+<td>i gain for pid control [-]</td>
 </tr>
 <tr>
 <td><code>kd</code></td>
 <td>double</td>
-<td>d gain for pid control</td>
+<td>d gain for pid control [-]</td>
 </tr>
 <tr>
 <td><code>output_ratio_during_accel</code></td>
 <td>double</td>
-<td>The output velocity will be multiplied by the ratio during acceleration to follow the front vehicle.</td>
+<td>The output velocity will be multiplied by the ratio during acceleration to follow the front vehicle. [-]</td>
 </tr>
 <tr>
 <td><code>vel_to_acc_weight</code></td>
 <td>double</td>
-<td>target acceleration is target velocity * <code>vel_to_acc_weight</code></td>
+<td>target acceleration is target velocity * <code>vel_to_acc_weight</code> [-]</td>
 </tr>
 <tr>
 <td><code>min_slow_down_target_vel</code></td>
 <td>double</td>
-<td>minimum target velocity during slow down</td>
+<td>minimum target velocity during slow down [m/s]</td>
 </tr>
 </tbody>
 </table>
@@ -9557,7 +9594,11 @@ The target velocity and acceleration is respectively calcualted with the PID con
 <h3 id="optimization-based-planner">Optimization-based planner<a class="headerlink" href="#optimization-based-planner" title="Permanent link">#</a></h3>
 <p>under construction</p>
 <h3 id="minor-functions">Minor functions<a class="headerlink" href="#minor-functions" title="Permanent link">#</a></h3>
-<h4 id="prioritization-of-behavior-stop-point">Prioritization of behavior stop point<a class="headerlink" href="#prioritization-of-behavior-stop-point" title="Permanent link">#</a></h4>
+<h4 id="prioritization-of-behavior-modules-stop-point">Prioritization of behavior module's stop point<a class="headerlink" href="#prioritization-of-behavior-modules-stop-point" title="Permanent link">#</a></h4>
+<p>When stopping for a pedestrian walking on the crosswalk, the behavior module inserts the zero velocity in the trajectory in front of the crosswalk.
+Also <code>obstacle_velocity_planner</code>'s stop planning also works, and the ego may not reach the behavior module's stop point since the safe disatnce defined in <code>obstacle_velocity_planner</code> may be longer than the behavior module's safe distance.
+To resolve this non-alignment of the stop point between the behavior module and <code>obstacle_velocity_planner</code>, <code>common.min_behavior_stop_margin</code> is defined.
+In the case of the crosswalk described above, <code>obstacle_velocity_planner</code> inserts the stop point with a distance <code>common.min_behavior_stop_margin</code> at minimum between the ego and obstacle.</p>
 <table>
 <thead>
 <tr>
@@ -9570,18 +9611,14 @@ The target velocity and acceleration is respectively calcualted with the PID con
 <tr>
 <td><code>common.min_behavior_stop_margin</code></td>
 <td>double</td>
-<td>minimum stop margin when stopping in the behavior module is enabled</td>
+<td>minimum stop margin when stopping with the behavior module enabled</td>
 </tr>
 </tbody>
 </table>
-<p>When stopping in front of the pedestrian walking on the crosswalk, the behavior module inserts the zero velocity in the trajectory in front of the crosswalk.
-In this case, this package's stop planning also works, and the ego may does not reach the behavior's stop point since the safe disatnce defined in this package may be longer than the behavior's safe distance.
-To resolve this non-alignment of the stop point between the behavior and <code>obstacle_velocity_planner</code>, <code>common.min_behavior_stop_margin</code> is defined.
-In the case of the crosswalk described above, <code>obstacle_velocity_planner</code> inserts the stop point with a distance <code>common.min_behavior_stop_margin</code> at minimum between the ego and obstacle.</p>
 <h2 id="known-limits">Known Limits<a class="headerlink" href="#known-limits" title="Permanent link">#</a></h2>
 <ul>
 <li>Common<ul>
-<li>When the obstacle pose or velocity estimation has a delay, the ego will be close to the obstacle keeping deceleration.</li>
+<li>When the obstacle pose or velocity estimation has a delay, the ego sometimes will go close to the front vehicle keeping deceleration.</li>
 </ul>
 </li>
 <li>Rule-based planner<ul>
