@@ -9360,9 +9360,9 @@
 <p>By default, objects that realize one of the following conditions are considered to be the target obstacle candidates.
 Some terms will be defined in the following subsections.</p>
 <ul>
-<li>Vehicle objects \mathit{inside the detection area} other than \mathit{far crossing vehicles}.</li>
-<li>non vehicle objects \mathit{inside the detection area}</li>
-<li>\mathit{Near cut-in vehicles} outside the detection area</li>
+<li>Vehicle objects "inside the detection area" other than "far crossing vehicles".</li>
+<li>non vehicle objects "inside the detection area"</li>
+<li>"Near cut-in vehicles" outside the detection area</li>
 </ul>
 <p>Note that currently the obstacle candidates selection algorithm is for autonomous driving.
 However, we have following parameters as well for stop and cruise respectively so that we can extend the obstacles candidates selection algorithm for non vehicle robots.
@@ -9447,7 +9447,7 @@ Boost.Geometry is used as a library to check collision among polygons.</p>
 <p>Near crossing vehicles (= not far crossing vehicles) are defined as vehicle objects realizing either of following conditions.</p>
 <ul>
 <li>whose yaw angle against the nearest trajectory point is greater than <code>crossing_obstacle_traj_angle_threshold</code></li>
-<li>whose velocity is less than <code>min_obstacle_crossing_velocity</code>.</li>
+<li>whose velocity is less than <code>crossing_obstacle_velocity_threshold</code>.</li>
 </ul>
 <p>Assuming <code>t_1</code> to be the time for the ego to reach the current crossing obstacle position with the constant velocity motion, and <code>t_2</code> to be the time for the crossing obstacle to go outside the detectino area, if the following condition is realized, the crossing vehicle will be ignored.</p>
 <div class="arithmatex">
@@ -9469,7 +9469,7 @@ t_1 - t_2 > \mathrm{margin\_for\_collision\_time}
 </thead>
 <tbody>
 <tr>
-<td><code>min_obstacle_crossing_velocity</code></td>
+<td><code>crossing_obstacle_velocity_threshold</code></td>
 <td>double</td>
 <td>velocity threshold to decide crossing obstacle [m/s]</td>
 </tr>
@@ -9479,7 +9479,7 @@ t_1 - t_2 > \mathrm{margin\_for\_collision\_time}
 <td>yaw threshold of crossing obstacle against the nearest trajectory point [rad]</td>
 </tr>
 <tr>
-<td><code>margin_for_collision_time</code></td>
+<td><code>collision_time_margin</code></td>
 <td>double</td>
 <td>time threshold of collision between obstacle and ego [s]</td>
 </tr>
@@ -9488,7 +9488,7 @@ t_1 - t_2 > \mathrm{margin\_for\_collision\_time}
 <h4 id="near-cut-in-vehicles">Near Cut-in vehicles<a class="headerlink" href="#near-cut-in-vehicles" title="Permanent link">#</a></h4>
 <p>Near Cut-in vehicles are defined as vehicle objects</p>
 <ul>
-<li>whose predicted path's footprints from the current time to <code>max_prediction_time_for_collision_check</code> overlap with the detection area longer than <code>max_ego_obj_overlap_time</code>.</li>
+<li>whose predicted path's footprints from the current time to <code>max_prediction_time_for_collision_check</code> overlap with the detection area longer than <code>ego_obstacle_overlap_time_threshold</code>.</li>
 </ul>
 <p>In the <code>obstacle_filtering</code> namespace,</p>
 <table>
@@ -9501,7 +9501,7 @@ t_1 - t_2 > \mathrm{margin\_for\_collision\_time}
 </thead>
 <tbody>
 <tr>
-<td><code>max_ego_obj_overlap_time</code></td>
+<td><code>ego_obstacle_overlap_time_threshold</code></td>
 <td>double</td>
 <td>time threshold to decide cut-in obstacle for cruise or stop [s]</td>
 </tr>
@@ -9628,14 +9628,14 @@ Each planner will be explained in the following.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>max_cruise_obstacle_velocity_to_stop</code></td>
+<td><code>obstacle_velocity_threshold_from_cruise_to_stop</code></td>
 <td>double</td>
 <td>obstacle velocity threshold to be stopped from cruised [m/s]</td>
 </tr>
 </tbody>
 </table>
 <p>Only one obstacle is targeted for the stop planning.
-It is the obstacle among obstacle candidates whose velocity is less than <code>max_cruise_obstacle_velocity_to_stop</code>, and which is the nearest to the ego along the trajectory. A stop point is inserted keeping<code>common.safe_distance_margin</code> distance between the ego and obstacle.</p>
+It is the obstacle among obstacle candidates whose velocity is less than <code>obstacle_velocity_threshold_from_cruise_to_stop</code>, and which is the nearest to the ego along the trajectory. A stop point is inserted keeping<code>common.safe_distance_margin</code> distance between the ego and obstacle.</p>
 <p>Note that, as explained in the stop planning design, a stop planning which requires a strong acceleration (less than <code>common.min_strong_accel</code>) will be canceled.</p>
 <h4 id="adaptive-cruise-planning_1">Adaptive cruise planning<a class="headerlink" href="#adaptive-cruise-planning_1" title="Permanent link">#</a></h4>
 <p>In the <code>pid_based_planner</code> namespace,</p>
