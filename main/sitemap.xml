@@ -596,6 +596,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/run-out-design/</loc>
+         <lastmod>2022-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/stop-line-design/</loc>
          <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
