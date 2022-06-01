@@ -8955,9 +8955,20 @@
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p><code>imu_corrector_node</code> is a node that correct imu data.</p>
 <ol>
-<li>Correct yaw rate offset by reading the parameter.</li>
-<li>Correct yaw rate standard deviation by reading the parameter.</li>
+<li>Correct yaw rate offset <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> by reading the parameter.</li>
+<li>Correct yaw rate standard deviation <span class="arithmatex"><span class="MathJax_Preview">\sigma</span><script type="math/tex">\sigma</script></span> by reading the parameter.</li>
 </ol>
+<p>Mathematically, we assume the following equation:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\tilde{\omega}(t) = \omega(t) + b(t) + n(t)
+</div>
+<script type="math/tex; mode=display">
+\tilde{\omega}(t) = \omega(t) + b(t) + n(t)
+</script>
+</div>
+<p>where <span class="arithmatex"><span class="MathJax_Preview">\tilde{\omega}</span><script type="math/tex">\tilde{\omega}</script></span> denotes observed angular velocity, <span class="arithmatex"><span class="MathJax_Preview">\omega</span><script type="math/tex">\omega</script></span> denotes true angular velocity, <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> denotes an offset, and <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> denotes a gaussian noise.
+We also assume that <span class="arithmatex"><span class="MathJax_Preview">n\sim\mathcal{N}(0, \sigma^2)</span><script type="math/tex">n\sim\mathcal{N}(0, \sigma^2)</script></span>.</p>
 <!-- TODO(TIER IV): Make this repository public or change the link. -->
 <!-- Use the value estimated by [deviation_estimator](https://github.com/tier4/calibration_tools/tree/main/localization/deviation_estimation_tools) as the parameters for this node. -->
 
