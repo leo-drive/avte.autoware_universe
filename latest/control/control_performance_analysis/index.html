@@ -8873,8 +8873,49 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#control_performance_analysismsgdrivingmonitorstamped" class="md-nav__link">
+    control_performance_analysis::msg::DrivingMonitorStamped
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control_performance_analysismsgerrorstamped" class="md-nav__link">
+    control_performance_analysis::msg::ErrorStamped
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
   
 </li>
       
@@ -8898,10 +8939,15 @@
 
 <h1 id="control_performance_analysis">control_performance_analysis<a class="headerlink" href="#control_performance_analysis" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
-<p><code>control_performance_analysis</code> is the package to analyze the tracking performance of a control module.</p>
+<p><code>control_performance_analysis</code> is the package to analyze the tracking performance of a control module and monitor the driving status of the vehicle.</p>
 <p>This package is used as a tool to quantify the results of the control module.
 That's why it doesn't interfere with the core logic of autonomous driving.</p>
 <p>Based on the various input from planning, control, and vehicle, it publishes the result of analysis as <code>control_performance_analysis::msg::ErrorStamped</code> defined in this package.</p>
+<p>All results in <code>ErrorStamped</code> message are calculated in Frenet Frame of curve. Errors and velocity errors are calculated by using paper below.</p>
+<p><code>Werling, Moritz &amp; Groell, Lutz &amp; Bretthauer, Georg. (2010). Invariant Trajectory Tracking With a Full-Size Autonomous Road Vehicle. Robotics, IEEE Transactions on. 26. 758 - 765. 10.1109/TRO.2010.2052325.</code></p>
+<p>If you are interested in calculations, you can see the error and error velocity calculations in section <code>C. Asymptotical Trajectory Tracking With Orientation Control</code>.</p>
+<p>Error acceleration calculations are made based on the velocity calculations above. You can see below the calculation of error acceleration.</p>
+<p><img alt="CodeCogsEqn" src="https://user-images.githubusercontent.com/45468306/169027099-ef15b306-2868-4084-a350-0e2b652c310f.png" /></p>
 <h2 id="input-output">Input / Output<a class="headerlink" href="#input-output" title="Permanent link">#</a></h2>
 <h3 id="input-topics">Input topics<a class="headerlink" href="#input-topics" title="Permanent link">#</a></h3>
 <table>
@@ -8919,9 +8965,9 @@ That's why it doesn't interfere with the core logic of autonomous driving.</p>
 <td>Output trajectory from planning module.</td>
 </tr>
 <tr>
-<td><code>/control/trajectory_follower/lateral/control_cmd</code></td>
-<td>autoware_auto_control_msgs::msg::AckermannLateralCommand</td>
-<td>Output lateral control command from control module.</td>
+<td><code>/control/command/control_cmd</code></td>
+<td>autoware_auto_control_msgs::msg::AckermannControlCommand</td>
+<td>Output control command from control module.</td>
 </tr>
 <tr>
 <td><code>/vehicle/status/steering_status</code></td>
@@ -8955,8 +9001,187 @@ That's why it doesn't interfere with the core logic of autonomous driving.</p>
 <td>control_performance_analysis::msg::ErrorStamped</td>
 <td>The result of the performance analysis.</td>
 </tr>
+<tr>
+<td><code>/control_performance/driving_status</code></td>
+<td>control_performance_analysis::msg::DrivingMonitorStamped</td>
+<td>Driving status (acceleration, jerk etc.) monitoring</td>
+</tr>
 </tbody>
 </table>
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h3>
+<h4 id="control_performance_analysismsgdrivingmonitorstamped">control_performance_analysis::msg::DrivingMonitorStamped<a class="headerlink" href="#control_performance_analysismsgdrivingmonitorstamped" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>longitudinal_acceleration</code></td>
+<td>float</td>
+<td>[m / s^2]</td>
+</tr>
+<tr>
+<td><code>longitudinal_jerk</code></td>
+<td>float</td>
+<td>[m / s^3]</td>
+</tr>
+<tr>
+<td><code>lateral_acceleration</code></td>
+<td>float</td>
+<td>[m / s^2]</td>
+</tr>
+<tr>
+<td><code>lateral_jerk</code></td>
+<td>float</td>
+<td>[m / s^3]</td>
+</tr>
+<tr>
+<td><code>controller_processing_time</code></td>
+<td>float</td>
+<td>Timestamp between last two control command messages [ms]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="control_performance_analysismsgerrorstamped">control_performance_analysis::msg::ErrorStamped<a class="headerlink" href="#control_performance_analysismsgerrorstamped" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lateral_error</code></td>
+<td>float</td>
+<td>[m]</td>
+</tr>
+<tr>
+<td><code>lateral_error_velocity</code></td>
+<td>float</td>
+<td>[m / s]</td>
+</tr>
+<tr>
+<td><code>lateral_error_acceleration</code></td>
+<td>float</td>
+<td>[m / s^2]</td>
+</tr>
+<tr>
+<td><code>longitudinal_error</code></td>
+<td>float</td>
+<td>[m]</td>
+</tr>
+<tr>
+<td><code>longitudinal_error_velocity</code></td>
+<td>float</td>
+<td>[m / s]</td>
+</tr>
+<tr>
+<td><code>longitudinal_error_acceleration</code></td>
+<td>float</td>
+<td>[m / s^2]</td>
+</tr>
+<tr>
+<td><code>heading_error</code></td>
+<td>float</td>
+<td>[rad]</td>
+</tr>
+<tr>
+<td><code>heading_error_velocity</code></td>
+<td>float</td>
+<td>[rad / s]</td>
+</tr>
+<tr>
+<td><code>control_effort_energy</code></td>
+<td>float</td>
+<td>[u * R * u^T]</td>
+</tr>
+<tr>
+<td><code>error_energy</code></td>
+<td>float</td>
+<td>lateral_error^2 + heading_error^2</td>
+</tr>
+<tr>
+<td><code>value_approximation</code></td>
+<td>float</td>
+<td>V = xPx' ; Value function from DARE Lyap matrix P</td>
+</tr>
+<tr>
+<td><code>curvature_estimate</code></td>
+<td>float</td>
+<td>[1 / m]</td>
+</tr>
+<tr>
+<td><code>curvature_estimate_pp</code></td>
+<td>float</td>
+<td>[1 / m]</td>
+</tr>
+<tr>
+<td><code>vehicle_velocity_error</code></td>
+<td>float</td>
+<td>[m / s]</td>
+</tr>
+<tr>
+<td><code>tracking_curvature_discontinuity_ability</code></td>
+<td>float</td>
+<td>Measures the ability to tracking the curvature changes [<code>abs(delta(curvature)) / (1 + abs(delta(lateral_error))</code>]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>curvature_interval_length</code></td>
+<td>double</td>
+<td>Used for estimating current curvature</td>
+</tr>
+<tr>
+<td><code>prevent_zero_division_value</code></td>
+<td>double</td>
+<td>Value to avoid zero division. Default is <code>0.001</code></td>
+</tr>
+<tr>
+<td><code>odom_interval</code></td>
+<td>unsigned integer</td>
+<td>Interval between odom messages, increase it for smoother curve.</td>
+</tr>
+<tr>
+<td><code>acceptable_min_waypoint_distance</code></td>
+<td>double</td>
+<td>How far the next waypoint can be ahead of the vehicle direction</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<ul>
+<li>After launched simulation and control module, launch the <code>control_performance_analysis.launch.xml</code>.</li>
+<li>You should be able to see the driving monitor and error variables in topics.</li>
+<li>If you want to visualize the results, you can use <code>Plotjuggler</code> and use <code>config/controller_monitor.xml</code> as layout.</li>
+<li>After import the layout, please specify the topics that are listed below.</li>
+</ul>
+<blockquote>
+<ul>
+<li>/localization/kinematic_state</li>
+<li>/control_performance/driving_status</li>
+<li>/control_performance/performance_vars</li>
+</ul>
+</blockquote>
+<ul>
+<li>In <code>Plotjuggler</code> you can export the statistic (max, min, average) values as csv file. Use that statistics to compare the control modules.</li>
+</ul>
 
               
             </article>
