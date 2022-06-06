@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_path_planner/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/planning/rtc_auto_approver/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
-        <title>Behavior Path Planner - Autoware Universe Documentation</title>
+        <title>RTC Auto Approver - Autoware Universe Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#behavior-path-planner" class="md-skip">
+        <a href="#rtc-auto-approver" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Behavior Path Planner
+              RTC Auto Approver
             
           </span>
         </div>
@@ -398,7 +398,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../behavior_path_planner/" class="md-tabs__link md-tabs__link--active">
         Planning
       </a>
     </li>
@@ -5894,16 +5894,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" type="checkbox" id="__nav_11_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_1" type="checkbox" id="__nav_11_1" checked>
       
       
       
@@ -5920,8 +5918,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Behavior path planner</a>
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../behavior_path_planner/">Behavior path planner</a>
           
             <label for="__nav_11_1">
               <span class="md-nav__icon md-icon"></span>
@@ -5944,7 +5942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="behavior_path_planner_avoidance-design/" class="md-nav__link">
+      <a href="../behavior_path_planner/behavior_path_planner_avoidance-design/" class="md-nav__link">
         Avoidance Module
       </a>
     </li>
@@ -5958,7 +5956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="behavior_path_planner_design_limitations/" class="md-nav__link">
+      <a href="../behavior_path_planner/behavior_path_planner_design_limitations/" class="md-nav__link">
         Design limitation
       </a>
     </li>
@@ -6770,14 +6768,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_15" type="checkbox" id="__nav_11_15" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_15" type="checkbox" id="__nav_11_15" checked>
       
       
       
@@ -6790,8 +6790,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../rtc_auto_approver/">Rtc auto approver</a>
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Rtc auto approver</a>
           
         </div>
       
@@ -8948,43 +8948,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose-use-cases" class="md-nav__link">
-    Purpose / Use cases
+  <a href="#purpose" class="md-nav__link">
+    Purpose
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#design" class="md-nav__link">
-    Design
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inputs-outputs-api" class="md-nav__link">
-    Inputs / Outputs / API
-  </a>
-  
-    <nav class="md-nav" aria-label="Inputs / Outputs / API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#output" class="md-nav__link">
-    output
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input" class="md-nav__link">
-    input
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -8993,324 +8959,11 @@
     Inner-workings / Algorithms
   </a>
   
-    <nav class="md-nav" aria-label="Inner-workings / Algorithms">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#drivable-area-generation" class="md-nav__link">
-    Drivable Area Generation
-  </a>
-  
-    <nav class="md-nav" aria-label="Drivable Area Generation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameters-for-drivable-area-generation" class="md-nav__link">
-    Parameters for drivable area generation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#behavior-tree" class="md-nav__link">
-    Behavior Tree
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lane-following" class="md-nav__link">
-    Lane Following
-  </a>
-  
-    <nav class="md-nav" aria-label="Lane Following">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#special-case" class="md-nav__link">
-    special case
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lane-change" class="md-nav__link">
-    Lane Change
-  </a>
-  
-    <nav class="md-nav" aria-label="Lane Change">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#start-lane-change-condition-need-to-meet-all-of-the-conditions-below" class="md-nav__link">
-    start lane change condition (need to meet all of the conditions below)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#finish-lane-change-condition-need-to-meet-any-of-the-conditions-below" class="md-nav__link">
-    finish lane change condition (need to meet any of the conditions below)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collision-prediction-with-obstacles" class="md-nav__link">
-    Collision prediction with obstacles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#path-generation" class="md-nav__link">
-    Path Generation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avoidance" class="md-nav__link">
-    Avoidance
-  </a>
-  
-    <nav class="md-nav" aria-label="Avoidance">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#target-objects" class="md-nav__link">
-    Target objects
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-generate-avoidance-path" class="md-nav__link">
-    How to generate avoidance path
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#single-objects-case" class="md-nav__link">
-    single objects case
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-objects-case" class="md-nav__link">
-    multiple objects case
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#smooth-path-generation" class="md-nav__link">
-    Smooth path generation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unimplemented-parts-limitations-for-avoidance" class="md-nav__link">
-    Unimplemented parts / limitations for avoidance
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pull-over" class="md-nav__link">
-    Pull Over
-  </a>
-  
-    <nav class="md-nav" aria-label="Pull Over">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#start-pull-over-condition-need-to-meet-all-of-the-conditions-below" class="md-nav__link">
-    start pull over condition (need to meet all of the conditions below)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#finish-pull-over-condition-need-to-meet-any-of-the-conditions-below" class="md-nav__link">
-    finish pull over condition (need to meet any of the conditions below)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collision-prediction-with-obstacles_1" class="md-nav__link">
-    Collision prediction with obstacles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#path-generation_1" class="md-nav__link">
-    Path Generation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters-for-path-generation" class="md-nav__link">
-    Parameters for path generation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unimplemented-parts-limitations-for-pull-over" class="md-nav__link">
-    Unimplemented parts / limitations for pull over
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pull-out" class="md-nav__link">
-    Pull Out
-  </a>
-  
-    <nav class="md-nav" aria-label="Pull Out">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#start-pull-out-condition-need-to-meet-all-of-the-conditions-below" class="md-nav__link">
-    start pull out condition (need to meet all of the conditions below)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#finish-pull-out-condition-need-to-meet-any-of-the-conditions-below" class="md-nav__link">
-    finish pull out condition (need to meet any of the conditions below)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#safe-check-with-obstacles-in-shoulder-lane" class="md-nav__link">
-    Safe check with obstacles in shoulder lane
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#path-generation_2" class="md-nav__link">
-    Path Generation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unimplemented-parts-limitations-for-pull-put" class="md-nav__link">
-    Unimplemented parts / limitations for pull put
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#side-shift" class="md-nav__link">
-    Side Shift
-  </a>
-  
-    <nav class="md-nav" aria-label="Side Shift">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameters-for-path-generation_1" class="md-nav__link">
-    Parameters for path generation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#smooth-goal-connection" class="md-nav__link">
-    Smooth goal connection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#turn-signal" class="md-nav__link">
-    Turn signal
-  </a>
-  
-    <nav class="md-nav" aria-label="Turn signal">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#from-planned-path" class="md-nav__link">
-    From planned path
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#from-map-information" class="md-nav__link">
-    From map information
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conciliation" class="md-nav__link">
-    Conciliation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#references-external-links" class="md-nav__link">
-    References / External links
+  <a href="#assumptions-known-limits" class="md-nav__link">
+    Assumptions / Known limits
   </a>
   
 </li>
@@ -9318,13 +8971,6 @@
         <li class="md-nav__item">
   <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
     Future extensions / Unimplemented parts
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-issues" class="md-nav__link">
-    Related issues
   </a>
   
 </li>
@@ -9341,450 +8987,19 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware.universe/edit/main/planning/behavior_path_planner/README.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware.universe/edit/main/planning/rtc_auto_approver/README.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="behavior-path-planner">Behavior Path Planner<a class="headerlink" href="#behavior-path-planner" title="Permanent link">#</a></h1>
-<h2 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h2>
-<p>The <code>behavior_path_planner</code> module is responsible to generate</p>
-<ol>
-<li><strong>path</strong> based on the traffic situation,</li>
-<li><strong>drivable area</strong> that the vehicle can move (defined in the path msg),</li>
-<li><strong>turn signal</strong> command to be sent to the vehicle interface.</li>
-</ol>
-<p>Depending on the situation, a suitable module is selected and executed on the behavior tree system.</p>
-<p>The following modules are currently supported:</p>
-<ul>
-<li><strong>Lane Following</strong>: Generate lane centerline from map.</li>
-<li><strong>Lane Change</strong>: Performs a lane change. This module is performed when it is necessary and a collision check with other vehicles is cleared.</li>
-<li><strong>Obstacle Avoidance</strong>: Perform an obstacle avoidance. This module is for avoidance of a vehicle parked on the edge of the lane or overtaking a low-speed obstacle.</li>
-<li><strong>Pull Over</strong>: Performs a pull over. This module is performed when goal is in the shoulder lane. Ego-vehicle will stop at the goal.</li>
-<li><strong>Pull Out</strong>: Performs a pull out. This module is performed when ego-vehicle is stationary and footprint of ego-vehicle is included in shoulder lane. This module ends when ego-vehicle merges into the road.</li>
-<li><strong>Side Shift</strong>: (For remote control) Shift the path to left or right according to an external instruction.</li>
-</ul>
-<p>[WIP]</p>
-<ul>
-<li><strong>Free Space</strong>: xxx.</li>
-</ul>
-<p><img alt="behavior_modules" src="image/behavior_modules.png" /></p>
-<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<!-- ## Assumptions / Known limits -->
-
-<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
-<h3 id="output">output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
-<ul>
-<li>path [<code>autoware_auto_planning_msgs/PathWithLaneId</code>] : The path generated by modules.</li>
-<li>path_candidate [<code>autoware_auto_planning_msgs/Path</code>] : The path the module is about to take. To be executed as soon as external approval is obtained.</li>
-<li>turn_indicators_cmd [<code>autoware_auto_vehicle_msgs/TurnIndicatorsCommand</code>] : Turn indicators command.</li>
-<li>hazard_lights_cmd [<code>autoware_auto_vehicle_msgs/HazardLightsCommand</code>] : Hazard lights command.</li>
-<li>force_available [<code>tier4_planning_msgs/PathChangeModuleArray</code>] : (For remote control) modules that are force-executable.</li>
-<li>ready_module [<code>tier4_planning_msgs/PathChangeModule</code>] : (For remote control) modules that are ready to be executed.</li>
-<li>running_modules [<code>tier4_planning_msgs/PathChangeModuleArray</code>] : (For remote control) Current running module.</li>
-</ul>
-<h3 id="input">input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
-<ul>
-<li>/planning/mission_planning/route [<code>autoware_auto_planning_msgs/HADMapRoute</code>] : Current route from start to goal.</li>
-<li>/map/vector_map [autoware_auto_mapping_msgs/HADMapBin] : Map information.</li>
-<li>/perception/object_recognition/objects [<code>autoware_auto_perception_msgs/PredictedObjects</code>] : dynamic objects from perception module.</li>
-<li>/tf [<code>tf2_msgs/TFMessage</code>] : For ego-pose.</li>
-<li>/localization/kinematic_state [`nav_msgs/Odometry] : For ego-velocity.</li>
-<li>path_change_approval [<code>std_msgs::Bool</code>] : (For remote control)</li>
-<li>path_change_force [<code>tier4_planning_msgs::PathChangeModule</code>] : (For remote control)</li>
-</ul>
+<h1 id="rtc-auto-approver">RTC Auto Approver<a class="headerlink" href="#rtc-auto-approver" title="Permanent link">#</a></h1>
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
+<p>RTC Auto Approver is a node to approve request to cooperate from behavior planning modules automatically.</p>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
-<h3 id="drivable-area-generation">Drivable Area Generation<a class="headerlink" href="#drivable-area-generation" title="Permanent link">#</a></h3>
-<p>Drivable lanes are quantized and drawn on an image as a drivable area, whose resolution is <code>drivable_area_resolution</code>.
-To prevent the quantization from causing instability to the planning modules, drivable area's pose follows the rules below.</p>
-<ul>
-<li>Drivable area is generated in the map coordinate.</li>
-<li>Its position is quantized with <code>drivable_area_resolution</code>.</li>
-<li>Its orientation is 0.</li>
-</ul>
-<p>The size of the drivable area changes dynamically to realize both decreasing the computation cost and covering enough lanes to follow.
-For the second purpose, the drivable area covers a certain length forward and backward lanes with some margins defined by parameters.</p>
-<h4 id="parameters-for-drivable-area-generation">Parameters for drivable area generation<a class="headerlink" href="#parameters-for-drivable-area-generation" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Unit</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">drivable_area_resolution</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">resolution of the image of the drivable area</td>
-<td align="left">0.1</td>
-</tr>
-<tr>
-<td align="left">drivable_lane_forward_length</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">length of the forward lane from the ego covered by the drivable area</td>
-<td align="left">50.0</td>
-</tr>
-<tr>
-<td align="left">drivable_lane_backward_length</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">length of the backward lane from the ego covered by the drivable area</td>
-<td align="left">5.0</td>
-</tr>
-<tr>
-<td align="left">drivable_lane_margin</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">forward and backward lane margin from the ego covered by the drivable area</td>
-<td align="left">3.0</td>
-</tr>
-<tr>
-<td align="left">drivable_area_margin</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">margin of width and height of the drivable area</td>
-<td align="left">6.0</td>
-</tr>
-</tbody>
-</table>
-<h3 id="behavior-tree">Behavior Tree<a class="headerlink" href="#behavior-tree" title="Permanent link">#</a></h3>
-<p>In the behavior path planner, the behavior tree mechanism is used to manage which modules are activated in which situations. In general, this "behavior manager" like function is expected to become bigger as more and more modules are added in the future. To improve maintainability, we adopted the behavior tree. The behavior tree has the following advantages: easy visualization, easy configuration management (behaviors can be changed by replacing configuration files), and high scalability compared to the state machine.</p>
-<p>The current behavior tree structure is shown below. Each modules (LaneChange, Avoidance, etc) have <em>Request</em>, <em>Ready</em>, and <em>Plan</em> nodes as a common function.</p>
-<ul>
-<li><strong>Request</strong>: Check if there is a request from the module (e.g. LaneChange has a request when there are multi-lanes and the vehicle is not on the preferred lane),</li>
-<li><strong>Ready</strong>: Check if it is safe to execute the plan (e.g. LaneChange is ready when the lane_change path does not have any conflicts with other dynamic objects on S-T space).</li>
-<li><strong>Plan</strong>: Calculates path and set it to the output of the BehaviorTree. Until the internal status returns SUCCESS, it will be in running state and will not transit to another module.</li>
-<li><strong>ForceApproval</strong>: A lane change-specific node that overrides the result of <em>Ready</em> when a forced lane change command is given externally.</li>
-</ul>
-<p><img alt="behavior_path_planner_bt_config" src="image/behavior_path_planner_bt_config.png" /></p>
-<h3 id="lane-following">Lane Following<a class="headerlink" href="#lane-following" title="Permanent link">#</a></h3>
-<p>Generate path from center line of the route.</p>
-<h4 id="special-case"><strong>special case</strong><a class="headerlink" href="#special-case" title="Permanent link">#</a></h4>
-<p>In the case of a route that requires a lane change, the path is generated with a specific distance margin (default: <code>12.0 m</code>) from the end of the lane to ensure the minimum distance for lane change. (This function works not only for lane following but also for all modules.)</p>
-<p><img alt="minimum_lane_change_distance" src="image/minimum_lane_change_distance.png" /></p>
-<h3 id="lane-change">Lane Change<a class="headerlink" href="#lane-change" title="Permanent link">#</a></h3>
-<p>The Lane Change module is activated when lane change is needed and can be safely executed.</p>
-<h4 id="start-lane-change-condition-need-to-meet-all-of-the-conditions-below"><strong>start lane change condition</strong> (need to meet all of the conditions below)<a class="headerlink" href="#start-lane-change-condition-need-to-meet-all-of-the-conditions-below" title="Permanent link">#</a></h4>
-<ul>
-<li>lane change request condition<ul>
-<li>The ego-vehicle isn’t on a <code>preferred_lane</code>.</li>
-<li>There is neither intersection nor crosswalk on the path of the lane change</li>
-</ul>
-</li>
-<li>lane change ready condition<ul>
-<li>Path of the lane change doesn’t collide with other objects (see the figure below)</li>
-<li>Lane change is allowed by an operator</li>
-</ul>
-</li>
-</ul>
-<h4 id="finish-lane-change-condition-need-to-meet-any-of-the-conditions-below"><strong>finish lane change condition</strong> (need to meet any of the conditions below)<a class="headerlink" href="#finish-lane-change-condition-need-to-meet-any-of-the-conditions-below" title="Permanent link">#</a></h4>
-<ul>
-<li>Certain distance (default: <code>3.0 m</code>) have passed after the vehicle move to the target lane.</li>
-<li>Before the base_link exceeds white dotted line, a collision with the object was predicted (only if <code>enable_abort_lane_change</code> is true.)<ul>
-<li>However, when current velocity is lower than <code>10km/h</code> and the ego-vehicle is near the lane end, the lane change isn’t aborted and the ego-vehicle plans to stop. Then, after no collision is predicted, the ego-vehicle resume the lane change.</li>
-</ul>
-</li>
-</ul>
-<h4 id="collision-prediction-with-obstacles"><strong>Collision prediction with obstacles</strong><a class="headerlink" href="#collision-prediction-with-obstacles" title="Permanent link">#</a></h4>
-<ol>
-<li>Predict each position of the ego-vehicle and other vehicle on the target lane of the lane change at t1, t2,...tn</li>
-<li>If a distance between the ego-vehicle and other one is lower than the threshold (<code>ego_velocity * stop_time (2s)</code>) at each time, that is judged as a collision</li>
-</ol>
-<p><img alt="lane_change_fig1" src="image/lane_change_fig1.png" /></p>
-<h4 id="path-generation"><strong>Path Generation</strong><a class="headerlink" href="#path-generation" title="Permanent link">#</a></h4>
-<p>Path to complete the lane change in <code>n + m</code> seconds under an assumption that a velocity of the ego-vehicle is constant.
-Once the lane change is executed, the path won’t be updated until the "finish-lane-change-condition" is satisfied.</p>
-<!-- <p align="center"> <img src="./image/lane_change_fig3.png" width="800"/> </p> -->
-
-<p><img alt="lane_change_fig3" src="image/lane_change_fig3.png" /></p>
-<h3 id="avoidance">Avoidance<a class="headerlink" href="#avoidance" title="Permanent link">#</a></h3>
-<p>The Avoidance module is activated when dynamic objects to be avoided exist and can be safely avoided.</p>
-<h4 id="target-objects">Target objects<a class="headerlink" href="#target-objects" title="Permanent link">#</a></h4>
-<p>Dynamic objects that satisfy the following conditions are considered to be avoidance targets.</p>
-<ul>
-<li>Semantics type is <code>CAR</code>, <code>TRUCK</code>, or <code>BUS</code></li>
-<li>low speed (default: &lt; <code>1.0 m/s</code>)</li>
-<li>Not being around center line (default: deviation from center &gt; <code>0.5 m</code>)</li>
-<li>Any footprint of the object in on the detection area (driving lane + <code>1 m</code> margin for lateral direction).</li>
-</ul>
-<!-- The target objects are `CAR`, `TRUCK`, or `BUS` type with low speed (default: < `1.0 m/s`). If the object is around the center of lane, it is not considered as a target (default: deviation from center > `0.5 m`). -->
-
-<h4 id="how-to-generate-avoidance-path">How to generate avoidance path<a class="headerlink" href="#how-to-generate-avoidance-path" title="Permanent link">#</a></h4>
-<p>To prevent sudden changes in the vicinity of the ego-position, an avoidance path is generated after a certain distance of straight lane driving. The process of generating the avoidance path is as follows:</p>
-<ol>
-<li>detect the target object and calculate the lateral shift distance (default: <code>2.0 m</code> from closest footprint point)</li>
-<li>calculate the avoidance distance within the constraint of lateral jerk. (default: <code>0.3 ~ 2.0 m/s3</code>)<ol>
-<li>If the maximum jerk constraint is exceeded to keep the straight margin, the avoidance path generation is aborted.</li>
-</ol>
-</li>
-<li>generates the smooth path with given avoiding distance and lateral shift length.</li>
-<li>generate "return to center" path if there is no next target within a certain distance (default: <code>50 m</code>) after the current target.</li>
-</ol>
-<h4 id="single-objects-case"><strong>single objects case</strong><a class="headerlink" href="#single-objects-case" title="Permanent link">#</a></h4>
-<!-- <p align="center"> <img src="./image/avoid_fig_single_case.png" width="800"/> </p> -->
-
-<p><img alt="avoid_fig_single_case" src="image/avoid_fig_single_case.png" /></p>
-<h4 id="multiple-objects-case"><strong>multiple objects case</strong><a class="headerlink" href="#multiple-objects-case" title="Permanent link">#</a></h4>
-<p>If there are multiple avoidance targets and the lateral distances of these are close (default: &lt; <code>0.5m</code>), those objects are considered as a single avoidance target and avoidance is performed simultaneously with a single steering operation. If the lateral distances of the avoidance targets differ greatly than threshold, multiple steering operations are used to avoid them.</p>
-<!-- <p align="center"> <img src="./image/avoid_fig_multi_case.png" width="800"/> </p> -->
-
-<p><img alt="avoid_fig_multi_case" src="image/avoid_fig_multi_case.png" /></p>
-<h4 id="smooth-path-generation">Smooth path generation<a class="headerlink" href="#smooth-path-generation" title="Permanent link">#</a></h4>
-<p>The path generation is computed in Frenet coordinates. The shift length profile for avoidance is generated by four segmental constant jerk polynomials, and added to the original path. Since the lateral jerk can be approximately seen as a steering maneuver, this calculation yields a result similar to a Clothoid curve.</p>
-<!-- <p align="center"> <img src="./image/path_shifter.png" width="1000"/> </p> -->
-
-<p><img alt="path_shifter" src="image/path_shifter.png" /></p>
-<h4 id="unimplemented-parts-limitations-for-avoidance">Unimplemented parts / limitations for avoidance<a class="headerlink" href="#unimplemented-parts-limitations-for-avoidance" title="Permanent link">#</a></h4>
-<ul>
-<li>collision check is not implemented</li>
-<li>shift distance should be variable depending on the situation (left/right is free or occupied). Now it is a fixed value.</li>
-<li>collaboration with "avoidance-by-lane-change".</li>
-<li>specific rules for traffic condition (need to back to the center line before entering an intersection).</li>
-</ul>
-<h3 id="pull-over">Pull Over<a class="headerlink" href="#pull-over" title="Permanent link">#</a></h3>
-<p>The Pull Over module is activated when goal is in the shoulder lane. Ego-vehicle will stop at the goal.</p>
-<h4 id="start-pull-over-condition-need-to-meet-all-of-the-conditions-below"><strong>start pull over condition</strong> (need to meet all of the conditions below)<a class="headerlink" href="#start-pull-over-condition-need-to-meet-all-of-the-conditions-below" title="Permanent link">#</a></h4>
-<ul>
-<li>
-<p>Pull over request condition</p>
-<ul>
-<li>The goal is in shoulder lane</li>
-<li>The distance from ego-vehicle to the destination is long enough for pull over<ul>
-<li>The distance required for a pull over is determined by the sum of the straight distance before pull over, the straight distance after pull over, and the minimum distance required for pull over</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Pull over ready condition</p>
-<ul>
-<li>The end of generated path is located before the end of the road</li>
-<li>Distance required for pull over of generated path is shorter than distance from ego-pose to goal-pose</li>
-<li>Generated Path of the pull over doesn’t collide with other objects</li>
-<li>Pull over is allowed by an operator<ul>
-<li>If pull over path is not allowed by an operator, leave distance required for pull over and stop.
-  This case is defined as UC ID: UC-F-11-00004 at <a href="https://docs.google.com/presentation/d/19-G1vj0rG-1P1RKWLg-Iq3_7YgcIYgXZ1wq2_J9NXGo/edit#slide=id.gf4f59f078d_0_1">ODD Use Case Slide Pullover draft</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="finish-pull-over-condition-need-to-meet-any-of-the-conditions-below"><strong>finish pull over condition</strong> (need to meet any of the conditions below)<a class="headerlink" href="#finish-pull-over-condition-need-to-meet-any-of-the-conditions-below" title="Permanent link">#</a></h4>
-<ul>
-<li>The distance to the goal from your vehicle is lower than threshold (default: &lt; <code>1m</code>)</li>
-<li>The speed of the vehicle is 0.</li>
-</ul>
-<h4 id="collision-prediction-with-obstacles_1"><strong>Collision prediction with obstacles</strong><a class="headerlink" href="#collision-prediction-with-obstacles_1" title="Permanent link">#</a></h4>
-<ol>
-<li>Predict each position of the ego-vehicle and other vehicle on the target lane of the pull over at t1, t2,...tn</li>
-<li>If a distance between the ego-vehicle and other one is lower than the threshold (<code>ego_velocity * stop_time (2s)</code>) at each time, that is judged as a collision</li>
-</ol>
-<h4 id="path-generation_1"><strong>Path Generation</strong><a class="headerlink" href="#path-generation_1" title="Permanent link">#</a></h4>
-<p>The path is generated with a certain margin (default: <code>0.5 m</code>) from left boundary of shoulder lane.
-Pull over distance is calculated by the speed, lateral deviation, and the lateral jerk.
-The lateral jerk is searched for among the predetermined minimum and maximum values, and the one satisfies ready conditions described above is output.</p>
-<ol>
-<li>Apply uniform offset to centerline of shoulder lane for ensuring margin</li>
-<li>In the section between merge start and end, path is shifted by a method that is used to generate avoidance path (four segmental constant jerk polynomials)</li>
-<li>Combine this path with center line of road lane</li>
-</ol>
-<p><img alt="pull_over" src="image/pull_over_fig1.drawio.svg" /></p>
-<h4 id="parameters-for-path-generation">Parameters for path generation<a class="headerlink" href="#parameters-for-path-generation" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Unit</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">straight_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">straight distance after pull over.</td>
-<td align="left">5.0</td>
-</tr>
-<tr>
-<td align="left">minimum_lateral_jerk</td>
-<td align="left">[m/s3]</td>
-<td align="left">double</td>
-<td align="left">minimum lateral jerk to calculate shifting distance.</td>
-<td align="left">0.5</td>
-</tr>
-<tr>
-<td align="left">maximum_lateral_jerk</td>
-<td align="left">[m/s3]</td>
-<td align="left">double</td>
-<td align="left">maximum lateral jerk to calculate shifting distance.</td>
-<td align="left">2.0</td>
-</tr>
-<tr>
-<td align="left">pull_over_velocity</td>
-<td align="left">[m/s]</td>
-<td align="left">double</td>
-<td align="left">Accelerate/decelerate to this speed before the start of the pullover.</td>
-<td align="left">3.0</td>
-</tr>
-<tr>
-<td align="left">margin</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">distance from ego-vehicle's footprint to the edge of the shoulder lane. This value determines shift length.</td>
-<td align="left">0.5</td>
-</tr>
-</tbody>
-</table>
-<h4 id="unimplemented-parts-limitations-for-pull-over">Unimplemented parts / limitations for pull over<a class="headerlink" href="#unimplemented-parts-limitations-for-pull-over" title="Permanent link">#</a></h4>
-<ul>
-<li>When parking on the shoulder of the road, 3.5m space on the right side should be secured</li>
-</ul>
-<h3 id="pull-out">Pull Out<a class="headerlink" href="#pull-out" title="Permanent link">#</a></h3>
-<p>The Pull Out module is activated when ego-vehicle is stationary and footprint of ego-vehicle is included in shoulder lane. This module ends when ego-vehicle merges into the road.</p>
-<h4 id="start-pull-out-condition-need-to-meet-all-of-the-conditions-below"><strong>start pull out condition</strong> (need to meet all of the conditions below)<a class="headerlink" href="#start-pull-out-condition-need-to-meet-all-of-the-conditions-below" title="Permanent link">#</a></h4>
-<ul>
-<li>
-<p>Pull out request condition</p>
-<ul>
-<li>The speed of the vehicle is 0.</li>
-<li>The footprint of ego-vehicle is included in shoulder lane</li>
-<li>The distance from ego-vehicle to the destination is long enough for pull out (same with pull over)<ul>
-<li>The distance required for a pull out is determined by the sum of the straight distance before pull out, the straight distance after pull out, and the minimum distance required for pull out</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Pull out ready condition</p>
-<ul>
-<li>The end of generated path is located before the end of the road</li>
-<li>Distance required for pull out of generated path is shorter than distance from ego-pose to goal-pose</li>
-<li>Generated Path is safe (This condition is temporarily invalid)<ul>
-<li>It is possible to enable or disable this condition. (default: <code>disabled</code>)</li>
-<li>If safe path cannot be generated from the current position, safe path from a receding position is searched.</li>
-</ul>
-</li>
-<li>Pull out is allowed by an operator</li>
-</ul>
-</li>
-</ul>
-<h4 id="finish-pull-out-condition-need-to-meet-any-of-the-conditions-below"><strong>finish pull out condition</strong> (need to meet any of the conditions below)<a class="headerlink" href="#finish-pull-out-condition-need-to-meet-any-of-the-conditions-below" title="Permanent link">#</a></h4>
-<ul>
-<li>The distance to the goal of your vehicle is lower than threshold (default: &lt; <code>1m</code>)</li>
-<li>The speed of the vehicle is 0.</li>
-</ul>
-<h4 id="safe-check-with-obstacles-in-shoulder-lane"><strong>Safe check with obstacles in shoulder lane</strong><a class="headerlink" href="#safe-check-with-obstacles-in-shoulder-lane" title="Permanent link">#</a></h4>
-<ol>
-<li>Calculate ego-vehicle's footprint on pull out path between from current position to merge end point. (Illustrated by blue frame)</li>
-<li>Calculate object's polygon which is located in shoulder lane</li>
-<li>If a distance between the footprint and the polygon is lower than the threshold (default: <code>1.5 m</code>), that is judged as a unsafe path</li>
-</ol>
-<p><img alt="pull_out" src="image/pull_out_fig1.drawio.svg" /></p>
-<h4 id="path-generation_2"><strong>Path Generation</strong><a class="headerlink" href="#path-generation_2" title="Permanent link">#</a></h4>
-<p>The path is generated with a certain margin from the left edge of the shoulder lane.</p>
-<h4 id="unimplemented-parts-limitations-for-pull-put">Unimplemented parts / limitations for pull put<a class="headerlink" href="#unimplemented-parts-limitations-for-pull-put" title="Permanent link">#</a></h4>
-<ul>
-<li>Note that the current module's start judgment condition may incorrectly judge that the vehicle is parked on the shoulder, such as when stopping in front of an intersection.</li>
-</ul>
-<h3 id="side-shift">Side Shift<a class="headerlink" href="#side-shift" title="Permanent link">#</a></h3>
-<p>The role of the Side Shift module is to shift the reference path laterally in response to external instructions (such as remote operation).</p>
-<h4 id="parameters-for-path-generation_1">Parameters for path generation<a class="headerlink" href="#parameters-for-path-generation_1" title="Permanent link">#</a></h4>
-<p><img alt="path_shifter" src="image/side_shift_fig1.png" /></p>
-<p>In the figure, <code>straight margin distance</code> is to avoid sudden shifting, that is calculated by <code>max(min_distance_to_start_shifting, ego_speed * time_to_start_shifting)</code> . The <code>shifting distance</code> is calculated by jerk, with minimum speed and minimum distance parameter, described below. The minimum speed is used to prevent sharp shift when ego vehicle is stopped.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Unit</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">min_distance_to_start_shifting</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">minimum straight distance before shift start.</td>
-<td align="left">5.0</td>
-</tr>
-<tr>
-<td align="left">time_to_start_shifting</td>
-<td align="left">[s]</td>
-<td align="left">double</td>
-<td align="left">time of minimum straight distance before shift start.</td>
-<td align="left">1.0</td>
-</tr>
-<tr>
-<td align="left">shifting_lateral_jerk</td>
-<td align="left">[m/s3]</td>
-<td align="left">double</td>
-<td align="left">lateral jerk to calculate shifting distance.</td>
-<td align="left">0.2</td>
-</tr>
-<tr>
-<td align="left">min_shifting_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">the shifting distance is longer than this length.</td>
-<td align="left">5.0</td>
-</tr>
-<tr>
-<td align="left">min_shifting_speed</td>
-<td align="left">[m/s]</td>
-<td align="left">double</td>
-<td align="left">lateral jerk is calculated with the greater of current_speed or this speed.</td>
-<td align="left">5.56</td>
-</tr>
-</tbody>
-</table>
-<h3 id="smooth-goal-connection">Smooth goal connection<a class="headerlink" href="#smooth-goal-connection" title="Permanent link">#</a></h3>
-<p>If the target path contains a goal, modify the points of the path so that the path and the goal are connected smoothly. This process will change the shape of the path by the distance of <code>refine_goal_search_radius_range</code> from the goal. Note that this logic depends on the interpolation algorithm that will be executed in a later module (at the moment it uses spline interpolation), so it needs to be updated in the future.</p>
-<p><img alt="path_goal_refinement" src="image/path_goal_refinement.drawio.svg" /></p>
-<h3 id="turn-signal">Turn signal<a class="headerlink" href="#turn-signal" title="Permanent link">#</a></h3>
-<p>Turn on signal when the planned path crosses lanes or when a right or left turn is required. The turn signal information includes the direction of the turn signal and the distance to the point where the turn signal is needed.</p>
-<h4 id="from-planned-path">From planned path<a class="headerlink" href="#from-planned-path" title="Permanent link">#</a></h4>
-<ul>
-<li>turn signal direction<br />
-  Calculate the lateral movement distance from the shift start and end point and judges whether the line is crossed or not. If the vehicle straddles the line during lateral movement, the system turns on the blinker.<br />
-<img alt="cross_judgment" src="image/turn_signal_fig1.drawio.svg" /><br />
-  The timing to start lighting is when the time required to reach the shift start point is 3 seconds or less, or when the distance becomes smaller than threshold (default: <code>10.0 m</code>).<br />
-  The Japanese Road Traffic Law requires turn signal to be turned on <code>3.0 sec</code> before the vehicle starts moving sideways, but it also gives a condition based on distance because the turn signal may be turned off by slowing down before the shift start point.</li>
-<li>distance<br />
-  The distance from the top of ego vehicle to the shift end point.</li>
-</ul>
-<h4 id="from-map-information">From map information<a class="headerlink" href="#from-map-information" title="Permanent link">#</a></h4>
-<ul>
-<li>turn signal direction<br />
-  Determine right or left turns based on the "turn_direction" information embedded in the lanelet.</li>
-</ul>
-<ul>
-<li>distance<br />
-  The distance to the lane where you start to turn.</li>
-</ul>
-<h4 id="conciliation">Conciliation<a class="headerlink" href="#conciliation" title="Permanent link">#</a></h4>
-<p>When multiple turn signal conditions are met, the turn signal with the smaller distance is selected.</p>
-<h2 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h2>
-<p>This module depends on the external <a href="https://github.com/BehaviorTree/BehaviorTree.CPP">BehaviorTreeCpp</a> library.</p>
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSI1ODZweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjM5M3B4O2hlaWdodDo1ODZweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzOTMgNTg2IiB3aWR0aD0iMzkzcHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48ZWxsaXBzZSBjeD0iMTgyLjUiIGN5PSIyMCIgZmlsbD0iIzIyMjIyMiIgcng9IjEwIiByeT0iMTAiIHN0eWxlPSJzdHJva2U6IzIyMjIyMjtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMzQiIHg9IjExNS41IiB5PSI1MCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExNCIgeD0iMTI1LjUiIHk9IjcxLjEzODciPlJlY2VpdmUgUlRDIHN0YXR1czwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTExIiB4PSIxMjciIHk9IjIwMC43NzM0Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iOTEiIHg9IjEzNyIgeT0iMjIxLjkxMjEiPlNlbmQgQUNUSVZBVEU8L3RleHQ+PGVsbGlwc2UgY3g9IjE4Mi41IiBjeT0iMjcyLjI1NzgiIHJ4PSIxMCIgcnk9IjEwIiBzdHlsZT0ic3Ryb2tlOiMyMjIyMjI7c3Ryb2tlLXdpZHRoOjEuNTtmaWxsOm5vbmU7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMjIyMjIyO3N0cm9rZS13aWR0aDoyLjU7ZmlsbDpub25lOyIgeDE9IjE3Ni4zMTI4IiB4Mj0iMTg4LjY4NzIiIHkxPSIyNjYuMDcwNiIgeTI9IjI3OC40NDUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMyMjIyMjI7c3Ryb2tlLXdpZHRoOjIuNTtmaWxsOm5vbmU7IiB4MT0iMTg4LjY4NzIiIHgyPSIxNzYuMzEyOCIgeTE9IjI2Ni4wNzA2IiB5Mj0iMjc4LjQ0NSIvPjxwb2x5Z29uIGZpbGw9IiNGMUYxRjEiIHBvaW50cz0iMzIsMTUyLjM3MTEsMzMzLDE1Mi4zNzExLDM0NSwxNjQuMzcxMSwzMzMsMTc2LjM3MTEsMzIsMTc2LjM3MTEsMjAsMTY0LjM3MTEsMzIsMTUyLjM3MTEiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIxIiB4PSIxODYuNSIgeT0iMTg2LjU4MTUiPnllczwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzMDEiIHg9IjMyIiB5PSIxNjguMTc5MiI+U3RhdHVzIGlzIHNhZmUgJmFtcDsmYW1wOyBDdXJyZW50IGNvbW1hbmQgaXMgREVBQ1RJVkFURT88L3RleHQ+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjEyNyIgeD0iMTE5IiB5PSIzODcuNjYwMiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwNyIgeD0iMTI5IiB5PSI0MDguNzk4OCI+U2VuZCBERUFDVElWQVRFPC90ZXh0PjxlbGxpcHNlIGN4PSIxODIuNSIgY3k9IjQ1OS4xNDQ1IiByeD0iMTAiIHJ5PSIxMCIgc3R5bGU9InN0cm9rZTojMjIyMjIyO3N0cm9rZS13aWR0aDoxLjU7ZmlsbDpub25lOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzIyMjIyMjtzdHJva2Utd2lkdGg6Mi41O2ZpbGw6bm9uZTsiIHgxPSIxNzYuMzEyOCIgeDI9IjE4OC42ODcyIiB5MT0iNDUyLjk1NzMiIHkyPSI0NjUuMzMxNyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzIyMjIyMjtzdHJva2Utd2lkdGg6Mi41O2ZpbGw6bm9uZTsiIHgxPSIxODguNjg3MiIgeDI9IjE3Ni4zMTI4IiB5MT0iNDUyLjk1NzMiIHkyPSI0NjUuMzMxNyIvPjxwb2x5Z29uIGZpbGw9IiNGMUYxRjEiIHBvaW50cz0iMzMsMzM5LjI1NzgsMzMyLDMzOS4yNTc4LDM0NCwzNTEuMjU3OCwzMzIsMzYzLjI1NzgsMzMsMzYzLjI1NzgsMjEsMzUxLjI1NzgsMzMsMzM5LjI1NzgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIxIiB4PSIxODYuNSIgeT0iMzczLjQ2ODMiPnllczwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyOTkiIHg9IjMzIiB5PSIzNTUuMDY1OSI+U3RhdHVzIGlzIHVuc2FmZSAmYW1wOyZhbXA7IEN1cnJlbnQgY29tbWFuZCBpcyBBQ1RJVkFURT88L3RleHQ+PHBvbHlnb24gZmlsbD0iI0YxRjFGMSIgcG9pbnRzPSIxMTMuNSwxMDMuOTY4OCwyNTEuNSwxMDMuOTY4OCwyNjMuNSwxMTUuOTY4OCwyNTEuNSwxMjcuOTY4OCwxMTMuNSwxMjcuOTY4OCwxMDEuNSwxMTUuOTY4OCwxMTMuNSwxMDMuOTY4OCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjEiIHg9IjE4Ni41IiB5PSIxMzguMTc5MiI+eWVzPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEzOCIgeD0iMTEzLjUiIHk9IjExOS43NzY5Ij5BdXRvIGFwcHJvdmVyIGVuYWJsZWQ/PC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiNGMUYxRjEiIHBvaW50cz0iMTgyLjUsNTExLjE0NDUsMTk0LjUsNTIzLjE0NDUsMTgyLjUsNTM1LjE0NDUsMTcwLjUsNTIzLjE0NDUsMTgyLjUsNTExLjE0NDUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIvPjxlbGxpcHNlIGN4PSIxODIuNSIgY3k9IjU2NS4xNDQ1IiByeD0iMTAiIHJ5PSIxMCIgc3R5bGU9InN0cm9rZTojMjIyMjIyO3N0cm9rZS13aWR0aDoxLjU7ZmlsbDpub25lOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzIyMjIyMjtzdHJva2Utd2lkdGg6Mi41O2ZpbGw6bm9uZTsiIHgxPSIxNzYuMzEyOCIgeDI9IjE4OC42ODcyIiB5MT0iNTU4Ljk1NzMiIHkyPSI1NzEuMzMxNyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzIyMjIyMjtzdHJva2Utd2lkdGg6Mi41O2ZpbGw6bm9uZTsiIHgxPSIxODguNjg3MiIgeDI9IjE3Ni4zMTI4IiB5MT0iNTU4Ljk1NzMiIHkyPSI1NzEuMzMxNyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wO2ZpbGw6bm9uZTsiIHgxPSIxODIuNSIgeDI9IjE4Mi41IiB5MT0iMzAiIHkyPSI1MCIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTc4LjUsNDAsMTgyLjUsNTAsMTg2LjUsNDAsMTgyLjUsNDQiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE4Mi41IiB4Mj0iMTgyLjUiIHkxPSIyMzQuNzQyMiIgeTI9IjI2Mi4yNTc4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxNzguNSwyNTIuMjU3OCwxODIuNSwyNjIuMjU3OCwxODYuNSwyNTIuMjU3OCwxODIuNSwyNTYuMjU3OCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTgyLjUiIHgyPSIxODIuNSIgeTE9IjE3Ni4zNzExIiB5Mj0iMjAwLjc3MzQiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE3OC41LDE5MC43NzM0LDE4Mi41LDIwMC43NzM0LDE4Ni41LDE5MC43NzM0LDE4Mi41LDE5NC43NzM0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIzNDUiIHgyPSIzNTciIHkxPSIxNjQuMzcxMSIgeTI9IjE2NC4zNzExIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIzNTMsMjMyLjI1NzgsMzU3LDI0Mi4yNTc4LDM2MSwyMzIuMjU3OCwzNTcsMjM2LjI1NzgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjM1NyIgeDI9IjM1NyIgeTE9IjE2NC4zNzExIiB5Mj0iMzA0LjI1NzgiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIzNTciIHgyPSIxODIuNSIgeTE9IjMwNC4yNTc4IiB5Mj0iMzA0LjI1NzgiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxODIuNSIgeDI9IjE4Mi41IiB5MT0iMzA0LjI1NzgiIHkyPSIzMzkuMjU3OCIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTc4LjUsMzI5LjI1NzgsMTgyLjUsMzM5LjI1NzgsMTg2LjUsMzI5LjI1NzgsMTgyLjUsMzMzLjI1NzgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE4Mi41IiB4Mj0iMTgyLjUiIHkxPSI0MjEuNjI4OSIgeTI9IjQ0OS4xNDQ1Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxNzguNSw0MzkuMTQ0NSwxODIuNSw0NDkuMTQ0NSwxODYuNSw0MzkuMTQ0NSwxODIuNSw0NDMuMTQ0NSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTgyLjUiIHgyPSIxODIuNSIgeTE9IjM2My4yNTc4IiB5Mj0iMzg3LjY2MDIiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE3OC41LDM3Ny42NjAyLDE4Mi41LDM4Ny42NjAyLDE4Ni41LDM3Ny42NjAyLDE4Mi41LDM4MS42NjAyIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIzNDQiIHgyPSIzNTYiIHkxPSIzNTEuMjU3OCIgeTI9IjM1MS4yNTc4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIzNTIsNDE5LjE0NDUsMzU2LDQyOS4xNDQ1LDM2MCw0MTkuMTQ0NSwzNTYsNDIzLjE0NDUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjM1NiIgeDI9IjM1NiIgeTE9IjM1MS4yNTc4IiB5Mj0iNDkxLjE0NDUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIzNTYiIHgyPSIxODIuNSIgeTE9IjQ5MS4xNDQ1IiB5Mj0iNDkxLjE0NDUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxODIuNSIgeDI9IjE4Mi41IiB5MT0iNDkxLjE0NDUiIHkyPSI1MTEuMTQ0NSIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTc4LjUsNTAxLjE0NDUsMTgyLjUsNTExLjE0NDUsMTg2LjUsNTAxLjE0NDUsMTgyLjUsNTA1LjE0NDUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE4Mi41IiB4Mj0iMTgyLjUiIHkxPSIxMjcuOTY4OCIgeTI9IjE1Mi4zNzExIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxNzguNSwxNDIuMzcxMSwxODIuNSwxNTIuMzcxMSwxODYuNSwxNDIuMzcxMSwxODIuNSwxNDYuMzcxMSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMjYzLjUiIHgyPSIzNjciIHkxPSIxMTUuOTY4OCIgeTI9IjExNS45Njg4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIzNjMsMzExLjc1NzgsMzY3LDMyMS43NTc4LDM3MSwzMTEuNzU3OCwzNjcsMzE1Ljc1NzgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjM2NyIgeDI9IjM2NyIgeTE9IjExNS45Njg4IiB5Mj0iNTIzLjE0NDUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIzNjciIHgyPSIxOTQuNSIgeTE9IjUyMy4xNDQ1IiB5Mj0iNTIzLjE0NDUiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjIwNC41LDUxOS4xNDQ1LDE5NC41LDUyMy4xNDQ1LDIwNC41LDUyNy4xNDQ1LDIwMC41LDUyMy4xNDQ1IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxODIuNSIgeDI9IjE4Mi41IiB5MT0iODMuOTY4OCIgeTI9IjEwMy45Njg4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxNzguNSw5My45Njg4LDE4Mi41LDEwMy45Njg4LDE4Ni41LDkzLjk2ODgsMTgyLjUsOTcuOTY4OCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTgyLjUiIHgyPSIxODIuNSIgeTE9IjUzNS4xNDQ1IiB5Mj0iNTU1LjE0NDUiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE3OC41LDU0NS4xNDQ1LDE4Mi41LDU1NS4xNDQ1LDE4Ni41LDU0NS4xNDQ1LDE4Mi41LDU0OS4xNDQ1IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48IS0tTUQ1PVtiNDBjYzM2NzU5ZTk0OTYzN2E5MjU1ODc2N2JjZmY5MF0KQHN0YXJ0dW1sDQpzdGFydA0KOlJlY2VpdmUgUlRDIHN0YXR1czsNCmlmIChBdXRvIGFwcHJvdmVyIGVuYWJsZWQ/KSB0aGVuICh5ZXMpDQogIGlmIChTdGF0dXMgaXMgc2FmZSAmJiBDdXJyZW50IGNvbW1hbmQgaXMgREVBQ1RJVkFURT8pIHRoZW4gKHllcykNCiAgICA6U2VuZCBBQ1RJVkFURTsNCiAgICBlbmQNCiAgZW5kaWYNCiAgaWYgKFN0YXR1cyBpcyB1bnNhZmUgJiYgQ3VycmVudCBjb21tYW5kIGlzIEFDVElWQVRFPykgdGhlbiAoeWVzKQ0KICAgIDpTZW5kIERFQUNUSVZBVEU7DQogICAgZW5kDQogIGVuZGlmDQplbmRpZg0KZW5kDQpAZW5kdW1sDQoKUGxhbnRVTUwgdmVyc2lvbiAxLjIwMjIuNmJldGE1KFVua25vd24gY29tcGlsZSB0aW1lKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogSmF2YShUTSkgU0UgUnVudGltZSBFbnZpcm9ubWVudApKVk06IEphdmEgSG90U3BvdChUTSkgNjQtQml0IFNlcnZlciBWTQpEZWZhdWx0IEVuY29kaW5nOiBVVEYtOApMYW5ndWFnZTogZW4KQ291bnRyeTogVVMKLS0+PC9nPjwvc3ZnPg==" class="uml" alt="uml diagram" title="" /></p>
+<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
 <h2 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
-<p>-</p>
-<h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
-<p>-</p>
 
               
             </article>
@@ -9805,7 +9020,7 @@ The lateral jerk is searched for among the predetermined minimum and maximum val
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../perception/traffic_light_visualization/" class="md-footer__link md-footer__link--prev" aria-label="Previous: traffic_light_visualization" rel="prev">
+        <a href="../route_handler/" class="md-footer__link md-footer__link--prev" aria-label="Previous: route handler" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -9814,20 +9029,20 @@ The lateral jerk is searched for among the predetermined minimum and maximum val
               <span class="md-footer__direction">
                 Previous
               </span>
-              traffic_light_visualization
+              route handler
             </div>
           </div>
         </a>
       
       
         
-        <a href="behavior_path_planner_avoidance-design/" class="md-footer__link md-footer__link--next" aria-label="Next: Avoidance Module" rel="next">
+        <a href="../rtc_interface/" class="md-footer__link md-footer__link--next" aria-label="Next: RTC Interface" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Avoidance Module
+              RTC Interface
             </div>
           </div>
           <div class="md-footer__button md-icon">
