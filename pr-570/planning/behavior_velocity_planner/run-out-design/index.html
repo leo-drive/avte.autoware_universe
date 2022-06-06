@@ -8,22 +8,23 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-570/planning/adaptive_cruise_planner/adaptive_cruise_planner-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-570/planning/behavior_velocity_planner/run-out-design/">
       
       <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
     
     
       
-        <title>Obstacle Velocity Planner - Autoware Universe Documentation</title>
+        <title>Run out design - Autoware Universe Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.1c3799f8.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.5d38496d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -69,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#obstacle-velocity-planner" class="md-skip">
+        <a href="#run-out" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Obstacle Velocity Planner
+              Run out design
             
           </span>
         </div>
@@ -397,7 +398,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../../behavior_path_planner/" class="md-tabs__link md-tabs__link--active">
         Planning
       </a>
     </li>
@@ -626,10 +627,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
+        
+          
+        
+          
         
           
         
@@ -712,7 +717,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" checked>
       
       
       
@@ -757,7 +762,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" data-md-state="indeterminate" type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" checked>
       
       
       
@@ -787,7 +792,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_2_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_2_1" type="checkbox" id="__nav_5_2_1" checked>
       
       
       
@@ -847,7 +852,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" data-md-state="indeterminate" type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
       
       
       
@@ -877,7 +882,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_3_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3_1" type="checkbox" id="__nav_5_3_1" checked>
       
       
       
@@ -969,7 +974,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" data-md-state="indeterminate" type="checkbox" id="__nav_5_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" checked>
       
       
       
@@ -1014,7 +1019,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" data-md-state="indeterminate" type="checkbox" id="__nav_5_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" checked>
       
       
       
@@ -1044,7 +1049,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_5_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_5_1" type="checkbox" id="__nav_5_5_1" checked>
       
       
       
@@ -1104,7 +1109,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6" data-md-state="indeterminate" type="checkbox" id="__nav_5_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" checked>
       
       
       
@@ -1134,7 +1139,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_6_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_6_1" type="checkbox" id="__nav_5_6_1" checked>
       
       
       
@@ -1194,7 +1199,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7" data-md-state="indeterminate" type="checkbox" id="__nav_5_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_7" type="checkbox" id="__nav_5_7" checked>
       
       
       
@@ -1239,7 +1244,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_8" data-md-state="indeterminate" type="checkbox" id="__nav_5_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_8" type="checkbox" id="__nav_5_8" checked>
       
       
       
@@ -1269,7 +1274,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_8_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_8_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_8_1" type="checkbox" id="__nav_5_8_1" checked>
       
       
       
@@ -1329,7 +1334,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" data-md-state="indeterminate" type="checkbox" id="__nav_5_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" checked>
       
       
       
@@ -1382,7 +1387,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_10" data-md-state="indeterminate" type="checkbox" id="__nav_5_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_10" type="checkbox" id="__nav_5_10" checked>
       
       
       
@@ -1435,7 +1440,52 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_11" data-md-state="indeterminate" type="checkbox" id="__nav_5_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_11" type="checkbox" id="__nav_5_11" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../common/grid_map_utils/">Grid map utils</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Grid map utils" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_11">
+          <span class="md-nav__icon md-icon"></span>
+          Grid map utils
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_12" type="checkbox" id="__nav_5_12" checked>
       
       
       
@@ -1454,7 +1504,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Interpolation" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_11">
+        <label class="md-nav__title" for="__nav_5_12">
           <span class="md-nav__icon md-icon"></span>
           Interpolation
         </label>
@@ -1480,7 +1530,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_12" data-md-state="indeterminate" type="checkbox" id="__nav_5_12" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_13" type="checkbox" id="__nav_5_13" checked>
       
       
       
@@ -1499,7 +1549,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Kalman filter" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_12">
+        <label class="md-nav__title" for="__nav_5_13">
           <span class="md-nav__icon md-icon"></span>
           Kalman filter
         </label>
@@ -1525,7 +1575,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_13" data-md-state="indeterminate" type="checkbox" id="__nav_5_13" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_14" type="checkbox" id="__nav_5_14" checked>
       
       
       
@@ -1534,13 +1584,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_13">
+        <label class="md-nav__link" for="__nav_5_14">
           Osqp interface
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Osqp interface" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_13">
+        <label class="md-nav__title" for="__nav_5_14">
           <span class="md-nav__icon md-icon"></span>
           Osqp interface
         </label>
@@ -1555,7 +1605,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_13_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_13_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_14_1" type="checkbox" id="__nav_5_14_1" checked>
       
       
       
@@ -1564,13 +1614,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_13_1">
+        <label class="md-nav__link" for="__nav_5_14_1">
           Design
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_5_13_1">
+        <label class="md-nav__title" for="__nav_5_14_1">
           <span class="md-nav__icon md-icon"></span>
           Design
         </label>
@@ -1615,7 +1665,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_14" data-md-state="indeterminate" type="checkbox" id="__nav_5_14" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_15" type="checkbox" id="__nav_5_15" checked>
       
       
       
@@ -1624,13 +1674,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_14">
+        <label class="md-nav__link" for="__nav_5_15">
           Path distance calculator
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Path distance calculator" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_14">
+        <label class="md-nav__title" for="__nav_5_15">
           <span class="md-nav__icon md-icon"></span>
           Path distance calculator
         </label>
@@ -1668,7 +1718,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_15" data-md-state="indeterminate" type="checkbox" id="__nav_5_15" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_16" type="checkbox" id="__nav_5_16" checked>
       
       
       
@@ -1677,13 +1727,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_15">
+        <label class="md-nav__link" for="__nav_5_16">
           Polar grid
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Polar grid" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_15">
+        <label class="md-nav__title" for="__nav_5_16">
           <span class="md-nav__icon md-icon"></span>
           Polar grid
         </label>
@@ -1721,7 +1771,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_16" data-md-state="indeterminate" type="checkbox" id="__nav_5_16" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_17" type="checkbox" id="__nav_5_17" checked>
       
       
       
@@ -1740,7 +1790,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Signal processing" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_16">
+        <label class="md-nav__title" for="__nav_5_17">
           <span class="md-nav__icon md-icon"></span>
           Signal processing
         </label>
@@ -1766,7 +1816,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_17" data-md-state="indeterminate" type="checkbox" id="__nav_5_17" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_18" type="checkbox" id="__nav_5_18" checked>
       
       
       
@@ -1784,14 +1834,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../common/tier4_autoware_utils/">Tier4 autoware utils</a>
           
-            <label for="__nav_5_17">
+            <label for="__nav_5_18">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Tier4 autoware utils" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_17">
+        <label class="md-nav__title" for="__nav_5_18">
           <span class="md-nav__icon md-icon"></span>
           Tier4 autoware utils
         </label>
@@ -1808,7 +1858,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_17_2" data-md-state="indeterminate" type="checkbox" id="__nav_5_17_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_18_2" type="checkbox" id="__nav_5_18_2" checked>
       
       
       
@@ -1817,13 +1867,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_17_2">
+        <label class="md-nav__link" for="__nav_5_18_2">
           Docs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Docs" data-md-level="3">
-        <label class="md-nav__title" for="__nav_5_17_2">
+        <label class="md-nav__title" for="__nav_5_18_2">
           <span class="md-nav__icon md-icon"></span>
           Docs
         </label>
@@ -1838,7 +1888,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_17_2_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_17_2_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_18_2_1" type="checkbox" id="__nav_5_18_2_1" checked>
       
       
       
@@ -1847,13 +1897,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_17_2_1">
+        <label class="md-nav__link" for="__nav_5_18_2_1">
           Vehicle
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Vehicle" data-md-level="4">
-        <label class="md-nav__title" for="__nav_5_17_2_1">
+        <label class="md-nav__title" for="__nav_5_18_2_1">
           <span class="md-nav__icon md-icon"></span>
           Vehicle
         </label>
@@ -1905,7 +1955,52 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_18" data-md-state="indeterminate" type="checkbox" id="__nav_5_18" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_19" type="checkbox" id="__nav_5_19" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../common/tier4_control_rviz_plugin/">Tier4 control rviz plugin</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tier4 control rviz plugin" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_19">
+          <span class="md-nav__icon md-icon"></span>
+          Tier4 control rviz plugin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_20" type="checkbox" id="__nav_5_20" checked>
       
       
       
@@ -1924,7 +2019,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 datetime rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_18">
+        <label class="md-nav__title" for="__nav_5_20">
           <span class="md-nav__icon md-icon"></span>
           Tier4 datetime rviz plugin
         </label>
@@ -1950,7 +2045,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_19" data-md-state="indeterminate" type="checkbox" id="__nav_5_19" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_21" type="checkbox" id="__nav_5_21" checked>
       
       
       
@@ -1969,7 +2064,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 debug tools" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_19">
+        <label class="md-nav__title" for="__nav_5_21">
           <span class="md-nav__icon md-icon"></span>
           Tier4 debug tools
         </label>
@@ -1995,7 +2090,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_20" data-md-state="indeterminate" type="checkbox" id="__nav_5_20" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_22" type="checkbox" id="__nav_5_22" checked>
       
       
       
@@ -2014,7 +2109,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 localization rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_20">
+        <label class="md-nav__title" for="__nav_5_22">
           <span class="md-nav__icon md-icon"></span>
           Tier4 localization rviz plugin
         </label>
@@ -2040,7 +2135,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_21" data-md-state="indeterminate" type="checkbox" id="__nav_5_21" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_23" type="checkbox" id="__nav_5_23" checked>
       
       
       
@@ -2059,7 +2154,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 perception rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_21">
+        <label class="md-nav__title" for="__nav_5_23">
           <span class="md-nav__icon md-icon"></span>
           Tier4 perception rviz plugin
         </label>
@@ -2085,7 +2180,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_22" data-md-state="indeterminate" type="checkbox" id="__nav_5_22" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_24" type="checkbox" id="__nav_5_24" checked>
       
       
       
@@ -2104,7 +2199,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 planning rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_22">
+        <label class="md-nav__title" for="__nav_5_24">
           <span class="md-nav__icon md-icon"></span>
           Tier4 planning rviz plugin
         </label>
@@ -2130,7 +2225,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_23" data-md-state="indeterminate" type="checkbox" id="__nav_5_23" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_25" type="checkbox" id="__nav_5_25" checked>
       
       
       
@@ -2149,7 +2244,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 simulated clock rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_23">
+        <label class="md-nav__title" for="__nav_5_25">
           <span class="md-nav__icon md-icon"></span>
           Tier4 simulated clock rviz plugin
         </label>
@@ -2175,7 +2270,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_24" data-md-state="indeterminate" type="checkbox" id="__nav_5_24" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_26" type="checkbox" id="__nav_5_26" checked>
       
       
       
@@ -2194,7 +2289,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 state rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_24">
+        <label class="md-nav__title" for="__nav_5_26">
           <span class="md-nav__icon md-icon"></span>
           Tier4 state rviz plugin
         </label>
@@ -2220,7 +2315,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_25" data-md-state="indeterminate" type="checkbox" id="__nav_5_25" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_27" type="checkbox" id="__nav_5_27" checked>
       
       
       
@@ -2239,7 +2334,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 traffic light rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_25">
+        <label class="md-nav__title" for="__nav_5_27">
           <span class="md-nav__icon md-icon"></span>
           Tier4 traffic light rviz plugin
         </label>
@@ -2265,7 +2360,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_26" data-md-state="indeterminate" type="checkbox" id="__nav_5_26" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_28" type="checkbox" id="__nav_5_28" checked>
       
       
       
@@ -2284,7 +2379,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Tier4 vehicle rviz plugin" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_26">
+        <label class="md-nav__title" for="__nav_5_28">
           <span class="md-nav__icon md-icon"></span>
           Tier4 vehicle rviz plugin
         </label>
@@ -2310,7 +2405,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_27" data-md-state="indeterminate" type="checkbox" id="__nav_5_27" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_29" type="checkbox" id="__nav_5_29" checked>
       
       
       
@@ -2319,13 +2414,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_27">
+        <label class="md-nav__link" for="__nav_5_29">
           Vehicle constants manager
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Vehicle constants manager" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_27">
+        <label class="md-nav__title" for="__nav_5_29">
           <span class="md-nav__icon md-icon"></span>
           Vehicle constants manager
         </label>
@@ -2340,7 +2435,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_27_1" data-md-state="indeterminate" type="checkbox" id="__nav_5_27_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_29_1" type="checkbox" id="__nav_5_29_1" checked>
       
       
       
@@ -2349,13 +2444,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5_27_1">
+        <label class="md-nav__link" for="__nav_5_29_1">
           Design
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_5_27_1">
+        <label class="md-nav__title" for="__nav_5_29_1">
           <span class="md-nav__icon md-icon"></span>
           Design
         </label>
@@ -2400,7 +2495,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_28" data-md-state="indeterminate" type="checkbox" id="__nav_5_28" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_30" type="checkbox" id="__nav_5_30" checked>
       
       
       
@@ -2419,7 +2514,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Web controller" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_28">
+        <label class="md-nav__title" for="__nav_5_30">
           <span class="md-nav__icon md-icon"></span>
           Web controller
         </label>
@@ -2451,7 +2546,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -2499,7 +2594,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" data-md-state="indeterminate" type="checkbox" id="__nav_6_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" checked>
       
       
       
@@ -2544,7 +2639,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" data-md-state="indeterminate" type="checkbox" id="__nav_6_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" checked>
       
       
       
@@ -2589,7 +2684,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" data-md-state="indeterminate" type="checkbox" id="__nav_6_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" checked>
       
       
       
@@ -2634,7 +2729,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" data-md-state="indeterminate" type="checkbox" id="__nav_6_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" checked>
       
       
       
@@ -2679,7 +2774,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" data-md-state="indeterminate" type="checkbox" id="__nav_6_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" checked>
       
       
       
@@ -2724,7 +2819,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_6" data-md-state="indeterminate" type="checkbox" id="__nav_6_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_6" type="checkbox" id="__nav_6_6" checked>
       
       
       
@@ -2769,7 +2864,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_7" data-md-state="indeterminate" type="checkbox" id="__nav_6_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_7" type="checkbox" id="__nav_6_7" checked>
       
       
       
@@ -2799,7 +2894,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_7_1" data-md-state="indeterminate" type="checkbox" id="__nav_6_7_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_7_1" type="checkbox" id="__nav_6_7_1" checked>
       
       
       
@@ -2891,7 +2986,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_8" data-md-state="indeterminate" type="checkbox" id="__nav_6_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_8" type="checkbox" id="__nav_6_8" checked>
       
       
       
@@ -2921,7 +3016,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_8_1" data-md-state="indeterminate" type="checkbox" id="__nav_6_8_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_8_1" type="checkbox" id="__nav_6_8_1" checked>
       
       
       
@@ -3029,7 +3124,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_9" data-md-state="indeterminate" type="checkbox" id="__nav_6_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_9" type="checkbox" id="__nav_6_9" checked>
       
       
       
@@ -3080,7 +3175,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -3132,7 +3227,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" data-md-state="indeterminate" type="checkbox" id="__nav_7_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" checked>
       
       
       
@@ -3177,7 +3272,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" data-md-state="indeterminate" type="checkbox" id="__nav_7_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" checked>
       
       
       
@@ -3222,7 +3317,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" data-md-state="indeterminate" type="checkbox" id="__nav_7_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_3" type="checkbox" id="__nav_7_3" checked>
       
       
       
@@ -3267,7 +3362,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" data-md-state="indeterminate" type="checkbox" id="__nav_7_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" checked>
       
       
       
@@ -3312,7 +3407,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" data-md-state="indeterminate" type="checkbox" id="__nav_7_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" checked>
       
       
       
@@ -3357,7 +3452,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_6" data-md-state="indeterminate" type="checkbox" id="__nav_7_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_6" type="checkbox" id="__nav_7_6" checked>
       
       
       
@@ -3402,7 +3497,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_7" data-md-state="indeterminate" type="checkbox" id="__nav_7_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_7" type="checkbox" id="__nav_7_7" checked>
       
       
       
@@ -3447,7 +3542,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_8" data-md-state="indeterminate" type="checkbox" id="__nav_7_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_8" type="checkbox" id="__nav_7_8" checked>
       
       
       
@@ -3492,7 +3587,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_9" data-md-state="indeterminate" type="checkbox" id="__nav_7_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_9" type="checkbox" id="__nav_7_9" checked>
       
       
       
@@ -3537,7 +3632,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_10" data-md-state="indeterminate" type="checkbox" id="__nav_7_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_10" type="checkbox" id="__nav_7_10" checked>
       
       
       
@@ -3582,7 +3677,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_11" data-md-state="indeterminate" type="checkbox" id="__nav_7_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7_11" type="checkbox" id="__nav_7_11" checked>
       
       
       
@@ -3633,7 +3728,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" data-md-state="indeterminate" type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
       
       
       
@@ -3685,7 +3780,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_1" data-md-state="indeterminate" type="checkbox" id="__nav_8_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_1" type="checkbox" id="__nav_8_1" checked>
       
       
       
@@ -3730,7 +3825,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" data-md-state="indeterminate" type="checkbox" id="__nav_8_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_2" type="checkbox" id="__nav_8_2" checked>
       
       
       
@@ -3775,7 +3870,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_3" data-md-state="indeterminate" type="checkbox" id="__nav_8_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_3" type="checkbox" id="__nav_8_3" checked>
       
       
       
@@ -3820,7 +3915,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_4" data-md-state="indeterminate" type="checkbox" id="__nav_8_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_4" type="checkbox" id="__nav_8_4" checked>
       
       
       
@@ -3865,7 +3960,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_5" data-md-state="indeterminate" type="checkbox" id="__nav_8_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_5" type="checkbox" id="__nav_8_5" checked>
       
       
       
@@ -3910,7 +4005,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_6" data-md-state="indeterminate" type="checkbox" id="__nav_8_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_6" type="checkbox" id="__nav_8_6" checked>
       
       
       
@@ -3955,7 +4050,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_7" data-md-state="indeterminate" type="checkbox" id="__nav_8_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_7" type="checkbox" id="__nav_8_7" checked>
       
       
       
@@ -4000,7 +4095,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_8" data-md-state="indeterminate" type="checkbox" id="__nav_8_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_8" type="checkbox" id="__nav_8_8" checked>
       
       
       
@@ -4045,7 +4140,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_9" data-md-state="indeterminate" type="checkbox" id="__nav_8_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_9" type="checkbox" id="__nav_8_9" checked>
       
       
       
@@ -4090,7 +4185,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_10" data-md-state="indeterminate" type="checkbox" id="__nav_8_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_10" type="checkbox" id="__nav_8_10" checked>
       
       
       
@@ -4135,7 +4230,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_11" data-md-state="indeterminate" type="checkbox" id="__nav_8_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_11" type="checkbox" id="__nav_8_11" checked>
       
       
       
@@ -4186,7 +4281,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" data-md-state="indeterminate" type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
       
       
       
@@ -4222,7 +4317,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" data-md-state="indeterminate" type="checkbox" id="__nav_9_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" checked>
       
       
       
@@ -4264,7 +4359,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1_2" data-md-state="indeterminate" type="checkbox" id="__nav_9_1_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_1_2" type="checkbox" id="__nav_9_1_2" checked>
       
       
       
@@ -4356,7 +4451,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" data-md-state="indeterminate" type="checkbox" id="__nav_9_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_2" type="checkbox" id="__nav_9_2" checked>
       
       
       
@@ -4401,7 +4496,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" data-md-state="indeterminate" type="checkbox" id="__nav_9_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_3" type="checkbox" id="__nav_9_3" checked>
       
       
       
@@ -4460,7 +4555,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" data-md-state="indeterminate" type="checkbox" id="__nav_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" checked>
       
       
       
@@ -4532,7 +4627,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" data-md-state="indeterminate" type="checkbox" id="__nav_10_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_1" type="checkbox" id="__nav_10_1" checked>
       
       
       
@@ -4577,7 +4672,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" data-md-state="indeterminate" type="checkbox" id="__nav_10_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_2" type="checkbox" id="__nav_10_2" checked>
       
       
       
@@ -4622,7 +4717,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" data-md-state="indeterminate" type="checkbox" id="__nav_10_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" checked>
       
       
       
@@ -4703,7 +4798,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" data-md-state="indeterminate" type="checkbox" id="__nav_10_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_4" type="checkbox" id="__nav_10_4" checked>
       
       
       
@@ -4748,7 +4843,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" data-md-state="indeterminate" type="checkbox" id="__nav_10_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_5" type="checkbox" id="__nav_10_5" checked>
       
       
       
@@ -4793,7 +4888,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_6" data-md-state="indeterminate" type="checkbox" id="__nav_10_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_6" type="checkbox" id="__nav_10_6" checked>
       
       
       
@@ -4838,7 +4933,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_7" data-md-state="indeterminate" type="checkbox" id="__nav_10_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_7" type="checkbox" id="__nav_10_7" checked>
       
       
       
@@ -4880,7 +4975,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_7_2" data-md-state="indeterminate" type="checkbox" id="__nav_10_7_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_7_2" type="checkbox" id="__nav_10_7_2" checked>
       
       
       
@@ -4972,7 +5067,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_8" data-md-state="indeterminate" type="checkbox" id="__nav_10_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_8" type="checkbox" id="__nav_10_8" checked>
       
       
       
@@ -5014,7 +5109,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_8_2" data-md-state="indeterminate" type="checkbox" id="__nav_10_8_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_8_2" type="checkbox" id="__nav_10_8_2" checked>
       
       
       
@@ -5090,7 +5185,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_9" data-md-state="indeterminate" type="checkbox" id="__nav_10_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_9" type="checkbox" id="__nav_10_9" checked>
       
       
       
@@ -5132,7 +5227,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_9_2" data-md-state="indeterminate" type="checkbox" id="__nav_10_9_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_9_2" type="checkbox" id="__nav_10_9_2" checked>
       
       
       
@@ -5184,7 +5279,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_10" data-md-state="indeterminate" type="checkbox" id="__nav_10_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_10" type="checkbox" id="__nav_10_10" checked>
       
       
       
@@ -5229,7 +5324,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_11" data-md-state="indeterminate" type="checkbox" id="__nav_10_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_11" type="checkbox" id="__nav_10_11" checked>
       
       
       
@@ -5282,7 +5377,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_12" data-md-state="indeterminate" type="checkbox" id="__nav_10_12" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_12" type="checkbox" id="__nav_10_12" checked>
       
       
       
@@ -5327,7 +5422,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_13" data-md-state="indeterminate" type="checkbox" id="__nav_10_13" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_13" type="checkbox" id="__nav_10_13" checked>
       
       
       
@@ -5372,7 +5467,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_14" data-md-state="indeterminate" type="checkbox" id="__nav_10_14" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_14" type="checkbox" id="__nav_10_14" checked>
       
       
       
@@ -5417,7 +5512,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_15" data-md-state="indeterminate" type="checkbox" id="__nav_10_15" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_15" type="checkbox" id="__nav_10_15" checked>
       
       
       
@@ -5462,7 +5557,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_16" data-md-state="indeterminate" type="checkbox" id="__nav_10_16" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_16" type="checkbox" id="__nav_10_16" checked>
       
       
       
@@ -5507,7 +5602,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_17" data-md-state="indeterminate" type="checkbox" id="__nav_10_17" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_17" type="checkbox" id="__nav_10_17" checked>
       
       
       
@@ -5552,7 +5647,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_18" data-md-state="indeterminate" type="checkbox" id="__nav_10_18" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_18" type="checkbox" id="__nav_10_18" checked>
       
       
       
@@ -5597,7 +5692,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_19" data-md-state="indeterminate" type="checkbox" id="__nav_10_19" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_19" type="checkbox" id="__nav_10_19" checked>
       
       
       
@@ -5642,7 +5737,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_20" data-md-state="indeterminate" type="checkbox" id="__nav_10_20" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_20" type="checkbox" id="__nav_10_20" checked>
       
       
       
@@ -5687,7 +5782,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_21" data-md-state="indeterminate" type="checkbox" id="__nav_10_21" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_10_21" type="checkbox" id="__nav_10_21" checked>
       
       
       
@@ -5797,333 +5892,6 @@
               
   
   
-    
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" type="checkbox" id="__nav_11_1" checked>
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_11_1">
-          Adaptive cruise planner
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Adaptive cruise planner" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_1">
-          <span class="md-nav__icon md-icon"></span>
-          Adaptive cruise planner
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Obstacle Velocity Planner
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Obstacle Velocity Planner
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interfaces" class="md-nav__link">
-    Interfaces
-  </a>
-  
-    <nav class="md-nav" aria-label="Interfaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#input-topics" class="md-nav__link">
-    Input topics
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#output-topics" class="md-nav__link">
-    Output topics
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#design" class="md-nav__link">
-    Design
-  </a>
-  
-    <nav class="md-nav" aria-label="Design">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#obstacle-candidates-selection" class="md-nav__link">
-    Obstacle candidates selection
-  </a>
-  
-    <nav class="md-nav" aria-label="Obstacle candidates selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#inside-the-detection-area" class="md-nav__link">
-    Inside the detection area
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#far-crossing-vehicles" class="md-nav__link">
-    Far crossing vehicles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#near-cut-in-vehicles" class="md-nav__link">
-    Near Cut-in vehicles
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stop-planning" class="md-nav__link">
-    Stop planning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adaptive-cruise-planning" class="md-nav__link">
-    Adaptive cruise planning
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
-    Implementation
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#flowchart" class="md-nav__link">
-    Flowchart
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#algorithm-selection" class="md-nav__link">
-    Algorithm selection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pid-based-planner" class="md-nav__link">
-    PID-based planner
-  </a>
-  
-    <nav class="md-nav" aria-label="PID-based planner">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stop-planning_1" class="md-nav__link">
-    Stop planning
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adaptive-cruise-planning_1" class="md-nav__link">
-    Adaptive cruise planning
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optimization-based-planner" class="md-nav__link">
-    Optimization-based planner
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#minor-functions" class="md-nav__link">
-    Minor functions
-  </a>
-  
-    <nav class="md-nav" aria-label="Minor functions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prioritization-of-behavior-modules-stop-point" class="md-nav__link">
-    Prioritization of behavior module's stop point
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#visualization-for-debugging" class="md-nav__link">
-    Visualization for debugging
-  </a>
-  
-    <nav class="md-nav" aria-label="Visualization for debugging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#detection-area" class="md-nav__link">
-    Detection area
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collision-point" class="md-nav__link">
-    Collision point
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#obstacle-for-cruise" class="md-nav__link">
-    Obstacle for cruise
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#obstacle-for-stop" class="md-nav__link">
-    Obstacle for stop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#obstacle-cruise-wall" class="md-nav__link">
-    Obstacle cruise wall
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#obstacle-stop-wall" class="md-nav__link">
-    Obstacle stop wall
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#known-limits" class="md-nav__link">
-    Known Limits
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
   
     
       
@@ -6131,7 +5899,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" data-md-state="indeterminate" type="checkbox" id="__nav_11_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_1" type="checkbox" id="__nav_11_1" checked>
       
       
       
@@ -6151,14 +5919,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../behavior_path_planner/">Behavior path planner</a>
           
-            <label for="__nav_11_2">
+            <label for="__nav_11_1">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Behavior path planner" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_2">
+        <label class="md-nav__title" for="__nav_11_1">
           <span class="md-nav__icon md-icon"></span>
           Behavior path planner
         </label>
@@ -6205,20 +5973,24 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" data-md-state="indeterminate" type="checkbox" id="__nav_11_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" checked>
       
       
       
         
           
             
+          
+        
           
         
           
@@ -6246,16 +6018,16 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../behavior_velocity_planner/">Behavior velocity planner</a>
+          <a href="../">Behavior velocity planner</a>
           
-            <label for="__nav_11_3">
+            <label for="__nav_11_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Behavior velocity planner" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_3">
+        <label class="md-nav__title" for="__nav_11_2">
           <span class="md-nav__icon md-icon"></span>
           Behavior velocity planner
         </label>
@@ -6269,7 +6041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/blind-spot-design/" class="md-nav__link">
+      <a href="../blind-spot-design/" class="md-nav__link">
         Blind spot design
       </a>
     </li>
@@ -6283,7 +6055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/crosswalk-design/" class="md-nav__link">
+      <a href="../crosswalk-design/" class="md-nav__link">
         Crosswalk design
       </a>
     </li>
@@ -6297,7 +6069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/detection-area-design/" class="md-nav__link">
+      <a href="../detection-area-design/" class="md-nav__link">
         Detection area design
       </a>
     </li>
@@ -6311,8 +6083,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/intersection-design/" class="md-nav__link">
-        Intersection
+      <a href="../intersection-design/" class="md-nav__link">
+        Intersection design
       </a>
     </li>
   
@@ -6325,7 +6097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/merge-from-private-design/" class="md-nav__link">
+      <a href="../merge-from-private-design/" class="md-nav__link">
         Merge from private design
       </a>
     </li>
@@ -6339,7 +6111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/no-stopping-area-design/" class="md-nav__link">
+      <a href="../no-stopping-area-design/" class="md-nav__link">
         No stopping area design
       </a>
     </li>
@@ -6353,7 +6125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/occlusion-spot-design/" class="md-nav__link">
+      <a href="../occlusion-spot-design/" class="md-nav__link">
         Occlusion spot design
       </a>
     </li>
@@ -6365,9 +6137,242 @@
               
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Run out design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Run out design
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run-out" class="md-nav__link">
+    Run Out
+  </a>
+  
+    <nav class="md-nav" aria-label="Run Out">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#role" class="md-nav__link">
+    Role
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activation-timing" class="md-nav__link">
+    Activation Timing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inner-workings-algorithms" class="md-nav__link">
+    Inner-workings / Algorithms
+  </a>
+  
+    <nav class="md-nav" aria-label="Inner-workings / Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow-chart" class="md-nav__link">
+    Flow chart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocess-path" class="md-nav__link">
+    Preprocess path
+  </a>
+  
+    <nav class="md-nav" aria-label="Preprocess path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calculate-the-expected-target-velocity-for-ego-vehicle" class="md-nav__link">
+    Calculate the expected target velocity for ego vehicle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extend-the-path" class="md-nav__link">
+    Extend the path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trim-path-from-ego-position" class="md-nav__link">
+    Trim path from ego position
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocess-obstacles" class="md-nav__link">
+    Preprocess obstacles
+  </a>
+  
+    <nav class="md-nav" aria-label="Preprocess obstacles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-data-of-abstracted-dynamic-obstacle" class="md-nav__link">
+    Create data of abstracted dynamic obstacle
+  </a>
+  
+    <nav class="md-nav" aria-label="Create data of abstracted dynamic obstacle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstracted-dynamic-obstacle" class="md-nav__link">
+    Abstracted dynamic obstacle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-types-of-detection-method" class="md-nav__link">
+    3 types of detection method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude-obstacles-outside-of-partition" class="md-nav__link">
+    Exclude obstacles outside of partition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collision-detection" class="md-nav__link">
+    Collision detection
+  </a>
+  
+    <nav class="md-nav" aria-label="Collision detection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detect-collision-with-dynamic-obstacles" class="md-nav__link">
+    Detect collision with dynamic obstacles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-velocity" class="md-nav__link">
+    Insert velocity
+  </a>
+  
+    <nav class="md-nav" aria-label="Insert velocity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insert-velocity-to-decelerate-for-obstacles" class="md-nav__link">
+    Insert velocity to decelerate for obstacles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-velocity-with-specified-jerk-and-acc-limit" class="md-nav__link">
+    Limit velocity with specified jerk and acc limit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-parameters" class="md-nav__link">
+    Module Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
+    Future extensions / Unimplemented parts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/stop-line-design/" class="md-nav__link">
+      <a href="../stop-line-design/" class="md-nav__link">
         Stop line design
       </a>
     </li>
@@ -6381,7 +6386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/traffic-light-design/" class="md-nav__link">
+      <a href="../traffic-light-design/" class="md-nav__link">
         Traffic light design
       </a>
     </li>
@@ -6395,7 +6400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../behavior_velocity_planner/virtual-traffic-light-design/" class="md-nav__link">
+      <a href="../virtual-traffic-light-design/" class="md-nav__link">
         Virtual traffic light design
       </a>
     </li>
@@ -6421,7 +6426,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" data-md-state="indeterminate" type="checkbox" id="__nav_11_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_3" type="checkbox" id="__nav_11_3" checked>
       
       
       
@@ -6440,7 +6445,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Costmap generator" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_4">
+        <label class="md-nav__title" for="__nav_11_3">
           <span class="md-nav__icon md-icon"></span>
           Costmap generator
         </label>
@@ -6466,7 +6471,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_5" data-md-state="indeterminate" type="checkbox" id="__nav_11_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_4" type="checkbox" id="__nav_11_4" checked>
       
       
       
@@ -6485,7 +6490,7 @@
         </div>
       
       <nav class="md-nav" aria-label="External velocity limit selector" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_5">
+        <label class="md-nav__title" for="__nav_11_4">
           <span class="md-nav__icon md-icon"></span>
           External velocity limit selector
         </label>
@@ -6511,7 +6516,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_6" data-md-state="indeterminate" type="checkbox" id="__nav_11_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_5" type="checkbox" id="__nav_11_5" checked>
       
       
       
@@ -6530,7 +6535,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Freespace planner" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_6">
+        <label class="md-nav__title" for="__nav_11_5">
           <span class="md-nav__icon md-icon"></span>
           Freespace planner
         </label>
@@ -6556,7 +6561,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_7" data-md-state="indeterminate" type="checkbox" id="__nav_11_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_6" type="checkbox" id="__nav_11_6" checked>
       
       
       
@@ -6575,7 +6580,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Freespace planning algorithms" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_7">
+        <label class="md-nav__title" for="__nav_11_6">
           <span class="md-nav__icon md-icon"></span>
           Freespace planning algorithms
         </label>
@@ -6601,7 +6606,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_8" data-md-state="indeterminate" type="checkbox" id="__nav_11_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_7" type="checkbox" id="__nav_11_7" checked>
       
       
       
@@ -6620,7 +6625,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Mission planner" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_8">
+        <label class="md-nav__title" for="__nav_11_7">
           <span class="md-nav__icon md-icon"></span>
           Mission planner
         </label>
@@ -6646,7 +6651,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_9" data-md-state="indeterminate" type="checkbox" id="__nav_11_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_8" type="checkbox" id="__nav_11_8" checked>
       
       
       
@@ -6664,14 +6669,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../motion_velocity_smoother/">Motion velocity smoother</a>
           
-            <label for="__nav_11_9">
+            <label for="__nav_11_8">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Motion velocity smoother" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_9">
+        <label class="md-nav__title" for="__nav_11_8">
           <span class="md-nav__icon md-icon"></span>
           Motion velocity smoother
         </label>
@@ -6711,7 +6716,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_10" data-md-state="indeterminate" type="checkbox" id="__nav_11_10" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_9" type="checkbox" id="__nav_11_9" checked>
       
       
       
@@ -6730,7 +6735,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Obstacle avoidance planner" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_10">
+        <label class="md-nav__title" for="__nav_11_9">
           <span class="md-nav__icon md-icon"></span>
           Obstacle avoidance planner
         </label>
@@ -6756,7 +6761,60 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_11" data-md-state="indeterminate" type="checkbox" id="__nav_11_11" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_10" type="checkbox" id="__nav_11_10" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_11_10">
+          Obstacle cruise planner
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Obstacle cruise planner" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_10">
+          <span class="md-nav__icon md-icon"></span>
+          Obstacle cruise planner
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../obstacle_cruise_planner/obstacle_cruise_planner-design/" class="md-nav__link">
+        Obstacle Velocity Planner
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_11" type="checkbox" id="__nav_11_11" checked>
       
       
       
@@ -6801,7 +6859,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_12" data-md-state="indeterminate" type="checkbox" id="__nav_11_12" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_12" type="checkbox" id="__nav_11_12" checked>
       
       
       
@@ -6846,7 +6904,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_13" data-md-state="indeterminate" type="checkbox" id="__nav_11_13" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_13" type="checkbox" id="__nav_11_13" checked>
       
       
       
@@ -6891,7 +6949,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_14" data-md-state="indeterminate" type="checkbox" id="__nav_11_14" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_14" type="checkbox" id="__nav_11_14" checked>
       
       
       
@@ -6936,7 +6994,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_15" data-md-state="indeterminate" type="checkbox" id="__nav_11_15" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_15" type="checkbox" id="__nav_11_15" checked>
       
       
       
@@ -6981,7 +7039,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_16" data-md-state="indeterminate" type="checkbox" id="__nav_11_16" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_16" type="checkbox" id="__nav_11_16" checked>
       
       
       
@@ -7026,7 +7084,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_17" data-md-state="indeterminate" type="checkbox" id="__nav_11_17" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_11_17" type="checkbox" id="__nav_11_17" checked>
       
       
       
@@ -7097,7 +7155,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" data-md-state="indeterminate" type="checkbox" id="__nav_12" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" checked>
       
       
       
@@ -7143,7 +7201,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_1" data-md-state="indeterminate" type="checkbox" id="__nav_12_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_1" type="checkbox" id="__nav_12_1" checked>
       
       
       
@@ -7188,7 +7246,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_2" data-md-state="indeterminate" type="checkbox" id="__nav_12_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_2" type="checkbox" id="__nav_12_2" checked>
       
       
       
@@ -7233,7 +7291,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_3" data-md-state="indeterminate" type="checkbox" id="__nav_12_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_3" type="checkbox" id="__nav_12_3" checked>
       
       
       
@@ -7278,7 +7336,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_4" data-md-state="indeterminate" type="checkbox" id="__nav_12_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_4" type="checkbox" id="__nav_12_4" checked>
       
       
       
@@ -7323,7 +7381,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5" data-md-state="indeterminate" type="checkbox" id="__nav_12_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_5" type="checkbox" id="__nav_12_5" checked>
       
       
       
@@ -7353,7 +7411,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_1" data-md-state="indeterminate" type="checkbox" id="__nav_12_5_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_5_1" type="checkbox" id="__nav_12_5_1" checked>
       
       
       
@@ -7405,7 +7463,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6" data-md-state="indeterminate" type="checkbox" id="__nav_12_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_6" type="checkbox" id="__nav_12_6" checked>
       
       
       
@@ -7447,7 +7505,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_2" data-md-state="indeterminate" type="checkbox" id="__nav_12_6_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_6_2" type="checkbox" id="__nav_12_6_2" checked>
       
       
       
@@ -7699,7 +7757,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7" data-md-state="indeterminate" type="checkbox" id="__nav_12_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_7" type="checkbox" id="__nav_12_7" checked>
       
       
       
@@ -7780,7 +7838,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_8" data-md-state="indeterminate" type="checkbox" id="__nav_12_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_12_8" type="checkbox" id="__nav_12_8" checked>
       
       
       
@@ -7831,7 +7889,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" data-md-state="indeterminate" type="checkbox" id="__nav_13" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" checked>
       
       
       
@@ -7867,7 +7925,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_1" data-md-state="indeterminate" type="checkbox" id="__nav_13_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13_1" type="checkbox" id="__nav_13_1" checked>
       
       
       
@@ -7912,7 +7970,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_2" data-md-state="indeterminate" type="checkbox" id="__nav_13_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13_2" type="checkbox" id="__nav_13_2" checked>
       
       
       
@@ -7957,7 +8015,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_3" data-md-state="indeterminate" type="checkbox" id="__nav_13_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13_3" type="checkbox" id="__nav_13_3" checked>
       
       
       
@@ -7987,7 +8045,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13_3_1" data-md-state="indeterminate" type="checkbox" id="__nav_13_3_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13_3_1" type="checkbox" id="__nav_13_3_1" checked>
       
       
       
@@ -8053,10 +8111,12 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" data-md-state="indeterminate" type="checkbox" id="__nav_14" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" checked>
       
       
       
+        
+          
         
           
         
@@ -8099,7 +8159,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_1" data-md-state="indeterminate" type="checkbox" id="__nav_14_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_1" type="checkbox" id="__nav_14_1" checked>
       
       
       
@@ -8144,7 +8204,52 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_2" data-md-state="indeterminate" type="checkbox" id="__nav_14_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_2" type="checkbox" id="__nav_14_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../system/bluetooth_monitor/">Bluetooth monitor</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Bluetooth monitor" data-md-level="2">
+        <label class="md-nav__title" for="__nav_14_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bluetooth monitor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_3" type="checkbox" id="__nav_14_3" checked>
       
       
       
@@ -8163,7 +8268,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Dummy diag publisher" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_2">
+        <label class="md-nav__title" for="__nav_14_3">
           <span class="md-nav__icon md-icon"></span>
           Dummy diag publisher
         </label>
@@ -8189,7 +8294,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_3" data-md-state="indeterminate" type="checkbox" id="__nav_14_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_4" type="checkbox" id="__nav_14_4" checked>
       
       
       
@@ -8208,7 +8313,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Dummy infrastructure" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_3">
+        <label class="md-nav__title" for="__nav_14_4">
           <span class="md-nav__icon md-icon"></span>
           Dummy infrastructure
         </label>
@@ -8234,7 +8339,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_4" data-md-state="indeterminate" type="checkbox" id="__nav_14_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_5" type="checkbox" id="__nav_14_5" checked>
       
       
       
@@ -8253,7 +8358,7 @@
         </div>
       
       <nav class="md-nav" aria-label="Emergency handler" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_4">
+        <label class="md-nav__title" for="__nav_14_5">
           <span class="md-nav__icon md-icon"></span>
           Emergency handler
         </label>
@@ -8279,7 +8384,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_5" data-md-state="indeterminate" type="checkbox" id="__nav_14_5" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_6" type="checkbox" id="__nav_14_6" checked>
       
       
       
@@ -8298,7 +8403,7 @@
         </div>
       
       <nav class="md-nav" aria-label="System error monitor" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_5">
+        <label class="md-nav__title" for="__nav_14_6">
           <span class="md-nav__icon md-icon"></span>
           System error monitor
         </label>
@@ -8324,7 +8429,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_6" data-md-state="indeterminate" type="checkbox" id="__nav_14_6" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_7" type="checkbox" id="__nav_14_7" checked>
       
       
       
@@ -8342,14 +8447,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../system/system_monitor/">System monitor</a>
           
-            <label for="__nav_14_6">
+            <label for="__nav_14_7">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="System monitor" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_6">
+        <label class="md-nav__title" for="__nav_14_7">
           <span class="md-nav__icon md-icon"></span>
           System monitor
         </label>
@@ -8366,7 +8471,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_6_2" data-md-state="indeterminate" type="checkbox" id="__nav_14_6_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_7_2" type="checkbox" id="__nav_14_7_2" checked>
       
       
       
@@ -8399,13 +8504,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_14_6_2">
+        <label class="md-nav__link" for="__nav_14_7_2">
           Docs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Docs" data-md-level="3">
-        <label class="md-nav__title" for="__nav_14_6_2">
+        <label class="md-nav__title" for="__nav_14_7_2">
           <span class="md-nav__icon md-icon"></span>
           Docs
         </label>
@@ -8618,7 +8723,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_7" data-md-state="indeterminate" type="checkbox" id="__nav_14_7" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_8" type="checkbox" id="__nav_14_8" checked>
       
       
       
@@ -8627,13 +8732,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_14_7">
+        <label class="md-nav__link" for="__nav_14_8">
           Topic state monitor
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Topic state monitor" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_7">
+        <label class="md-nav__title" for="__nav_14_8">
           <span class="md-nav__icon md-icon"></span>
           Topic state monitor
         </label>
@@ -8671,7 +8776,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14_8" data-md-state="indeterminate" type="checkbox" id="__nav_14_8" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_14_9" type="checkbox" id="__nav_14_9" checked>
       
       
       
@@ -8680,13 +8785,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_14_8">
+        <label class="md-nav__link" for="__nav_14_9">
           Velodyne monitor
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Velodyne monitor" data-md-level="2">
-        <label class="md-nav__title" for="__nav_14_8">
+        <label class="md-nav__title" for="__nav_14_9">
           <span class="md-nav__icon md-icon"></span>
           Velodyne monitor
         </label>
@@ -8730,7 +8835,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" data-md-state="indeterminate" type="checkbox" id="__nav_15" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" checked>
       
       
       
@@ -8768,7 +8873,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_1" data-md-state="indeterminate" type="checkbox" id="__nav_15_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_1" type="checkbox" id="__nav_15_1" checked>
       
       
       
@@ -8798,7 +8903,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_1_1" data-md-state="indeterminate" type="checkbox" id="__nav_15_1_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_1_1" type="checkbox" id="__nav_15_1_1" checked>
       
       
       
@@ -8850,7 +8955,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_2" data-md-state="indeterminate" type="checkbox" id="__nav_15_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_2" type="checkbox" id="__nav_15_2" checked>
       
       
       
@@ -8895,7 +9000,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_3" data-md-state="indeterminate" type="checkbox" id="__nav_15_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_3" type="checkbox" id="__nav_15_3" checked>
       
       
       
@@ -8940,7 +9045,7 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15_4" data-md-state="indeterminate" type="checkbox" id="__nav_15_4" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_4" type="checkbox" id="__nav_15_4" checked>
       
       
       
@@ -9005,8 +9110,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -9015,72 +9118,67 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#run-out" class="md-nav__link">
+    Run Out
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interfaces" class="md-nav__link">
-    Interfaces
-  </a>
-  
-    <nav class="md-nav" aria-label="Interfaces">
+    <nav class="md-nav" aria-label="Run Out">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#input-topics" class="md-nav__link">
-    Input topics
+  <a href="#role" class="md-nav__link">
+    Role
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#output-topics" class="md-nav__link">
-    Output topics
+  <a href="#activation-timing" class="md-nav__link">
+    Activation Timing
   </a>
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#design" class="md-nav__link">
-    Design
+          <li class="md-nav__item">
+  <a href="#inner-workings-algorithms" class="md-nav__link">
+    Inner-workings / Algorithms
   </a>
   
-    <nav class="md-nav" aria-label="Design">
+    <nav class="md-nav" aria-label="Inner-workings / Algorithms">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#obstacle-candidates-selection" class="md-nav__link">
-    Obstacle candidates selection
+  <a href="#flow-chart" class="md-nav__link">
+    Flow chart
   </a>
   
-    <nav class="md-nav" aria-label="Obstacle candidates selection">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocess-path" class="md-nav__link">
+    Preprocess path
+  </a>
+  
+    <nav class="md-nav" aria-label="Preprocess path">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#inside-the-detection-area" class="md-nav__link">
-    Inside the detection area
+  <a href="#calculate-the-expected-target-velocity-for-ego-vehicle" class="md-nav__link">
+    Calculate the expected target velocity for ego vehicle
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#far-crossing-vehicles" class="md-nav__link">
-    Far crossing vehicles
+  <a href="#extend-the-path" class="md-nav__link">
+    Extend the path
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#near-cut-in-vehicles" class="md-nav__link">
-    Near Cut-in vehicles
+  <a href="#trim-path-from-ego-position" class="md-nav__link">
+    Trim path from ego position
   </a>
   
 </li>
@@ -9091,64 +9189,31 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stop-planning" class="md-nav__link">
-    Stop planning
+  <a href="#preprocess-obstacles" class="md-nav__link">
+    Preprocess obstacles
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adaptive-cruise-planning" class="md-nav__link">
-    Adaptive cruise planning
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
-    Implementation
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementation">
+    <nav class="md-nav" aria-label="Preprocess obstacles">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#flowchart" class="md-nav__link">
-    Flowchart
+  <a href="#create-data-of-abstracted-dynamic-obstacle" class="md-nav__link">
+    Create data of abstracted dynamic obstacle
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#algorithm-selection" class="md-nav__link">
-    Algorithm selection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pid-based-planner" class="md-nav__link">
-    PID-based planner
-  </a>
-  
-    <nav class="md-nav" aria-label="PID-based planner">
+    <nav class="md-nav" aria-label="Create data of abstracted dynamic obstacle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stop-planning_1" class="md-nav__link">
-    Stop planning
+  <a href="#abstracted-dynamic-obstacle" class="md-nav__link">
+    Abstracted dynamic obstacle
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#adaptive-cruise-planning_1" class="md-nav__link">
-    Adaptive cruise planning
+  <a href="#3-types-of-detection-method" class="md-nav__link">
+    3 types of detection method
   </a>
   
 </li>
@@ -9159,8 +9224,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#optimization-based-planner" class="md-nav__link">
-    Optimization-based planner
+  <a href="#exclude-obstacles-outside-of-partition" class="md-nav__link">
+    Exclude obstacles outside of partition
   </a>
   
 </li>
@@ -9169,18 +9234,18 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#minor-functions" class="md-nav__link">
-    Minor functions
+        
+          <li class="md-nav__item">
+  <a href="#collision-detection" class="md-nav__link">
+    Collision detection
   </a>
   
-    <nav class="md-nav" aria-label="Minor functions">
+    <nav class="md-nav" aria-label="Collision detection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prioritization-of-behavior-modules-stop-point" class="md-nav__link">
-    Prioritization of behavior module's stop point
+  <a href="#detect-collision-with-dynamic-obstacles" class="md-nav__link">
+    Detect collision with dynamic obstacles
   </a>
   
 </li>
@@ -9189,53 +9254,25 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#visualization-for-debugging" class="md-nav__link">
-    Visualization for debugging
+        
+          <li class="md-nav__item">
+  <a href="#insert-velocity" class="md-nav__link">
+    Insert velocity
   </a>
   
-    <nav class="md-nav" aria-label="Visualization for debugging">
+    <nav class="md-nav" aria-label="Insert velocity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#detection-area" class="md-nav__link">
-    Detection area
+  <a href="#insert-velocity-to-decelerate-for-obstacles" class="md-nav__link">
+    Insert velocity to decelerate for obstacles
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#collision-point" class="md-nav__link">
-    Collision point
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#obstacle-for-cruise" class="md-nav__link">
-    Obstacle for cruise
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#obstacle-for-stop" class="md-nav__link">
-    Obstacle for stop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#obstacle-cruise-wall" class="md-nav__link">
-    Obstacle cruise wall
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#obstacle-stop-wall" class="md-nav__link">
-    Obstacle stop wall
+  <a href="#limit-velocity-with-specified-jerk-and-acc-limit" class="md-nav__link">
+    Limit velocity with specified jerk and acc limit
   </a>
   
 </li>
@@ -9244,11 +9281,28 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#known-limits" class="md-nav__link">
-    Known Limits
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-parameters" class="md-nav__link">
+    Module Parameters
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
+    Future extensions / Unimplemented parts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -9264,27 +9318,38 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware.universe/edit/main/planning/adaptive_cruise_planner/adaptive_cruise_planner-design.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware.universe/edit/main/planning/behavior_velocity_planner/run-out-design.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="obstacle-velocity-planner">Obstacle Velocity Planner<a class="headerlink" href="#obstacle-velocity-planner" title="Permanent link">#</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
-<p>The <code>adaptive_cruise_planner</code> package has following modules.</p>
-<ul>
-<li>obstacle stop planning<ul>
-<li>inserting a stop point in the trajectory when there is a static obstacle on the trajectory.</li>
-</ul>
-</li>
-<li>adaptive cruise planning<ul>
-<li>sending an external velocity limit to <code>motion_velocity_smoother</code> when there is a dynamic obstacle to cruise on the trajectory</li>
-</ul>
-</li>
-</ul>
-<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
-<h3 id="input-topics">Input topics<a class="headerlink" href="#input-topics" title="Permanent link">#</a></h3>
+  <h1>Run out design</h1>
+
+<h2 id="run-out">Run Out<a class="headerlink" href="#run-out" title="Permanent link">#</a></h2>
+<h3 id="role">Role<a class="headerlink" href="#role" title="Permanent link">#</a></h3>
+<p><code>run_out</code> is the module that decelerates and stops for dynamic obstacles such as pedestrians and bicycles.</p>
+<p><img alt="brief" src="../docs/run_out/run_out_overview.svg" /></p>
+<h3 id="activation-timing">Activation Timing<a class="headerlink" href="#activation-timing" title="Permanent link">#</a></h3>
+<p>This module is activated if <code>launch_run_out</code> becomes true</p>
+<h3 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h3>
+<h4 id="flow-chart">Flow chart<a class="headerlink" href="#flow-chart" title="Permanent link">#</a></h4>
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSI3MDVweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjM4OHB4O2hlaWdodDo3MDVweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzODggNzA1IiB3aWR0aD0iMzg4cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48cmVjdCBoZWlnaHQ9IjI2LjI5NjkiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDAwO3N0cm9rZS13aWR0aDoxLjA7ZmlsbDpub25lOyIgd2lkdGg9IjE3MCIgeD0iMTA3LjUiIHk9IjE1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE2MCIgeD0iMTEyLjUiIHk9IjMyLjk5NTEiPm1vZGlmeVBhdGhWZWxvY2l0eTwvdGV4dD48ZWxsaXBzZSBjeD0iMTk0IiBjeT0iNTcuMjk2OSIgZmlsbD0iIzIyMjIyMiIgcng9IjEwIiByeT0iMTAiIHN0eWxlPSJzdHJva2U6IzIyMjIyMjtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iMTkwLjIwMzEiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjM2NiIgeD0iMTEiIHk9Ijc3LjI5NjkiLz48cGF0aCBkPSJNMTM5LDc3LjI5NjkgTDEzOSw4Ni41OTM4IEwxMjksOTYuNTkzOCBMMTEsOTYuNTkzOCAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExOCIgeD0iMTQiIHk9IjkxLjI5MiI+UHJlcHJvY2VzcyBwYXRoPC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIzNDYiIHg9IjIxIiB5PSIxMTMuNTkzOCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjMyNiIgeD0iMzEiIHk9IjEzNC43MzI0Ij5DYWxjdWxhdGUgdGhlIGV4cGVjdGVkIHRhcmdldCB2ZWxvY2l0eSBmb3IgZWdvIHZlaGljbGU8L3RleHQ+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjkxIiB4PSIxNDguNSIgeT0iMTY3LjU2MjUiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI3MSIgeD0iMTU4LjUiIHk9IjE4OC43MDEyIj5FeHRlbmQgcGF0aDwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTg4IiB4PSIxMDAiIHk9IjIyMS41MzEzIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTY4IiB4PSIxMTAiIHk9IjI0Mi42Njk5Ij5UcmltIHBhdGggZnJvbSBlZ28gcG9zaXRpb248L3RleHQ+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMzYuMjM0NCIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMzEyIiB4PSIzOCIgeT0iMjc3LjUiLz48cGF0aCBkPSJNMjAxLDI3Ny41IEwyMDEsMjg2Ljc5NjkgTDE5MSwyOTYuNzk2OSBMMzgsMjk2Ljc5NjkgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNTMiIHg9IjQxIiB5PSIyOTEuNDk1MSI+UHJlcHJvY2VzcyBvYnN0YWNsZXM8L3RleHQ+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjI5MiIgeD0iNDgiIHk9IjMxMy43OTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjcyIiB4PSI1OCIgeT0iMzM0LjkzNTUiPkNyZWF0ZSBkYXRhIG9mIGFic3RyYWN0ZWQgZHluYW1pYyBvYnN0YWNsZXM8L3RleHQ+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjI5MiIgeD0iNDgiIHk9IjM2Ny43NjU2Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjcyIiB4PSI1OCIgeT0iMzg4LjkwNDMiPkV4Y2x1ZGUgb2JzdGFjbGVzIG91dHNpZGUgb2YgcGFydGl0aW9uIGxhbmVsZXQ8L3RleHQ+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSI4Mi4yNjU2IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIyNzgiIHg9IjU1IiB5PSI0MjMuNzM0NCIvPjxwYXRoIGQ9Ik0yMDMsNDIzLjczNDQgTDIwMyw0MzMuMDMxMyBMMTkzLDQ0My4wMzEzIEw1NSw0NDMuMDMxMyAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEzOCIgeD0iNTgiIHk9IjQzNy43Mjk1Ij5Db2xsaXNpb25fZGV0ZWN0aW9uPC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIyNTgiIHg9IjY1IiB5PSI0NjAuMDMxMyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIzOCIgeD0iNzUiIHk9IjQ4MS4xNjk5Ij5EZXRlY3QgY29sbGlzaW9uIHdpdGggZHluYW1pYyBvYnN0YWNsZXM8L3RleHQ+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIxMzYuMjM0NCIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMzEyIiB4PSIzOCIgeT0iNTE2Ii8+PHBhdGggZD0iTTE1MSw1MTYgTDE1MSw1MjUuMjk2OSBMMTQxLDUzNS4yOTY5IEwzOCw1MzUuMjk2OSAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwMyIgeD0iNDEiIHk9IjUyOS45OTUxIj5JbnNlcnQgdmVsb2NpdHk8L3RleHQ+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjI3NSIgeD0iNTYuNSIgeT0iNTUyLjI5NjkiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNTUiIHg9IjY2LjUiIHk9IjU3My40MzU1Ij5JbnNlcnQgdmVsb2NpdHkgdG8gZGVjZWxlcmF0ZSBmb3Igb2JzdGFjbGVzPC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIyOTIiIHg9IjQ4IiB5PSI2MDYuMjY1NiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI3MiIgeD0iNTgiIHk9IjYyNy40MDQzIj5MaW1pdCB2ZWxvY2l0eSB3aXRoIHNwZWNpZmllZCBqZXJrIGFuZCBhY2MgbGltaXQ8L3RleHQ+PGVsbGlwc2UgY3g9IjE5NCIgY3k9IjY4My4yMzQ0IiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMjIyMjIyO3N0cm9rZS13aWR0aDoxLjA7ZmlsbDpub25lOyIvPjxlbGxpcHNlIGN4PSIxOTQiIGN5PSI2ODMuMjM0NCIgZmlsbD0iIzIyMjIyMiIgcng9IjYiIHJ5PSI2IiBzdHlsZT0ic3Ryb2tlOiMxMTExMTE7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxOTQiIHgyPSIxOTQiIHkxPSIxNDcuNTYyNSIgeTI9IjE2Ny41NjI1Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxOTAsMTU3LjU2MjUsMTk0LDE2Ny41NjI1LDE5OCwxNTcuNTYyNSwxOTQsMTYxLjU2MjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE5NCIgeDI9IjE5NCIgeTE9IjIwMS41MzEzIiB5Mj0iMjIxLjUzMTMiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE5MCwyMTEuNTMxMywxOTQsMjIxLjUzMTMsMTk4LDIxMS41MzEzLDE5NCwyMTUuNTMxMyIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTk0IiB4Mj0iMTk0IiB5MT0iNjcuMjk2OSIgeTI9IjExMy41OTM4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxOTAsMTAzLjU5MzgsMTk0LDExMy41OTM4LDE5OCwxMDMuNTkzOCwxOTQsMTA3LjU5MzgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE5NCIgeDI9IjE5NCIgeTE9IjM0Ny43NjU2IiB5Mj0iMzY3Ljc2NTYiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE5MCwzNTcuNzY1NiwxOTQsMzY3Ljc2NTYsMTk4LDM1Ny43NjU2LDE5NCwzNjEuNzY1NiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTk0IiB4Mj0iMTk0IiB5MT0iMjU1LjUiIHkyPSIzMTMuNzk2OSIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTkwLDMwMy43OTY5LDE5NCwzMTMuNzk2OSwxOTgsMzAzLjc5NjksMTk0LDMwNy43OTY5IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxOTQiIHgyPSIxOTQiIHkxPSI0MDEuNzM0NCIgeTI9IjQ2MC4wMzEzIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxOTAsNDUwLjAzMTMsMTk0LDQ2MC4wMzEzLDE5OCw0NTAuMDMxMywxOTQsNDU0LjAzMTMiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE5NCIgeDI9IjE5NCIgeTE9IjU4Ni4yNjU2IiB5Mj0iNjA2LjI2NTYiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE5MCw1OTYuMjY1NiwxOTQsNjA2LjI2NTYsMTk4LDU5Ni4yNjU2LDE5NCw2MDAuMjY1NiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTk0IiB4Mj0iMTk0IiB5MT0iNDk0IiB5Mj0iNTUyLjI5NjkiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE5MCw1NDIuMjk2OSwxOTQsNTUyLjI5NjksMTk4LDU0Mi4yOTY5LDE5NCw1NDYuMjk2OSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTk0IiB4Mj0iMTk0IiB5MT0iNjQwLjIzNDQiIHkyPSI2NzIuMjM0NCIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTkwLDY2Mi4yMzQ0LDE5NCw2NzIuMjM0NCwxOTgsNjYyLjIzNDQsMTk0LDY2Ni4yMzQ0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48IS0tTUQ1PVs2OGM3NmM1YTFiZjIxYTgzZjJmMzQwMzRlYjBjMTZjYl0KQHN0YXJ0dW1sDQp0aXRsZSBtb2RpZnlQYXRoVmVsb2NpdHkNCnN0YXJ0DQoNCnBhcnRpdGlvbiAiUHJlcHJvY2VzcyBwYXRoIiB7DQo6Q2FsY3VsYXRlIHRoZSBleHBlY3RlZCB0YXJnZXQgdmVsb2NpdHkgZm9yIGVnbyB2ZWhpY2xlOw0KOkV4dGVuZCBwYXRoOw0KOlRyaW0gcGF0aCBmcm9tIGVnbyBwb3NpdGlvbjsNCn0NCg0KcGFydGl0aW9uICJQcmVwcm9jZXNzIG9ic3RhY2xlcyIgew0KOkNyZWF0ZSBkYXRhIG9mIGFic3RyYWN0ZWQgZHluYW1pYyBvYnN0YWNsZXM7DQo6RXhjbHVkZSBvYnN0YWNsZXMgb3V0c2lkZSBvZiBwYXJ0aXRpb24gbGFuZWxldDsNCn0NCg0KcGFydGl0aW9uICJDb2xsaXNpb25fZGV0ZWN0aW9uIiB7DQo6RGV0ZWN0IGNvbGxpc2lvbiB3aXRoIGR5bmFtaWMgb2JzdGFjbGVzOw0KfQ0KDQpwYXJ0aXRpb24gIkluc2VydCB2ZWxvY2l0eSIgew0KOkluc2VydCB2ZWxvY2l0eSB0byBkZWNlbGVyYXRlIGZvciBvYnN0YWNsZXM7DQoNCjpMaW1pdCB2ZWxvY2l0eSB3aXRoIHNwZWNpZmllZCBqZXJrIGFuZCBhY2MgbGltaXQ7DQp9DQpzdG9wDQpAZW5kdW1sDQoKUGxhbnRVTUwgdmVyc2lvbiAxLjIwMjIuNmJldGE1KFVua25vd24gY29tcGlsZSB0aW1lKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogSmF2YShUTSkgU0UgUnVudGltZSBFbnZpcm9ubWVudApKVk06IEphdmEgSG90U3BvdChUTSkgNjQtQml0IFNlcnZlciBWTQpEZWZhdWx0IEVuY29kaW5nOiBVVEYtOApMYW5ndWFnZTogZW4KQ291bnRyeTogVVMKLS0+PC9nPjwvc3ZnPg==" class="uml" alt="uml diagram" title="" /></p>
+<h4 id="preprocess-path">Preprocess path<a class="headerlink" href="#preprocess-path" title="Permanent link">#</a></h4>
+<h5 id="calculate-the-expected-target-velocity-for-ego-vehicle">Calculate the expected target velocity for ego vehicle<a class="headerlink" href="#calculate-the-expected-target-velocity-for-ego-vehicle" title="Permanent link">#</a></h5>
+<p>Calculate the expected target velocity for the ego vehicle path to calculate time to collision with obstacles more precisely.
+The expected target velocity is calculated with <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/motion_velocity_smoother">motion velocity smoother module</a> by using current velocity, current acceleration and velocity limits directed by the map and external API.</p>
+<p><img alt="brief" src="../docs/run_out/calculate_expected_target_velocity.svg" /></p>
+<h5 id="extend-the-path">Extend the path<a class="headerlink" href="#extend-the-path" title="Permanent link">#</a></h5>
+<p>The path is extended by the length of base link to front to consider obstacles after the goal.</p>
+<h5 id="trim-path-from-ego-position">Trim path from ego position<a class="headerlink" href="#trim-path-from-ego-position" title="Permanent link">#</a></h5>
+<p>The path is trimmed from ego position to a certain distance to reduce calculation time.
+Trimmed distance is specified by parameter of <code>detection_distance</code>.</p>
+<h4 id="preprocess-obstacles">Preprocess obstacles<a class="headerlink" href="#preprocess-obstacles" title="Permanent link">#</a></h4>
+<h5 id="create-data-of-abstracted-dynamic-obstacle">Create data of abstracted dynamic obstacle<a class="headerlink" href="#create-data-of-abstracted-dynamic-obstacle" title="Permanent link">#</a></h5>
+<p>This module can handle multiple types of obstacles by creating abstracted dynamic obstacle data layer. Currently we have 3 types of detection method (Object, ObjectWithoutPath, Points) to create abstracted obstacle data.</p>
+<h6 id="abstracted-dynamic-obstacle">Abstracted dynamic obstacle<a class="headerlink" href="#abstracted-dynamic-obstacle" title="Permanent link">#</a></h6>
+<p>Abstracted obstacle data has following information.</p>
 <table>
 <thead>
 <tr>
@@ -9295,104 +9360,94 @@
 </thead>
 <tbody>
 <tr>
-<td><code>~/input/trajectory</code></td>
-<td>autoware_auto_planning_msgs::Trajectory</td>
-<td>input trajectory</td>
+<td>pose</td>
+<td><code>geometry_msgs::msg::Pose</code></td>
+<td>pose of the obstacle</td>
 </tr>
 <tr>
-<td><code>~/input/smoothed_trajectory</code></td>
-<td>autoware_auto_planning_msgs::Trajectory</td>
-<td>trajectory with smoothed velocity</td>
+<td>classifications</td>
+<td><code>std::vector&lt;autoware_auto_perception_msgs::msg::ObjectClassification&gt;</code></td>
+<td>classifications with probability</td>
 </tr>
 <tr>
-<td><code>~/input/objects</code></td>
-<td>autoware_auto_perception_msgs::PredictedObjects</td>
-<td>dynamic objects</td>
+<td>shape</td>
+<td><code>autoware_auto_perception_msgs::msg::Shape</code></td>
+<td>shape of the obstacle</td>
 </tr>
 <tr>
-<td><code>~/input/odometry</code></td>
-<td>nav_msgs::msg::Odometry</td>
-<td>ego odometry</td>
+<td>predicted_paths</td>
+<td><code>std::vector&lt;DynamicObstacle::PredictedPath&gt;</code></td>
+<td>predicted paths with confidence. this data doesn't have time step because we use minimum and maximum velocity instead.</td>
+</tr>
+<tr>
+<td>min_velocity_mps</td>
+<td><code>float</code></td>
+<td>minimum velocity of the obstacle. specified by parameter of <code>dynamic_obstacle.min_vel_kmph</code></td>
+</tr>
+<tr>
+<td>max_velocity_mps</td>
+<td><code>float</code></td>
+<td>maximum velocity of the obstacle. specified by parameter of <code>dynamic_obstacle.max_vel_kmph</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="output-topics">Output topics<a class="headerlink" href="#output-topics" title="Permanent link">#</a></h3>
+<p>Enter the maximum/minimum velocity of the object as a parameter, adding enough margin to the expected velocity. This parameter is used to create polygons for <a href="#Collision-detection">collision detection</a>.</p>
+<p>Future work: Determine the maximum/minimum velocity from the estimated velocity with covariance of the object</p>
+<h6 id="3-types-of-detection-method">3 types of detection method<a class="headerlink" href="#3-types-of-detection-method" title="Permanent link">#</a></h6>
+<p>We have 3 types of detection method to meet different safety and availability requirements. The characteristics of them are shown in the table below.
+Method of <code>Object</code> has high availability (less false positive) because it detects only objects whose predicted path is on the lane. However, sometimes it is not safe because perception may fail to detect obstacles or generate incorrect predicted paths.
+On the other hand, method of <code>Points</code> has high safety (less false negative) because it uses pointcloud as input. Since points don't have a predicted path, the path that moves in the direction normal to the path of ego vehicle is considered to be the predicted path of abstracted dynamic obstacle data. However, without proper adjustment of filter of points, it may detect a lot of points and it will result in very low availability.
+Method of <code>ObjectWithoutPath</code> has the characteristics of an intermediate of <code>Object</code> and <code>Points</code>.</p>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
+<th>Method</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>~output/trajectory</code></td>
-<td>autoware_auto_planning_msgs::Trajectory</td>
-<td>output trajectory</td>
+<td>Object</td>
+<td>use an object with the predicted path for collision detection.</td>
 </tr>
 <tr>
-<td><code>~output/velocity_limit</code></td>
-<td>tier4_planning_msgs::VelocityLimit</td>
-<td>velocity limit for cruising</td>
+<td>ObjectWithoutPath</td>
+<td>use an object but not use the predicted path for collision detection. replace the path assuming that an object jumps out to the lane at specified velocity.</td>
 </tr>
 <tr>
-<td><code>~output/clear_velocity_limit</code></td>
-<td>tier4_planning_msgs::VelocityLimitClearCommand</td>
-<td>clear command for velocity limit</td>
-</tr>
-<tr>
-<td><code>~output/stop_reasons</code></td>
-<td>tier4_planning_msgs::StopReasonArray</td>
-<td>reasons that make the vehicle to stop</td>
+<td>Points</td>
+<td>use filtered points for collision detection. the path is created assuming that points jump out to the lane. points are regarded as an small circular shaped obstacle.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<p>Design for the following functions is defined here.</p>
-<ul>
-<li>Obstacle candidates selection</li>
-<li>Obstacle stop planning</li>
-<li>Adaptive cruise planning</li>
-</ul>
-<p>A data structure for cruise and stop planning is as follows.
-This planner data is created first, and then sent to the planning algorithm.</p>
-<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">AdaptiveCruisePlannerData</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="n">current_time</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">autoware_auto_planning_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Trajectory</span><span class="w"> </span><span class="n">traj</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Pose</span><span class="w"> </span><span class="n">current_pose</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">current_vel</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">current_acc</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TargetObstacle</span><span class="o">&gt;</span><span class="w"> </span><span class="n">target_obstacles</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">TargetObstacle</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="n">time_stamp</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">orientation_reliable</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Pose</span><span class="w"> </span><span class="n">pose</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">velocity_reliable</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">velocity</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_classified</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">ObjectClassification</span><span class="w"> </span><span class="n">classification</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">Shape</span><span class="w"> </span><span class="n">shape</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PredictedPath</span><span class="o">&gt;</span><span class="w"> </span><span class="n">predicted_paths</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Point</span><span class="w"> </span><span class="n">collision_point</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-</code></pre></div>
-<h3 id="obstacle-candidates-selection">Obstacle candidates selection<a class="headerlink" href="#obstacle-candidates-selection" title="Permanent link">#</a></h3>
-<p>In this function, target obstacles for stopping or cruising are selected based on their pose and velocity.</p>
-<p>By default, objects that realize one of the following conditions are considered to be the target obstacle candidates.
-Some terms will be defined in the following subsections.</p>
-<ul>
-<li>Vehicle objects "inside the detection area" other than "far crossing vehicles".</li>
-<li>non vehicle objects "inside the detection area"</li>
-<li>"Near cut-in vehicles" outside the detection area</li>
-</ul>
-<p>Note that currently the obstacle candidates selection algorithm is for autonomous driving.
-However, we have following parameters as well for stop and cruise respectively so that we can extend the obstacles candidates selection algorithm for non vehicle robots.
-By default, unknown and vehicles are obstacles to cruise and stop, and non vehicles are obstacles just to stop.</p>
+<p><img alt="brief" src="../docs/run_out/create_dynamic_obstacle.svg" /></p>
+<h5 id="exclude-obstacles-outside-of-partition">Exclude obstacles outside of partition<a class="headerlink" href="#exclude-obstacles-outside-of-partition" title="Permanent link">#</a></h5>
+<p>This module can exclude the obstacles outside of partition such as guardrail, fence, and wall.
+We need lanelet map that has the information of partition to use this feature.
+By this feature, we can reduce unnecessary deceleration by obstacles that are unlikely to jump out to the lane.
+You can choose whether to use this feature by parameter of <code>use_partition_lanelet</code>.</p>
+<p><img alt="brief" src="../docs/run_out/exclude_obstacles_by_partition.svg" /></p>
+<h4 id="collision-detection">Collision detection<a class="headerlink" href="#collision-detection" title="Permanent link">#</a></h4>
+<h5 id="detect-collision-with-dynamic-obstacles">Detect collision with dynamic obstacles<a class="headerlink" href="#detect-collision-with-dynamic-obstacles" title="Permanent link">#</a></h5>
+<p>Along the ego vehicle path, determine the points where collision detection is to be performed for each <code>detection_span</code>.</p>
+<p>The travel times to the each points are calculated from <a href="#Calculate-the-expected-target-velocity-for-ego-vehicle">the expected target velocity</a>.</p>
+<p><img alt="brief" src="../docs/run_out/create_polygon_on_path_point.svg" /></p>
+<p>For the each points, collision detection is performed using the footprint polygon of the ego vehicle and the polygon of the predicted location of the obstacles.
+The predicted location of the obstacles is described as rectangle or polygon that has the range calculated by min velocity, max velocity and the ego vehicle's travel time to the point.
+If the input type of the dynamic obstacle is <code>Points</code>, the obstacle shape is defined as a small cylinder.</p>
+<p><img alt="brief" src="../docs/run_out/collision_detection_for_shape.svg" /></p>
+<p>Multiple points are detected as collision points because collision detection is calculated between two polygons.
+So we select the point that is on the same side as the obstacle and close to ego vehicle as the collision point.</p>
+<p><img alt="brief" src="../docs/run_out/collision_points.svg" /></p>
+<h4 id="insert-velocity">Insert velocity<a class="headerlink" href="#insert-velocity" title="Permanent link">#</a></h4>
+<h5 id="insert-velocity-to-decelerate-for-obstacles">Insert velocity to decelerate for obstacles<a class="headerlink" href="#insert-velocity-to-decelerate-for-obstacles" title="Permanent link">#</a></h5>
+<p>If the collision is detected, stop point is inserted on distance of base link to front + stop margin from the selected collision point. The base link to front means the distance between base_link (center of rear-wheel axis) and front of the car. Stop margin is determined by the parameter of <code>stop_margin</code>.</p>
+<p><img alt="brief" src="../docs/run_out/insert_velocity.svg" /></p>
+<h5 id="limit-velocity-with-specified-jerk-and-acc-limit">Limit velocity with specified jerk and acc limit<a class="headerlink" href="#limit-velocity-with-specified-jerk-and-acc-limit" title="Permanent link">#</a></h5>
+<p>The maximum slowdown velocity is calculated in order not to slowdown too much.
+See the <a href="../occlusion-spot-design/#maximum-slowdown-velocity">Occlusion Spot document</a> for more details.
+You can choose whether to use this feature by parameter of <code>slow_down_limit.enable</code>.</p>
+<h3 id="module-parameters">Module Parameters<a class="headerlink" href="#module-parameters" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -9403,379 +9458,213 @@ By default, unknown and vehicles are obstacles to cruise and stop, and non vehic
 </thead>
 <tbody>
 <tr>
-<td><code>cruise_obstacle_type.unknown</code></td>
-<td>bool</td>
-<td>flag to consider unknown objects as being cruised</td>
-</tr>
-<tr>
-<td><code>cruise_obstacle_type.car</code></td>
-<td>bool</td>
-<td>flag to consider unknown objects as being cruised</td>
-</tr>
-<tr>
-<td><code>cruise_obstacle_type.truck</code></td>
-<td>bool</td>
-<td>flag to consider unknown objects as being cruised</td>
-</tr>
-<tr>
-<td>...</td>
-<td>bool</td>
-<td>...</td>
-</tr>
-<tr>
-<td><code>stop_obstacle_type.unknown</code></td>
-<td>bool</td>
-<td>flag to consider unknown objects as being stopped</td>
-</tr>
-<tr>
-<td>...</td>
-<td>bool</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<h4 id="inside-the-detection-area">Inside the detection area<a class="headerlink" href="#inside-the-detection-area" title="Permanent link">#</a></h4>
-<p>To calculate obstacles inside the detection area, firstly, obstacles whose distance to the trajectory is less than <code>rough_detection_area_expand_width</code> are selected.
-Then, the detection area, which is a trajectory with some lateral margin, is calculated as shown in the figure.
-The detection area width is a vehicle's width + <code>detection_area_expand_width</code>, and it is represented as a polygon resampled with <code>decimate_trajectory_step_length</code> longitudinally.
-The roughly selected obstacles inside the detection area are considered as inside the detection area.</p>
-<p><img alt="detection_area" src="../image/detection_area.png" /></p>
-<p>This two-step detection is used for calculation efficiency since collision checking of polygons is heavy.
-Boost.Geometry is used as a library to check collision among polygons.</p>
-<p>In the <code>obstacle_filtering</code> namespace,</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>rough_detection_area_expand_width</code></td>
-<td>double</td>
-<td>rough lateral margin for rough detection area expansion [m]</td>
-</tr>
-<tr>
-<td><code>detection_area_expand_width</code></td>
-<td>double</td>
-<td>lateral margin for precise detection area expansion [m]</td>
-</tr>
-<tr>
-<td><code>decimate_trajectory_step_length</code></td>
-<td>double</td>
-<td>longitudinal step length to calculate trajectory polygon for collision checking [m]</td>
-</tr>
-</tbody>
-</table>
-<h4 id="far-crossing-vehicles">Far crossing vehicles<a class="headerlink" href="#far-crossing-vehicles" title="Permanent link">#</a></h4>
-<p>Near crossing vehicles (= not far crossing vehicles) are defined as vehicle objects realizing either of following conditions.</p>
-<ul>
-<li>whose yaw angle against the nearest trajectory point is greater than <code>crossing_obstacle_traj_angle_threshold</code></li>
-<li>whose velocity is less than <code>crossing_obstacle_velocity_threshold</code>.</li>
-</ul>
-<p>Assuming <code>t_1</code> to be the time for the ego to reach the current crossing obstacle position with the constant velocity motion, and <code>t_2</code> to be the time for the crossing obstacle to go outside the detection area, if the following condition is realized, the crossing vehicle will be ignored.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
-t_1 - t_2 &gt; \mathrm{margin\_for\_collision\_time}
-</div>
-<script type="math/tex; mode=display">
-t_1 - t_2 > \mathrm{margin\_for\_collision\_time}
-</script>
-</div>
-<p>In the <code>obstacle_filtering</code> namespace,</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>crossing_obstacle_velocity_threshold</code></td>
-<td>double</td>
-<td>velocity threshold to decide crossing obstacle [m/s]</td>
-</tr>
-<tr>
-<td><code>crossing_obstacle_traj_angle_threshold</code></td>
-<td>double</td>
-<td>yaw threshold of crossing obstacle against the nearest trajectory point [rad]</td>
-</tr>
-<tr>
-<td><code>collision_time_margin</code></td>
-<td>double</td>
-<td>time threshold of collision between obstacle and ego [s]</td>
-</tr>
-</tbody>
-</table>
-<h4 id="near-cut-in-vehicles">Near Cut-in vehicles<a class="headerlink" href="#near-cut-in-vehicles" title="Permanent link">#</a></h4>
-<p>Near Cut-in vehicles are defined as vehicle objects</p>
-<ul>
-<li>whose predicted path's footprints from the current time to <code>max_prediction_time_for_collision_check</code> overlap with the detection area longer than <code>ego_obstacle_overlap_time_threshold</code>.</li>
-</ul>
-<p>In the <code>obstacle_filtering</code> namespace,</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ego_obstacle_overlap_time_threshold</code></td>
-<td>double</td>
-<td>time threshold to decide cut-in obstacle for cruise or stop [s]</td>
-</tr>
-<tr>
-<td><code>max_prediction_time_for_collision_check</code></td>
-<td>double</td>
-<td>prediction time to check collision between obstacle and ego [s]</td>
-</tr>
-</tbody>
-</table>
-<h3 id="stop-planning">Stop planning<a class="headerlink" href="#stop-planning" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>common.min_strong_accel</code></td>
-<td>double</td>
-<td>ego's minimum acceleration to stop [m/ss]</td>
-</tr>
-<tr>
-<td><code>common.safe_distance_margin</code></td>
-<td>double</td>
-<td>distance with obstacles for stop [m]</td>
-</tr>
-</tbody>
-</table>
-<p>The role of the stop planning is keeping a safe distance with static vehicle objects or dynamic/static non vehicle objects.</p>
-<p>The stop planning just inserts the stop point in the trajectory to keep a distance with obstacles inside the detection area.
-The safe distance is parameterized as <code>common.safe_distance_margin</code>.</p>
-<p>When inserting the stop point, the required acceleration for the ego to stop in front of the stop point is calculated.
-If the acceleration is less than <code>common.min_strong_accel</code>, the stop planning will be cancelled since this package does not assume a strong sudden brake for emergency.</p>
-<h3 id="adaptive-cruise-planning">Adaptive cruise planning<a class="headerlink" href="#adaptive-cruise-planning" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>common.safe_distance_margin</code></td>
-<td>double</td>
-<td>minimum distance with obstacles for cruise [m]</td>
-</tr>
-</tbody>
-</table>
-<p>The role of the adaptive cruise planning is keeping a safe distance with dynamic vehicle objects with smoothed velocity transition.
-This includes not only cruising a front vehicle, but also reacting a cut-in and cut-out vehicle.</p>
-<p>The safe distance is calculated dynamically based on the Responsibility-Sensitive Safety (RSS) by the following equation.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
-d = v_{ego} t_{idling} + \frac{1}{2} a_{ego} t_{idling}^2 + \frac{v_{ego}^2}{2 a_{ego}} - \frac{v_{obstacle}^2}{2 a_{obstacle}},
-</div>
-<script type="math/tex; mode=display">
-d = v_{ego} t_{idling} + \frac{1}{2} a_{ego} t_{idling}^2 + \frac{v_{ego}^2}{2 a_{ego}} - \frac{v_{obstacle}^2}{2 a_{obstacle}},
-</script>
-</div>
-<p>assuming that <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> is the calculated safe distance, <span class="arithmatex"><span class="MathJax_Preview">t_{idling}</span><script type="math/tex">t_{idling}</script></span> is the idling time for the ego to detect the front vehicle's deceleration, <span class="arithmatex"><span class="MathJax_Preview">v_{ego}</span><script type="math/tex">v_{ego}</script></span> is the ego's current velocity, <span class="arithmatex"><span class="MathJax_Preview">v_{obstacle}</span><script type="math/tex">v_{obstacle}</script></span> is the front obstacle's current velocity, <span class="arithmatex"><span class="MathJax_Preview">a_{ego}</span><script type="math/tex">a_{ego}</script></span> is the ego's acceleration, and <span class="arithmatex"><span class="MathJax_Preview">a_{obstacle}</span><script type="math/tex">a_{obstacle}</script></span> is the obstacle's acceleration.
-These values are parameterized as follows. Other common values such as ego's minimum acceleration is defined in <code>common.param.yaml</code>.</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>common.idling_time</code></td>
-<td>double</td>
-<td>idling time for the ego to detect the front vehicle starting deceleration [s]</td>
-</tr>
-<tr>
-<td><code>common.min_object_accel_for_rss</code></td>
-<td>double</td>
-<td>front obstacle's acceleration [m/ss]</td>
-</tr>
-</tbody>
-</table>
-<h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">#</a></h2>
-<h3 id="flowchart">Flowchart<a class="headerlink" href="#flowchart" title="Permanent link">#</a></h3>
-<p>Successive functions consist of <code>adaptive_cruise_planner</code> as follows.</p>
-<p>Various algorithms for stop and cruise planning will be implemented, and one of them is designated depending on the use cases.
-The core algorithm implementation <code>generateTrajectory</code> depends on the designated algorithm.</p>
-<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSI0ODNweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjIzOXB4O2hlaWdodDo0ODNweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyMzkgNDgzIiB3aWR0aD0iMjM5cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48cmVjdCBoZWlnaHQ9IjI2LjI5NjkiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDAwO3N0cm9rZS13aWR0aDoxLjA7ZmlsbDpub25lOyIgd2lkdGg9IjE2MCIgeD0iMzgiIHk9IjE1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE1MCIgeD0iNDMiIHk9IjMyLjk5NTEiPnRyYWplY3RvcnlDYWxsYmFjazwvdGV4dD48ZWxsaXBzZSBjeD0iMTE5LjUiIGN5PSI1Ny4yOTY5IiBmaWxsPSIjMjIyMjIyIiByeD0iMTAiIHJ5PSIxMCIgc3R5bGU9InN0cm9rZTojMjIyMjIyO3N0cm9rZS13aWR0aDoxLjA7Ii8+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSI4Mi4yNjU2IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIxNTUiIHg9IjQyIiB5PSI3OC4wOTg2Ii8+PHBhdGggZD0iTTE4Nyw3OC4wOTg2IEwxODcsODcuMzk1NSBMMTc3LDk3LjM5NTUgTDQyLDk3LjM5NTUgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMzUiIHg9IjQ1IiB5PSI5Mi4wOTM4Ij5jcmVhdGVQbGFubmVyRGF0YTwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTA4IiB4PSI2NS41IiB5PSIxMTQuMzk1NSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg4IiB4PSI3NS41IiB5PSIxMzUuNTM0MiI+ZmlsdGVyT2JzdGFjbGVzPC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMzYiIHg9IjUxLjUiIHk9IjE4MC4zNjQzIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTE2IiB4PSI2MS41IiB5PSIyMDEuNTAyOSI+Z2VuZXJhdGVUcmFqZWN0b3J5PC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMzgiIHg9IjUwLjUiIHk9IjIzNC4zMzMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMTgiIHg9IjYwLjUiIHk9IjI1NS40NzE3Ij5wdWJsaXNoVmVsb2NpdHlMaW1pdDwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTI1IiB4PSI1NyIgeT0iMjg4LjMwMTgiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDUiIHg9IjY3IiB5PSIzMDkuNDQwNCI+cHVibGlzaCB0cmFqZWN0b3J5PC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMzAiIHg9IjU0LjUiIHk9IjM0Mi4yNzA1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTEwIiB4PSI2NC41IiB5PSIzNjMuNDA5MiI+cHVibGlzaERlYnVnRGF0YTwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMjE3IiB4PSIxMSIgeT0iMzk2LjIzOTMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxOTciIHg9IjIxIiB5PSI0MTcuMzc3OSI+cHVibGlzaCBhbmQgcHJpbnQgY2FsY3VsYXRpb24gdGltZTwvdGV4dD48ZWxsaXBzZSBjeD0iMTE5LjUiIGN5PSI0NjEuMjA4IiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMjIyMjIyO3N0cm9rZS13aWR0aDoxLjA7ZmlsbDpub25lOyIvPjxlbGxpcHNlIGN4PSIxMTkuNSIgY3k9IjQ2MS4yMDgiIGZpbGw9IiMyMjIyMjIiIHJ4PSI2IiByeT0iNiIgc3R5bGU9InN0cm9rZTojMTExMTExO3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTE5LjUiIHgyPSIxMTkuNSIgeTE9IjY3LjI5NjkiIHkyPSIxMTQuMzk1NSIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTE1LjUsMTA0LjM5NTUsMTE5LjUsMTE0LjM5NTUsMTIzLjUsMTA0LjM5NTUsMTE5LjUsMTA4LjM5NTUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjExOS41IiB4Mj0iMTE5LjUiIHkxPSIxNDguMzY0MyIgeTI9IjE4MC4zNjQzIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxMTUuNSwxNzAuMzY0MywxMTkuNSwxODAuMzY0MywxMjMuNSwxNzAuMzY0MywxMTkuNSwxNzQuMzY0MyIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTE5LjUiIHgyPSIxMTkuNSIgeTE9IjIxNC4zMzMiIHkyPSIyMzQuMzMzIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxMTUuNSwyMjQuMzMzLDExOS41LDIzNC4zMzMsMTIzLjUsMjI0LjMzMywxMTkuNSwyMjguMzMzIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxMTkuNSIgeDI9IjExOS41IiB5MT0iMjY4LjMwMTgiIHkyPSIyODguMzAxOCIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTE1LjUsMjc4LjMwMTgsMTE5LjUsMjg4LjMwMTgsMTIzLjUsMjc4LjMwMTgsMTE5LjUsMjgyLjMwMTgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjExOS41IiB4Mj0iMTE5LjUiIHkxPSIzMjIuMjcwNSIgeTI9IjM0Mi4yNzA1Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxMTUuNSwzMzIuMjcwNSwxMTkuNSwzNDIuMjcwNSwxMjMuNSwzMzIuMjcwNSwxMTkuNSwzMzYuMjcwNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTE5LjUiIHgyPSIxMTkuNSIgeTE9IjM3Ni4yMzkzIiB5Mj0iMzk2LjIzOTMiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjExNS41LDM4Ni4yMzkzLDExOS41LDM5Ni4yMzkzLDEyMy41LDM4Ni4yMzkzLDExOS41LDM5MC4yMzkzIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxMTkuNSIgeDI9IjExOS41IiB5MT0iNDMwLjIwOCIgeTI9IjQ1MC4yMDgiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjExNS41LDQ0MC4yMDgsMTE5LjUsNDUwLjIwOCwxMjMuNSw0NDAuMjA4LDExOS41LDQ0NC4yMDgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjwhLS1NRDU9W2U3OWY1Zjg1YTEwN2JjMzVkY2RiNmI4YTE1ZWQ2N2Q3XQpAc3RhcnR1bWwNCnRpdGxlIHRyYWplY3RvcnlDYWxsYmFjaw0Kc3RhcnQNCg0KZ3JvdXAgY3JlYXRlUGxhbm5lckRhdGENCiAgOmZpbHRlck9ic3RhY2xlczsNCmVuZCBncm91cA0KDQo6Z2VuZXJhdGVUcmFqZWN0b3J5Ow0KDQo6cHVibGlzaFZlbG9jaXR5TGltaXQ7DQoNCjpwdWJsaXNoIHRyYWplY3Rvcnk7DQoNCjpwdWJsaXNoRGVidWdEYXRhOw0KDQo6cHVibGlzaCBhbmQgcHJpbnQgY2FsY3VsYXRpb24gdGltZTsNCg0Kc3RvcA0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIyLjZiZXRhNShVbmtub3duIGNvbXBpbGUgdGltZSkKKEdQTCBzb3VyY2UgZGlzdHJpYnV0aW9uKQpKYXZhIFJ1bnRpbWU6IEphdmEoVE0pIFNFIFJ1bnRpbWUgRW52aXJvbm1lbnQKSlZNOiBKYXZhIEhvdFNwb3QoVE0pIDY0LUJpdCBTZXJ2ZXIgVk0KRGVmYXVsdCBFbmNvZGluZzogVVRGLTgKTGFuZ3VhZ2U6IGVuCkNvdW50cnk6IFVTCi0tPjwvZz48L3N2Zz4=" class="uml" alt="uml diagram" title="" /></p>
-<h3 id="algorithm-selection">Algorithm selection<a class="headerlink" href="#algorithm-selection" title="Permanent link">#</a></h3>
-<p>Currently, only a PID-based planner is supported.
-Each planner will be explained in the following.</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>common.planning_method</code></td>
+<td><code>detection_method</code></td>
 <td>string</td>
-<td>cruise and stop planning algorithm, selected from "pid_base"</td>
+<td>[-] candidate: Object, ObjectWithoutPath, Points</td>
+</tr>
+<tr>
+<td><code>use_partition_lanelet</code></td>
+<td>bool</td>
+<td>[-] whether to use partition lanelet map data</td>
+</tr>
+<tr>
+<td><code>specify_decel_jerk</code></td>
+<td>bool</td>
+<td>[-] whether to specify jerk when ego decelerates</td>
+</tr>
+<tr>
+<td><code>stop_margin</code></td>
+<td>double</td>
+<td>[m] the vehicle decelerates to be able to stop with this margin</td>
+</tr>
+<tr>
+<td><code>passing_margin</code></td>
+<td>double</td>
+<td>[m] the vehicle begins to accelerate if the vehicle's front in predicted position is ahead of the obstacle + this margin</td>
+</tr>
+<tr>
+<td><code>deceleration_jerk</code></td>
+<td>double</td>
+<td>[m/s^3] ego decelerates with this jerk when stopping for obstacles</td>
+</tr>
+<tr>
+<td><code>obstacle_velocity_kph</code></td>
+<td>double</td>
+<td>[km/h] assumption for obstacle velocity</td>
+</tr>
+<tr>
+<td><code>detection_distance</code></td>
+<td>double</td>
+<td>[m] ahead distance from ego to detect the obstacles</td>
+</tr>
+<tr>
+<td><code>detection_span</code></td>
+<td>double</td>
+<td>[m] calculate collision with this span to reduce calculation time</td>
+</tr>
+<tr>
+<td><code>min_vel_ego_kmph</code></td>
+<td>double</td>
+<td>[km/h] min velocity to calculate time to collision</td>
 </tr>
 </tbody>
 </table>
-<h3 id="pid-based-planner">PID-based planner<a class="headerlink" href="#pid-based-planner" title="Permanent link">#</a></h3>
-<h4 id="stop-planning_1">Stop planning<a class="headerlink" href="#stop-planning_1" title="Permanent link">#</a></h4>
-<p>In the <code>pid_based_planner</code> namespace,</p>
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
+<th>Parameter /detection_area_size</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>obstacle_velocity_threshold_from_cruise_to_stop</code></td>
+<td><code>dist_ahead</code></td>
 <td>double</td>
-<td>obstacle velocity threshold to be stopped from cruised [m/s]</td>
+<td>[m] ahead distance from ego position</td>
+</tr>
+<tr>
+<td><code>dist_behind</code></td>
+<td>double</td>
+<td>[m] behind distance from ego position</td>
+</tr>
+<tr>
+<td><code>dist_right</code></td>
+<td>double</td>
+<td>[m] right distance from ego position</td>
+</tr>
+<tr>
+<td><code>dist_left</code></td>
+<td>double</td>
+<td>[m] left distance from ego position</td>
 </tr>
 </tbody>
 </table>
-<p>Only one obstacle is targeted for the stop planning.
-It is the obstacle among obstacle candidates whose velocity is less than <code>obstacle_velocity_threshold_from_cruise_to_stop</code>, and which is the nearest to the ego along the trajectory. A stop point is inserted keeping<code>common.safe_distance_margin</code> distance between the ego and obstacle.</p>
-<p>Note that, as explained in the stop planning design, a stop planning which requires a strong acceleration (less than <code>common.min_strong_accel</code>) will be canceled.</p>
-<h4 id="adaptive-cruise-planning_1">Adaptive cruise planning<a class="headerlink" href="#adaptive-cruise-planning_1" title="Permanent link">#</a></h4>
-<p>In the <code>pid_based_planner</code> namespace,</p>
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
+<th>Parameter /dynamic_obstacle</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>kp</code></td>
+<td><code>min_vel_kmph</code></td>
 <td>double</td>
-<td>p gain for pid control [-]</td>
+<td>[km/h] minimum velocity for dynamic obstacles</td>
 </tr>
 <tr>
-<td><code>ki</code></td>
+<td><code>max_vel_kmph</code></td>
 <td>double</td>
-<td>i gain for pid control [-]</td>
+<td>[km/h] maximum velocity for dynamic obstacles</td>
 </tr>
 <tr>
-<td><code>kd</code></td>
+<td><code>diameter</code></td>
 <td>double</td>
-<td>d gain for pid control [-]</td>
+<td>[m] diameter of obstacles. used for creating dynamic obstacles from points</td>
 </tr>
 <tr>
-<td><code>output_ratio_during_accel</code></td>
+<td><code>height</code></td>
 <td>double</td>
-<td>The output velocity will be multiplied by the ratio during acceleration to follow the front vehicle. [-]</td>
+<td>[m] height of obstacles. used for creating dynamic obstacles from points</td>
 </tr>
 <tr>
-<td><code>vel_to_acc_weight</code></td>
+<td><code>max_prediction_time</code></td>
 <td>double</td>
-<td>target acceleration is target velocity * <code>vel_to_acc_weight</code> [-]</td>
+<td>[sec] create predicted path until this time</td>
 </tr>
 <tr>
-<td><code>min_cruise_target_vel</code></td>
+<td><code>time_step</code></td>
 <td>double</td>
-<td>minimum target velocity during cruise [m/s]</td>
+<td>[sec] time step for each path step. used for creating dynamic obstacles from points or objects without path</td>
 </tr>
 </tbody>
 </table>
-<p>In order to keep the safe distance, the target velocity and acceleration is calculated and sent as an external velocity limit to the velocity smoothing package (<code>motion_velocity_smoother</code> by default).
-The target velocity and acceleration is respectively calculated with the PID controller according to the error between the reference safe distance and the actual distance.</p>
-<h3 id="optimization-based-planner">Optimization-based planner<a class="headerlink" href="#optimization-based-planner" title="Permanent link">#</a></h3>
-<p>under construction</p>
-<h2 id="minor-functions">Minor functions<a class="headerlink" href="#minor-functions" title="Permanent link">#</a></h2>
-<h3 id="prioritization-of-behavior-modules-stop-point">Prioritization of behavior module's stop point<a class="headerlink" href="#prioritization-of-behavior-modules-stop-point" title="Permanent link">#</a></h3>
-<p>When stopping for a pedestrian walking on the crosswalk, the behavior module inserts the zero velocity in the trajectory in front of the crosswalk.
-Also <code>adaptive_cruise_planner</code>'s stop planning also works, and the ego may not reach the behavior module's stop point since the safe distance defined in <code>adaptive_cruise_planner</code> may be longer than the behavior module's safe distance.
-To resolve this non-alignment of the stop point between the behavior module and <code>adaptive_cruise_planner</code>, <code>common.min_behavior_stop_margin</code> is defined.
-In the case of the crosswalk described above, <code>adaptive_cruise_planner</code> inserts the stop point with a distance <code>common.min_behavior_stop_margin</code> at minimum between the ego and obstacle.</p>
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
+<th>Parameter /approaching</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>common.min_behavior_stop_margin</code></td>
+<td><code>enable</code></td>
+<td>bool</td>
+<td>[-] whether to enable approaching after stopping</td>
+</tr>
+<tr>
+<td><code>margin</code></td>
 <td>double</td>
-<td>minimum stop margin when stopping with the behavior module enabled [m]</td>
+<td>[m] distance on how close ego approaches the obstacle</td>
+</tr>
+<tr>
+<td><code>limit_vel_kmph</code></td>
+<td>double</td>
+<td>[km/h] limit velocity for approaching after stopping</td>
+</tr>
+<tr>
+<td><code>stop_thresh</code></td>
+<td>double</td>
+<td>[m/s] threshold to decide if ego is stopping</td>
+</tr>
+<tr>
+<td><code>stop_time_thresh</code></td>
+<td>double</td>
+<td>[sec] threshold for stopping time to transit to approaching state</td>
+</tr>
+<tr>
+<td><code>dist_thresh</code></td>
+<td>double</td>
+<td>[m] end the approaching state if distance to the obstacle is longer than stop_margin + dist_thresh</td>
 </tr>
 </tbody>
 </table>
-<h2 id="visualization-for-debugging">Visualization for debugging<a class="headerlink" href="#visualization-for-debugging" title="Permanent link">#</a></h2>
-<h3 id="detection-area">Detection area<a class="headerlink" href="#detection-area" title="Permanent link">#</a></h3>
-<p>Green polygons which is a detection area is visualized by <code>detection_polygons</code> in the <code>~/debug/marker</code> topic.</p>
-<p><img alt="detection_area" src="../image/detection_area.png" /></p>
-<h3 id="collision-point">Collision point<a class="headerlink" href="#collision-point" title="Permanent link">#</a></h3>
-<p>Red point which is a collision point with obstacle is visualized by <code>collision_points</code> in the <code>~/debug/marker</code> topic.</p>
-<p><img alt="collision_point" src="../image/collision_point.png" /></p>
-<h3 id="obstacle-for-cruise">Obstacle for cruise<a class="headerlink" href="#obstacle-for-cruise" title="Permanent link">#</a></h3>
-<p>Yellow sphere which is a obstacle for cruise is visualized by <code>obstacles_to_cruise</code> in the <code>~/debug/marker</code> topic.</p>
-<p><img alt="obstacle_to_cruise" src="../image/obstacle_to_cruise.png" /></p>
-<h3 id="obstacle-for-stop">Obstacle for stop<a class="headerlink" href="#obstacle-for-stop" title="Permanent link">#</a></h3>
-<p>Red sphere which is a obstacle for stop is visualized by <code>obstacles_to_stop</code> in the <code>~/debug/marker</code> topic.</p>
-<p><img alt="obstacle_to_stop" src="../image/obstacle_to_stop.png" /></p>
-<!-- ### Obstacle ignored to cruise or stop intentionally -->
-
-<!-- Green sphere which is a obstacle ignored intentionally to cruise or stop is visualized by `intentionally_ignored_obstacles` in the `~/debug/marker` topic. -->
-
-<!-- ![intentionally_ignored_obstacle](./image/intentionally_ignored_obstacle.png) -->
-
-<h3 id="obstacle-cruise-wall">Obstacle cruise wall<a class="headerlink" href="#obstacle-cruise-wall" title="Permanent link">#</a></h3>
-<p>Yellow wall which means a safe distance to cruise if the ego's front meets the wall is visualized in the <code>~/debug/cruise_wall_marker</code> topic.</p>
-<p><img alt="obstacle_to_cruise" src="../image/obstacle_to_cruise.png" /></p>
-<h3 id="obstacle-stop-wall">Obstacle stop wall<a class="headerlink" href="#obstacle-stop-wall" title="Permanent link">#</a></h3>
-<p>Red wall which means a safe distance to stop if the ego's front meets the wall is visualized in the <code>~/debug/stop_wall_marker</code> topic.</p>
-<p><img alt="obstacle_to_stop" src="../image/obstacle_to_stop.png" /></p>
-<h2 id="known-limits">Known Limits<a class="headerlink" href="#known-limits" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parameter /slow_down_limit</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enable</code></td>
+<td>bool</td>
+<td>[-] whether to enable to limit velocity with max jerk and acc</td>
+</tr>
+<tr>
+<td><code>max_jerk</code></td>
+<td>double</td>
+<td>[m/s^3] minimum jerk deceleration for safe brake.</td>
+</tr>
+<tr>
+<td><code>max_acc</code></td>
+<td>double</td>
+<td>[m/s^2] minimum accel deceleration for safe brake.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h3>
 <ul>
-<li>Common<ul>
-<li>When the obstacle pose or velocity estimation has a delay, the ego sometimes will go close to the front vehicle keeping deceleration.</li>
-<li>Current implementation only uses predicted objects message for static/dynamic obstacles and does not use pointcloud. Therefore, if object recognition is lost, the ego cannot deal with the lost obstacle.</li>
-</ul>
-</li>
-<li>PID-based planner<ul>
-<li>The algorithm strongly depends on the velocity smoothing package (<code>motion_velocity_smoother</code> by default) whether or not the ego realizes the designated target speed. If the velocity smoothing package is updated, please take care of the vehicle's behavior as much as possible.</li>
+<li>Calculate obstacle's min velocity and max velocity from covariance</li>
+<li>Detect collisions with polygon object</li>
+<li>Handle the case when the predicted path of obstacles are not straight line<ul>
+<li>Currently collision check is calculated based on the assumption that the predicted path of the obstacle is a straight line</li>
 </ul>
 </li>
 </ul>
 
               
             </article>
+            
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
           </a>
@@ -9784,10 +9673,11 @@ In the case of the crosswalk described above, <code>adaptive_cruise_planner</cod
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../../perception/traffic_light_visualization/" class="md-footer__link md-footer__link--prev" aria-label="Previous: traffic_light_visualization" rel="prev">
+        <a href="../occlusion-spot-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Occlusion spot design" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -9796,20 +9686,20 @@ In the case of the crosswalk described above, <code>adaptive_cruise_planner</cod
               <span class="md-footer__direction">
                 Previous
               </span>
-              traffic_light_visualization
+              Occlusion spot design
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../behavior_path_planner/" class="md-footer__link md-footer__link--next" aria-label="Next: Behavior Path Planner" rel="next">
+        <a href="../stop-line-design/" class="md-footer__link md-footer__link--next" aria-label="Next: Stop line design" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Behavior Path Planner
+              Stop line design
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -9843,10 +9733,10 @@ In the case of the crosswalk described above, <code>adaptive_cruise_planner</cod
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7f366e99.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
