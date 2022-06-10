@@ -8995,22 +8995,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#interfaceversion" class="md-nav__link">
-    InterfaceVersion
-  </a>
-  
-    <nav class="md-nav" aria-label="InterfaceVersion">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
-    Use cases
+  <a href="#responsestatus" class="md-nav__link">
+    ResponseStatus
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#interfaceversion" class="md-nav__link">
+    InterfaceVersion
+  </a>
   
 </li>
       
@@ -9033,13 +9027,37 @@
 
 
 <h1 id="autoware_ad_api_msgs">autoware_ad_api_msgs<a class="headerlink" href="#autoware_ad_api_msgs" title="Permanent link">#</a></h1>
+<h2 id="responsestatus">ResponseStatus<a class="headerlink" href="#responsestatus" title="Permanent link">#</a></h2>
+<p>This message is a response status commonly used in the service type API. For details, see <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/#response-status">the response status</a>.
+Each API can define its own status codes.
+The status codes are primarily used to indicate the error cause, such as invalid parameter and timeout.
+If the API succeeds, set success to true, code to zero, and message to the empty string.
+Alternatively, codes and messages can be used for warnings or additional information.
+If the API fails, set success to false, code to the related status code, and message to the information.
+The status code zero is reserved for success. The status code 50000 or over are also reserved for typical cases.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="right">Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SUCCESS</td>
+<td align="right">0</td>
+<td>This API has completed successfully.</td>
+</tr>
+<tr>
+<td>DEPRECATED</td>
+<td align="right">50000</td>
+<td>This API is deprecated.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="interfaceversion">InterfaceVersion<a class="headerlink" href="#interfaceversion" title="Permanent link">#</a></h2>
-<p>This API provides the interface version of the set of AD APIs.
-It follows <a href="https://semver.org/">Semantic Versioning</a> in order to provide an intuitive understanding of the changes between versions.</p>
-<h3 id="use-cases">Use cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h3>
-<p>Considering the product life cycle, there will be multiple vehicles that use different versions of the AD API due to changes in requirements or some improvements.
-For example, a vehicle uses <code>v1</code> for stability and another vehicle uses <code>v2</code> for more functionality.</p>
-<p>In that situation, the AD API users such as developers of a Web service have to switch the application behavior based on the version that each vehicle uses.</p>
+<p>This message is for the interface version of the set of AD APIs. For details, see <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/ad-api/features/interface/">the interface feature</a>.</p>
 <!-- link -->
 
               
