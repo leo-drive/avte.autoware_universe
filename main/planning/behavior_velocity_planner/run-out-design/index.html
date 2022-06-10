@@ -9485,7 +9485,7 @@ Trimmed distance is specified by parameter of <code>detection_distance</code>.</
 </tr>
 </tbody>
 </table>
-<p>Enter the maximum/minimum velocity of the object as a parameter, adding enough margin to the expected velocity. This parameter is used to create polygons for <a href="#Collision-detection">collision detection</a>.</p>
+<p>Enter the maximum/minimum velocity of the object as a parameter, adding enough margin to the expected velocity. This parameter is used to create polygons for <a href="./#Collision-detection">collision detection</a>.</p>
 <p>Future work: Determine the maximum/minimum velocity from the estimated velocity with covariance of the object</p>
 <h6 id="3-types-of-detection-method">3 types of detection method<a class="headerlink" href="#3-types-of-detection-method" title="Permanent link">#</a></h6>
 <p>We have 3 types of detection method to meet different safety and availability requirements. The characteristics of them are shown in the table below.
@@ -9524,7 +9524,7 @@ You can choose whether to use this feature by parameter of <code>use_partition_l
 <h4 id="collision-detection">Collision detection<a class="headerlink" href="#collision-detection" title="Permanent link">#</a></h4>
 <h5 id="detect-collision-with-dynamic-obstacles">Detect collision with dynamic obstacles<a class="headerlink" href="#detect-collision-with-dynamic-obstacles" title="Permanent link">#</a></h5>
 <p>Along the ego vehicle path, determine the points where collision detection is to be performed for each <code>detection_span</code>.</p>
-<p>The travel times to the each points are calculated from <a href="#Calculate-the-expected-target-velocity-for-ego-vehicle">the expected target velocity</a>.</p>
+<p>The travel times to the each points are calculated from <a href="./#Calculate-the-expected-target-velocity-for-ego-vehicle">the expected target velocity</a>.</p>
 <p><img alt="brief" src="../docs/run_out/create_polygon_on_path_point.svg" /></p>
 <p>For the each points, collision detection is performed using the footprint polygon of the ego vehicle and the polygon of the predicted location of the obstacles.
 The predicted location of the obstacles is described as rectangle or polygon that has the range calculated by min velocity, max velocity and the ego vehicle's travel time to the point.
