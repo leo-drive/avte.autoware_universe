@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/common/autoware_ad_api_msgs/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.5">
     
     
       
@@ -9028,8 +9028,7 @@
 
 <h1 id="autoware_ad_api_msgs">autoware_ad_api_msgs<a class="headerlink" href="#autoware_ad_api_msgs" title="Permanent link">#</a></h1>
 <h2 id="responsestatus">ResponseStatus<a class="headerlink" href="#responsestatus" title="Permanent link">#</a></h2>
-<p>This message is a response status commonly used in the service type API. For details, see <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/#response-status">the response status</a>.
-Each API can define its own status codes.
+<p>This message is a response status commonly used in the service type API. Each API can define its own status codes.
 The status codes are primarily used to indicate the error cause, such as invalid parameter and timeout.
 If the API succeeds, set success to true, code to zero, and message to the empty string.
 Alternatively, codes and messages can be used for warnings or additional information.
@@ -9057,7 +9056,9 @@ The status code zero is reserved for success. The status code 50000 or over are 
 </tbody>
 </table>
 <h2 id="interfaceversion">InterfaceVersion<a class="headerlink" href="#interfaceversion" title="Permanent link">#</a></h2>
-<p>This message is for the interface version of the set of AD APIs. For details, see <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/ad-api/features/interface/">the interface feature</a>.</p>
+<p>Considering the product life cycle, there may be multiple vehicles using different versions of the AD API due to changes in requirements or functional improvements. For example, one vehicle uses <code>v1</code> for stability and another vehicle uses <code>v2</code> to enable more advanced functionality.</p>
+<p>In that situation, the AD API users such as developers of a web service have to switch the application behavior based on the version that each vehicle uses.
+The version of AD API follows <a href="https://semver.org/">Semantic Versioning</a> in order to provide an intuitive understanding of the changes between versions.</p>
 <!-- link -->
 
               
@@ -9135,10 +9136,10 @@ The status code zero is reserved for success. The status code 50000 or over are 
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f758a944.min.js"></script>
+      <script src="../../assets/javascripts/bundle.431f3d41.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
