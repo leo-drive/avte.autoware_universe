@@ -361,6 +361,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/localization/twist2accel/</loc>
+         <lastmod>2022-06-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/localization/vehicle_velocity_converter/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
