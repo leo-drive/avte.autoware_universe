@@ -96,6 +96,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/common/neural_networks_provider/design/neural_networks-design/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/common/osqp_interface/design/osqp_interface-design/</loc>
          <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
