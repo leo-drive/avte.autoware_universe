@@ -9423,6 +9423,11 @@ That's why it doesn't interfere with the core logic of autonomous driving.</p>
 <td>[m / s^3]</td>
 </tr>
 <tr>
+<td><code>desired_steering_angle</code></td>
+<td>float</td>
+<td>[rad]</td>
+</tr>
+<tr>
 <td><code>controller_processing_time</code></td>
 <td>float</td>
 <td>Timestamp between last two control command messages [ms]</td>
@@ -9558,6 +9563,7 @@ That's why it doesn't interfere with the core logic of autonomous driving.</p>
 <blockquote>
 <ul>
 <li>/localization/kinematic_state</li>
+<li>/vehicle/status/steering_status</li>
 <li>/control_performance/driving_status</li>
 <li>/control_performance/performance_vars</li>
 </ul>
