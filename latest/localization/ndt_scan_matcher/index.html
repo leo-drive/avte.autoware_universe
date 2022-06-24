@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/latest/localization/ndt_scan_matcher/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.6">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
     
     
       
@@ -9288,6 +9288,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#regularization" class="md-nav__link">
+    Regularization
+  </a>
+  
+    <nav class="md-nav" aria-label="Regularization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    Abstract
+  </a>
+  
+    <nav class="md-nav" aria-label="Abstract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-is-regularization-available" class="md-nav__link">
+    Where is regularization available
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-other-base-position" class="md-nav__link">
+    Using other base position
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9314,6 +9375,7 @@
 <li>estimate position by scan matching</li>
 <li>estimate initial position via the ROS service using the Monte Carlo method</li>
 </ul>
+<p>One optional function is regularization. Please see the regularization chapter in the back for details. It is disabled by default.</p>
 <h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
 <h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
 <table>
@@ -9340,8 +9402,16 @@
 <td><code>sensor_msgs::msg::PointCloud2</code></td>
 <td>sensor pointcloud</td>
 </tr>
+<tr>
+<td><code>sensing/gnss/pose_with_covariance</code></td>
+<td><code>sensor_msgs::msg::PoseWithCovarianceStamped</code></td>
+<td>base position for regularization term</td>
+</tr>
 </tbody>
 </table>
+<blockquote>
+<p><code>sensing/gnss/pose_with_covariance</code> is required only when regularization is enabled.</p>
+</blockquote>
 <h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -9499,6 +9569,135 @@
 </tr>
 </tbody>
 </table>
+<h2 id="regularization">Regularization<a class="headerlink" href="#regularization" title="Permanent link">#</a></h2>
+<h3 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link">#</a></h3>
+<p>This is a function that adds the regularization term to the NDT optimization problem as follows.</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+    \min_{\mathbf{R},\mathbf{t}}
+    \mathrm{NDT}(\mathbf{R},\mathbf{t})
+    +\mathrm{scale\ factor}\cdot \left|
+        \mathbf{R}^\top
+        (\mathbf{t_{base}-\mathbf{t}})
+        \cdot
+        \begin{pmatrix}
+            1\\
+            0\\
+            0
+        \end{pmatrix}
+        \right|^2
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+    \min_{\mathbf{R},\mathbf{t}}
+    \mathrm{NDT}(\mathbf{R},\mathbf{t})
+    +\mathrm{scale\ factor}\cdot \left|
+        \mathbf{R}^\top
+        (\mathbf{t_{base}-\mathbf{t}})
+        \cdot
+        \begin{pmatrix}
+            1\\
+            0\\
+            0
+        \end{pmatrix}
+        \right|^2
+\end{align}
+</script>
+</div>
+<p>, where t_base is base position measured by GNSS or other means.
+NDT(R,t) stands for the pure NDT cost function.
+The regularization term shifts the optimal solution to the base position in the longitudinal direction of the vehicle.
+Only errors along the <strong>longitudinal direction</strong> with respect to the base position are considered; errors along Z-axis and lateral-axis error are not considered.</p>
+<p>Although the regularization term has rotation as a parameter, the gradient and hessian associated with it is not computed to stabilize the optimization.
+Specifically, the gradients are computed as follows.</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+    &amp;g_x=\nabla_x \mathrm{NDT}(\mathbf{R},\mathbf{t}) + 2 \mathrm{scale\ factor} \cos\theta_z\cdot e_{\mathrm{longitudinal}}
+    \\
+    &amp;g_y=\nabla_y \mathrm{NDT}(\mathbf{R},\mathbf{t}) + 2 \mathrm{scale\ factor} \sin\theta_z\cdot e_{\mathrm{longitudinal}}
+    \\
+    &amp;g_z=\nabla_z \mathrm{NDT}(\mathbf{R},\mathbf{t})
+    \\
+    &amp;g_\mathbf{R}=\nabla_\mathbf{R} \mathrm{NDT}(\mathbf{R},\mathbf{t})
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+    &g_x=\nabla_x \mathrm{NDT}(\mathbf{R},\mathbf{t}) + 2 \mathrm{scale\ factor} \cos\theta_z\cdot e_{\mathrm{longitudinal}}
+    \\
+    &g_y=\nabla_y \mathrm{NDT}(\mathbf{R},\mathbf{t}) + 2 \mathrm{scale\ factor} \sin\theta_z\cdot e_{\mathrm{longitudinal}}
+    \\
+    &g_z=\nabla_z \mathrm{NDT}(\mathbf{R},\mathbf{t})
+    \\
+    &g_\mathbf{R}=\nabla_\mathbf{R} \mathrm{NDT}(\mathbf{R},\mathbf{t})
+\end{align}
+</script>
+</div>
+<p>Regularization is disabled by default.
+If you wish to use it, please edit the following parameters to enable it.
+Regularization is only available for <code>NDT_OMP</code> and not for other NDT implementation types (<code>PCL_GENERIC</code>, <code>PCL_MODIFIED</code>).</p>
+<h4 id="where-is-regularization-available">Where is regularization available<a class="headerlink" href="#where-is-regularization-available" title="Permanent link">#</a></h4>
+<p>This feature is effective on feature-less roads where GNSS is available, such as</p>
+<ul>
+<li>bridges</li>
+<li>highways</li>
+<li>farm roads</li>
+</ul>
+<p>By remapping the base position topic to something other than GNSS, as described below, it can be valid outside of these.</p>
+<h4 id="using-other-base-position">Using other base position<a class="headerlink" href="#using-other-base-position" title="Permanent link">#</a></h4>
+<p>Other than GNSS, you can give other global position topics obtained from magnetic markers, visual markers or etc. if they are available in your environment.
+(Currently Autoware does not provide a node that gives such pose.)
+To use your topic for regularization, you need to remap the <code>input_regularization_pose_topic</code> with your topic in <code>ndt_scan_matcher.launch.xml</code>.
+By default, it is remapped with <code>/sensing/gnss/pose_with_covariance</code>.</p>
+<h4 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h4>
+<p>Since this function determines the base position by linear interpolation from the recently subscribed poses,
+topics that are published at a low frequency relative to the driving speed cannot be used.
+Inappropriate linear interpolation may result in bad optimization results.</p>
+<p>When using GNSS for base location, the regularization can have negative effects in tunnels, indoors, and near skyscrapers.
+This is because if the base position is far off from the true value, NDT scan matching may converge to inappropriate optimal position.</p>
+<h3 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>regularization_enabled</code></td>
+<td>bool</td>
+<td>Flag to add regularization term to NDT optimization (FALSE by default)</td>
+</tr>
+<tr>
+<td><code>regularization_scale_factor</code></td>
+<td>double</td>
+<td>Coefficient of the regularization term.</td>
+</tr>
+</tbody>
+</table>
+<p>Regularization is disabled by default because GNSS is not always accurate enough to serve the appropriate base position in any scenes.</p>
+<p>If the scale_factor is too large, the NDT will be drawn to the base position and scan matching may fail.
+Conversely, if it is too small, the regularization benefit will be lost.</p>
+<p>Note that setting scale_factor to 0 is equivalent to disabling regularization.</p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h3>
+<p>The following figures show tested maps.</p>
+<ul>
+<li>The left is a map with enough features that NDT can successfully localize.</li>
+<li>The right is a map with so few features that the NDT cannot localize well.</li>
+</ul>
+<p><img src="./media/bridge_map.jpg" alt="drawing" width="300"/> <img src="./media/bridge_map_less_feature.jpg" alt="drawing" width="300"/></p>
+<p>The following figures show the trajectories estimated on the feature-less map with standard NDT and regularization-enabled NDT, respectively.
+The color of the trajectory indicates the error (meter) from the reference trajectory, which is computed with the feature-rich map.</p>
+<ul>
+<li>The left figure shows that the pure NDT causes a longitudinal error in the bridge and is not able to recover.</li>
+<li>The right figure shows that the regularization suppresses the longitudinal error.</li>
+</ul>
+<p><img src="./media/trajectory_without_regularization.png" alt="drawing" width="300"/> <img src="./media/trajectory_with_regularization.png" alt="drawing" width="300"/></p>
 
               
             </article>
@@ -9575,10 +9774,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>
+      <script src="../../assets/javascripts/bundle.0238f547.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
