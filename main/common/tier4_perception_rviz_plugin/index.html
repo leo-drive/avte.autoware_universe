@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/common/tier4_perception_rviz_plugin/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -9334,6 +9334,19 @@
     Usage
   </a>
   
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-manipulation" class="md-nav__link">
+    Interactive manipulation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -9668,6 +9681,38 @@ The DeleteAllObjectsTool deletes the dummy cars, pedestrians, and obstacles disp
 <li>Select the new item in the tool tab (2D Dummy Car in the example) and click on it in rviz.
    <img alt="select_dummy_car" src="images/select_dummy_car.png" /></li>
 </ol>
+<h3 id="interactive-manipulation">Interactive manipulation<a class="headerlink" href="#interactive-manipulation" title="Permanent link">#</a></h3>
+<p>You can interactively manipulate the object.</p>
+<ol>
+<li>Select "Tool Properties" in rviz.</li>
+<li>Select the corresponding object tab in the Tool Properties.</li>
+<li>Turn the "Interactive" checkbox on.
+   <img alt="tool_properties" src="images/tool_properties.png" /></li>
+<li>Select the item in the tool tab in you haven't chosen yet.</li>
+<li>Key commands are as follows.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>action</th>
+<th>key command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADD</td>
+<td>Shift + Click Right Button</td>
+</tr>
+<tr>
+<td>MOVE</td>
+<td>Hold down Right Button + Drug and Drop</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>Alt + Click Right Button</td>
+</tr>
+</tbody>
+</table>
 
               
             </article>
