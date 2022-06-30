@@ -10247,6 +10247,7 @@ In the case of the crosswalk described above, <code>obstacle_cruise_planner</cod
 <li>Common<ul>
 <li>When the obstacle pose or velocity estimation has a delay, the ego sometimes will go close to the front vehicle keeping deceleration.</li>
 <li>Current implementation only uses predicted objects message for static/dynamic obstacles and does not use pointcloud. Therefore, if object recognition is lost, the ego cannot deal with the lost obstacle.</li>
+<li>The current predicted paths for obstacle's lane change does not have enough precision for obstacle_cruise_planner. Therefore, we set <code>rough_detection_area</code> a small value.</li>
 </ul>
 </li>
 <li>PID-based planner<ul>
