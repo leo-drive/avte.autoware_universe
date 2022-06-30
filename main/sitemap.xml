@@ -521,6 +521,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/radar_fusion_to_detected_object/</loc>
+         <lastmod>2022-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/radar_fusion_to_detected_object/docs/algorithm/</loc>
+         <lastmod>2022-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/radar_tracks_msgs_converter/</loc>
          <lastmod>2022-06-30</lastmod>
          <changefreq>daily</changefreq>
