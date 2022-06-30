@@ -9644,16 +9644,24 @@
 <h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
 <h3 id="input">input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
 <ul>
-<li>input/vehicle_control_command [<code>autoware_auto_msgs/msg/VehicleControlCommand</code>] : target command to drive a vehicle.</li>
-<li>input/ackermann_control_command [<code>autoware_auto_msgs/msg/AckermannControlCommand</code>] : target command to drive a vehicle.</li>
-<li>input/vehicle_state_command [<code>autoware_auto_msgs/msg/VehicleStateCommand</code>] : target state command (e.g. gear).</li>
 <li>/initialpose [<code>geometry_msgs/msg/PoseWithCovarianceStamped</code>] : for initial pose</li>
+<li>input/ackermann_control_command [<code>autoware_auto_msgs/msg/AckermannControlCommand</code>] : target command to drive a vehicle</li>
+<li>input/manual_ackermann_control_command [<code>autoware_auto_msgs/msg/AckermannControlCommand</code>] : manual target command to drive a vehicle (used when control_mode_request = Manual)</li>
+<li>input/gear_command [<code>autoware_auto_vehicle_msgs/msg/GearCommand</code>] : target gear command.</li>
+<li>input/manual_gear_command [<code>autoware_auto_vehicle_msgs/msg/GearCommand</code>] : target gear command (used when control_mode_request = Manual)</li>
+<li>input/turn_indicators_command [<code>autoware_auto_vehicle_msgs/msg/TurnIndicatorsCommand</code>] : target turn indicator command</li>
+<li>input/hazard_lights_command [<code>autoware_auto_vehicle_msgs/msg/HazardLightsCommand</code>] : target hazard lights command</li>
+<li>input/control_mode_request [<code>tier4_vehicle_msgs::srv::ControlModeRequest</code>] : mode change for Auto/Manual driving</li>
 </ul>
 <h3 id="output">output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
 <ul>
 <li>/tf [<code>tf2_msgs/msg/TFMessage</code>] : simulated vehicle pose (base_link)</li>
-<li>/vehicle/vehicle_kinematic_state [<code>autoware_auto_msgs/msg/VehicleKinematicState</code>] : simulated kinematic state (defined in CoM)</li>
-<li>/vehicle/state_report [<code>autoware_auto_msgs/msg/VehicleStateReport</code>] : current vehicle state (e.g. gear, mode, etc.)</li>
+<li>/output/odometry [<code>nav_msgs/msg/Odometry</code>] : simulated vehicle pose and twist</li>
+<li>/output/steering [<code>autoware_auto_vehicle_msgs/msg/SteeringReport</code>] : simulated steering angle</li>
+<li>/output/control_mode_report [<code>autoware_auto_vehicle_msgs/msg/ControlModeReport</code>] : current control mode (Auto/Manual)</li>
+<li>/output/gear_report [<code>autoware_auto_vehicle_msgs/msg/ControlModeReport</code>] : simulated gear</li>
+<li>/output/turn_indicators_report [<code>autoware_auto_vehicle_msgs/msg/ControlModeReport</code>] : simulated turn indicator status</li>
+<li>/output/hazard_lights_report [<code>autoware_auto_vehicle_msgs/msg/ControlModeReport</code>] : simulated hazard lights status</li>
 </ul>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
 <h3 id="common-parameters">Common Parameters<a class="headerlink" href="#common-parameters" title="Permanent link">#</a></h3>
