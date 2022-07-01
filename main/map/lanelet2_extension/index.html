@@ -9435,6 +9435,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#route-checker" class="md-nav__link">
+    Route Checker
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -9540,6 +9547,10 @@ e.g. crosswalks, trafficlights, stoplines</p>
 <h4 id="utilities">Utilities<a class="headerlink" href="#utilities" title="Permanent link">#</a></h4>
 <p>This module contains other useful functions related to Lanelet.
 e.g. matching waypoint with lanelets</p>
+<h4 id="route-checker">Route Checker<a class="headerlink" href="#route-checker" title="Permanent link">#</a></h4>
+<p>This module contains a function to check the loading route is valid or not.
+If it is invalid, puts warning without dying.
+The case valid is when the route is created on the same map as the current one.</p>
 <h3 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h3>
 <p>Visualization contains functions to convert lanelet objects into visualization marker messages.
 Currently it contains following conversions:</p>
@@ -9555,7 +9566,7 @@ The executable is not meant to do anything.</p>
 <h3 id="autoware_lanelet2_extension">autoware_lanelet2_extension<a class="headerlink" href="#autoware_lanelet2_extension" title="Permanent link">#</a></h3>
 <p>This node checks if an .osm file follows the Autoware version of Lanelet2 format.
 You can check by running:</p>
-<div class="highlight"><pre><span></span><code>ros2 run lanelet2_extension autoware_lanelet2_validation _map_file:<span class="o">=</span>&lt;path/to/map.osm&gt;
+<div class="highlight"><pre><span></span><code>ros2 run lanelet2_extension autoware_lanelet2_validation --ros-args -p map_file:<span class="o">=</span>&lt;path/to/map.osm&gt;
 </code></pre></div>
 
               
