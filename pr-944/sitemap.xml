@@ -406,6 +406,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-944/perception/crosswalk_traffic_light_estimator/</loc>
+         <lastmod>2022-07-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-944/perception/detected_object_feature_remover/</loc>
          <lastmod>2022-07-01</lastmod>
          <changefreq>daily</changefreq>
@@ -537,11 +542,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-944/perception/traffic_light_classifier/</loc>
-         <lastmod>2022-07-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-944/perception/traffic_light_estimator/</loc>
          <lastmod>2022-07-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
