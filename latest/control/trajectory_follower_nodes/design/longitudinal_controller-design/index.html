@@ -9970,12 +9970,6 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 </thead>
 <tbody>
 <tr>
-<td align="left">longitudinal_ctrl_period</td>
-<td align="left">double</td>
-<td align="left">longitudinal control period [s]</td>
-<td align="left">0.03</td>
-</tr>
-<tr>
 <td align="left">delay_compensation_time</td>
 <td align="left">double</td>
 <td align="left">delay for longitudinal control [s]</td>
@@ -10009,6 +10003,12 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <td align="left">enable_brake_keeping_before_stop</td>
 <td align="left">bool</td>
 <td align="left">flag to keep a certain acceleration during DRIVE state before the ego stops. See <a href="#brake-keeping">Brake keeping</a>.</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">enable_keep_stopped_until_steer_convergence</td>
+<td align="left">bool</td>
+<td align="left">flag to keep stopped condition until until the steer converges.</td>
 <td align="left">false</td>
 </tr>
 <tr>
