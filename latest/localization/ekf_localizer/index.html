@@ -9494,11 +9494,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-turn-ekf-parameters" class="md-nav__link">
-    How to turn EKF parameters
+  <a href="#how-to-tune-ekf-parameters" class="md-nav__link">
+    How to tune EKF parameters
   </a>
   
-    <nav class="md-nav" aria-label="How to turn EKF parameters">
+    <nav class="md-nav" aria-label="How to tune EKF parameters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -9509,15 +9509,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-set-sensor-parameters" class="md-nav__link">
-    1. Set sensor parameters
+  <a href="#1-tune-sensor-parameters" class="md-nav__link">
+    1. Tune sensor parameters
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-set-process-model-parameters" class="md-nav__link">
-    2. Set process model parameters
+  <a href="#2-tune-process-model-parameters" class="md-nav__link">
+    2. Tune process model parameters
   </a>
   
 </li>
@@ -9562,6 +9562,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    Known issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reference" class="md-nav__link">
     reference
   </a>
@@ -9587,7 +9594,7 @@
 
 
 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h1>
-<p>The <strong>Extend Kalman Filter Localizer</strong> estimates robust and less noisy robot pose and twist by integrating the 2D vehicle dynamics model with input ego-pose and ego-twist messages. The algorithm is designed especially for fast moving robot such as autonomous driving system.</p>
+<p>The <strong>Extend Kalman Filter Localizer</strong> estimates robust and less noisy robot pose and twist by integrating the 2D vehicle dynamics model with input ego-pose and ego-twist messages. The algorithm is designed especially for fast-moving robots such as autonomous driving systems.</p>
 <h2 id="flowchart">Flowchart<a class="headerlink" href="#flowchart" title="Permanent link">#</a></h2>
 <p>The overall flowchart of the ekf_localizer is described below.</p>
 <p align="center">
@@ -9597,10 +9604,10 @@
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">#</a></h2>
 <p>This package includes the following features:</p>
 <ul>
-<li><strong>Time delay compensation</strong> for input messages, which enables proper integration of input information with varying time delay. This is important especially for high speed moving robot, such as autonomous driving vehicle. (see following figure).</li>
+<li><strong>Time delay compensation</strong> for input messages, which enables proper integration of input information with varying time delays. This is important especially for high-speed moving robots, such as autonomous driving vehicles. (see the following figure).</li>
 <li><strong>Automatic estimation of yaw bias</strong> prevents modeling errors caused by sensor mounting angle errors, which can improve estimation accuracy.</li>
 <li><strong>Mahalanobis distance gate</strong> enables probabilistic outlier detection to determine which inputs should be used or ignored.</li>
-<li><strong>Smooth update</strong>, the Kalman Filter measurement update is typically performed when a measurement is obtained, but it can cause large changes in the estimated value especially for low frequency measurements. Since the algorithm can consider the measurement time, the measurement data can be divided into multiple pieces and integrated smoothly while maintaining consistency (see following figure).</li>
+<li><strong>Smooth update</strong>, the Kalman Filter measurement update is typically performed when a measurement is obtained, but it can cause large changes in the estimated value, especially for low-frequency measurements. Since the algorithm can consider the measurement time, the measurement data can be divided into multiple pieces and integrated smoothly while maintaining consistency (see the following figure).</li>
 </ul>
 <p align="center">
 <img src="./media/ekf_delay_comp.png" width="800">
@@ -9620,19 +9627,19 @@
 <ul>
 <li>
 <p>measured_pose_with_covariance (geometry_msgs/PoseWithCovarianceStamped)</p>
-<p>Input pose source with measurement covariance matrix.</p>
+<p>Input pose source with the measurement covariance matrix.</p>
 </li>
 </ul>
 <ul>
 <li>
 <p>measured_twist_with_covariance (geometry_msgs/TwistWithCovarianceStamped)</p>
-<p>Input twist source with measurement covariance matrix.</p>
+<p>Input twist source with the measurement covariance matrix.</p>
 </li>
 </ul>
 <ul>
 <li>
 <p>initialpose (geometry_msgs/PoseWithCovarianceStamped)</p>
-<p>Initial pose for EKF. The estimated pose is initialized with zeros at start. It is initialized with this message whenever published.</p>
+<p>Initial pose for EKF. The estimated pose is initialized with zeros at the start. It is initialized with this message whenever published.</p>
 </li>
 </ul>
 <h3 id="published-topics">Published Topics<a class="headerlink" href="#published-topics" title="Permanent link">#</a></h3>
@@ -9675,7 +9682,7 @@
 <ul>
 <li>
 <p>ekf_twist_with_covariance (geometry_msgs/TwistWithCovarianceStamped)</p>
-<p>Estimated twist with covariance.</p>
+<p>The estimated twist with covariance.</p>
 </li>
 </ul>
 <h3 id="published-tf">Published TF<a class="headerlink" href="#published-tf" title="Permanent link">#</a></h3>
@@ -9687,10 +9694,10 @@
 </ul>
 <h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">#</a></h2>
 <h3 id="predict">Predict<a class="headerlink" href="#predict" title="Permanent link">#</a></h3>
-<p>The current robot state is predicted from previously estimated data using a given prediction model. This calculation is called at constant interval (<code>predict_frequency [Hz]</code>). The prediction equation is described at the end of this page.</p>
+<p>The current robot state is predicted from previously estimated data using a given prediction model. This calculation is called at a constant interval (<code>predict_frequency [Hz]</code>). The prediction equation is described at the end of this page.</p>
 <h3 id="measurement-update">Measurement Update<a class="headerlink" href="#measurement-update" title="Permanent link">#</a></h3>
-<p>Before update, the Mahalanobis distance is calculated between the measured input and the predicted state, the measurement update is not performed for inputs where the Mahalanobis distance exceeds the given threshold.</p>
-<p>The predicted state is updated with the latest measured inputs, measured_pose and measured_twist. The updates are performed with the same frequency as prediction, usually at a high frequency, in order to enable smooth state estimation.</p>
+<p>Before the update, the Mahalanobis distance is calculated between the measured input and the predicted state, the measurement update is not performed for inputs where the Mahalanobis distance exceeds the given threshold.</p>
+<p>The predicted state is updated with the latest measured inputs, measured_pose, and measured_twist. The updates are performed with the same frequency as prediction, usually at a high frequency, in order to enable smooth state estimation.</p>
 <h2 id="parameter-description">Parameter description<a class="headerlink" href="#parameter-description" title="Permanent link">#</a></h2>
 <p>The parameters are set in <code>launch/ekf_localizer.launch</code> .</p>
 <h3 id="for-node">For Node<a class="headerlink" href="#for-node" title="Permanent link">#</a></h3>
@@ -9760,10 +9767,10 @@
 <td align="left">0.01</td>
 </tr>
 <tr>
-<td align="left">pose_rate</td>
-<td align="left">double</td>
-<td align="left">Approximated input pose rate used for covariance calculation [Hz]</td>
-<td align="left">10.0</td>
+<td align="left">pose_smoothing_steps</td>
+<td align="left">int</td>
+<td align="left">A value for smoothing steps</td>
+<td align="left">5</td>
 </tr>
 <tr>
 <td align="left">pose_gate_dist</td>
@@ -9791,10 +9798,10 @@
 <td align="left">0.0</td>
 </tr>
 <tr>
-<td align="left">twist_rate</td>
-<td align="left">double</td>
-<td align="left">Approximated input twist rate used for covariance calculation [Hz]</td>
-<td align="left">10.0</td>
+<td align="left">twist_smoothing_steps</td>
+<td align="left">int</td>
+<td align="left">A value for smoothing steps</td>
+<td align="left">2</td>
 </tr>
 <tr>
 <td align="left">twist_gate_dist</td>
@@ -9841,40 +9848,46 @@
 </tr>
 </tbody>
 </table>
-<p>note: process noise for position x &amp; y are calculated automatically from nonlinear dynamics.</p>
-<h2 id="how-to-turn-ekf-parameters">How to turn EKF parameters<a class="headerlink" href="#how-to-turn-ekf-parameters" title="Permanent link">#</a></h2>
+<p>note: process noise for positions x &amp; y are calculated automatically from nonlinear dynamics.</p>
+<h2 id="how-to-tune-ekf-parameters">How to tune EKF parameters<a class="headerlink" href="#how-to-tune-ekf-parameters" title="Permanent link">#</a></h2>
 <h3 id="0-preliminaries">0. Preliminaries<a class="headerlink" href="#0-preliminaries" title="Permanent link">#</a></h3>
 <ul>
-<li>Check header time in pose and twist message is set to sensor time appropriately, because time delay is calculated from this value. If it is difficult to set appropriate time due to timer synchronization problem, use <code>twist_additional_delay</code> and <code>pose_additional_delay</code> to correct the time.</li>
-<li>Check the relation between measurement pose and twist is appropriate (whether the derivative of pose has similar value to twist). This discrepancy is caused mainly by unit error (such as confusing radian/degree) or bias noise, and it causes large estimation errors.</li>
+<li>Check header time in pose and twist message is set to sensor time appropriately, because time delay is calculated from this value. If it is difficult to set an appropriate time due to the timer synchronization problem, use <code>twist_additional_delay</code> and <code>pose_additional_delay</code> to correct the time.</li>
+<li>Check if the relation between measurement pose and twist is appropriate (whether the derivative of the pose has a similar value to twist). This discrepancy is caused mainly by unit error (such as confusing radian/degree) or bias noise, and it causes large estimation errors.</li>
 </ul>
-<h3 id="1-set-sensor-parameters">1. Set sensor parameters<a class="headerlink" href="#1-set-sensor-parameters" title="Permanent link">#</a></h3>
-<p>Set sensor-rate and standard-deviation from the basic information of the sensor. The <code>pose_measure_uncertainty_time</code> is for uncertainty of the header timestamp data.</p>
+<h3 id="1-tune-sensor-parameters">1. Tune sensor parameters<a class="headerlink" href="#1-tune-sensor-parameters" title="Permanent link">#</a></h3>
+<p>Set standard deviation for each sensor. The <code>pose_measure_uncertainty_time</code> is for the uncertainty of the header timestamp data.
+You can also tune a number of steps for smoothing for each observed sensor data by tuning <code>*_smoothing_steps</code>.
+Increasing the number will improve the smoothness of the estimation, but may have an adverse effect on the estimation performance.</p>
 <ul>
 <li><code>pose_measure_uncertainty_time</code></li>
-<li><code>pose_rate</code></li>
-<li><code>twist_rate</code></li>
+<li><code>pose_smoothing_steps</code></li>
+<li><code>twist_smoothing_steps</code></li>
 </ul>
-<h3 id="2-set-process-model-parameters">2. Set process model parameters<a class="headerlink" href="#2-set-process-model-parameters" title="Permanent link">#</a></h3>
+<h3 id="2-tune-process-model-parameters">2. Tune process model parameters<a class="headerlink" href="#2-tune-process-model-parameters" title="Permanent link">#</a></h3>
 <ul>
 <li><code>proc_stddev_vx_c</code> : set to maximum linear acceleration</li>
 <li><code>proc_stddev_wz_c</code> : set to maximum angular acceleration</li>
-<li><code>proc_stddev_yaw_c</code> : This parameter describes the correlation between the yaw and yaw-rate. Large value means the change in yaw does not correlate to the estimated yaw-rate. If this is set to 0, it means the change in estimate yaw is equal to yaw-rate. Usually this should be set to 0.</li>
+<li><code>proc_stddev_yaw_c</code> : This parameter describes the correlation between the yaw and yawrate. A large value means the change in yaw does not correlate to the estimated yawrate. If this is set to 0, it means the change in estimated yaw is equal to yawrate. Usually, this should be set to 0.</li>
 <li><code>proc_stddev_yaw_bias_c</code> : This parameter is the standard deviation for the rate of change in yaw bias. In most cases, yaw bias is constant, so it can be very small, but must be non-zero.</li>
 </ul>
 <h2 id="kalman-filter-model">Kalman Filter Model<a class="headerlink" href="#kalman-filter-model" title="Permanent link">#</a></h2>
 <h3 id="kinematics-model-in-update-function">kinematics model in update function<a class="headerlink" href="#kinematics-model-in-update-function" title="Permanent link">#</a></h3>
 <p><img src="./media/ekf_dynamics.png" width="320"></p>
-<p>where <code>b_k</code> is the yaw-bias.</p>
+<p>where <code>b_k</code> is the yawbias.</p>
 <h3 id="time-delay-model">time delay model<a class="headerlink" href="#time-delay-model" title="Permanent link">#</a></h3>
-<p>The measurement time delay is handled by an augmented states [1] (See, Section 7.3 FIXED-LAG SMOOTHING).</p>
+<p>The measurement time delay is handled by an augmented state [1] (See, Section 7.3 FIXED-LAG SMOOTHING).</p>
 <p><img src="./media/delay_model_eq.png" width="320"></p>
-<p>Note that, although the dimension gets larger, since the analytical expansion can be applied based on the specific structures of the augmented states, the computational complexity does not significantly change.</p>
+<p>Note that, although the dimension gets larger since the analytical expansion can be applied based on the specific structures of the augmented states, the computational complexity does not significantly change.</p>
 <h2 id="test-result-with-autoware-ndt">Test Result with Autoware NDT<a class="headerlink" href="#test-result-with-autoware-ndt" title="Permanent link">#</a></h2>
 <p align="center">
 <img src="./media/ekf_autoware_res.png" width="600">
 </p>
 
+<h2 id="known-issues">Known issues<a class="headerlink" href="#known-issues" title="Permanent link">#</a></h2>
+<ul>
+<li>In the presence of multiple inputs with yaw estimation, yaw bias <code>b_k</code> in the current EKF state would not make any sense, since it is intended to capture the extrinsic parameter's calibration error of a sensor. Thus, future work includes introducing yaw bias for each sensor with yaw estimation.</li>
+</ul>
 <h2 id="reference">reference<a class="headerlink" href="#reference" title="Permanent link">#</a></h2>
 <p>[1] Anderson, B. D. O., &amp; Moore, J. B. (1979). Optimal filtering. Englewood Cliffs, NJ: Prentice-Hall.</p>
 
