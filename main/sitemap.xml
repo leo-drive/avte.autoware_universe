@@ -406,6 +406,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/crosswalk_traffic_light_estimator/</loc>
+         <lastmod>2022-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/detected_object_feature_remover/</loc>
          <lastmod>2022-07-04</lastmod>
          <changefreq>daily</changefreq>
