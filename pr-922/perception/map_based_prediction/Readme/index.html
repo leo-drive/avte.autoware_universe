@@ -9473,7 +9473,7 @@
 </li>
 </ol>
 <h3 id="path-prediction-for-crosswalk-users">Path prediction for crosswalk users<a class="headerlink" href="#path-prediction-for-crosswalk-users" title="Permanent link">#</a></h3>
-<p>This module treats <strong>Pedestrians</strong> and <strong>Bycycles</strong> as objects using the crosswalk, and outputs prediction path based on map and estimated object's velocity, assuming the object has intention to cross the crosswalk, if the objects satisfies at least one of the following conditions:</p>
+<p>This module treats <strong>Pedestrians</strong> and <strong>Bicycles</strong> as objects using the crosswalk, and outputs prediction path based on map and estimated object's velocity, assuming the object has intention to cross the crosswalk, if the objects satisfies at least one of the following conditions:</p>
 <ul>
 <li>move toward the crosswalk</li>
 <li>stop near the crosswalk</li>
@@ -9482,7 +9482,7 @@
   <img src="images/target_objects.svg" width=90%>
 </div>
 
-<p>If there are a reachable crosswalk entry points within the <code>perdiction_time_horizon</code> and the objects satisfies above condition, this module outputs additional predicted path to cross the opposite side via the crosswalk entry point.</p>
+<p>If there are a reachable crosswalk entry points within the <code>prediction_time_horizon</code> and the objects satisfies above condition, this module outputs additional predicted path to cross the opposite side via the crosswalk entry point.</p>
 <div align="center">
   <img src="images/outside_road.svg" width=90%>
 </div>
