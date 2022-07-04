@@ -9594,12 +9594,6 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <td align="left">false</td>
 </tr>
 <tr>
-<td align="left">ctrl_period</td>
-<td align="left">double</td>
-<td align="left">control period [s]</td>
-<td align="left">0.03</td>
-</tr>
-<tr>
 <td align="left">traj_resample_dist</td>
 <td align="left">double</td>
 <td align="left">distance of waypoints in resampling [m]</td>
@@ -9664,6 +9658,30 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <td align="left">double</td>
 <td align="left">threshold value of the target speed used to the stop state entry condition</td>
 <td align="left">0.0</td>
+</tr>
+<tr>
+<td align="left">converged_steer_rad</td>
+<td align="left">double</td>
+<td align="left">threshold value of the steer convergence</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left">keep_steer_control_until_converged</td>
+<td align="left">bool</td>
+<td align="left">keep steer control until steer is converged</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">new_traj_duration_time</td>
+<td align="left">double</td>
+<td align="left">threshold value of the time to be considered as new trajectory</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">new_traj_end_dist</td>
+<td align="left">double</td>
+<td align="left">threshold value of the distance between trajectory ends to be considered as new trajectory</td>
+<td align="left">0.3</td>
 </tr>
 </tbody>
 </table>
