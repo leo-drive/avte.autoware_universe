@@ -6334,6 +6334,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#limitation-chattering-shifts" class="md-nav__link">
+    Limitation: Chattering shifts
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9432,6 +9439,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#limitation-chattering-shifts" class="md-nav__link">
+    Limitation: Chattering shifts
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9480,6 +9494,9 @@
 <p>Currently, the implementation doesn't cover avoidance at corners and intersections. The reason is similar to here. However, this case can still be supported in the future (assuming the vector map is defined correctly).</p>
 <p><img alt="limitation-at-the-intersections" src="../image/limitations/limitation-intersection.png" /></p>
 <p><img alt="limitation-at-the-corner" src="../image/limitations/limitation-corner.png" /></p>
+<h2 id="limitation-chattering-shifts">Limitation: Chattering shifts<a class="headerlink" href="#limitation-chattering-shifts" title="Permanent link">#</a></h2>
+<p>There are possibilities that the shifted path chatters as a result of various factors. For example, bounded box shape or position from the perception input. Sometimes, it is difficult for the perception to get complete information about the object's size. As the object size is updated, the object length will also be updated. This might cause shifts point to be re-calculated, therefore resulting in chattering shift points.</p>
+<p><img alt="limitation-chattering-shift" src="../image/limitations/limitation-chattering_shifts.png" /></p>
 
               
             </article>
