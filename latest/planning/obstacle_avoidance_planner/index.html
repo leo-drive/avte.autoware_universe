@@ -10900,6 +10900,7 @@ Instead, if we use L-infinity norm where slack variables are shared by enabling 
 <li><code>option.is_showing_calculation_time</code> enables showing each calculation time for functions and total calculation time on the terminal.</li>
 <li><code>option.is_stopping_if_outside_drivable_area</code> enables stopping just before the generated trajectory point will be outside the drivable area.</li>
 <li><code>mpt.option.plan_from_ego</code> enables planning from the ego pose when the ego's velocity is zero.</li>
+<li><code>mpt.option.max_plan_from_ego_length</code> maximum length threshold to plan from ego. it is enabled when the length of trajectory is shorter than this value.</li>
 <li><code>mpt.option.two_step_soft_constraint</code> enables two step of soft constraints for collision free<ul>
 <li><code>mpt.option.soft_clearance_from_road</code> and <code>mpt.option.soft_second_clearance_from_road</code> are the weight.</li>
 </ul>
