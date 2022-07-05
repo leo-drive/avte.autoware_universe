@@ -4679,6 +4679,26 @@
     Input
   </a>
   
+    <nav class="md-nav" aria-label="Input">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pcd_map_tf_generator" class="md-nav__link">
+    pcd_map_tf_generator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector_map_tf_generator" class="md-nav__link">
+    vector_map_tf_generator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -9506,6 +9526,26 @@
     Input
   </a>
   
+    <nav class="md-nav" aria-label="Input">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pcd_map_tf_generator" class="md-nav__link">
+    pcd_map_tf_generator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector_map_tf_generator" class="md-nav__link">
+    vector_map_tf_generator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -9574,12 +9614,17 @@
 
 <h1 id="map_tf_generator">map_tf_generator<a class="headerlink" href="#map_tf_generator" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
-<p>This node broadcasts <code>viewer</code> frames for visualization of pointcloud map in Rviz.
-The position of <code>viewer</code> frames is the geometric center of input pointclouds.</p>
-<p>Note that there is no module to need <code>viewer</code> frames and this is used only for visualization.</p>
+<p>The nodes in this package broadcast the <code>viewer</code> frame for visualization of the map in RViz.</p>
+<p>Note that there is no module to need the <code>viewer</code> frame and this is used only for visualization.</p>
+<p>The following are the supported methods to calculate the position of the <code>viewer</code> frame:</p>
+<ul>
+<li><code>pcd_map_tf_generator_node</code> outputs the geometric center of all points in the PCD.</li>
+<li><code>vector_map_tf_generator_node</code> outputs the geometric center of all points in the point layer.</li>
+</ul>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
 <h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
 <h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
+<h4 id="pcd_map_tf_generator">pcd_map_tf_generator<a class="headerlink" href="#pcd_map_tf_generator" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -9593,6 +9638,23 @@ The position of <code>viewer</code> frames is the geometric center of input poin
 <td><code>/map/pointcloud_map</code></td>
 <td><code>sensor_msgs::msg::PointCloud2</code></td>
 <td>Subscribe pointcloud map to calculate position of <code>viewer</code> frames</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vector_map_tf_generator">vector_map_tf_generator<a class="headerlink" href="#vector_map_tf_generator" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/map/vector_map</code></td>
+<td><code>autoware_auto_mapping_msgs::msg::HADMapBin</code></td>
+<td>Subscribe vector map to calculate position of <code>viewer</code> frames</td>
 </tr>
 </tbody>
 </table>
