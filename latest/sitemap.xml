@@ -431,6 +431,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/detected_object_validation/object-lanelet-filter/</loc>
+         <lastmod>2022-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/detected_object_validation/object-position-filter/</loc>
+         <lastmod>2022-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/detected_object_validation/obstacle-pointcloud-based-validator/</loc>
          <lastmod>2022-07-06</lastmod>
          <changefreq>daily</changefreq>
