@@ -161,6 +161,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/common/tier4_screen_capture_rviz_plugin/</loc>
+         <lastmod>2022-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/common/tier4_simulated_clock_rviz_plugin/</loc>
          <lastmod>2022-07-06</lastmod>
          <changefreq>daily</changefreq>
