@@ -476,6 +476,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/image_projection_based_fusion/docs/pointpainting-fusion/</loc>
+         <lastmod>2022-07-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/image_projection_based_fusion/docs/roi-cluster-fusion/</loc>
          <lastmod>2022-07-06</lastmod>
          <changefreq>daily</changefreq>
