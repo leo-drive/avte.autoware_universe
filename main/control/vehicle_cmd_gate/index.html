@@ -9696,6 +9696,11 @@
 <td><code>autoware_auto_vehicle_msgs::msg::Engage</code></td>
 <td>engage signal</td>
 </tr>
+<tr>
+<td><code>~/input/operation_mode</code></td>
+<td><code>tier4_system_msgs::msg::OperationMode</code></td>
+<td>operation mode of Autoware</td>
+</tr>
 </tbody>
 </table>
 <h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
@@ -9748,6 +9753,11 @@
 <td><code>tier4_external_api_msgs::msg::Emergency</code></td>
 <td>external emergency signal</td>
 </tr>
+<tr>
+<td><code>~/output/operation_mode</code></td>
+<td><code>tier4_system_msgs::msg::OperationMode</code></td>
+<td>current operation mode of the vehicle_cmd_gate</td>
+</tr>
 </tbody>
 </table>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
@@ -9796,29 +9806,54 @@
 <td>longitudinal acceleration cmd when vehicle stop with emergency</td>
 </tr>
 <tr>
-<td><code>vel_lim</code></td>
+<td><code>nominal.vel_lim</code></td>
 <td>double</td>
-<td>limit of longitudinal velocity</td>
+<td>limit of longitudinal velocity (activated in AUTONOMOUS operation mode)</td>
 </tr>
 <tr>
-<td><code>lon_acc_lim</code></td>
+<td><code>nominal.lon_acc_lim</code></td>
 <td>double</td>
-<td>limit of longitudinal acceleration</td>
+<td>limit of longitudinal acceleration (activated in AUTONOMOUS operation mode)</td>
 </tr>
 <tr>
-<td><code>lon_jerk_lim</code></td>
+<td><code>nominal.lon_jerk_lim</code></td>
 <td>double</td>
-<td>limit of longitudinal jerk</td>
+<td>limit of longitudinal jerk (activated in AUTONOMOUS operation mode)</td>
 </tr>
 <tr>
-<td><code>lat_acc_lim</code></td>
+<td><code>nominal.lat_acc_lim</code></td>
 <td>double</td>
-<td>limit of lateral acceleration</td>
+<td>limit of lateral acceleration (activated in AUTONOMOUS operation mode)</td>
 </tr>
 <tr>
-<td><code>lat_jerk_lim</code></td>
+<td><code>nominal.lat_jerk_lim</code></td>
 <td>double</td>
-<td>limit of lateral jerk</td>
+<td>limit of lateral jerk (activated in AUTONOMOUS operation mode)</td>
+</tr>
+<tr>
+<td><code>on_transition.vel_lim</code></td>
+<td>double</td>
+<td>limit of longitudinal velocity (activated in TRANSITION operation mode)</td>
+</tr>
+<tr>
+<td><code>on_transition.lon_acc_lim</code></td>
+<td>double</td>
+<td>limit of longitudinal acceleration (activated in TRANSITION operation mode)</td>
+</tr>
+<tr>
+<td><code>on_transition.lon_jerk_lim</code></td>
+<td>double</td>
+<td>limit of longitudinal jerk (activated in TRANSITION operation mode)</td>
+</tr>
+<tr>
+<td><code>on_transition.lat_acc_lim</code></td>
+<td>double</td>
+<td>limit of lateral acceleration (activated in TRANSITION operation mode)</td>
+</tr>
+<tr>
+<td><code>on_transition.lat_jerk_lim</code></td>
+<td>double</td>
+<td>limit of lateral jerk (activated in TRANSITION operation mode)</td>
 </tr>
 </tbody>
 </table>
