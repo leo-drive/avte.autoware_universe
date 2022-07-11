@@ -9923,7 +9923,7 @@
 <h3 id="role">Role<a class="headerlink" href="#role" title="Permanent link">#</a></h3>
 <p>This module judges whether the ego should stop in front of the crosswalk in order to provide safe passage of pedestrians and bicycles based on object's behavior and surround traffic.</p>
 <figure>
-<p><img alt="example" src="../docs/crosswalk/example.png" width="900" />
+<p><img alt="example" src="../docs/crosswalk/example.png" width="1000" />
   </p>
 <figcaption>crosswalk module</figcaption>
 </figure>
@@ -9950,20 +9950,19 @@
 <h4 id="parameters-for-stop-position">Parameters for stop position<a class="headerlink" href="#parameters-for-stop-position" title="Permanent link">#</a></h4>
 <p>The crosswalk module determines a stop position at least <code>stop_margin</code> away from the object.</p>
 <figure>
-<p><img alt="stop_margin" src="../docs/crosswalk/stop_margin.svg" width="900" />
+<p><img alt="stop_margin" src="../docs/crosswalk/stop_margin.svg" width="1000" />
   </p>
 <figcaption>stop margin</figcaption>
 </figure>
 <p>The stop line is the reference point for the stopping position of the vehicle, but if there is no stop line in front of the crosswalk, the position <code>stop_line_distance</code> meters before the crosswalk is the virtual stop line for the vehicle. Then, if the stop position determined from <code>stop_margin</code> exists in front of the stop line determined from the HDMap or <code>stop_line_distance</code>, the actual stop position is determined according to <code>stop_margin</code> in principle, and vice versa.</p>
 <figure>
-<p><img alt="stop_line" src="../docs/crosswalk/stop_line.svg" width="450" />
-  <img alt="stop_line_distance" src="../docs/crosswalk/stop_line_distance.svg" width="450" />
+<p><img alt="stop_line" src="../docs/crosswalk/stop_line.svg" width="500" /> <img alt="stop_line_distance" src="../docs/crosswalk/stop_line_distance.svg" width="500" />
   </p>
 <figcaption>stop point</figcaption>
 </figure>
 <p>On the other hand, if pedestrian (bicycle) is crossing <strong>wide</strong> crosswalks seen in scramble intersections, and the pedestrian position is more than <code>stop_line_margin</code> meters away from the stop line, the actual stop position is determined to be <code>stop_margin</code> and pedestrian position, not at the stop line.</p>
 <figure>
-<p><img alt="stop_line_margin" src="../docs/crosswalk/stop_line_margin.svg" width="900" />
+<p><img alt="stop_line_margin" src="../docs/crosswalk/stop_line_margin.svg" width="1000" />
   </p>
 <figcaption>stop at wide crosswalk</figcaption>
 </figure>
@@ -10034,7 +10033,7 @@
 <h4 id="parameters-for-stuck-vehicle">Parameters for stuck vehicle<a class="headerlink" href="#parameters-for-stuck-vehicle" title="Permanent link">#</a></h4>
 <p>If there are low speed or stop vehicle ahead of the crosswalk, and there is not enough space between the crosswalk and the vehicle (see following figure), closing the distance to that vehicle could cause Ego to be stuck on the crosswalk. So, in this situation, this module plans to stop before the crosswalk and wait until the vehicles move away, even if there are no pedestrians or bicycles.</p>
 <figure>
-<p><img alt="stuck_vehicle_attention_range" src="../docs/crosswalk/stuck_vehicle_attention_range.svg" width="900" />
+<p><img alt="stuck_vehicle_attention_range" src="../docs/crosswalk/stuck_vehicle_attention_range.svg" width="1000" />
   </p>
 <figcaption>stuck vehicle attention range</figcaption>
 </figure>
@@ -10122,7 +10121,7 @@
 <h4 id="parameters-for-target-area-object">Parameters for target area &amp; object<a class="headerlink" href="#parameters-for-target-area-object" title="Permanent link">#</a></h4>
 <p>As a countermeasure against pedestrians attempting to cross outside the crosswalk area, this module watches not only the crosswalk zebra area but also in front of and behind space of the crosswalk, and if there are pedestrians or bicycles attempting to pass through the watch area, this module judges whether ego should pass or stop.</p>
 <figure>
-<p><img alt="crosswalk_attention_range" src="../docs/crosswalk/crosswalk_attention_range.svg" width="900" />
+<p><img alt="crosswalk_attention_range" src="../docs/crosswalk/crosswalk_attention_range.svg" width="1000" />
   </p>
 <figcaption>crosswalk attention range</figcaption>
 </figure>
@@ -10175,7 +10174,7 @@
 <p>At first, this module determines whether the pedestrians or bicycles are likely to cross the crosswalk based on the color of the pedestrian traffic light signal related to the crosswalk. Only when the pedestrian traffic signal is <strong>RED</strong>, this module judges that the objects will not cross the crosswalk and skip the pass judge logic.</p>
 <p>Secondly, this module makes a decision as to whether ego should stop in front of the crosswalk or pass through based on the relative relationship between TTC(Time-To-Collision) and TTV(Time-To-Vehicle). The TTC is the time it takes for ego to reach the virtual collision point, and the TTV is the time it takes for the object to reach the virtual collision point.</p>
 <figure>
-<p><img alt="virtual_collision_point" src="../docs/crosswalk/virtual_collision_point.svg" width="900" />
+<p><img alt="virtual_collision_point" src="../docs/crosswalk/virtual_collision_point.svg" width="1000" />
   </p>
 <figcaption>virtual collision point</figcaption>
 </figure>
@@ -10187,7 +10186,7 @@
 </ol>
 <p>This module judges that ego is able to pass through the crosswalk without collision risk when the relative relationship between TTC and TTV is <strong>Type-A</strong> and <strong>Type-C</strong>. On the other hand, this module judges that ego needs to stop in front of the crosswalk prevent collision with objects in <strong>Type-B</strong> condition. The time margin can be set by parameters <code>ego_pass_first_margin</code> and <code>ego_pass_later_margin</code>. This logic is designed based on [1].</p>
 <figure>
-<p><img alt="ttc-ttv" src="../docs/crosswalk/ttc-ttv.svg" width="900" />
+<p><img alt="ttc-ttv" src="../docs/crosswalk/ttc-ttv.svg" width="1000" />
   </p>
 <figcaption>time-to-collision vs time-to-vehicle</figcaption>
 </figure>
@@ -10196,14 +10195,14 @@
 <h4 id="dead-lock-prevention">Dead lock prevention<a class="headerlink" href="#dead-lock-prevention" title="Permanent link">#</a></h4>
 <p>If there are objects stop within a radius of <code>min_object_velocity * ego_pass_later_margin</code> meters from virtual collision point, this module judges that ego should stop based on the pass judge logic described above at all times. In such a situation, even if the pedestrian has no intention of crossing, ego continues the stop decision on the spot. So, this module has another logic for dead lock prevention, and if the object continues to stop for more than <code>max_yield_timeout</code> seconds after ego stops in front of the crosswalk, this module judges that the object has no intention of crossing and switches from <strong>STOP</strong> state to <strong>PASS</strong> state. The parameter <code>stop_object_velocity_threshold</code> is used to judge whether the objects are stopped or not. In addition, if the object starts to move after the module judges that the object has no intention of crossing, this module judges whether ego should stop or not once again.</p>
 <figure>
-<p><img alt="no-intension" src="../docs/crosswalk/no-intension.svg" width="900" />
+<p><img alt="no-intension" src="../docs/crosswalk/no-intension.svg" width="1000" />
   </p>
 <figcaption>dead lock situation</figcaption>
 </figure>
 <h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h3>
 <p>When multiple crosswalks are nearby (such as intersection), this module may make a stop decision even at crosswalks where the object has no intention of crossing.</p>
 <figure>
-<p><img alt="limitation" src="../docs/crosswalk/limitation.svg" width="900" />
+<p><img alt="limitation" src="../docs/crosswalk/limitation.svg" width="1000" />
   </p>
 <figcaption>design limits</figcaption>
 </figure>
