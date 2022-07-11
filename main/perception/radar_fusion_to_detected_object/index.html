@@ -9715,6 +9715,12 @@
 <td align="left">The object's velocity threshold to decide to split for two objects from radar information (currently not implemented) [m/s]</td>
 <td align="left">5.0</td>
 </tr>
+<tr>
+<td align="left">threshold_yaw_diff</td>
+<td align="left">double</td>
+<td align="left">The yaw orientation threshold. If $ \vert \theta <em>{ob} - \theta</em> {ra} \vert &lt; threshold<em ob="ob">yaw_diff $ attached to radar information include estimated velocity, where $ \theta</em> $ is yaw angle from 3d detected object, $ \theta_ {ra} $ is yaw angle from radar object. [rad]</td>
+<td align="left">0.35</td>
+</tr>
 </tbody>
 </table>
 <h3 id="weight-parameters-for-velocity-estimation">Weight parameters for velocity estimation<a class="headerlink" href="#weight-parameters-for-velocity-estimation" title="Permanent link">#</a></h3>
