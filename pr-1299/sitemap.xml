@@ -1,1042 +1,1042 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/CODE_OF_CONDUCT/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/CODE_OF_CONDUCT.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/CONTRIBUTING/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/CONTRIBUTING.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/DISCLAIMER/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/DISCLAIMER.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_ad_api_msgs/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_ad_api_msgs/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_common/design/comparisons/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_common/design/comparisons.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_geometry/design/interval/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_geometry/design/interval.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_geometry/design/polygon_intersection_2d-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_geometry/design/polygon_intersection_2d-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_geometry/design/spatial-hash-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_geometry/design/spatial-hash-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_perception_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_perception_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_tf2/design/autoware-auto-tf2-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_auto_tf2/design/autoware-auto-tf2-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_testing/design/autoware_testing-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/autoware_testing/design/autoware_testing-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/component_interface_utils/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/component_interface_utils/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/fake_test_node/design/fake_test_node-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/fake_test_node/design/fake_test_node-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/global_parameter_loader/Readme/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/global_parameter_loader/Readme.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/goal_distance_calculator/Readme/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/goal_distance_calculator/Readme.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/grid_map_utils/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/grid_map_utils/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/interpolation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/interpolation/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/kalman_filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/kalman_filter/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/neural_networks_provider/design/neural_networks-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/neural_networks_provider/design/neural_networks-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/osqp_interface/design/osqp_interface-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/osqp_interface/design/osqp_interface-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/path_distance_calculator/Readme/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/path_distance_calculator/Readme.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/polar_grid/Readme/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/polar_grid/Readme.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/signal_processing/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/signal_processing/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_autoware_utils/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_autoware_utils/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_autoware_utils/docs/vehicle/vehicle/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_autoware_utils/docs/vehicle/vehicle.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_control_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_control_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_datetime_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_datetime_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_debug_tools/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_debug_tools/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_localization_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_localization_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_perception_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_perception_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_planning_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_planning_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_screen_capture_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_screen_capture_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_simulated_clock_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_simulated_clock_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_state_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_state_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_traffic_light_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_traffic_light_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_vehicle_rviz_plugin/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/tier4_vehicle_rviz_plugin/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/vehicle_constants_manager/design/vehicle_constants_manager-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/vehicle_constants_manager/design/vehicle_constants_manager-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/web_controller/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/common/web_controller/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/control_performance_analysis/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/control_performance_analysis/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/external_cmd_selector/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/external_cmd_selector/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/joy_controller/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/joy_controller/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/lane_departure_checker/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/lane_departure_checker/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/obstacle_collision_checker/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/obstacle_collision_checker/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/operation_mode_transition_manager/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/operation_mode_transition_manager/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/shift_decider/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/shift_decider/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower/design/trajectory_follower-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower/design/trajectory_follower-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower/design/trajectory_follower-mpc-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower/design/trajectory_follower-mpc-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower/design/trajectory_follower-pid-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower/design/trajectory_follower-pid-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower_nodes/design/lateral_controller-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower_nodes/design/lateral_controller-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower_nodes/design/latlon_muxer-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower_nodes/design/latlon_muxer-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower_nodes/design/longitudinal_controller-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower_nodes/design/longitudinal_controller-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower_nodes/design/simple_trajectory_follower-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower_nodes/design/simple_trajectory_follower-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower_nodes/design/trajectory_follower-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/trajectory_follower_nodes/design/trajectory_follower-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/vehicle_cmd_gate/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/control/vehicle_cmd_gate/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_autoware_api_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_autoware_api_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_control_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_control_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_integration_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_integration_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_localization_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_localization_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_map_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_map_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_perception_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_perception_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_planning_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_planning_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_sensing_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_sensing_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_simulator_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_simulator_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_system_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_system_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_vehicle_launch/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/launch/tier4_vehicle_launch/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/ekf_localizer/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/ekf_localizer/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/gyro_odometer/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/gyro_odometer/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/initial_pose_button_panel/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/initial_pose_button_panel/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/localization_error_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/localization_error_monitor/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/ndt/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/ndt/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/ndt_pcl_modified/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/ndt_pcl_modified/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/ndt_scan_matcher/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/ndt_scan_matcher/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/pose2twist/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/pose2twist/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/pose_initializer/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/pose_initializer/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/stop_filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/stop_filter/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/twist2accel/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/localization/twist2accel/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/lanelet2_extension/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/lanelet2_extension/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/lanelet2_extension/docs/extra_lanelet_subtypes/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/lanelet2_extension/docs/extra_lanelet_subtypes.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/lanelet2_extension/docs/extra_regulatory_elements/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/lanelet2_extension/docs/extra_regulatory_elements.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/lanelet2_extension/docs/lanelet2_format_extension/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/lanelet2_extension/docs/lanelet2_format_extension.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/map_loader/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/map_loader/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/map_tf_generator/Readme/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/map/map_tf_generator/Readme.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/compare_map_segmentation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/compare_map_segmentation/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/crosswalk_traffic_light_estimator/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/crosswalk_traffic_light_estimator/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_feature_remover/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_feature_remover/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_validation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_validation/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_validation/object-lanelet-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_validation/object-lanelet-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_validation/object-position-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_validation/object-position-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_validation/obstacle-pointcloud-based-validator/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_validation/obstacle-pointcloud-based-validator.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_validation/occupancy-grid-based-validator/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detected_object_validation/occupancy-grid-based-validator.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detection_by_tracker/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/detection_by_tracker/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/elevation_map_loader/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/elevation_map_loader/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/euclidean_cluster/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/euclidean_cluster/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/ground_segmentation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/ground_segmentation/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/ground_segmentation/docs/ransac-ground-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/ground_segmentation/docs/ransac-ground-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/ground_segmentation/docs/ray-ground-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/ground_segmentation/docs/ray-ground-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/ground_segmentation/docs/scan-ground-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/ground_segmentation/docs/scan-ground-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/heatmap_visualizer/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/heatmap_visualizer/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/image_projection_based_fusion/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/image_projection_based_fusion/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/image_projection_based_fusion/docs/pointpainting-fusion/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/image_projection_based_fusion/docs/pointpainting-fusion.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/image_projection_based_fusion/docs/roi-cluster-fusion/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/image_projection_based_fusion/docs/roi-cluster-fusion.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/image_projection_based_fusion/docs/roi-detected-object-fusion/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/image_projection_based_fusion/docs/roi-detected-object-fusion.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/lidar_apollo_instance_segmentation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/lidar_apollo_instance_segmentation/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/lidar_apollo_instance_segmentation/lib/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/lidar_apollo_instance_segmentation/lib/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/lidar_centerpoint/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/lidar_centerpoint/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/map_based_prediction/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/map_based_prediction/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/multi_object_tracker/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/multi_object_tracker/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/object_merger/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/object_merger/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/object_range_splitter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/object_range_splitter/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/occupancy_grid_map_outlier_filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/occupancy_grid_map_outlier_filter/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/radar_fusion_to_detected_object/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/radar_fusion_to_detected_object/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/radar_fusion_to_detected_object/docs/algorithm/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/radar_fusion_to_detected_object/docs/algorithm.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/radar_tracks_msgs_converter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/radar_tracks_msgs_converter/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/shape_estimation/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/shape_estimation/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/tensorrt_yolo/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/tensorrt_yolo/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/traffic_light_classifier/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/traffic_light_classifier/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/traffic_light_map_based_detector/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/traffic_light_map_based_detector/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/traffic_light_ssd_fine_detector/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/traffic_light_ssd_fine_detector/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/traffic_light_visualization/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/perception/traffic_light_visualization/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_path_planner/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_path_planner/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_path_planner/behavior_path_planner_avoidance-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_path_planner/behavior_path_planner_avoidance-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_path_planner/behavior_path_planner_design_limitations/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_path_planner/behavior_path_planner_design_limitations.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/blind-spot-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/blind-spot-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/crosswalk-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/crosswalk-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/detection-area-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/detection-area-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/intersection-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/intersection-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/merge-from-private-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/merge-from-private-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/no-stopping-area-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/no-stopping-area-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/occlusion-spot-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/occlusion-spot-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/run-out-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/run-out-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/stop-line-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/stop-line-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/traffic-light-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/traffic-light-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/virtual-traffic-light-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/behavior_velocity_planner/virtual-traffic-light-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/costmap_generator/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/costmap_generator/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/external_velocity_limit_selector/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/external_velocity_limit_selector/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/freespace_planner/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/freespace_planner/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/freespace_planning_algorithms/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/freespace_planning_algorithms/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/mission_planner/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/mission_planner/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/motion_velocity_smoother/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/motion_velocity_smoother/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/motion_velocity_smoother/README.ja/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/motion_velocity_smoother/README.ja.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/obstacle_avoidance_planner/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/obstacle_avoidance_planner/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/obstacle_cruise_planner/obstacle_cruise_planner-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/obstacle_cruise_planner/obstacle_cruise_planner-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/obstacle_stop_planner/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/obstacle_stop_planner/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/planning_error_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/planning_error_monitor/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/planning_evaluator/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/planning_evaluator/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/route_handler/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/route_handler/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/rtc_auto_approver/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/rtc_auto_approver/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/rtc_interface/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/rtc_interface/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/scenario_selector/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/scenario_selector/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/surround_obstacle_checker/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/surround_obstacle_checker/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/surround_obstacle_checker/surround_obstacle_checker-design.ja/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/planning/surround_obstacle_checker/surround_obstacle_checker-design.ja.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/geo_pos_conv/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/geo_pos_conv/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/gnss_poser/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/gnss_poser/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/image_diagnostics/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/image_diagnostics/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/image_transport_decompressor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/image_transport_decompressor/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/imu_corrector/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/imu_corrector/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/livox/livox_tag_filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/livox/livox_tag_filter/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/blockage_diag/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/blockage_diag.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/concatenate-data/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/concatenate-data.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/crop-box-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/crop-box-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/distortion-corrector/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/distortion-corrector.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/downsample-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/downsample-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/dual-return-outlier-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/dual-return-outlier-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/outlier-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/outlier-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/passthrough-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/passthrough-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/pointcloud-accumulator/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/pointcloud-accumulator.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/radius-search-2d-outlier-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/radius-search-2d-outlier-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/ring-outlier-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/ring-outlier-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/vector-map-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/vector-map-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/voxel-grid-outlier-filter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/pointcloud_preprocessor/docs/voxel-grid-outlier-filter.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/probabilistic_occupancy_grid_map/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/probabilistic_occupancy_grid_map/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/probabilistic_occupancy_grid_map/laserscan-based-occupancy-grid-map/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/probabilistic_occupancy_grid_map/laserscan-based-occupancy-grid-map.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/probabilistic_occupancy_grid_map/pointcloud-based-occupancy-grid-map/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/probabilistic_occupancy_grid_map/pointcloud-based-occupancy-grid-map.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/tier4_pcl_extensions/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/tier4_pcl_extensions/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/vehicle_velocity_converter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/sensing/vehicle_velocity_converter/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/simulator/dummy_perception_publisher/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/simulator/dummy_perception_publisher/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/simulator/fault_injection/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/simulator/fault_injection/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/simulator/simple_planning_simulator/design/simple_planning_simulator-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/simulator/simple_planning_simulator/design/simple_planning_simulator-design.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/ad_service_state_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/ad_service_state_monitor/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/bluetooth_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/bluetooth_monitor/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/dummy_diag_publisher/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/dummy_diag_publisher/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/dummy_infrastructure/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/dummy_infrastructure/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/emergency_handler/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/emergency_handler/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_error_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_error_monitor/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/class_diagrams/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/class_diagrams.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/hdd_reader/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/hdd_reader.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/msr_reader/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/msr_reader.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/ros_parameters/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/ros_parameters.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/seq_diagrams/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/seq_diagrams.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_cpu_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_cpu_monitor.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_gpu_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_gpu_monitor.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_hdd_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_hdd_monitor.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_mem_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_mem_monitor.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_net_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_net_monitor.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_ntp_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_ntp_monitor.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_process_monitor/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/topics_process_monitor.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/traffic_reader/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/system_monitor/docs/traffic_reader.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/topic_state_monitor/Readme/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/topic_state_monitor/Readme.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/velodyne_monitor/Readme/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/system/velodyne_monitor/Readme.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/vehicle/accel_brake_map_calibrator/accel_brake_map_calibrator/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/vehicle/accel_brake_map_calibrator/accel_brake_map_calibrator/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/vehicle/external_cmd_converter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/vehicle/external_cmd_converter/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/vehicle/raw_vehicle_cmd_converter/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/vehicle/raw_vehicle_cmd_converter/index.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/vehicle/steer_offset_estimator/Readme/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/vehicle/steer_offset_estimator/Readme.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/vehicle/vehicle_info_util/Readme/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1299/vehicle/vehicle_info_util/Readme.html</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
