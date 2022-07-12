@@ -9652,6 +9652,46 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#trained-models" class="md-nav__link">
+    Trained Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Trained Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    Changelog
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v1-20220706" class="md-nav__link">
+    v1 (2022/07/06)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v0-20211203" class="md-nav__link">
+    v0 (2021/12/03)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#optional-error-detection-and-handling" class="md-nav__link">
     (Optional) Error detection and handling
   </a>
@@ -9804,6 +9844,49 @@
 <ul>
 <li>The <code>object.existence_probability</code> is stored the value of classification confidence of a DNN, not probability.</li>
 </ul>
+<h2 id="trained-models">Trained Models<a class="headerlink" href="#trained-models" title="Permanent link">#</a></h2>
+<p>You can download the onnx format of trained models by clicking on the links below.</p>
+<h3 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">#</a></h3>
+<h4 id="v1-20220706">v1 (2022/07/06)<a class="headerlink" href="#v1-20220706" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URLs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>centerpoint</code></td>
+<td><a href="https://awf.ml.dev.web.auto/perception/models/centerpoint/v1/pts_voxel_encoder_centerpoint.onnx">pts_voxel_encoder</a> <br> <a href="https://awf.ml.dev.web.auto/perception/models/centerpoint/v1/pts_backbone_neck_head_centerpoint.onnx">pts_backbone_neck_head</a></td>
+<td>There is a single change due to the limitation in the implementation of this package. <code>num_filters=[32, 32]</code> of <code>PillarFeatureNet</code></td>
+</tr>
+<tr>
+<td><code>centerpoint_tiny</code></td>
+<td><a href="https://awf.ml.dev.web.auto/perception/models/centerpoint/v1/pts_voxel_encoder_centerpoint_tiny.onnx">pts_voxel_encoder</a> <br> <a href="https://awf.ml.dev.web.auto/perception/models/centerpoint/v1/pts_backbone_neck_head_centerpoint_tiny.onnx">pts_backbone_neck_head</a></td>
+<td>The same model as <code>default</code> of <code>v0</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>These changes are compared with <a href="https://github.com/tianweiy/CenterPoint/blob/v0.2/configs/waymo/pp/waymo_centerpoint_pp_two_pfn_stride1_3x.py">this configuration</a>.</p>
+<h4 id="v0-20211203">v0 (2021/12/03)<a class="headerlink" href="#v0-20211203" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URLs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>default</code></td>
+<td><a href="https://awf.ml.dev.web.auto/perception/models/pts_voxel_encoder_default.onnx">pts_voxel_encoder</a> <br> <a href="https://awf.ml.dev.web.auto/perception/models/pts_backbone_neck_head_default.onnx">pts_backbone_neck_head</a></td>
+<td>There are two changes from the original CenterPoint architecture. <code>num_filters=[32]</code> of <code>PillarFeatureNet</code> and <code>ds_layer_strides=[2, 2, 2]</code> of <code>RPN</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="optional-error-detection-and-handling">(Optional) Error detection and handling<a class="headerlink" href="#optional-error-detection-and-handling" title="Permanent link">#</a></h2>
 <!-- Write how to detect errors and how to recover from them.
 
