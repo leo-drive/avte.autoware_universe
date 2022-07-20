@@ -9905,7 +9905,7 @@
 <tr>
 <td><code>~/input/navpvt</code></td>
 <td><code>ublox_msgs::msg::NavPVT</code></td>
-<td>position, velocity and time solution (You can see detail description in reference document [1])</td>
+<td>position, velocity and time solution. <a href="https://github.com/KumarRobotics/ublox.git">click here for more details</a></td>
 </tr>
 </tbody>
 </table>
@@ -9952,7 +9952,7 @@
 <td><code>base_frame</code></td>
 <td>string</td>
 <td>"base_link"</td>
-<td>frame d</td>
+<td>frame id</td>
 </tr>
 <tr>
 <td><code>gnss_frame</code></td>
@@ -9973,6 +9973,12 @@
 <td>frame id</td>
 </tr>
 <tr>
+<td><code>coordinate_system</code></td>
+<td>int</td>
+<td>"4"</td>
+<td>coordinate system enumeration; 0: UTM, 1: MGRS, 2: Plane, 3: WGS84 Local Coordinate System, 4: UTM Local Coordinate System</td>
+</tr>
+<tr>
 <td><code>use_ublox_receiver</code></td>
 <td>bool</td>
 <td>false</td>
@@ -9982,7 +9988,7 @@
 <td><code>plane_zone</code></td>
 <td>int</td>
 <td>9</td>
-<td>identification number of the plane rectangular coordinate systems (See, reference document [2])</td>
+<td>identification number of the plane rectangular coordinate systems. <a href="https://www.gsi.go.jp/LAW/heimencho.html">click here for more details</a></td>
 </tr>
 </tbody>
 </table>
@@ -9990,8 +9996,6 @@
 <h2 id="optional-error-detection-and-handling">(Optional) Error detection and handling<a class="headerlink" href="#optional-error-detection-and-handling" title="Permanent link">#</a></h2>
 <h2 id="optional-performance-characterization">(Optional) Performance characterization<a class="headerlink" href="#optional-performance-characterization" title="Permanent link">#</a></h2>
 <h2 id="optional-referencesexternal-links">(Optional) References/External links<a class="headerlink" href="#optional-referencesexternal-links" title="Permanent link">#</a></h2>
-<p>[1] <a href="https://github.com/KumarRobotics/ublox.git">https://github.com/KumarRobotics/ublox.git</a></p>
-<p>[2] <a href="https://www.gsi.go.jp/LAW/heimencho.html">https://www.gsi.go.jp/LAW/heimencho.html</a></p>
 <h2 id="optional-future-extensions-unimplemented-parts">(Optional) Future extensions / Unimplemented parts<a class="headerlink" href="#optional-future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
 
               
