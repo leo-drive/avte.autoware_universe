@@ -6739,6 +6739,19 @@
     Lane-changing phase
   </a>
   
+    <nav class="md-nav" aria-label="Lane-changing phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-the-lane-is-blocked-and-multiple-lane-changes" class="md-nav__link">
+    If the lane is blocked and multiple lane changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -10073,6 +10086,19 @@
     Lane-changing phase
   </a>
   
+    <nav class="md-nav" aria-label="Lane-changing phase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-the-lane-is-blocked-and-multiple-lane-changes" class="md-nav__link">
+    If the lane is blocked and multiple lane changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -10167,6 +10193,13 @@
 <div class="highlight"><pre><span></span><code><span class="n">lane_change_prepare_velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_speed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">deceleration</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lane_change_prepare_duration</span><span class="w"></span>
 <span class="n">lane_changing_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">lane_change_prepare_velocity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lane_changing_duration</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">deceleration</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lane_changing_duration</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">minimum_lane_change_length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">backward_length_buffer_for_end_of_lane</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
+<p>The <code>backward_length_buffer_for_end_of_lane</code> is added to allow some window for any possible delay, such as control or mechanical delay during brake lag.</p>
+<h4 id="if-the-lane-is-blocked-and-multiple-lane-changes">If the lane is blocked and multiple lane changes<a class="headerlink" href="#if-the-lane-is-blocked-and-multiple-lane-changes" title="Permanent link">#</a></h4>
+<p>When driving on the public road with other vehicles, there exist scenarios where lane changes cannot be executed. Suppose the candidate path is evaluated as unsafe, for example, due to incoming vehicles in the adjacent lane. In that case, the ego vehicle can't change lanes, and it is impossible to reach the goal. Therefore, the ego vehicle must stop earlier at a certain distance and wait for the adjacent lane to be evaluated as safe. The minimum stopping distance computation is as follows.</p>
+<div class="highlight"><pre><span></span><code><span class="n">minimum_lane_change_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_of_lane_changes</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">minimum_lane_change_length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">backward_length_buffer_for_end_of_lane</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<p>The following figure illustrates when the lane is blocked in multiple lane changes cases.</p>
+<p><img alt="multiple-lane-changes" src="../image/lane_change/lane_change-when_cannot_change_lanes.png" /></p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
 <h3 id="essential-lane-change-parameters">Essential lane change parameters<a class="headerlink" href="#essential-lane-change-parameters" title="Permanent link">#</a></h3>
 <p>The following parameters are configurable in <code>behavior_path_planner.param.yaml</code>.</p>
