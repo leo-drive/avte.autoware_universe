@@ -10169,11 +10169,34 @@
 </code></pre></div>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
 <h3 id="essential-lane-change-parameters">Essential lane change parameters<a class="headerlink" href="#essential-lane-change-parameters" title="Permanent link">#</a></h3>
-<p>The following parameters are configurable in <code>behavior_path_planner.param.yaml</code>.
-| Name | Unit | Type | Description | Default value |
-|:-----------------------------------------|------|--------|---------------------------------------------------------------------------------------|---------------|
-| <code>backward_length_buffer_for_end_of_lane</code> | [m] | double | The end of lane buffer to ensure ego vehicle has enough distance to start lane change | 5.0 |
-| <code>minimum_lane_change_length</code> | [m] | double | The minimum distance needed for changing lanes. | 12.0 |</p>
+<p>The following parameters are configurable in <code>behavior_path_planner.param.yaml</code>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th>Unit</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>backward_length_buffer_for_end_of_lane</code></td>
+<td>[m]</td>
+<td>double</td>
+<td>The end of lane buffer to ensure ego vehicle has enough distance to start lane change</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td align="left"><code>minimum_lane_change_length</code></td>
+<td>[m]</td>
+<td>double</td>
+<td>The minimum distance needed for changing lanes.</td>
+<td>12.0</td>
+</tr>
+</tbody>
+</table>
 <p>The following parameters are configurable in <code>lane_change.param.yaml</code>.</p>
 <table>
 <thead>
