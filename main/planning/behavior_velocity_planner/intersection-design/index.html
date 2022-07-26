@@ -10337,6 +10337,7 @@ To prevent a chattering, once the ego vehicle passes this line, “stop” decis
 To prevent going over the pass judge line before the traffic light stop line, the distance between stop line and pass judge line become 0m in case that there is a stop line between the ego vehicle and an intersection stop line.</p>
 <h4 id="stuck-vehicle-detection">Stuck Vehicle Detection<a class="headerlink" href="#stuck-vehicle-detection" title="Permanent link">#</a></h4>
 <p>If there is any object in a certain distance (default : 5[m]) from the end point of the intersection lane on the driving lane and the object velocity is less than a threshold (default 3.0[km/h]), the object is regarded as a stuck vehicle. If the stuck vehicle exists, the ego vehicle cannot enter the intersection.</p>
+<p>As a related case, if the object in front of the ego vehicle is turning the same direction, this module predicts the stopping point that the object will reach at a certain deceleration (default: -1.0[m/s^2]). If the predicted position is in stuck vehicle detection area AND the position which <code>vehicle length</code> [m] behind the predicted position is in detection area, the ego vehicle will also stop.</p>
 <h3 id="module-parameters">Module Parameters<a class="headerlink" href="#module-parameters" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -10411,6 +10412,11 @@ To prevent going over the pass judge line before the traffic light stop line, th
 <td><code>merge_from_private_road/stop_duration_sec</code></td>
 <td>double</td>
 <td>[s] duration to stop</td>
+</tr>
+<tr>
+<td><code>assumed_front_car_decel: 1.0</code></td>
+<td>double</td>
+<td>[m/s^2] deceleration of front car used to check if it could stop in the stuck area at the exit</td>
 </tr>
 </tbody>
 </table>
