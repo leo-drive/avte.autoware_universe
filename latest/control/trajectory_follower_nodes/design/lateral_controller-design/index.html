@@ -10432,18 +10432,12 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <td align="left">steering dynamics time constant (1d approximation) for vehicle model [s]</td>
 <td align="left">0.3</td>
 </tr>
-<tr>
-<td align="left">steer_lim_deg</td>
-<td align="left">double</td>
-<td align="left">steering angle limit for vehicle model [deg]. This is also used for QP constraint.</td>
-<td align="left">35.0</td>
-</tr>
 </tbody>
 </table>
 <h3 id="how-to-tune-mpc-parameters">How to tune MPC parameters<a class="headerlink" href="#how-to-tune-mpc-parameters" title="Permanent link">#</a></h3>
 <ol>
 <li>
-<p>Set appropriate vehicle kinematics parameters for distance to front and rear axle, and <code>steer_lim_deg</code>.
+<p>Set appropriate vehicle kinematics parameters for distance to front and rear axle and max steer angle.
    Also check that the input <code>VehicleKinematicState</code> has appropriate values (speed: vehicle rear-wheels-center velocity [km/h], angle: steering (tire) angle [rad]).
    These values give a vehicle information to the controller for path following.
    Errors in these values cause fundamental tracking error.</p>
