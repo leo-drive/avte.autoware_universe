@@ -10277,7 +10277,14 @@
 </code></pre></div>
 <p>The <code>backward_length_buffer_for_end_of_lane</code> is added to allow some window for any possible delay, such as control or mechanical delay during brake lag.</p>
 <h4 id="multiple-candidate-path-samples">Multiple candidate path samples<a class="headerlink" href="#multiple-candidate-path-samples" title="Permanent link">#</a></h4>
+<p>Lane change velocity is affected by the ego vehicle's current velocity. High velocity requires longer preparation and lane changing distance. However we also need to plan lane changing trajectories in case ego vehicle slows down.
+Computing candidate paths that assumes ego vehicle's slows down is performed by substituting predetermined deceleration value into <code>lane_change_prepare_distance</code>, <code>lane_change_prepare_velocity</code> and <code>lane_changing_distance</code> equation.</p>
+<p>The predetermined deceleration are a set of value that starts from <code>deceleration = 0.0</code>, and decrease by <code>acceleration_resolution</code> until it reaches<code>deceleration = -maximum_deceleration</code>. The <code>acceleration_resolution</code> is determine by the following</p>
+<div class="highlight"><pre><span></span><code><span class="n">acceleration_resolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maximum_deceleration</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">lane_change_sampling_num</span><span class="w"></span>
+</code></pre></div>
+<p>The following figure illustrates when <code>lane_change_sampling_num = 4</code>. Assuming that <code>maximum_deceleration = 1.0</code> then <code>a0 == 0.0 == no deceleration</code>, <code>a1 == 0.25</code>, <code>a2 == 0.5</code>, <code>a3 == 0.75</code> and <code>a4 == 1.0 == maximum_deceleration</code>. <code>a0</code> is the expected lane change trajectories should ego vehicle do not decelerate, and <code>a1</code>'s path is the expected lane change trajectories should ego vehicle decelerate at <code>0.25 m/s^2</code>.</p>
 <p><img alt="path_samples" src="../image/lane_change/lane_change-candidate_path_samples.png" /></p>
+<p>Which path will be chosen will depend on validity and collision check.</p>
 <h4 id="candidate-paths-validity-check">Candidate Path's validity check<a class="headerlink" href="#candidate-paths-validity-check" title="Permanent link">#</a></h4>
 <p>A candidate path is valid if the total lane change distance is less than</p>
 <ol>
@@ -10335,7 +10342,7 @@ Front vehicle and rear vehicle assignment will depend on which predicted path's 
 <h4 id="intersection">Intersection<a class="headerlink" href="#intersection" title="Permanent link">#</a></h4>
 <p>Lane change in the intersection is prohibited following traffic regulation. Therefore, if the goal is place close passed the intersection, the lane change needs to be completed before ego vehicle enters the intersection region. Similar to the lane blocked case, in case of the path is unsafe, ego vehicle will stop and waits for the dynamic object to pass by.</p>
 <p>The following figure illustrate the intersection case.</p>
-<p><a href="../image/lane_change/lane_change-intersection_case.png">!intersection</a></p>
+<p><img alt="intersection" src="../image/lane_change/lane_change-intersection_case.png" /></p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
 <h3 id="essential-lane-change-parameters">Essential lane change parameters<a class="headerlink" href="#essential-lane-change-parameters" title="Permanent link">#</a></h3>
 <p>The following parameters are configurable in <code>behavior_path_planner.param.yaml</code>.</p>
@@ -10490,7 +10497,7 @@ Front vehicle and rear vehicle assignment will depend on which predicted path's 
 <td>[s]</td>
 <td>double</td>
 <td>The reaction time of the rear vehicle driver which starts from the driver noticing the sudden braking of the front vehicle until the driver step on the brake.</td>
-<td>1.0</td>
+<td>2.0</td>
 </tr>
 <tr>
 <td align="left"><code>rear_vehicle_safety_time_margin</code></td>
