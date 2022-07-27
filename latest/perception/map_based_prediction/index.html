@@ -9929,6 +9929,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    Assumptions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#inner-workings-algorithms" class="md-nav__link">
     Inner-workings / Algorithms
   </a>
@@ -9937,9 +9944,63 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#flow-chart" class="md-nav__link">
+    Flow chart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#path-prediction-for-road-users" class="md-nav__link">
     Path prediction for road users
   </a>
+  
+    <nav class="md-nav" aria-label="Path prediction for road users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remove-old-object-history" class="md-nav__link">
+    Remove old object history
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-current-lanelet-and-update-object-history" class="md-nav__link">
+    Get current lanelet and update Object history
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-predicted-reference-path" class="md-nav__link">
+    Get predicted reference path
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lane-change-detection-logic" class="md-nav__link">
+    Lane change detection logic
+  </a>
+  
+    <nav class="md-nav" aria-label="Lane change detection logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -10023,33 +10084,88 @@
 
 <h1 id="map_based_prediction">map_based_prediction<a class="headerlink" href="#map_based_prediction" title="Permanent link">#</a></h1>
 <h2 id="role">Role<a class="headerlink" href="#role" title="Permanent link">#</a></h2>
-<p><code>map_based_prediction</code> is a module to predict the future paths of other vehicles and pedestrians according to the shape of the map and the surrounding environment.</p>
+<p><code>map_based_prediction</code> is a module to predict the future paths (and their probabilities) of other vehicles and pedestrians according to the shape of the map and the surrounding environment.</p>
+<h2 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">#</a></h2>
+<ul>
+<li>The following information about the target obstacle is needed<ul>
+<li>Label (type of person, car, etc.)</li>
+<li>The object position in the current time and predicted position in the future time.</li>
+</ul>
+</li>
+<li>The following information about the surrounding environment is needed<ul>
+<li>Road network information with Lanelet2 format</li>
+</ul>
+</li>
+</ul>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
+<h3 id="flow-chart">Flow chart<a class="headerlink" href="#flow-chart" title="Permanent link">#</a></h3>
+<div align="center">
+  <img src="media/map_based_prediction_flow.drawio.svg" width=20%>
+</div>
+
 <h3 id="path-prediction-for-road-users">Path prediction for road users<a class="headerlink" href="#path-prediction-for-road-users" title="Permanent link">#</a></h3>
-<ol>
-<li>
-<p>Get lanelet path
-   The first step is to get the lanelet of the current position of the car. After that, we obtain several trajectories based on the map.</p>
+<h4 id="remove-old-object-history">Remove old object history<a class="headerlink" href="#remove-old-object-history" title="Permanent link">#</a></h4>
+<p>Store time-series data of objects to determine the vehicle's route and to detect lane change for several duration. Object Data contains the object's position, speed, and time information.</p>
+<h4 id="get-current-lanelet-and-update-object-history">Get current lanelet and update Object history<a class="headerlink" href="#get-current-lanelet-and-update-object-history" title="Permanent link">#</a></h4>
+<p>Search one or more lanelets satisfying the following conditions for each target object and store them in the ObjectData.</p>
+<ul>
+<li>The CoG of the object must be inside the lanelet.</li>
+<li>The centerline of the lanelet must have two or more points.</li>
+<li>The angle difference between the lanelet and the direction of the object must be within the threshold given by the parameters.<ul>
+<li>The angle flip is allowed, the condition is <code>diff_yaw &lt; threshold or diff_yaw &gt; pi - threshold</code>.</li>
+</ul>
 </li>
-<li>
-<p>Lane Change Detection
-   After finding the current lanelet from the current position of the obstacle, our algorithm try to detect the lane change maneuver from the past positions of the obstacle. Our method uses the deviation between the obstacle's current position and its position one second ago and current position to determine if it is about to change lanes. The parameters used for the lane change decision are obtained by analyzing the data obtained from the experiment. We already confirmed that these parameters give the least number of false positives.</p>
+<li>The lanelet must be reachable from the lanelet recorded in the past history.</li>
+</ul>
+<h4 id="get-predicted-reference-path">Get predicted reference path<a class="headerlink" href="#get-predicted-reference-path" title="Permanent link">#</a></h4>
+<ul>
+<li>Get reference path<ul>
+<li>Create a reference path for the object from the associated lanelet.</li>
+</ul>
 </li>
-<li>
-<p>Confidence calculation
-   We use the following metric to compute the distance to a certain lane.</p>
-<div class="highlight"><pre><span></span><code>d = x^T P x
+<li>Predict Object Maneuver<ul>
+<li>Generate predicted paths for the object.</li>
+<li>The probability is assigned to each maneuver of <code>Lane Follow</code>, <code>Left Lane Change</code>, and <code>Right Lane Chagne</code> based on the object history and the reference path obtained in the first step.</li>
+<li>The following information is used to determine the maneuver.<ul>
+<li>The distance between the current center of gravity of the object and the left and right boundaries of the lane</li>
+<li>The lateral velocity (distance moved to the lateral direction in <code>t</code> seconds)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The conditions for the lane change detection then becomes</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//  Left Lane Change Detection</span>
+<span class="p">(</span><span class="n">d_current_left</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">d_lane</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">dl_ratio_threshold</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"></span>
+<span class="p">(</span><span class="n">d_current_left</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">d_previous_left</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">ddl_threshold</span><span class="w"></span>
+
+<span class="c1">// Right Lane Change Detection</span>
+<span class="p">(</span><span class="n">d_current_right</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">d_lane</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dr_ratio_threshold</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"></span>
+<span class="p">(</span><span class="n">d_current_right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">d_previous_right</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ddr_threshold</span><span class="w"></span>
 </code></pre></div>
-<p>where <code>x=[lateral_dist, yaw_diff]</code> and <code>P</code> are covariance matrices. Therefore confidence values can be computed as</p>
-<div class="highlight"><pre><span></span><code>confidence = 1/d
-</code></pre></div>
-<p>Finally, we normalize the confidence value to make it as probability value. Note that the standard deviation of the lateral distance and yaw difference is given by the user.</p>
+<p>where the parameter is explained in the picture below. An example of how to tune the parameters is described later.</p>
+<p><img alt="lane change detection" src="media/lane_change_detection.drawio.svg" /></p>
+<ul>
+<li>Calculate Object Probability<ul>
+<li>The path probability obtained above is calculated based on the current position and angle of the object.</li>
+</ul>
 </li>
-<li>
-<p>Drawing predicted trajectories
-   From the current position and reference trajectories that we get in the step1, we create predicted trajectories by using Quintic polynomial. Note that, since this algorithm consider lateral and longitudinal motions separately, it sometimes generates dynamically-infeasible trajectories when the vehicle travels at a low speed. To deal with this problem, we only make straight line predictions when the vehicle speed is lower than a certain value (which is given as a parameter).</p>
+<li>Refine predicted paths for smooth movement<ul>
+<li>The generated predicted paths are recomputed to take the vehicle dynamics into account.</li>
+<li>The path is calculated with minimum jerk trajectory implemented by 4th/5th order spline for lateral/longitudinal motion.引く。</li>
+</ul>
 </li>
-</ol>
+</ul>
+<h3 id="lane-change-detection-logic">Lane change detection logic<a class="headerlink" href="#lane-change-detection-logic" title="Permanent link">#</a></h3>
+<p>This is an example to tune the parameters for lane change detection.
+The default parameters are set so that the lane change can be detected 1 second before the vehicle crosses the lane boundary. Here, 15 data in the lane change / non lane change cases are plotted.</p>
+<p><img alt="right change data" src="media/lanechange_detection_right_to_left.png" /></p>
+<p>On the top plot, blue dots are the distance from the lane boundary one second before the lane change, and red dots are the average distance from the lane boundary when driving straight. From this plot, the most conservative value where lane change can be detected for all of these data can be seen as <code>-1.1</code>. Note that the larger number makes the decision conservative (lane change may not be detected) and the lower number makes the decision aggressive (many false positive occurs).</p>
+<p>On the bottom plot, blue dots are the lateral velocity one second before the lane change, and red dots are the average of the (absolute) lateral velocity when driving straight. In the same policy above, the parameter can be set as <code>0.5</code>.</p>
+<h4 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h4>
+<ul>
+<li>This plot shows only for one environment data. The parameter/algorithm must consider lane width. (The default parameters are set roughly considering the generalization of the lane width for other environments.)</li>
+</ul>
 <h3 id="path-prediction-for-crosswalk-users">Path prediction for crosswalk users<a class="headerlink" href="#path-prediction-for-crosswalk-users" title="Permanent link">#</a></h3>
 <p>This module treats <strong>Pedestrians</strong> and <strong>Bicycles</strong> as objects using the crosswalk, and outputs prediction path based on map and estimated object's velocity, assuming the object has intention to cross the crosswalk, if the objects satisfies at least one of the following conditions:</p>
 <ul>
@@ -10198,7 +10314,23 @@
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<p><code>map_based_prediction</code> can only predict future trajectories for cars, tracks and buses.</p>
+<ul>
+<li>For object types of passenger car, bus, and truck<ul>
+<li>The predicted path of the object follows the road structure.</li>
+<li>For the object not being on any roads, the predicted path is generated by just a straight line prediction.</li>
+<li>For the object on a lanelet but moving in a different direction of the road, the predicted path is just straight.</li>
+<li>Vehicle dynamics may not be properly considered in the predicted path.</li>
+</ul>
+</li>
+<li>For object types of person and motorcycle<ul>
+<li>The predicted path is generated by just a straight line in all situations except for "around crosswalk".</li>
+</ul>
+</li>
+<li>For all obstacles<ul>
+<li>In the prediction, the vehicle motion is assumed to be a constant velocity due to a lack of acceleration information.</li>
+</ul>
+</li>
+</ul>
 <h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">#</a></h2>
 <ol>
 <li>M. Werling, J. Ziegler, S. Kammel, and S. Thrun, “Optimal trajectory generation for dynamic street scenario in a frenet frame,” IEEE International Conference on Robotics and Automation, Anchorage, Alaska, USA, May 2010.</li>
