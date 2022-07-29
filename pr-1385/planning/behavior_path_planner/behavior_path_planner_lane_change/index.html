@@ -10329,10 +10329,13 @@ Front vehicle and rear vehicle assignment will depend on which predicted path's 
 <div class="highlight"><pre><span></span><code><span class="n">d_rear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v_rear</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rear_vehicle_reaction_time</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v_rear</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rear_vehicle_safety_time_margin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="n">v_front</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a_rear</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <p>Since there is no absolute value for the deceleration<code>a_front</code> and <code>a_rear</code>, both of the values are parameterized (<code>expected_front_deceleration</code> and <code>expected_rear_deceleration</code>, respectively) with the estimation of how much deceleration will occur if the brake is pressed.</p>
-<p>Finally, the longitudinal distance is evaluated as follows</p>
+<p>The longitudinal distance is evaluated as follows</p>
 <div class="highlight"><pre><span></span><code><span class="n">d_rear</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">d_front</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d_inter</span><span class="w"></span>
 </code></pre></div>
 <p>where <code>d_inter</code> is the relative longitudinal distance obtained at each evaluated predicted pose.</p>
+<p>Finally minimum longitudinal distance for <code>d_rear</code> is added to compensate for object to near to each other when <code>d_rear = 0.0</code>. This yields</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">longitudinal_distance_min_threshold</span><span class="p">,</span><span class="w"> </span><span class="n">d_rear</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">d_front</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d_inter</span><span class="w"></span>
+</code></pre></div>
 <h4 id="if-the-lane-is-blocked-and-multiple-lane-changes">If the lane is blocked and multiple lane changes<a class="headerlink" href="#if-the-lane-is-blocked-and-multiple-lane-changes" title="Permanent link">#</a></h4>
 <p>When driving on the public road with other vehicles, there exist scenarios where lane changes cannot be executed. Suppose the candidate path is evaluated as unsafe, for example, due to incoming vehicles in the adjacent lane. In that case, the ego vehicle can't change lanes, and it is impossible to reach the goal. Therefore, the ego vehicle must stop earlier at a certain distance and wait for the adjacent lane to be evaluated as safe. The minimum stopping distance computation is as follows.</p>
 <div class="highlight"><pre><span></span><code><span class="n">minimum_lane_change_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_of_lane_changes</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">minimum_lane_change_length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">backward_length_buffer_for_end_of_lane</span><span class="p">)</span><span class="w"></span>
@@ -10477,6 +10480,13 @@ Front vehicle and rear vehicle assignment will depend on which predicted path's 
 <td>double</td>
 <td>The lateral distance threshold that is used to determine whether lateral distance between two object is enough and whether lane change is safe.</td>
 <td>5.0</td>
+</tr>
+<tr>
+<td align="left"><code>longitudinal_distance_min_threshold</code></td>
+<td>[m]</td>
+<td>double</td>
+<td>The longitudinal distance threshold that is used to determine whether longitudinal distance between two object is enough and whether lane change is safe.</td>
+<td>3.0</td>
 </tr>
 <tr>
 <td align="left"><code>expected_front_deceleration</code></td>
