@@ -9852,6 +9852,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#future-improvements" class="md-nav__link">
+    Future Improvements
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -10097,9 +10104,19 @@ That's why it doesn't interfere with the core logic of autonomous driving.</p>
 <td>Interval between odom messages, increase it for smoother curve.</td>
 </tr>
 <tr>
-<td><code>acceptable_min_waypoint_distance</code></td>
+<td><code>acceptable_max_distance_to_waypoint</code></td>
 <td>double</td>
-<td>How far the next waypoint can be ahead of the vehicle direction</td>
+<td>Maximum distance between trajectory point and vehicle [m]</td>
+</tr>
+<tr>
+<td><code>acceptable_max_yaw_difference_rad</code></td>
+<td>double</td>
+<td>Maximum yaw difference between trajectory point and vehicle [rad]</td>
+</tr>
+<tr>
+<td><code>low_pass_filter_gain</code></td>
+<td>double</td>
+<td>Low pass filter gain</td>
 </tr>
 </tbody>
 </table>
@@ -10120,6 +10137,10 @@ That's why it doesn't interfere with the core logic of autonomous driving.</p>
 </blockquote>
 <ul>
 <li>In <code>Plotjuggler</code> you can export the statistic (max, min, average) values as csv file. Use that statistics to compare the control modules.</li>
+</ul>
+<h2 id="future-improvements">Future Improvements<a class="headerlink" href="#future-improvements" title="Permanent link">#</a></h2>
+<ul>
+<li>Implement a LPF by cut-off frequency, differential equation and discrete state space update.</li>
 </ul>
 
               
