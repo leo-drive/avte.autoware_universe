@@ -9819,6 +9819,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#nearest-index-for-traffic-objects" class="md-nav__link">
+    Nearest index for traffic objects
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -9886,11 +9893,10 @@ The reason to find the first local one is to deal with some edge cases explained
 </ul>
 </li>
 </ol>
-<p>The second function finds the nearest index within the range from <code>start_idx</code> to <code>end_idx</code>, usually used with another function calculating the range.</p>
-<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="kt">size_t</span><span class="w"> </span><span class="n">findNearestIndexWithinRange</span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">points</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Point</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">start_idx</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">end_idx</span><span class="p">);</span><span class="w"></span>
+<p>The second function finds the nearest index in the lane whose id is <code>lane_id</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">size_t</span><span class="w"> </span><span class="nf">findNearestIndexFromLaneId</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">autoware_auto_planning_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">PathWithLaneId</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Point</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">lane_id</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h3 id="application-to-various-object">Application to various object<a class="headerlink" href="#application-to-various-object" title="Permanent link">#</a></h3>
 <p>Many node packages often calculate the nearest index of objects.
@@ -9906,11 +9912,19 @@ Among points in these cases, the correct nearest point which is red can be found
 </code></pre></div>
 <h4 id="nearest-index-for-dynamic-objects">Nearest index for dynamic objects<a class="headerlink" href="#nearest-index-for-dynamic-objects" title="Permanent link">#</a></h4>
 <p>For the ego nearest index, the orientation is considered in addition to the position since the ego is supposed to follow the points.
-However, for the dynamic objects, sometimes its orientation may be different from the points order, e.g. the dynamic object driving backward although the ego is driving forward.</p>
+However, for the dynamic objects (e.g., predicted object), sometimes its orientation may be different from the points order, e.g. the dynamic object driving backward although the ego is driving forward.</p>
 <p>Therefore, the yaw threshold should not be considered for the dynamic object.
 The implementation is as follows.</p>
-<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">dyn_obj_nearest_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findFirstNearestIndex</span><span class="p">(</span><span class="n">points</span><span class="p">,</span><span class="w"> </span><span class="n">dyn_obj_pose</span><span class="p">,</span><span class="w"> </span><span class="n">dyn_obj_nearest_dist_threshold</span><span class="p">);</span><span class="w"></span>
-<span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">dyn_obj_nearest_seg_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findFirstNearestIndex</span><span class="p">(</span><span class="n">points</span><span class="p">,</span><span class="w"> </span><span class="n">dyn_obj_pose</span><span class="p">,</span><span class="w"> </span><span class="n">dyn_obj_nearest_dist_threshold</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">dynamic_obj_nearest_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findFirstNearestIndexWithSoftConstraints</span><span class="p">(</span><span class="n">points</span><span class="p">,</span><span class="w"> </span><span class="n">dynamic_obj_pose</span><span class="p">,</span><span class="w"> </span><span class="n">dynamic_obj_nearest_dist_threshold</span><span class="p">);</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">dynamic_obj_nearest_seg_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findFirstNearestIndexWithSoftConstraints</span><span class="p">(</span><span class="n">points</span><span class="p">,</span><span class="w"> </span><span class="n">dynamic_obj_pose</span><span class="p">,</span><span class="w"> </span><span class="n">dynamic_obj_nearest_dist_threshold</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h4 id="nearest-index-for-traffic-objects">Nearest index for traffic objects<a class="headerlink" href="#nearest-index-for-traffic-objects" title="Permanent link">#</a></h4>
+<p>In lanelet maps, traffic objects belong to the specific lane.
+With this specific lane's id, the correct nearest index can be found.</p>
+<p>The implementation is as follows.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// first extract `lane_id` which the traffic object belong to.</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">traffic_obj_nearest_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findNearestIndexFromLaneId</span><span class="p">(</span><span class="n">path_with_lane_id</span><span class="p">,</span><span class="w"> </span><span class="n">traffic_obj_pos</span><span class="p">,</span><span class="w"> </span><span class="n">lane_id</span><span class="p">);</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">traffic_obj_nearest_seg_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findNearestSegmentIndexFromLaneId</span><span class="p">(</span><span class="n">path_with_lane_id</span><span class="p">,</span><span class="w"> </span><span class="n">traffic_obj_pos</span><span class="p">,</span><span class="w"> </span><span class="n">lane_id</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h2 id="pathtrajectory-length-calculation-between-designated-points">Path/Trajectory length calculation between designated points.<a class="headerlink" href="#pathtrajectory-length-calculation-between-designated-points" title="Permanent link">#</a></h2>
 <p>Based on the discussion so far, the nearest index search algorithm is different depending on the object type.
