@@ -9838,7 +9838,7 @@
       
         <li class="md-nav__item">
   <a href="#pathtrajectory-length-calculation-between-designated-points" class="md-nav__link">
-    Path/Trajectory length calculation between designated points.
+    Path/Trajectory length calculation between designated points
   </a>
   
 </li>
@@ -9926,7 +9926,7 @@ With this specific lane's id, the correct nearest index can be found.</p>
 <span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">traffic_obj_nearest_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findNearestIndexFromLaneId</span><span class="p">(</span><span class="n">path_with_lane_id</span><span class="p">,</span><span class="w"> </span><span class="n">traffic_obj_pos</span><span class="p">,</span><span class="w"> </span><span class="n">lane_id</span><span class="p">);</span><span class="w"></span>
 <span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">traffic_obj_nearest_seg_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findNearestSegmentIndexFromLaneId</span><span class="p">(</span><span class="n">path_with_lane_id</span><span class="p">,</span><span class="w"> </span><span class="n">traffic_obj_pos</span><span class="p">,</span><span class="w"> </span><span class="n">lane_id</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<h2 id="pathtrajectory-length-calculation-between-designated-points">Path/Trajectory length calculation between designated points.<a class="headerlink" href="#pathtrajectory-length-calculation-between-designated-points" title="Permanent link">#</a></h2>
+<h2 id="pathtrajectory-length-calculation-between-designated-points">Path/Trajectory length calculation between designated points<a class="headerlink" href="#pathtrajectory-length-calculation-between-designated-points" title="Permanent link">#</a></h2>
 <p>Based on the discussion so far, the nearest index search algorithm is different depending on the object type.
 Therefore, we recommended using the wrapper utility functions which require the nearest index search (e.g., calculating the path length) with each nearest index search.</p>
 <p>For example, when we want to calculate the path length between the ego and the dynamic object, the implementation is as follows.</p>
