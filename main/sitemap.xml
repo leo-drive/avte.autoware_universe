@@ -191,6 +191,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/common/tvm_utility/artifacts/</loc>
+         <lastmod>2022-08-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/common/tvm_utility/design/tvm-utility-design/</loc>
+         <lastmod>2022-08-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/common/tvm_utility/design/tvm-utility-yolo-v2-tiny-tests/</loc>
+         <lastmod>2022-08-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/common/vehicle_constants_manager/design/vehicle_constants_manager-design/</loc>
          <lastmod>2022-08-09</lastmod>
          <changefreq>daily</changefreq>
