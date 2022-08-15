@@ -10104,7 +10104,7 @@
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>Generate control commands to follow a given Trajectory.</p>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<p>This is a node of the functionalities implemented in <a href="../../../trajectory_follower/design/trajectory_follower-design/#trajectory-follower">trajectory_follower</a> package. It has instances of those functionalities, gives them input data to perform calculations, and publishes control commads.</p>
+<p>This is a node of the functionalities implemented in <a href="../../../trajectory_follower/design/trajectory_follower-design/#trajectory-follower">trajectory_follower</a> package. It has instances of those functionalities, gives them input data to perform calculations, and publishes control commands.</p>
 <p><img alt="Controller" src="../media/Controller.drawio.svg" /></p>
 <p>The process flow is as follows.</p>
 <ol>
@@ -10116,7 +10116,7 @@
 </li>
 <li>Set input data to the longitudinal controller</li>
 <li>Compute longitudinal commands.</li>
-<li>Sync the result of the longitulanl control to the longitudinal controller.<ul>
+<li>Sync the result of the longitudinal control to the longitudinal controller.<ul>
 <li>velocity convergence(currently not used)</li>
 </ul>
 </li>
@@ -10145,7 +10145,7 @@
 </ul>
 <h4 id="parameter">Parameter<a class="headerlink" href="#parameter" title="Permanent link">#</a></h4>
 <ul>
-<li><code>ctrl_period</code>: control commands publishing preriod</li>
+<li><code>ctrl_period</code>: control commands publishing period</li>
 <li><code>timeout_thr_sec</code>: duration in second after which input messages are discarded.<ul>
 <li>Each time the node receives lateral and longitudinal commands from each controller, it publishes an <code>AckermannControlCommand</code> if the following two conditions are met.<ol>
 <li>Both commands have been received.</li>
@@ -10155,7 +10155,7 @@
 </ul>
 </li>
 <li><code>lateral_controller_mode</code>: <code>mpc_follower</code> or <code>pure_pursuit</code><ul>
-<li>(currently there is only <code>PID</code> for longitudinal contoller)</li>
+<li>(currently there is only <code>PID</code> for longitudinal controller)</li>
 </ul>
 </li>
 </ul>
