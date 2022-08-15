@@ -10882,6 +10882,54 @@ See also <a href="https://www.sciencedirect.com/science/article/pii/S14746670153
 <p><img alt="geometric_pull_out" src="image/geometric_pull_out.drawio.svg" /></p>
 <p><a href="https://user-images.githubusercontent.com/39142679/181024707-3e7ca5ee-62de-4334-b9e9-ded313de1ea1.mp4">Video of how geometric pull out works</a></p>
 <h6 id="parameters-for-shift-pull-out_1">parameters for shift pull out<a class="headerlink" href="#parameters-for-shift-pull-out_1" title="Permanent link">#</a></h6>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">enable_geometric_pull_out</td>
+<td align="left">-</td>
+<td align="left">bool</td>
+<td align="left">flag whether to enable geometric pull out</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">geometric_pull_out_velocity</td>
+<td align="left">[m/s]</td>
+<td align="left">double</td>
+<td align="left">velocity of geometric pull out</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">arc_path_interval</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">path points interval of arc paths of geometric pull out</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">lane_departure_margin</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">margin of deviation to lane right</td>
+<td align="left">0.2</td>
+</tr>
+<tr>
+<td align="left">max_steer_rad</td>
+<td align="left">[rad]</td>
+<td align="left">double</td>
+<td align="left">maximum steer angle for path generation</td>
+<td align="left">0.26</td>
+</tr>
+</tbody>
+</table>
 <h4 id="pull-out-start-point-search"><strong>Pull out start point search</strong><a class="headerlink" href="#pull-out-start-point-search" title="Permanent link">#</a></h4>
 <p>If a safe path cannot be generated from the current position, search backwards for a pull out start point at regular intervals(default: <code>2.0</code>).</p>
 <table>
@@ -10922,55 +10970,6 @@ See also <a href="https://www.sciencedirect.com/science/article/pii/S14746670153
 <td align="left">double</td>
 <td align="left">time interval for searching backward pull out start point. this prevents chattering between back driving and pull_out</td>
 <td align="left">3.0</td>
-</tr>
-<tr>
-<td align="left">Name</td>
-<td align="left">Unit</td>
-<td align="left">Type</td>
-<td align="left">Description</td>
-<td align="left">Default value</td>
-</tr>
-<tr>
-<td align="left">:--------------------------------</td>
-<td align="left">:-----</td>
-<td align="left">:-----</td>
-<td align="left">:------------------------------------------------------------------</td>
-<td align="left">:------------</td>
-</tr>
-<tr>
-<td align="left">enable_geometric_pull_out</td>
-<td align="left">-</td>
-<td align="left">bool</td>
-<td align="left">flag whether to enable geometric pull out</td>
-<td align="left">true</td>
-</tr>
-<tr>
-<td align="left">geometric_pull_out_velocity</td>
-<td align="left">[m/s]</td>
-<td align="left">double</td>
-<td align="left">velocity of geometric pull out</td>
-<td align="left">1.0</td>
-</tr>
-<tr>
-<td align="left">arc_path_interval</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">path points interval of arc paths of geometric pull out</td>
-<td align="left">1.0</td>
-</tr>
-<tr>
-<td align="left">lane_departure_margin</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">margin of deviation to lane right</td>
-<td align="left">0.2</td>
-</tr>
-<tr>
-<td align="left">max_steer_rad</td>
-<td align="left">[rad]</td>
-<td align="left">double</td>
-<td align="left">maximum steer angle for path generation</td>
-<td align="left">0.26</td>
 </tr>
 </tbody>
 </table>
