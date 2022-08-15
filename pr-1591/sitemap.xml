@@ -266,16 +266,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/control/trajectory_follower/design/trajectory_follower-mpc-design/</loc>
-         <lastmod>2022-08-15</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/control/trajectory_follower/design/trajectory_follower-pid-design/</loc>
-         <lastmod>2022-08-15</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/control/trajectory_follower_nodes/design/simple_trajectory_follower-design/</loc>
          <lastmod>2022-08-15</lastmod>
          <changefreq>daily</changefreq>
