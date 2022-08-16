@@ -10805,7 +10805,7 @@ The lateral jerk is searched for among the predetermined minimum and maximum val
 <h4 id="path-generation_2"><strong>Path Generation</strong><a class="headerlink" href="#path-generation_2" title="Permanent link">#</a></h4>
 <p>There are two path generation methods.</p>
 <h5 id="shift-pull-out"><strong>shift pull out</strong><a class="headerlink" href="#shift-pull-out" title="Permanent link">#</a></h5>
-<p>Pull out distance is calculated by the speed, lateral deviation, and the lateral jerk. The lateral jerk is searched for among the predetermined minimum and maximum values, and the one satisfies ready conditions described above is output.</p>
+<p>Pull out distance is calculated by the speed, lateral deviation, and the lateral jerk. The lateral jerk is searched for among the predetermined minimum and maximum values, and the one that generates a safe path is selected.</p>
 <ul>
 <li>Generate the shoulder lane centerline and shift it to the current position.</li>
 <li>In the section between merge start and end, path is shifted by a method that is used to generate avoidance path (four segmental constant jerk polynomials)</li>
@@ -10877,7 +10877,7 @@ The lateral jerk is searched for among the predetermined minimum and maximum val
 </tbody>
 </table>
 <h5 id="geometric-pull-out"><strong>geometric pull out</strong><a class="headerlink" href="#geometric-pull-out" title="Permanent link">#</a></h5>
-<p>Generate two arc paths with discontinuous curvature. ego-vehicle stops once in the middle of the path to control the steer on the spot.
+<p>Generate two arc paths with discontinuous curvature. Ego-vehicle stops once in the middle of the path to control the steer on the spot.
 See also <a href="https://www.sciencedirect.com/science/article/pii/S1474667015347431">[1]</a> for details of the algorithm.</p>
 <p><img alt="geometric_pull_out" src="image/geometric_pull_out.drawio.svg" /></p>
 <p><a href="https://user-images.githubusercontent.com/39142679/181024707-3e7ca5ee-62de-4334-b9e9-ded313de1ea1.mp4">Video of how geometric pull out works</a></p>
