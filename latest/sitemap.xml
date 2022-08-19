@@ -736,6 +736,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/planning_debug_tools/Readme/</loc>
+         <lastmod>2022-08-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/planning_error_monitor/</loc>
          <lastmod>2022-08-19</lastmod>
          <changefreq>daily</changefreq>
