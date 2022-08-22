@@ -96,6 +96,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/common/motion_utils/</loc>
+         <lastmod>2022-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/common/motion_utils/docs/vehicle/vehicle/</loc>
          <lastmod>2022-08-22</lastmod>
          <changefreq>daily</changefreq>
@@ -182,6 +187,21 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/common/tier4_vehicle_rviz_plugin/</loc>
+         <lastmod>2022-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/common/tvm_utility/artifacts/</loc>
+         <lastmod>2022-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/common/tvm_utility/design/tvm-utility-design/</loc>
+         <lastmod>2022-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/common/tvm_utility/design/tvm-utility-yolo-v2-tiny-tests/</loc>
          <lastmod>2022-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -392,26 +412,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/localization/twist2accel/</loc>
-         <lastmod>2022-08-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/map/lanelet2_extension/</loc>
-         <lastmod>2022-08-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/map/lanelet2_extension/docs/extra_lanelet_subtypes/</loc>
-         <lastmod>2022-08-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/map/lanelet2_extension/docs/extra_regulatory_elements/</loc>
-         <lastmod>2022-08-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/map/lanelet2_extension/docs/lanelet2_format_extension/</loc>
          <lastmod>2022-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -731,12 +731,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/planning/obstacle_cruise_planner/obstacle_cruise_planner-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/planning/obstacle_cruise_planner/</loc>
          <lastmod>2022-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/planning/obstacle_stop_planner/</loc>
+         <lastmod>2022-08-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1385/planning/planning_debug_tools/Readme/</loc>
          <lastmod>2022-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
