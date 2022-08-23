@@ -316,11 +316,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/launch/tier4_integration_launch/</loc>
-         <lastmod>2022-08-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/launch/tier4_localization_launch/</loc>
          <lastmod>2022-08-23</lastmod>
          <changefreq>daily</changefreq>
