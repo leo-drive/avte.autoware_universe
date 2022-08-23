@@ -6886,6 +6886,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#safety-slow-down-behavior" class="md-nav__link">
+    Safety Slow Down Behavior
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10233,6 +10240,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#safety-slow-down-behavior" class="md-nav__link">
+    Safety Slow Down Behavior
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10569,6 +10583,13 @@
   </p>
 <figcaption>dead lock situation</figcaption>
 </figure>
+<h4 id="safety-slow-down-behavior">Safety Slow Down Behavior<a class="headerlink" href="#safety-slow-down-behavior" title="Permanent link">#</a></h4>
+<p>In current autoware implementation if there are no target objects around a crosswalk, ego vehicle
+will not slow down for the crosswalk. However, if ego vehicle to slow down to a certain speed in
+such cases is wanted then it is possible by adding some tags to the related crosswalk definition as
+it is instructed
+in <a href="https://github.com/autowarefoundation/autoware_common/blob/main/tmp/lanelet2_extension/docs/lanelet2_format_extension.md">lanelet2_format_extension.md</a>
+document.</p>
 <h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h3>
 <p>When multiple crosswalks are nearby (such as intersection), this module may make a stop decision even at crosswalks where the object has no intention of crossing.</p>
 <figure>
