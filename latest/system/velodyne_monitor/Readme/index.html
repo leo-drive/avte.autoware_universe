@@ -9553,6 +9553,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#config-files" class="md-nav__link">
+    Config files
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10120,6 +10127,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#config-files" class="md-nav__link">
+    Config files
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10307,6 +10321,46 @@ The result of the status is published as diagnostics.</p>
 <td>double</td>
 <td>0.70</td>
 <td>If the rpm rate of the motor (= current rpm / default rpm) is lower than this value, the diagnostics status becomes ERROR</td>
+</tr>
+</tbody>
+</table>
+<h3 id="config-files">Config files<a class="headerlink" href="#config-files" title="Permanent link">#</a></h3>
+<p>Config files for several velodyne models are prepared.
+The <code>temp_**</code> parameters are set with reference to the operational temperature from each datasheet.
+Now, <code>VLP-16.param.yaml</code> is used as default argument because it is lowest spec.</p>
+<table>
+<thead>
+<tr>
+<th>Model Name</th>
+<th>Config name</th>
+<th>Operational Temperature [℃]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VLP-16</td>
+<td>VLP-16.param.yaml</td>
+<td>-10 to 60</td>
+</tr>
+<tr>
+<td>VLP-32C</td>
+<td>VLP-32C.param.yaml</td>
+<td>-20 to 60</td>
+</tr>
+<tr>
+<td>VLS-128</td>
+<td>VLS-128.param.yaml</td>
+<td>-20 to 60</td>
+</tr>
+<tr>
+<td>Velarray M1600</td>
+<td>Velarray_M1600.param.yaml</td>
+<td>-40 to 85</td>
+</tr>
+<tr>
+<td>HDL-32E</td>
+<td>HDL-32E.param.yaml</td>
+<td>-10 to 60</td>
 </tr>
 </tbody>
 </table>
