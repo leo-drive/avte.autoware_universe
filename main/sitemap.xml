@@ -476,6 +476,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/front_vehicle_velocity_estimator/</loc>
+         <lastmod>2022-08-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/ground_segmentation/</loc>
          <lastmod>2022-08-25</lastmod>
          <changefreq>daily</changefreq>
