@@ -10179,6 +10179,21 @@ As mentioned in stop condition section, it prevents chattering by changing thres
 <td><code>visualization_msgs::msg::MarkerArray</code></td>
 <td>Marker for visualization</td>
 </tr>
+<tr>
+<td><code>~/debug/footprint</code></td>
+<td><code>geometry_msgs::msg::PolygonStamped</code></td>
+<td>Ego vehicle base footprint for visualization</td>
+</tr>
+<tr>
+<td><code>~/debug/footprint_offset</code></td>
+<td><code>geometry_msgs::msg::PolygonStamped</code></td>
+<td>Ego vehicle footprint with <code>surround_check_distance</code> offset for visualization</td>
+</tr>
+<tr>
+<td><code>~/debug/footprint_recover_offset</code></td>
+<td><code>geometry_msgs::msg::PolygonStamped</code></td>
+<td>Ego vehicle footprint with <code>surround_check_recover_distance</code> offset for visualization</td>
+</tr>
 </tbody>
 </table>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
@@ -10233,6 +10248,12 @@ As mentioned in stop condition section, it prevents chattering by changing thres
 <td align="left"><code>double</code></td>
 <td align="left">Threshold to check ego vehicle stopped [s]</td>
 <td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left"><code>publish_debug_footprints</code></td>
+<td align="left"><code>bool</code></td>
+<td align="left">Publish vehicle footprint with/without offsets</td>
+<td align="left"><code>true</code></td>
 </tr>
 </tbody>
 </table>
