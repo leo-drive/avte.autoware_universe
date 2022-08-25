@@ -10211,10 +10211,16 @@
 </thead>
 <tbody>
 <tr>
-<td><code>base_frame</code></td>
+<td><code>input_frame</code></td>
 <td>string</td>
 <td>"base_link"</td>
-<td>base_link frame</td>
+<td>frame id of input pointcloud</td>
+</tr>
+<tr>
+<td><code>output_frame</code></td>
+<td>string</td>
+<td>"base_link"</td>
+<td>frame id of output pointcloud</td>
 </tr>
 <tr>
 <td><code>global_slope_max</code></td>
@@ -10255,6 +10261,7 @@
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
+<p>The input_frame is set as parameter but it must be fixed as base_link for the current algorithm.</p>
 <h2 id="optional-error-detection-and-handling">(Optional) Error detection and handling<a class="headerlink" href="#optional-error-detection-and-handling" title="Permanent link">#</a></h2>
 <h2 id="optional-performance-characterization">(Optional) Performance characterization<a class="headerlink" href="#optional-performance-characterization" title="Permanent link">#</a></h2>
 <h2 id="optional-referencesexternal-links">(Optional) References/External links<a class="headerlink" href="#optional-referencesexternal-links" title="Permanent link">#</a></h2>
