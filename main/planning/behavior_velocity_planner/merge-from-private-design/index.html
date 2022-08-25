@@ -10128,7 +10128,7 @@
 <h2 id="merge-from-private">Merge From Private<a class="headerlink" href="#merge-from-private" title="Permanent link">#</a></h2>
 <h3 id="role">Role<a class="headerlink" href="#role" title="Permanent link">#</a></h3>
 <p>When an ego vehicle enters a public road from a private road (e.g. a parking lot), it needs to face and stop before entering the public road to make sure it is safe.</p>
-<p>This module is activated when there is an intersection at the location where the vehicle enters the public road from the private road. The basic behavior is the same as the intersection module, but the ego vehicle must stop once at the stop line.</p>
+<p>This module is activated when there is an intersection at the private area from which the vehicle enters the public road. The stop line is generated both when the goal is in the intersection lane and when the path goes beyond the intersection lane. The basic behavior is the same as the intersection module, but the ego vehicle must stop once at the stop line.</p>
 <p><img alt="merge-from-private" src="../docs/intersection/merge_from_private.png" /></p>
 <h3 id="activation-timing">Activation Timing<a class="headerlink" href="#activation-timing" title="Permanent link">#</a></h3>
 <p>This module is activated when the following conditions are met:</p>
