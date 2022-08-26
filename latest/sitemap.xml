@@ -876,6 +876,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/sensing/pointcloud_preprocessor/docs/vector-map-inside-area-filter/</loc>
+         <lastmod>2022-08-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/sensing/pointcloud_preprocessor/docs/voxel-grid-outlier-filter/</loc>
          <lastmod>2022-08-26</lastmod>
          <changefreq>daily</changefreq>
