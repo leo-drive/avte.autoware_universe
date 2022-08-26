@@ -931,6 +931,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/default_ad_api_helpers/ad_api_adaptors/</loc>
+         <lastmod>2022-08-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/dummy_diag_publisher/</loc>
          <lastmod>2022-08-26</lastmod>
          <changefreq>daily</changefreq>
