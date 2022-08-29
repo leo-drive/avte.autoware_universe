@@ -10066,10 +10066,18 @@ Mainly, it implements two algorithms:</p>
 <p>There are lateral and longitudinal base interface classes and each algorithm inherits from this class to implement.
 The interface class has the following base functions.</p>
 <ul>
-<li><code>setInputData()</code>: Input the data subscribed in <a href="../../../trajectory_follower_nodes/design/trajectory_follower-design/">controller_node</a>. This must be implemented with the inherited algorithm and the used data must be selected.</li>
-<li><code>run()</code>: Compute control commands and return to <a href="../../trajectory_follower_nodes/design/">controller_node</a>. This must be implemented by inherited algorithms.</li>
-<li><code>syncData()</code>: Input the result of running the other controller.</li>
+<li><code>setInputData()</code>: Input the data subscribed in <a href="../../../trajectory_follower_nodes/design/trajectory_follower-design/">Trajectory Follower Nodes</a>. This must be implemented with the inherited algorithm and the used data must be selected.</li>
+<li><code>run()</code>: Compute control commands and return to <a href="../../../trajectory_follower_nodes/design/trajectory_follower-design/">Trajectory Follower Nodes</a>. This must be implemented by inherited algorithms.</li>
+<li><code>syncData()</code>: Input the result of running the other controller.<ul>
+<li>steer angle convergence<ul>
+<li>allow keeping stopped until steer is converged.</li>
 </ul>
+</li>
+<li>velocity convergence(currently not used)</li>
+</ul>
+</li>
+</ul>
+<p>See <a href="../../../trajectory_follower_nodes/design/trajectory_follower-design/#Design">the Design of Trajectory Follower Nodes</a> for how these functions work in the node.</p>
 <h2 id="separated-lateral-steering-and-longitudinal-velocity-controls">Separated lateral (steering) and longitudinal (velocity) controls<a class="headerlink" href="#separated-lateral-steering-and-longitudinal-velocity-controls" title="Permanent link">#</a></h2>
 <p>This longitudinal controller assumes that the roles of lateral and longitudinal control are separated as follows.</p>
 <ul>
