@@ -10203,7 +10203,7 @@ The optimization of the control command is formulated as a Quadratic Program (QP
 <li>dynamics : bicycle dynamics model considering slip angle.
   The kinematics model is being used by default. Please see the reference [1] for more details.</li>
 </ul>
-<p>For the optimization, a Quadratic Programming (QP) solver is used with two options are currently implemented:</p>
+<p>For the optimization, a Quadratic Programming (QP) solver is used and two options are currently implemented:</p>
 <ul>
 <li>unconstraint_fast : use least square method to solve unconstraint QP with eigen.</li>
 <li><a href="https://osqp.org/">osqp</a>: run the <a href="https://web.stanford.edu/~boyd/papers/admm_distr_stats.html">following ADMM</a> algorithm (for more details see the related papers at the <a href="https://web.stanford.edu/~boyd/papers/admm_distr_stats.html">Citing OSQP</a> section):</li>
