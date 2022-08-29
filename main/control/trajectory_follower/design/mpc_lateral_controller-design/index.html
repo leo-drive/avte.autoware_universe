@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/control/trajectory_follower_nodes/design/lateral_controller-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/control/trajectory_follower/design/mpc_lateral_controller-design/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
     
     
       
-        <title>Lateral Controller - Autoware Universe Documentation</title>
+        <title>MPC Lateral Controller - Autoware Universe Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lateral-controller" class="md-skip">
+        <a href="#mpc-lateral-controller" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lateral Controller
+              MPC Lateral Controller
             
           </span>
         </div>
@@ -3296,14 +3296,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_8" type="checkbox" id="__nav_6_8" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_8" type="checkbox" id="__nav_6_8" checked>
       
       
       
@@ -3328,12 +3330,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_8_1" type="checkbox" id="__nav_6_8_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_8_1" type="checkbox" id="__nav_6_8_1" checked>
       
       
       
@@ -3362,136 +3366,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../../../trajectory_follower/design/trajectory_follower-design/" class="md-nav__link">
-        Trajectory Follower
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../trajectory_follower/design/trajectory_follower-mpc-design/" class="md-nav__link">
-        MPC (Trajectory Follower)
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../trajectory_follower/design/trajectory_follower-pid-design/" class="md-nav__link">
-        PID (Trajectory Follower)
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_9" type="checkbox" id="__nav_6_9" checked>
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6_9">
-          Trajectory follower nodes
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Trajectory follower nodes" data-md-level="2">
-        <label class="md-nav__title" for="__nav_6_9">
-          <span class="md-nav__icon md-icon"></span>
-          Trajectory follower nodes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_9_1" type="checkbox" id="__nav_6_9_1" checked>
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6_9_1">
-          Design
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Design" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_9_1">
-          <span class="md-nav__icon md-icon"></span>
-          Design
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
     
   
   
@@ -3504,12 +3378,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Lateral Controller
+          MPC Lateral Controller
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Lateral Controller
+        MPC Lateral Controller
       </a>
       
         
@@ -3543,15 +3417,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#filtering" class="md-nav__link">
+    Filtering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assumptions-known-limits" class="md-nav__link">
     Assumptions / Known limits
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#inputs-outputs-api" class="md-nav__link">
     Inputs / Outputs / API
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs / Outputs / API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mpc-class" class="md-nav__link">
+    MPC class
   </a>
   
 </li>
@@ -3596,6 +3504,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#references-external-links" class="md-nav__link">
+    References / External links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#related-issues" class="md-nav__link">
     Related issues
   </a>
@@ -3617,36 +3532,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../latlon_muxer-design/" class="md-nav__link">
-        Lateral/Longitudinal Control Muxer
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../longitudinal_controller-design/" class="md-nav__link">
-        Longitudinal Controller
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../simple_trajectory_follower-design/" class="md-nav__link">
-        Simple Trajectory Follower
+      <a href="../pid_longitudinal_controller-design/" class="md-nav__link">
+        PID Longitudinal Controller
       </a>
     </li>
   
@@ -3660,6 +3547,112 @@
   
     <li class="md-nav__item">
       <a href="../trajectory_follower-design/" class="md-nav__link">
+        Trajectory Follower
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_9" type="checkbox" id="__nav_6_9" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_9">
+          Trajectory follower nodes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Trajectory follower nodes" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_9">
+          <span class="md-nav__icon md-icon"></span>
+          Trajectory follower nodes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_9_1" type="checkbox" id="__nav_6_9_1" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_9_1">
+          Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Design" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../trajectory_follower_nodes/design/simple_trajectory_follower-design/" class="md-nav__link">
+        Simple Trajectory Follower
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../trajectory_follower_nodes/design/trajectory_follower-design/" class="md-nav__link">
         Trajectory Follower Nodes
       </a>
     </li>
@@ -10222,15 +10215,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#filtering" class="md-nav__link">
+    Filtering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assumptions-known-limits" class="md-nav__link">
     Assumptions / Known limits
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#inputs-outputs-api" class="md-nav__link">
     Inputs / Outputs / API
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs / Outputs / API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mpc-class" class="md-nav__link">
+    MPC class
   </a>
   
 </li>
@@ -10275,6 +10302,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#references-external-links" class="md-nav__link">
+    References / External links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#related-issues" class="md-nav__link">
     Related issues
   </a>
@@ -10293,13 +10327,13 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/autowarefoundation/autoware.universe/edit/main/control/trajectory_follower_nodes/design/lateral_controller-design.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware.universe/edit/main/control/trajectory_follower/design/mpc_lateral_controller-design.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="lateral-controller">Lateral Controller<a class="headerlink" href="#lateral-controller" title="Permanent link">#</a></h1>
+<h1 id="mpc-lateral-controller">MPC Lateral Controller<a class="headerlink" href="#mpc-lateral-controller" title="Permanent link">#</a></h1>
 <p>This is the design document for the lateral controller node
 in the <code>trajectory_follower_nodes</code> package.</p>
 <h2 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h2>
@@ -10317,27 +10351,56 @@ when following a path.</p>
 <p>The node uses an implementation of linear model predictive control (MPC) for accurate path tracking.
 The MPC uses a model of the vehicle to simulate the trajectory resulting from the control command.
 The optimization of the control command is formulated as a Quadratic Program (QP).</p>
-<p>These functionalities are implemented in the <code>trajectory_follower</code> package
-(see <a href="../../../trajectory_follower/design/trajectory_follower-mpc-design/#mpc-trajectory-follower">trajectory_follower-mpc-design</a>)</p>
-<h3 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h3>
+<p>Different vehicle models are implemented:</p>
+<ul>
+<li>kinematics : bicycle kinematics model with steering 1st-order delay.</li>
+<li>kinematics_no_delay : bicycle kinematics model without steering delay.</li>
+<li>dynamics : bicycle dynamics model considering slip angle.
+  The kinematics model is being used by default. Please see the reference [1] for more details.</li>
+</ul>
+<p>For the optimization, a Quadratic Programming (QP) solver is used and two options are currently implemented:</p>
+<ul>
+<li>unconstraint_fast : use least square method to solve unconstraint QP with eigen.</li>
+<li><a href="https://osqp.org/">osqp</a>: run the <a href="https://web.stanford.edu/~boyd/papers/admm_distr_stats.html">following ADMM</a> algorithm (for more details see the related papers at the <a href="https://web.stanford.edu/~boyd/papers/admm_distr_stats.html">Citing OSQP</a> section):</li>
+</ul>
+<h3 id="filtering">Filtering<a class="headerlink" href="#filtering" title="Permanent link">#</a></h3>
+<p>Filtering is required for good noise reduction.
+A <a href="https://en.wikipedia.org/wiki/Butterworth_filter">Butterworth filter</a> is used for the yaw and lateral errors used as input of the MPC as well as for
+the output steering angle.
+Other filtering methods can be considered as long as the noise reduction performances are good
+enough.
+The moving average filter for example is not suited and can yield worse results than without any
+filtering.</p>
+<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
 <!-- Required -->
 
 <p>The tracking is not accurate if the first point of the reference trajectory is at or in front of the current ego pose.</p>
-<ul>
-<li>Issue to add points behind ego: <a href="https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1273">https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1273</a></li>
-</ul>
-<h3 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h3>
+<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
 <!-- Required -->
 <!-- Things to consider:
     - How do you use the package / API? -->
 
-<p>Inputs</p>
+<h3 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h3>
+<p>Set the following from the <a href="../../../trajectory_follower_nodes/design/trajectory_follower-design/">controller_node</a></p>
 <ul>
-<li><code>input/reference_trajectory</code> : reference trajectory to follow.</li>
-<li><code>input/current_kinematic_state</code>: current state of the vehicle (position, velocity, etc).
-  Output</li>
-<li><code>output/lateral_control_cmd</code>: generated lateral control command.</li>
+<li><code>autoware_auto_planning_msgs/Trajectory</code> : reference trajectory to follow.</li>
+<li><code>nav_msgs/Odometry</code>: current odometry</li>
+<li><code>autoware_auto_vehicle_msgs/SteeringReport</code> current steering</li>
 </ul>
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h3>
+<p>Return LateralOutput which contains the following to <a href="../../../trajectory_follower_nodes/design/trajectory_follower-design/">controller_node</a></p>
+<ul>
+<li><code>autoware_auto_control_msgs/AckermannLateralCommand</code></li>
+<li>LateralSyncData<ul>
+<li>steer angle convergence</li>
+</ul>
+</li>
+</ul>
+<h3 id="mpc-class">MPC class<a class="headerlink" href="#mpc-class" title="Permanent link">#</a></h3>
+<p>The <code>MPC</code> class (defined in <code>mpc.hpp</code>) provides the interface with the MPC algorithm.
+Once a vehicle model, a QP solver, and the reference trajectory to follow have been set
+(using <code>setVehicleModel()</code>, <code>setQPSolver()</code>, <code>setReferenceTrajectory()</code>), a lateral control command
+can be calculated by providing the current steer, velocity, and pose to function <code>calculateMPC()</code>.</p>
 <h3 id="parameter-description">Parameter description<a class="headerlink" href="#parameter-description" title="Permanent link">#</a></h3>
 <p>The default parameters defined in <code>param/lateral_controller_defaults.param.yaml</code> are adjusted to the
 AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
@@ -10642,12 +10705,15 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
 <li><code>weight_terminal_lat_error</code>: Preferable to set a higher value than normal lateral weight <code>weight_lat_error</code> for stability.</li>
 <li><code>weight_terminal_heading_error</code>: Preferable to set a higher value than normal heading weight <code>weight_heading_error</code> for stability.</li>
 </ul>
-<h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
-<!-- Required -->
+<h2 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h2>
+<!-- Optional -->
 
 <ul>
-<li><a href="https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1057">https://gitlab.com/autowarefoundation/autoware.auto/AutowareAuto/-/issues/1057</a></li>
+<li>[1] Jarrod M. Snider, "Automatic Steering Methods for Autonomous Automobile Path Tracking",
+  Robotics Institute, Carnegie Mellon University, February 2009.</li>
 </ul>
+<h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
+<!-- Required -->
 
 
 
@@ -10671,7 +10737,7 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../../trajectory_follower/design/trajectory_follower-pid-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: PID (Trajectory Follower)" rel="prev">
+        <a href="../../../shift_decider/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Shift Decider" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -10680,20 +10746,20 @@ AutonomouStuff Lexus RX 450h for under 40 km/h driving.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              PID (Trajectory Follower)
+              Shift Decider
             </div>
           </div>
         </a>
       
       
         
-        <a href="../latlon_muxer-design/" class="md-footer__link md-footer__link--next" aria-label="Next: Lateral/Longitudinal Control Muxer" rel="next">
+        <a href="../pid_longitudinal_controller-design/" class="md-footer__link md-footer__link--next" aria-label="Next: PID Longitudinal Controller" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Lateral/Longitudinal Control Muxer
+              PID Longitudinal Controller
             </div>
           </div>
           <div class="md-footer__button md-icon">
