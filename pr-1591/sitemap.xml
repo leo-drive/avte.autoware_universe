@@ -301,11 +301,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/launch/tier4_integration_launch/</loc>
-         <lastmod>2022-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/launch/tier4_localization_launch/</loc>
          <lastmod>2022-08-29</lastmod>
          <changefreq>daily</changefreq>
@@ -462,6 +457,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/perception/euclidean_cluster/</loc>
+         <lastmod>2022-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/perception/front_vehicle_velocity_estimator/</loc>
          <lastmod>2022-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -721,6 +721,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/planning/planning_debug_tools/Readme/</loc>
+         <lastmod>2022-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/planning/planning_error_monitor/</loc>
          <lastmod>2022-08-29</lastmod>
          <changefreq>daily</changefreq>
@@ -856,6 +861,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/sensing/pointcloud_preprocessor/docs/vector-map-inside-area-filter/</loc>
+         <lastmod>2022-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/sensing/pointcloud_preprocessor/docs/voxel-grid-outlier-filter/</loc>
          <lastmod>2022-08-29</lastmod>
          <changefreq>daily</changefreq>
@@ -907,6 +917,11 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/system/bluetooth_monitor/</loc>
+         <lastmod>2022-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1591/system/default_ad_api_helpers/ad_api_adaptors/</loc>
          <lastmod>2022-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
