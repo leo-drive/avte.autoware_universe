@@ -10714,6 +10714,9 @@ to the obstacle pointcloud is longer than standard distance, The target velocity
 <ul>
 <li>The velocity estimation algorithm in <code>Adaptive Cruise Controller</code> is depend on object tracking module. Please note that if the object-tracking fails or the tracking result is incorrect, it the possibility that the vehicle behaves dangerously.</li>
 </ul>
+<ul>
+<li>It does not work for backward driving, but publishes the path of the input as it is. Please use <a href="../obstacle_cruise_planner/">obstacle_cruise_planner</a> if you want to stop against an obstacle when backward driving.</li>
+</ul>
 
 
 
