@@ -251,32 +251,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/control/trajectory_follower/design/mpc_lateral_controller-design/</loc>
+         <lastmod>2022-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/control/trajectory_follower/design/pid_longitudinal_controller-design/</loc>
+         <lastmod>2022-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/control/trajectory_follower/design/trajectory_follower-design/</loc>
-         <lastmod>2022-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/latest/control/trajectory_follower/design/trajectory_follower-mpc-design/</loc>
-         <lastmod>2022-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/latest/control/trajectory_follower/design/trajectory_follower-pid-design/</loc>
-         <lastmod>2022-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/latest/control/trajectory_follower_nodes/design/lateral_controller-design/</loc>
-         <lastmod>2022-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/latest/control/trajectory_follower_nodes/design/latlon_muxer-design/</loc>
-         <lastmod>2022-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/latest/control/trajectory_follower_nodes/design/longitudinal_controller-design/</loc>
          <lastmod>2022-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
