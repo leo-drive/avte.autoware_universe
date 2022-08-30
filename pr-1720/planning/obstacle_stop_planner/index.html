@@ -10160,8 +10160,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#longitudinal-margin-between-the-obstacle-and-the-ego" class="md-nav__link">
-    Longitudinal margin between the obstacle and the ego
+  <a href="#stop-position" class="md-nav__link">
+    Stop position
   </a>
   
 </li>
@@ -10169,20 +10169,6 @@
           <li class="md-nav__item">
   <a href="#obstacle-detection-area" class="md-nav__link">
     Obstacle detection area
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trajectory-pre-process" class="md-nav__link">
-    Trajectory pre-process
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restart-prevention_1" class="md-nav__link">
-    Restart prevention
   </a>
   
 </li>
@@ -10228,8 +10214,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#longitudinal-margin-between-the-obstacle-and-the-ego_1" class="md-nav__link">
-    Longitudinal margin between the obstacle and the ego
+  <a href="#slow-down-section" class="md-nav__link">
+    Slow down section
   </a>
   
 </li>
@@ -10241,8 +10227,10 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#slow-down-target-velocity" class="md-nav__link">
+    Slow down target velocity
+  </a>
   
 </li>
         
@@ -10250,14 +10238,6 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#slow-down-target-velocity" class="md-nav__link">
-    Slow down target velocity
-  </a>
-  
-    <nav class="md-nav" aria-label="Slow down target velocity">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#flowchart_1" class="md-nav__link">
@@ -10475,7 +10455,7 @@
 <figcaption>inside the hold_stop_margin_distance</figcaption>
 </figure>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h3>
-<h4 id="longitudinal-margin-between-the-obstacle-and-the-ego">Longitudinal margin between the obstacle and the ego<a class="headerlink" href="#longitudinal-margin-between-the-obstacle-and-the-ego" title="Permanent link">#</a></h4>
+<h4 id="stop-position">Stop position<a class="headerlink" href="#stop-position" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -10495,6 +10475,11 @@
 <td>double</td>
 <td>if any obstacle exists within <code>max_longitudinal_margin</code>, this module set margin as the value of <em>stop margin</em> to <code>min_longitudinal_margin</code> [m]</td>
 </tr>
+<tr>
+<td><code>hold_stop_margin_distance</code></td>
+<td>double</td>
+<td>parameter for restart prevention (See above section) [m]</td>
+</tr>
 </tbody>
 </table>
 <h4 id="obstacle-detection-area">Obstacle detection area<a class="headerlink" href="#obstacle-detection-area" title="Permanent link">#</a></h4>
@@ -10508,22 +10493,10 @@
 </thead>
 <tbody>
 <tr>
-<td><code>lateral_buffer_for_detection_area</code></td>
+<td><code>lateral_margin</code></td>
 <td>double</td>
 <td>lateral margin from the vehicle footprint for collision obstacle detection area [m]</td>
 </tr>
-</tbody>
-</table>
-<h4 id="trajectory-pre-process">Trajectory pre-process<a class="headerlink" href="#trajectory-pre-process" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><code>step_length</code></td>
 <td>double</td>
@@ -10533,23 +10506,6 @@
 <td><code>extend_distance</code></td>
 <td>double</td>
 <td>extend trajectory to consider after goal obstacle in the extend_distance [m]</td>
-</tr>
-</tbody>
-</table>
-<h4 id="restart-prevention_1">Restart prevention<a class="headerlink" href="#restart-prevention_1" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>hold_stop_margin_distance</code></td>
-<td>double</td>
-<td>parameter for restart prevention (See above section) [m]</td>
 </tr>
 </tbody>
 </table>
@@ -10564,7 +10520,7 @@
 <li><span class="arithmatex"><span class="MathJax_Preview">v_{min}</span><script type="math/tex">v_{min}</script></span> : <code>min_slow_down_velocity</code> [m/s]</li>
 <li><span class="arithmatex"><span class="MathJax_Preview">v_{max}</span><script type="math/tex">v_{max}</script></span> : <code>max_slow_down_velocity</code> [m/s]</li>
 <li><span class="arithmatex"><span class="MathJax_Preview">l_{ld}</span><script type="math/tex">l_{ld}</script></span> : lateral deviation between the obstacle and the ego footprint [m]</li>
-<li><span class="arithmatex"><span class="MathJax_Preview">l_{margin}</span><script type="math/tex">l_{margin}</script></span> : <code>lateral_buffer_for_detection_area</code> [m]</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">l_{margin}</span><script type="math/tex">l_{margin}</script></span> : <code>lateral_margin</code> [m]</li>
 <li><span class="arithmatex"><span class="MathJax_Preview">l_{vw}</span><script type="math/tex">l_{vw}</script></span> : width of the ego footprint [m]</li>
 </ul>
 <p>The above equation means that the smaller the lateral deviation of the pointcloud, the lower the velocity of the slow down section.</p>
@@ -10579,7 +10535,7 @@
 <figcaption>target for slow down planner</figcaption>
 </figure>
 <h3 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h3>
-<h4 id="longitudinal-margin-between-the-obstacle-and-the-ego_1">Longitudinal margin between the obstacle and the ego<a class="headerlink" href="#longitudinal-margin-between-the-obstacle-and-the-ego_1" title="Permanent link">#</a></h4>
+<h4 id="slow-down-section">Slow down section<a class="headerlink" href="#slow-down-section" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -10612,13 +10568,13 @@
 </thead>
 <tbody>
 <tr>
-<td><code>lateral_buffer_for_detection_area</code></td>
+<td><code>lateral_margin</code></td>
 <td>double</td>
 <td>lateral margin from the vehicle footprint for slow down obstacle detection area [m]</td>
 </tr>
 </tbody>
 </table>
-<h2 id="slow-down-target-velocity">Slow down target velocity<a class="headerlink" href="#slow-down-target-velocity" title="Permanent link">#</a></h2>
+<h4 id="slow-down-target-velocity">Slow down target velocity<a class="headerlink" href="#slow-down-target-velocity" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
