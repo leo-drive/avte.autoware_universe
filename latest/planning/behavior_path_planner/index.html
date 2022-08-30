@@ -10278,9 +10278,56 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#collision-prediction-with-obstacles_1" class="md-nav__link">
-    Collision prediction with obstacles
+  <a href="#general-parameters-for-pull_over" class="md-nav__link">
+    General parameters for pull_over
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collision-check" class="md-nav__link">
+    collision check
+  </a>
+  
+    <nav class="md-nav" aria-label="collision check">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#occupancy-grid-based-collision-check" class="md-nav__link">
+    occupancy grid based collision check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-occupancy-grid-based-collision-check" class="md-nav__link">
+    Parameters for occupancy grid based collision check
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goal-search" class="md-nav__link">
+    Goal Search
+  </a>
+  
+    <nav class="md-nav" aria-label="Goal Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-goal-search" class="md-nav__link">
+    Parameters for goal search
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -10289,12 +10336,79 @@
     Path Generation
   </a>
   
+    <nav class="md-nav" aria-label="Path Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shift-parking" class="md-nav__link">
+    shift parking
+  </a>
+  
+    <nav class="md-nav" aria-label="shift parking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-shift-parking" class="md-nav__link">
+    Parameters for shift parking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#parameters-for-path-generation" class="md-nav__link">
-    Parameters for path generation
+  <a href="#geometric-parallel-parking" class="md-nav__link">
+    geometric parallel parking
   </a>
+  
+    <nav class="md-nav" aria-label="geometric parallel parking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-geometric-parallel-parking" class="md-nav__link">
+    Parameters geometric parallel parking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arc-forward-parking" class="md-nav__link">
+    arc forward parking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-arc-forward-parking" class="md-nav__link">
+    Parameters arc forward parking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arc-backward-parking" class="md-nav__link">
+    arc backward parking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-arc-backward-parking" class="md-nav__link">
+    Parameters arc backward parking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -10367,7 +10481,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#parameters-for-path-generation_1" class="md-nav__link">
+  <a href="#parameters-for-path-generation" class="md-nav__link">
     Parameters for path generation
   </a>
   
@@ -10477,7 +10591,7 @@
 <li><strong>Lane Following</strong>: Generate lane centerline from map.</li>
 <li><strong>Lane Change</strong>: Performs a lane change. This module is performed when it is necessary and a collision check with other vehicles is cleared.</li>
 <li><strong>Obstacle Avoidance</strong>: Perform an obstacle avoidance. This module is for avoidance of a vehicle parked on the edge of the lane or overtaking a low-speed obstacle.</li>
-<li><strong>Pull Over</strong>: Performs a pull over. This module is performed when goal is in the shoulder lane. Ego-vehicle will stop at the goal.</li>
+<li><strong>Pull Over</strong>: Performs a pull over. This module is performed when ego-vehicle is in the road lane and goal is in the shoulder lane. ego-vehicle will stop at the goal.</li>
 <li><strong>Pull Out</strong>: Performs a pull out. This module is performed when ego-vehicle is stationary and footprint of ego-vehicle is included in shoulder lane. This module ends when ego-vehicle merges into the road.</li>
 <li><strong>Side Shift</strong>: (For remote control) Shift the path to left or right according to an external instruction.</li>
 </ul>
@@ -10505,6 +10619,7 @@
 <li>/planning/mission_planning/route [<code>autoware_auto_planning_msgs/HADMapRoute</code>] : Current route from start to goal.</li>
 <li>/map/vector_map [autoware_auto_mapping_msgs/HADMapBin] : Map information.</li>
 <li>/perception/object_recognition/objects [<code>autoware_auto_perception_msgs/PredictedObjects</code>] : dynamic objects from perception module.</li>
+<li>/perception/occupancy_grid_map/map [nav_msgs/msg/OccupancyGrid] : occupancy grid map from perception module. This is used for only Pull Over module</li>
 <li>/tf [<code>tf2_msgs/TFMessage</code>] : For ego-pose.</li>
 <li>/localization/kinematic_state [`nav_msgs/Odometry] : For ego-velocity.</li>
 <li>path_change_approval [<code>std_msgs::Bool</code>] : (For remote control)</li>
@@ -10671,9 +10786,9 @@ Once the lane change is executed, the path won’t be updated until the "finish-
 <li>
 <p>Pull over request condition</p>
 <ul>
-<li>The goal is in shoulder lane</li>
-<li>The distance from ego-vehicle to the destination is long enough for pull over<ul>
-<li>The distance required for a pull over is determined by the sum of the straight distance before pull over, the straight distance after pull over, and the minimum distance required for pull over</li>
+<li>The goal is in shoulder lane and the ego-vehicle is in road lane.</li>
+<li>The distance between the goal and ego-vehicle is somewhat close.<ul>
+<li>It is shorter than <code>request_length</code>(default: &lt; <code>100m</code>).</li>
 </ul>
 </li>
 </ul>
@@ -10683,12 +10798,18 @@ Once the lane change is executed, the path won’t be updated until the "finish-
 <li>
 <p>Pull over ready condition</p>
 <ul>
-<li>The end of generated path is located before the end of the road</li>
-<li>Distance required for pull over of generated path is shorter than distance from ego-pose to goal-pose</li>
-<li>Generated Path of the pull over doesn’t collide with other objects</li>
+<li>It is always ready if the conditions of the request are met.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Pull over start condition<ul>
+<li>Generate safe parking goal and path.<ul>
+<li>The generated path does not collide with obstacles.</li>
+</ul>
+</li>
 <li>Pull over is allowed by an operator<ul>
-<li>If pull over path is not allowed by an operator, leave distance required for pull over and stop.
-  This case is defined as UC ID: UC-F-11-00004 at <a href="https://docs.google.com/presentation/d/19-G1vj0rG-1P1RKWLg-Iq3_7YgcIYgXZ1wq2_J9NXGo/edit#slide=id.gf4f59f078d_0_1">ODD Use Case Slide Pullover draft</a></li>
+<li>If pull over path is not allowed by an operator, leave distance required for pull over and stop.</li>
 </ul>
 </li>
 </ul>
@@ -10697,24 +10818,12 @@ Once the lane change is executed, the path won’t be updated until the "finish-
 <h4 id="finish-pull-over-condition-need-to-meet-any-of-the-conditions-below"><strong>finish pull over condition</strong> (need to meet any of the conditions below)<a class="headerlink" href="#finish-pull-over-condition-need-to-meet-any-of-the-conditions-below" title="Permanent link">#</a></h4>
 <ul>
 <li>The distance to the goal from your vehicle is lower than threshold (default: &lt; <code>1m</code>)</li>
-<li>The speed of the vehicle is 0.</li>
+<li>The ego-vehicle is stopped.<ul>
+<li>The speed is lower than threshold (default: &lt; <code>0.01m/s</code>).</li>
 </ul>
-<h4 id="collision-prediction-with-obstacles_1"><strong>Collision prediction with obstacles</strong><a class="headerlink" href="#collision-prediction-with-obstacles_1" title="Permanent link">#</a></h4>
-<ol>
-<li>Predict each position of the ego-vehicle and other vehicle on the target lane of the pull over at t1, t2,...tn</li>
-<li>If a distance between the ego-vehicle and other one is lower than the threshold (<code>ego_velocity * stop_time (2s)</code>) at each time, that is judged as a collision</li>
-</ol>
-<h4 id="path-generation_1"><strong>Path Generation</strong><a class="headerlink" href="#path-generation_1" title="Permanent link">#</a></h4>
-<p>The path is generated with a certain margin (default: <code>0.5 m</code>) from left boundary of shoulder lane.
-Pull over distance is calculated by the speed, lateral deviation, and the lateral jerk.
-The lateral jerk is searched for among the predetermined minimum and maximum values, and the one satisfies ready conditions described above is output.</p>
-<ol>
-<li>Apply uniform offset to centerline of shoulder lane for ensuring margin</li>
-<li>In the section between merge start and end, path is shifted by a method that is used to generate avoidance path (four segmental constant jerk polynomials)</li>
-<li>Combine this path with center line of road lane</li>
-</ol>
-<p><img alt="pull_over" src="image/pull_over_fig1.drawio.svg" /></p>
-<h4 id="parameters-for-path-generation">Parameters for path generation<a class="headerlink" href="#parameters-for-path-generation" title="Permanent link">#</a></h4>
+</li>
+</ul>
+<h4 id="general-parameters-for-pull_over">General parameters for pull_over<a class="headerlink" href="#general-parameters-for-pull_over" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -10727,45 +10836,378 @@ The lateral jerk is searched for among the predetermined minimum and maximum val
 </thead>
 <tbody>
 <tr>
-<td align="left">straight_distance</td>
+<td align="left">request_length</td>
 <td align="left">[m]</td>
 <td align="left">double</td>
-<td align="left">straight distance after pull over.</td>
-<td align="left">5.0</td>
+<td align="left">when the ego-vehicle approaches the goal by this distance, the module is activated.</td>
+<td align="left">100.0</td>
 </tr>
 <tr>
-<td align="left">minimum_lateral_jerk</td>
-<td align="left">[m/s3]</td>
+<td align="left">th_arrived_distance_m</td>
+<td align="left">[m]</td>
 <td align="left">double</td>
-<td align="left">minimum lateral jerk to calculate shifting distance.</td>
-<td align="left">0.5</td>
+<td align="left">distance threshold for arrival of path termination</td>
+<td align="left">1.0</td>
 </tr>
 <tr>
-<td align="left">maximum_lateral_jerk</td>
-<td align="left">[m/s3]</td>
+<td align="left">th_stopped_velocity_mps</td>
+<td align="left">[m/s]</td>
 <td align="left">double</td>
-<td align="left">maximum lateral jerk to calculate shifting distance.</td>
+<td align="left">velocity threshold for arrival of path termination</td>
+<td align="left">0.01</td>
+</tr>
+<tr>
+<td align="left">th_stopped_time_sec</td>
+<td align="left">[s]</td>
+<td align="left">double</td>
+<td align="left">time threshold for arrival of path termination</td>
 <td align="left">2.0</td>
 </tr>
 <tr>
 <td align="left">pull_over_velocity</td>
 <td align="left">[m/s]</td>
 <td align="left">double</td>
-<td align="left">Accelerate/decelerate to this speed before the start of the pullover.</td>
-<td align="left">3.0</td>
+<td align="left">decelerate to this speed by the goal search area</td>
+<td align="left">2.0</td>
 </tr>
 <tr>
-<td align="left">margin</td>
+<td align="left">pull_over_minimum_velocity</td>
+<td align="left">[m/s]</td>
+<td align="left">double</td>
+<td align="left">speed of pull_over after stopping once. this prevents excessive acceleration.</td>
+<td align="left">0.3</td>
+</tr>
+<tr>
+<td align="left">margin_from_boundary</td>
 <td align="left">[m]</td>
 <td align="left">double</td>
-<td align="left">distance from ego-vehicle's footprint to the edge of the shoulder lane. This value determines shift length.</td>
+<td align="left">distance margin from edge of the shoulder lane</td>
 <td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left">decide_path_distance</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">decide path if it approaches this distance relative to the parking position. after that, no path planning and goal search are performed</td>
+<td align="left">10.0</td>
+</tr>
+<tr>
+<td align="left">maximum_deceleration</td>
+<td align="left">[m/s2]</td>
+<td align="left">double</td>
+<td align="left">maximum deceleration. it prevents sudden deceleration when a parking path cannot be found suddenly</td>
+<td align="left">0.5</td>
+</tr>
+</tbody>
+</table>
+<h4 id="collision-check"><strong>collision check</strong><a class="headerlink" href="#collision-check" title="Permanent link">#</a></h4>
+<h5 id="occupancy-grid-based-collision-check"><strong>occupancy grid based collision check</strong><a class="headerlink" href="#occupancy-grid-based-collision-check" title="Permanent link">#</a></h5>
+<p>Generate footprints from ego-vehicle path points and determine obstacle collision from the value of occupancy_grid of the corresponding cell.</p>
+<h5 id="parameters-for-occupancy-grid-based-collision-check">Parameters for occupancy grid based collision check<a class="headerlink" href="#parameters-for-occupancy-grid-based-collision-check" title="Permanent link">#</a></h5>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">collision_check_margin</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">margin to calculate ego-vehicle cells from footprint.</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left">theta_size</td>
+<td align="left">-</td>
+<td align="left">int</td>
+<td align="left">size of theta angle to be considered. angular resolution for collision check will be 2<span class="arithmatex"><span class="MathJax_Preview">\pi</span><script type="math/tex">\pi</script></span> / theta_size [rad].</td>
+<td align="left">360</td>
+</tr>
+<tr>
+<td align="left">obstacle_threshold</td>
+<td align="left">-</td>
+<td align="left">int</td>
+<td align="left">threshold of cell values to be considered as obstacles</td>
+<td align="left">60</td>
+</tr>
+</tbody>
+</table>
+<h4 id="goal-search"><strong>Goal Search</strong><a class="headerlink" href="#goal-search" title="Permanent link">#</a></h4>
+<p>If it is not possible to park safely at a given goal, <code>/planning/scenario_planning/modified_goal</code> is
+searched for in certain range of the shoulder lane.</p>
+<p><a href="https://user-images.githubusercontent.com/39142679/178033628-bec1bbc7-3b27-47b1-b50b-55f855e2e399.mp4">Video of how goal search works</a></p>
+<h5 id="parameters-for-goal-search">Parameters for goal search<a class="headerlink" href="#parameters-for-goal-search" title="Permanent link">#</a></h5>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">search_priority</td>
+<td align="left">-</td>
+<td align="left">string</td>
+<td align="left">In case <code>efficient_path</code> use a goal that can generate an efficient path( priority is <code>shift_parking</code> -&gt; <code>arc_forward_parking</code> -&gt; <code>arc_backward_parking</code>). In case <code>close_goal</code> use the closest goal to the original one.</td>
+<td align="left">efficient_path</td>
+</tr>
+<tr>
+<td align="left">enable_goal_research</td>
+<td align="left">-</td>
+<td align="left">double</td>
+<td align="left">flag whether to search goal</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">forward_goal_search_length</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">length of forward range to be explored from the original goal</td>
+<td align="left">20.0</td>
+</tr>
+<tr>
+<td align="left">backward_goal_search_length</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">length of backward range to be explored from the original goal</td>
+<td align="left">20.0</td>
+</tr>
+<tr>
+<td align="left">goal_search_interval</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">distance interval for goal search</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">goal_to_obj_margin</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">margin between ego-vehicle and obstacles when arriving the goal</td>
+<td align="left">2.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="path-generation_1"><strong>Path Generation</strong><a class="headerlink" href="#path-generation_1" title="Permanent link">#</a></h4>
+<p>There are three path generation methods.
+The path is generated with a certain margin (default: <code>0.5 m</code>) from left boundary of shoulder lane.</p>
+<h5 id="shift-parking"><strong>shift parking</strong><a class="headerlink" href="#shift-parking" title="Permanent link">#</a></h5>
+<p>Pull over distance is calculated by the speed, lateral deviation, and the lateral jerk.
+The lateral jerk is searched for among the predetermined minimum and maximum values, and the one satisfies ready conditions described above is output.</p>
+<ol>
+<li>Apply uniform offset to centerline of shoulder lane for ensuring margin</li>
+<li>In the section between merge start and end, path is shifted by a method that is used to generate avoidance path (four segmental constant jerk polynomials)</li>
+<li>Combine this path with center line of road lane</li>
+</ol>
+<p><img alt="shift_parking" src="image/shift_parking.drawio.svg" /></p>
+<p><a href="https://user-images.githubusercontent.com/39142679/178034101-4dc61a33-bc49-41a0-a9a8-755cce53cbc6.mp4">Video of how shift_parking works</a></p>
+<h6 id="parameters-for-shift-parking">Parameters for shift parking<a class="headerlink" href="#parameters-for-shift-parking" title="Permanent link">#</a></h6>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">enable_shift_parking</td>
+<td align="left">[-]</td>
+<td align="left">bool</td>
+<td align="left">flag whether to enable shift parking</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">pull_over_sampling_num</td>
+<td align="left">[-]</td>
+<td align="left">int</td>
+<td align="left">Number of samplings in the minimum to maximum range of lateral_jerk</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">maximum_lateral_jerk</td>
+<td align="left">[m/s3]</td>
+<td align="left">double</td>
+<td align="left">maximum lateral jerk</td>
+<td align="left">2.0</td>
+</tr>
+<tr>
+<td align="left">minimum_lateral_jerk</td>
+<td align="left">[m/s3]</td>
+<td align="left">double</td>
+<td align="left">minimum lateral jerk</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left">deceleration_interval</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">distance of deceleration section</td>
+<td align="left">15.0</td>
+</tr>
+<tr>
+<td align="left">after_pull_over_straight_distance</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">straight line distance after pull over end point</td>
+<td align="left">5.0</td>
+</tr>
+<tr>
+<td align="left">before_pull_over_straight_distance</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">straight line distance before pull over end point. a safe path should have a distance that includes this</td>
+<td align="left">5.0</td>
+</tr>
+</tbody>
+</table>
+<h5 id="geometric-parallel-parking"><strong>geometric parallel parking</strong><a class="headerlink" href="#geometric-parallel-parking" title="Permanent link">#</a></h5>
+<p>Generate two arc paths with discontinuous curvature. It stops twice in the middle of the path to control the steer on the spot. There are two path generation methods: forward and backward.
+See also <a href="https://www.sciencedirect.com/science/article/pii/S1474667015347431">[1]</a> for details of the algorithm. There is also <a href="https://github.com/kosuke55/geometric-parallel-parking">a simple python implementation</a>.</p>
+<h6 id="parameters-geometric-parallel-parking">Parameters geometric parallel parking<a class="headerlink" href="#parameters-geometric-parallel-parking" title="Permanent link">#</a></h6>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">arc_path_interval</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">interval between arc path points</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">max_steer_rad</td>
+<td align="left">[rad]</td>
+<td align="left">double</td>
+<td align="left">maximum steer angle for path generation</td>
+<td align="left">0.35</td>
+</tr>
+</tbody>
+</table>
+<h6 id="arc-forward-parking">arc forward parking<a class="headerlink" href="#arc-forward-parking" title="Permanent link">#</a></h6>
+<p>Generate two forward arc paths.</p>
+<p><img alt="arc_forward_parking" src="image/arc_forward_parking.drawio.svg" /></p>
+<p><a href="https://user-images.githubusercontent.com/39142679/178034128-4754c401-8aff-4745-b69a-4a69ca29ce4b.mp4">Video of how arc_forward_parking works</a></p>
+<h6 id="parameters-arc-forward-parking">Parameters arc forward parking<a class="headerlink" href="#parameters-arc-forward-parking" title="Permanent link">#</a></h6>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">enable_arc_forward_parking</td>
+<td align="left">[-]</td>
+<td align="left">bool</td>
+<td align="left">flag whether to enable arc forward parking</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">after_forward_parking_straight_distance</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">straight line distance after pull over end point</td>
+<td align="left">2.0</td>
+</tr>
+<tr>
+<td align="left">forward_parking_velocity</td>
+<td align="left">[m/s]</td>
+<td align="left">double</td>
+<td align="left">velocity when forward parking</td>
+<td align="left">0.3</td>
+</tr>
+<tr>
+<td align="left">forward_parking_lane_departure_margin</td>
+<td align="left">[m/s]</td>
+<td align="left">double</td>
+<td align="left">lane departure margin for front left corner of ego-vehicle when forkward parking</td>
+<td align="left">0.0</td>
+</tr>
+</tbody>
+</table>
+<h6 id="arc-backward-parking">arc backward parking<a class="headerlink" href="#arc-backward-parking" title="Permanent link">#</a></h6>
+<p>Generate two backward arc paths.</p>
+<p><img alt="arc_backward_parking" src="image/arc_backward_parking.drawio.svg" />.</p>
+<p><a href="https://user-images.githubusercontent.com/39142679/178034280-4b6754fe-3981-4aee-b5e0-970f34563c6d.mp4">Video of how arc_forward_parking works</a></p>
+<h6 id="parameters-arc-backward-parking">Parameters arc backward parking<a class="headerlink" href="#parameters-arc-backward-parking" title="Permanent link">#</a></h6>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">enable_arc_backward_parking</td>
+<td align="left">[-]</td>
+<td align="left">bool</td>
+<td align="left">flag whether to enable arc backward parking</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">after_backward_parking_straight_distance</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">straight line distance after pull over end point</td>
+<td align="left">2.0</td>
+</tr>
+<tr>
+<td align="left">backward_parking_velocity</td>
+<td align="left">[m/s]</td>
+<td align="left">double</td>
+<td align="left">velocity when backward parking</td>
+<td align="left">-0.3</td>
+</tr>
+<tr>
+<td align="left">backward_parking_lane_departure_margin</td>
+<td align="left">[m/s]</td>
+<td align="left">double</td>
+<td align="left">lane departure margin for front right corner of ego-vehicle when backward</td>
+<td align="left">0.0</td>
 </tr>
 </tbody>
 </table>
 <h4 id="unimplemented-parts-limitations-for-pull-over">Unimplemented parts / limitations for pull over<a class="headerlink" href="#unimplemented-parts-limitations-for-pull-over" title="Permanent link">#</a></h4>
 <ul>
-<li>When parking on the shoulder of the road, 3.5m space on the right side should be secured</li>
+<li>parking on the right shoulder is not allowed</li>
+<li>if the distance from the edge of the shoulder is too narrow, parking is not possible.<ul>
+<li>if <code>margin_from_boundary</code> is set to <code>0.0</code>, etc., a path without deviation cannot be found.</li>
+</ul>
+</li>
+<li>geometric_parallel_parking assumes road lanes and shoulder lanes are straight and parallel.<ul>
+<li>sift parking is possible on curved lanes.</li>
+</ul>
+</li>
 </ul>
 <h3 id="pull-out">Pull Out<a class="headerlink" href="#pull-out" title="Permanent link">#</a></h3>
 <p>The Pull Out module is activated when ego-vehicle is stationary and footprint of ego-vehicle is included in shoulder lane. This module ends when ego-vehicle merges into the road.</p>
@@ -10818,7 +11260,7 @@ The lateral jerk is searched for among the predetermined minimum and maximum val
 </ul>
 <h3 id="side-shift">Side Shift<a class="headerlink" href="#side-shift" title="Permanent link">#</a></h3>
 <p>The role of the Side Shift module is to shift the reference path laterally in response to external instructions (such as remote operation).</p>
-<h4 id="parameters-for-path-generation_1">Parameters for path generation<a class="headerlink" href="#parameters-for-path-generation_1" title="Permanent link">#</a></h4>
+<h4 id="parameters-for-path-generation">Parameters for path generation<a class="headerlink" href="#parameters-for-path-generation" title="Permanent link">#</a></h4>
 <p><img alt="path_shifter" src="image/side_shift_fig1.png" /></p>
 <p>In the figure, <code>straight margin distance</code> is to avoid sudden shifting, that is calculated by <code>max(min_distance_to_start_shifting, ego_speed * time_to_start_shifting)</code> . The <code>shifting distance</code> is calculated by jerk, with minimum speed and minimum distance parameter, described below. The minimum speed is used to prevent sharp shift when ego vehicle is stopped.</p>
 <table>
@@ -10897,6 +11339,7 @@ The lateral jerk is searched for among the predetermined minimum and maximum val
 <p>When multiple turn signal conditions are met, the turn signal with the smaller distance is selected.</p>
 <h2 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h2>
 <p>This module depends on the external <a href="https://github.com/BehaviorTree/BehaviorTree.CPP">BehaviorTreeCpp</a> library.</p>
+<p><a href="https://www.sciencedirect.com/science/article/pii/S1474667015347431">[1]</a> H. Vorobieva, S. Glaser, N. Minoiu-Enache, and S. Mammar, “Geometric path planning for automatic parallel parking in tiny spots”, IFAC Proceedings Volumes, vol. 45, no. 24, pp. 36–42, 2012.</p>
 <h2 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
 <p>-</p>
 <h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
