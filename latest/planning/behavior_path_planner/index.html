@@ -10843,21 +10843,21 @@ Once the lane change is executed, the path won’t be updated until the "finish-
 <td align="left">100.0</td>
 </tr>
 <tr>
-<td align="left">th_arrived_distance_m</td>
+<td align="left">th_arrived_distance</td>
 <td align="left">[m]</td>
 <td align="left">double</td>
 <td align="left">distance threshold for arrival of path termination</td>
 <td align="left">1.0</td>
 </tr>
 <tr>
-<td align="left">th_stopped_velocity_mps</td>
+<td align="left">th_stopped_velocity</td>
 <td align="left">[m/s]</td>
 <td align="left">double</td>
 <td align="left">velocity threshold for arrival of path termination</td>
 <td align="left">0.01</td>
 </tr>
 <tr>
-<td align="left">th_stopped_time_sec</td>
+<td align="left">th_stopped_time</td>
 <td align="left">[s]</td>
 <td align="left">double</td>
 <td align="left">time threshold for arrival of path termination</td>
@@ -11097,10 +11097,10 @@ See also <a href="https://www.sciencedirect.com/science/article/pii/S14746670153
 <td align="left">1.0</td>
 </tr>
 <tr>
-<td align="left">max_steer_rad</td>
+<td align="left">pull_over_max_steer_rad</td>
 <td align="left">[rad]</td>
 <td align="left">double</td>
-<td align="left">maximum steer angle for path generation</td>
+<td align="left">maximum steer angle for path generation. it may not be possible to control steer up to max_steer_angle in vehicle_info when stopped</td>
 <td align="left">0.35</td>
 </tr>
 </tbody>
