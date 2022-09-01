@@ -8943,6 +8943,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_15_3">
@@ -8990,6 +8992,49 @@
         <label class="md-nav__title" for="__nav_15_3_1">
           <span class="md-nav__icon md-icon"></span>
           Ad api adaptors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_3_2" type="checkbox" id="__nav_15_3_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../automatic_pose_initializer/">Automatic pose initializer</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Automatic pose initializer" data-md-level="3">
+        <label class="md-nav__title" for="__nav_15_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Automatic pose initializer
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -10066,6 +10111,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#initial_pose_adaptor" class="md-nav__link">
+    initial_pose_adaptor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#routing_adaptor" class="md-nav__link">
     routing_adaptor
   </a>
@@ -10091,6 +10143,40 @@
 
 
 <h1 id="ad_api_adaptors">ad_api_adaptors<a class="headerlink" href="#ad_api_adaptors" title="Permanent link">#</a></h1>
+<h2 id="initial_pose_adaptor">initial_pose_adaptor<a class="headerlink" href="#initial_pose_adaptor" title="Permanent link">#</a></h2>
+<p>This node makes it easy to use the localization AD API from RViz.
+When a initial pose topic is received, call the localization initialize API.
+This node depends on fitting to map height service.</p>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Local Name</th>
+<th>Global Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subscription</td>
+<td>initialpose</td>
+<td>/initialpose</td>
+<td>The pose for localization initialization.</td>
+</tr>
+<tr>
+<td>Client</td>
+<td>fit_map_height</td>
+<td>/localization/util/fit_map_height</td>
+<td>To fix initial pose to map height</td>
+</tr>
+<tr>
+<td>Client</td>
+<td>-</td>
+<td>/api/localization/initialize</td>
+<td>The localization initialize API.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="routing_adaptor">routing_adaptor<a class="headerlink" href="#routing_adaptor" title="Permanent link">#</a></h2>
 <p>This node makes it easy to use the routing AD API from RViz.
 When a goal pose topic is received, reset the waypoints and call the API.
@@ -10171,13 +10257,13 @@ The clear API is called automatically before setting the route.</p>
       
       
         
-        <a href="../../dummy_diag_publisher/" class="md-footer__link md-footer__link--next" aria-label="Next: dummy_diag_publisher" rel="next">
+        <a href="../automatic_pose_initializer/" class="md-footer__link md-footer__link--next" aria-label="Next: automatic_pose_initializer" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              dummy_diag_publisher
+              automatic_pose_initializer
             </div>
           </div>
           <div class="md-footer__button md-icon">

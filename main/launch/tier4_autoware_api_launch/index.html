@@ -8943,6 +8943,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_15_3">
@@ -8988,6 +8990,49 @@
         <label class="md-nav__title" for="__nav_15_3_1">
           <span class="md-nav__icon md-icon"></span>
           Ad api adaptors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_15_3_2" type="checkbox" id="__nav_15_3_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../system/default_ad_api_helpers/automatic_pose_initializer/">Automatic pose initializer</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Automatic pose initializer" data-md-level="3">
+        <label class="md-nav__title" for="__nav_15_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Automatic pose initializer
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -10115,11 +10160,8 @@
 <h2 id="package-dependencies">Package Dependencies<a class="headerlink" href="#package-dependencies" title="Permanent link">#</a></h2>
 <p>Please see <code>&lt;exec_depend&gt;</code> in <code>package.xml</code>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
-<p>You can include as follows in <code>*.launch.xml</code> to use <code>control.launch.py</code>.</p>
-<div class="highlight"><pre><span></span><code>  <span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share tier4_autoware_api_launch)/launch/autoware_api.launch.xml&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;init_simulator_pose&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;init_localization_pose&quot;</span> <span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/include&gt;</span>
+<p>You can include as follows in <code>*.launch.xml</code> to use <code>autoware_api.launch.xml</code>.</p>
+<div class="highlight"><pre><span></span><code>  <span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share tier4_autoware_api_launch)/launch/autoware_api.launch.xml&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
 <p>For reducing processing load, we use the <a href="https://docs.ros.org/en/galactic/Concepts/About-Composition.html">Component</a> feature in ROS2 (similar to Nodelet in ROS1 )</p>
