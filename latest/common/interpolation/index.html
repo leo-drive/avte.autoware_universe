@@ -10175,7 +10175,7 @@ This will be replaced with <code>std::lerp(src_val, dst_val, ratio)</code> in <c
 <p><code>lerp(base_keys, base_values, query_keys)</code> (for vector interpolation) applies linear regression to each two continuous points whose x values are<code>base_keys</code> and whose y values are <code>base_values</code>.
 Then it calculates interpolated values on y-axis for <code>query_keys</code> on x-axis.</p>
 <h2 id="spline-interpolation">Spline Interpolation<a class="headerlink" href="#spline-interpolation" title="Permanent link">#</a></h2>
-<p><code>slerp(base_keys, base_values, query_keys)</code> (for vector interpolation) applies spline regression to each two continuous points whose x values are<code>base_keys</code> and whose y values are <code>base_values</code>.
+<p><code>spline(base_keys, base_values, query_keys)</code> (for vector interpolation) applies spline regression to each two continuous points whose x values are<code>base_keys</code> and whose y values are <code>base_values</code>.
 Then it calculates interpolated values on y-axis for <code>query_keys</code> on x-axis.</p>
 <h3 id="evaluation-of-calculation-cost">Evaluation of calculation cost<a class="headerlink" href="#evaluation-of-calculation-cost" title="Permanent link">#</a></h3>
 <p>We evaluated calculation cost of spline interpolation for 100 points, and adopted the best one which is tridiagonal matrix algorithm.
