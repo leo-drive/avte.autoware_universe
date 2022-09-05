@@ -10539,6 +10539,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#general-parameters-for-pull_out" class="md-nav__link">
+    General parameters for pull_out
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#safe-check-with-obstacles-in-shoulder-lane" class="md-nav__link">
     Safe check with obstacles in shoulder lane
   </a>
@@ -10548,6 +10555,59 @@
           <li class="md-nav__item">
   <a href="#path-generation_2" class="md-nav__link">
     Path Generation
+  </a>
+  
+    <nav class="md-nav" aria-label="Path Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shift-pull-out" class="md-nav__link">
+    shift pull out
+  </a>
+  
+    <nav class="md-nav" aria-label="shift pull out">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-shift-pull-out" class="md-nav__link">
+    parameters for shift pull out
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geometric-pull-out" class="md-nav__link">
+    geometric pull out
+  </a>
+  
+    <nav class="md-nav" aria-label="geometric pull out">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters-for-geometric-pull-out" class="md-nav__link">
+    parameters for geometric pull out
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backward-pull-out-start-point-search" class="md-nav__link">
+    backward pull out start point search
   </a>
   
 </li>
@@ -11309,11 +11369,8 @@ See also <a href="https://www.sciencedirect.com/science/article/pii/S14746670153
 <p>Pull out request condition</p>
 <ul>
 <li>The speed of the vehicle is 0.</li>
-<li>The footprint of ego-vehicle is included in shoulder lane</li>
-<li>The distance from ego-vehicle to the destination is long enough for pull out (same with pull over)<ul>
-<li>The distance required for a pull out is determined by the sum of the straight distance before pull out, the straight distance after pull out, and the minimum distance required for pull out</li>
-</ul>
-</li>
+<li>Somewhere in footprint of ego-vehicle is included in shoulder lane</li>
+<li>The distance from ego-vehicle to the destination is long enough for pull out</li>
 </ul>
 </li>
 </ul>
@@ -11321,10 +11378,13 @@ See also <a href="https://www.sciencedirect.com/science/article/pii/S14746670153
 <li>
 <p>Pull out ready condition</p>
 <ul>
-<li>The end of generated path is located before the end of the road</li>
-<li>Distance required for pull out of generated path is shorter than distance from ego-pose to goal-pose</li>
-<li>Generated Path is safe (This condition is temporarily invalid)<ul>
-<li>It is possible to enable or disable this condition. (default: <code>disabled</code>)</li>
+<li>It is always ready if the conditions of the request are met.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Pull out start condition<ul>
+<li>Generate safe path which does not collide with obstacles<ul>
 <li>If safe path cannot be generated from the current position, safe path from a receding position is searched.</li>
 </ul>
 </li>
@@ -11334,21 +11394,258 @@ See also <a href="https://www.sciencedirect.com/science/article/pii/S14746670153
 </ul>
 <h4 id="finish-pull-out-condition-need-to-meet-any-of-the-conditions-below"><strong>finish pull out condition</strong> (need to meet any of the conditions below)<a class="headerlink" href="#finish-pull-out-condition-need-to-meet-any-of-the-conditions-below" title="Permanent link">#</a></h4>
 <ul>
-<li>The distance to the goal of your vehicle is lower than threshold (default: &lt; <code>1m</code>)</li>
-<li>The speed of the vehicle is 0.</li>
+<li>Exceeding the pull out end point by more than the threshold (default: <code>1.0m</code>)</li>
 </ul>
+<h4 id="general-parameters-for-pull_out">General parameters for pull_out<a class="headerlink" href="#general-parameters-for-pull_out" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">th_arrived_distance_m</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">distance threshold for arrival of path termination</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">th_stopped_velocity_mps</td>
+<td align="left">[m/s]</td>
+<td align="left">double</td>
+<td align="left">velocity threshold for arrival of path termination</td>
+<td align="left">0.01</td>
+</tr>
+<tr>
+<td align="left">th_stopped_time_sec</td>
+<td align="left">[s]</td>
+<td align="left">double</td>
+<td align="left">time threshold for arrival of path termination</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">collision_check_margin</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">Obstacle collision check margin</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">pull_out_finish_judge_buffer</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">threshold for finish judgment distance from pull out end point</td>
+<td align="left">1.0</td>
+</tr>
+</tbody>
+</table>
 <h4 id="safe-check-with-obstacles-in-shoulder-lane"><strong>Safe check with obstacles in shoulder lane</strong><a class="headerlink" href="#safe-check-with-obstacles-in-shoulder-lane" title="Permanent link">#</a></h4>
 <ol>
-<li>Calculate ego-vehicle's footprint on pull out path between from current position to merge end point. (Illustrated by blue frame)</li>
+<li>Calculate ego-vehicle's footprint on pull out path between from current position to pull out end point. (Illustrated by blue frame)</li>
 <li>Calculate object's polygon which is located in shoulder lane</li>
-<li>If a distance between the footprint and the polygon is lower than the threshold (default: <code>1.5 m</code>), that is judged as a unsafe path</li>
+<li>If a distance between the footprint and the polygon is lower than the threshold (default: <code>1.0 m</code>), that is judged as a unsafe path</li>
 </ol>
-<p><img alt="pull_out" src="image/pull_out_fig1.drawio.svg" /></p>
+<p><img alt="pull_out_collision_check" src="image/pull_out_collision_check.drawio.svg" /></p>
 <h4 id="path-generation_2"><strong>Path Generation</strong><a class="headerlink" href="#path-generation_2" title="Permanent link">#</a></h4>
-<p>The path is generated with a certain margin from the left edge of the shoulder lane.</p>
+<p>There are two path generation methods.</p>
+<h5 id="shift-pull-out"><strong>shift pull out</strong><a class="headerlink" href="#shift-pull-out" title="Permanent link">#</a></h5>
+<p>Pull out distance is calculated by the speed, lateral deviation, and the lateral jerk. The lateral jerk is searched for among the predetermined minimum and maximum values, and the one that generates a safe path is selected.</p>
+<ul>
+<li>Generate the shoulder lane centerline and shift it to the current position.</li>
+<li>In the section between merge start and end, path is shifted by a method that is used to generate avoidance path (four segmental constant jerk polynomials)</li>
+<li>Combine this path with center line of road lane</li>
+</ul>
+<p><img alt="shift_pull_out" src="image/shift_pull_out.drawio.svg" /></p>
+<p><a href="https://user-images.githubusercontent.com/39142679/187872468-6d5057ee-e039-499b-afc7-fe0dc8052a6b.mp4">Video of how shift pull out works</a></p>
+<h6 id="parameters-for-shift-pull-out">parameters for shift pull out<a class="headerlink" href="#parameters-for-shift-pull-out" title="Permanent link">#</a></h6>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">enable_shift_pull_out</td>
+<td align="left">-</td>
+<td align="left">bool</td>
+<td align="left">flag whether to enable shift pull out</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">shift_pull_out_velocity</td>
+<td align="left">[m/s]</td>
+<td align="left">double</td>
+<td align="left">velocity of shift pull out</td>
+<td align="left">2.0</td>
+</tr>
+<tr>
+<td align="left">pull_out_sampling_num</td>
+<td align="left">-</td>
+<td align="left">int</td>
+<td align="left">Number of samplings in the minimum to maximum range of lateral_jerk</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">before_pull_out_straight_distance</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">distance before pull out start point</td>
+<td align="left">0.0</td>
+</tr>
+<tr>
+<td align="left">maximum_lateral_jerk</td>
+<td align="left">[m/s3]</td>
+<td align="left">double</td>
+<td align="left">maximum lateral jerk</td>
+<td align="left">2.0</td>
+</tr>
+<tr>
+<td align="left">minimum_lateral_jerk</td>
+<td align="left">[m/s3]</td>
+<td align="left">double</td>
+<td align="left">minimum lateral jerk</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left">minimum_shift_pull_out_distance</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">minimum shift pull out distance. if calculated pull out distance is shorter than this, use this for path generation.</td>
+<td align="left">20.0</td>
+</tr>
+</tbody>
+</table>
+<h5 id="geometric-pull-out"><strong>geometric pull out</strong><a class="headerlink" href="#geometric-pull-out" title="Permanent link">#</a></h5>
+<p>Generate two arc paths with discontinuous curvature. Ego-vehicle stops once in the middle of the path to control the steer on the spot.
+See also <a href="https://www.sciencedirect.com/science/article/pii/S1474667015347431">[1]</a> for details of the algorithm.</p>
+<p><img alt="geometric_pull_out" src="image/geometric_pull_out.drawio.svg" /></p>
+<p><a href="https://user-images.githubusercontent.com/39142679/181024707-3e7ca5ee-62de-4334-b9e9-ded313de1ea1.mp4">Video of how geometric pull out works</a></p>
+<h6 id="parameters-for-geometric-pull-out">parameters for geometric pull out<a class="headerlink" href="#parameters-for-geometric-pull-out" title="Permanent link">#</a></h6>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">enable_geometric_pull_out</td>
+<td align="left">-</td>
+<td align="left">bool</td>
+<td align="left">flag whether to enable geometric pull out</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">geometric_pull_out_velocity</td>
+<td align="left">[m/s]</td>
+<td align="left">double</td>
+<td align="left">velocity of geometric pull out</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">arc_path_interval</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">path points interval of arc paths of geometric pull out</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left">lane_departure_margin</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">margin of deviation to lane right</td>
+<td align="left">0.2</td>
+</tr>
+<tr>
+<td align="left">pull_out_max_steer_angle</td>
+<td align="left">[rad]</td>
+<td align="left">double</td>
+<td align="left">maximum steer angle for path generation</td>
+<td align="left">0.26</td>
+</tr>
+</tbody>
+</table>
+<h4 id="backward-pull-out-start-point-search"><strong>backward pull out start point search</strong><a class="headerlink" href="#backward-pull-out-start-point-search" title="Permanent link">#</a></h4>
+<p>If a safe path cannot be generated from the current position, search backwards for a pull out start point at regular intervals(default: <code>2.0</code>).</p>
+<p><img alt="pull_out_after_back" src="image/pull_out_after_back.drawio.svg" /></p>
+<p><a href="https://user-images.githubusercontent.com/39142679/181025149-8fb9fb51-9b8f-45c4-af75-27572f4fba78.mp4">Video of how pull out after backward driving works</a></p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">enable_back</td>
+<td align="left">-</td>
+<td align="left">bool</td>
+<td align="left">flag whether to search backward for start_point</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">enable_back</td>
+<td align="left">-</td>
+<td align="left">bool</td>
+<td align="left">In the case of <code>efficient_path</code>, use efficient paths even if the back distance is longer.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">In case of <code>short_back_distance</code>, use a path with as short a back distance</td>
+<td align="left">efficient_path</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">max_back_distance</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">maximum back distance</td>
+<td align="left">15.0</td>
+</tr>
+<tr>
+<td align="left">backward_search_resolution</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">distance interval for searching backward pull out start point</td>
+<td align="left">2.0</td>
+</tr>
+<tr>
+<td align="left">backward_path_update_duration</td>
+<td align="left">[s]</td>
+<td align="left">double</td>
+<td align="left">time interval for searching backward pull out start point. this prevents chattering between back driving and pull_out</td>
+<td align="left">3.0</td>
+</tr>
+</tbody>
+</table>
 <h4 id="unimplemented-parts-limitations-for-pull-put">Unimplemented parts / limitations for pull put<a class="headerlink" href="#unimplemented-parts-limitations-for-pull-put" title="Permanent link">#</a></h4>
 <ul>
-<li>Note that the current module's start judgment condition may incorrectly judge that the vehicle is parked on the shoulder, such as when stopping in front of an intersection.</li>
+<li>pull out from the right shoulder lane to the left lane is not allowed.</li>
+<li>The safety of the road lane is not judged<ul>
+<li>Collision prediction is not performed for vehicles approaching from behind the road lane.</li>
+</ul>
+</li>
 </ul>
 <h3 id="side-shift">Side Shift<a class="headerlink" href="#side-shift" title="Permanent link">#</a></h3>
 <p>The role of the Side Shift module is to shift the reference path laterally in response to external instructions (such as remote operation).</p>
