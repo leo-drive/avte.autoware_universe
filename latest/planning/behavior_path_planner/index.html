@@ -10398,6 +10398,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#parameters-for-object-recognition-based-collision-check" class="md-nav__link">
+    Parameters for object recognition based collision check
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -11068,11 +11075,18 @@ Once the lane change is executed, the path won’t be updated until the "finish-
 </thead>
 <tbody>
 <tr>
-<td align="left">collision_check_margin</td>
+<td align="left">use_occupancy_grid</td>
+<td align="left">-</td>
+<td align="left">bool</td>
+<td align="left">flag whether to use occupancy grid for collision check</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">occupancy_grid_collision_check_margin</td>
 <td align="left">[m]</td>
 <td align="left">double</td>
 <td align="left">margin to calculate ego-vehicle cells from footprint.</td>
-<td align="left">0.5</td>
+<td align="left">0.0</td>
 </tr>
 <tr>
 <td align="left">theta_size</td>
@@ -11090,10 +11104,38 @@ Once the lane change is executed, the path won’t be updated until the "finish-
 </tr>
 </tbody>
 </table>
+<h5 id="parameters-for-object-recognition-based-collision-check">Parameters for object recognition based collision check<a class="headerlink" href="#parameters-for-object-recognition-based-collision-check" title="Permanent link">#</a></h5>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Unit</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">use_object_recognition</td>
+<td align="left">-</td>
+<td align="left">bool</td>
+<td align="left">flag whether to use object recognition for collision check</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">object_recognition_collision_check_margin</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">margin to calculate ego-vehicle cells from footprint.</td>
+<td align="left">1.0</td>
+</tr>
+</tbody>
+</table>
 <h4 id="goal-search"><strong>Goal Search</strong><a class="headerlink" href="#goal-search" title="Permanent link">#</a></h4>
 <p>If it is not possible to park safely at a given goal, <code>/planning/scenario_planning/modified_goal</code> is
 searched for in certain range of the shoulder lane.</p>
-<p><a href="https://user-images.githubusercontent.com/39142679/178033628-bec1bbc7-3b27-47b1-b50b-55f855e2e399.mp4">Video of how goal search works</a></p>
+<p><a href="https://user-images.githubusercontent.com/39142679/188359594-c6724e3e-1cb7-4051-9a18-8d2c67d4dee9.mp4">Video of how goal search works</a></p>
 <h5 id="parameters-for-goal-search">Parameters for goal search<a class="headerlink" href="#parameters-for-goal-search" title="Permanent link">#</a></h5>
 <table>
 <thead>
