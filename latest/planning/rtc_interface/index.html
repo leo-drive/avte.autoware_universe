@@ -10482,13 +10482,14 @@
 <span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">safe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
 
 <span class="w">  </span><span class="c1">// Get distance to the object corresponding to the module id</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">start_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">finish_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
 
 <span class="w">  </span><span class="c1">// Get time stamp</span>
 <span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="n">stamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
 
 <span class="w">  </span><span class="c1">// Update status</span>
-<span class="w">  </span><span class="n">rtc_interface</span><span class="p">.</span><span class="n">updateCooperateStatus</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span><span class="w"> </span><span class="n">safe</span><span class="p">,</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="n">stamp</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">rtc_interface</span><span class="p">.</span><span class="n">updateCooperateStatus</span><span class="p">(</span><span class="n">uuid</span><span class="p">,</span><span class="w"> </span><span class="n">safe</span><span class="p">,</span><span class="w"> </span><span class="n">start_distance</span><span class="p">,</span><span class="w"> </span><span class="n">finish_distance</span><span class="p">,</span><span class="w"> </span><span class="n">stamp</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rtc_interface</span><span class="p">.</span><span class="n">isActivated</span><span class="p">(</span><span class="n">uuid</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// Execute planning</span>
@@ -10534,7 +10535,7 @@
 <h4 id="output_1">Output<a class="headerlink" href="#output_1" title="Permanent link">#</a></h4>
 <p>Nothing</p>
 <h3 id="updatecooperatestatus">updateCooperateStatus<a class="headerlink" href="#updatecooperatestatus" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">rtc_interface</span><span class="o">::</span><span class="n">updateCooperateStatus</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">unique_identifier_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">UUID</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">uuid</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">safe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">stamp</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">rtc_interface</span><span class="o">::</span><span class="n">updateCooperateStatus</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">unique_identifier_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">UUID</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">uuid</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">safe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">start_distance</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">finish_distance</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">stamp</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h4 id="description_2">Description<a class="headerlink" href="#description_2" title="Permanent link">#</a></h4>
 <p>Update cooperate status corresponding to <code>uuid</code>.
@@ -10543,7 +10544,8 @@ If cooperate status corresponding to <code>uuid</code> is not registered yet, ad
 <ul>
 <li><code>uuid</code> : UUID for requesting module</li>
 <li><code>safe</code> : Safety status of requesting module</li>
-<li><code>distance</code> : Distance to the object from ego vehicle</li>
+<li><code>start_distance</code> : Distance to the start object from ego vehicle</li>
+<li><code>finish_distance</code> : Distance to the finish object from ego vehicle</li>
 <li><code>stamp</code> : Time stamp</li>
 </ul>
 <h4 id="output_2">Output<a class="headerlink" href="#output_2" title="Permanent link">#</a></h4>
