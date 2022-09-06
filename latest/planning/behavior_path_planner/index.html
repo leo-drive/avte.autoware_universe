@@ -10947,7 +10947,7 @@ Once the lane change is executed, the path won’t be updated until the "finish-
 <ul>
 <li>The goal is in shoulder lane and the ego-vehicle is in road lane.</li>
 <li>The distance between the goal and ego-vehicle is somewhat close.<ul>
-<li>It is shorter than <code>request_length</code>(default: &lt; <code>100m</code>).</li>
+<li>It is shorter than <code>request_length</code>(default: &lt; <code>200m</code>).</li>
 </ul>
 </li>
 </ul>
@@ -10999,7 +10999,7 @@ Once the lane change is executed, the path won’t be updated until the "finish-
 <td align="left">[m]</td>
 <td align="left">double</td>
 <td align="left">when the ego-vehicle approaches the goal by this distance, the module is activated.</td>
-<td align="left">100.0</td>
+<td align="left">200.0</td>
 </tr>
 <tr>
 <td align="left">th_arrived_distance</td>
@@ -11055,7 +11055,7 @@ Once the lane change is executed, the path won’t be updated until the "finish-
 <td align="left">[m/s2]</td>
 <td align="left">double</td>
 <td align="left">maximum deceleration. it prevents sudden deceleration when a parking path cannot be found suddenly</td>
-<td align="left">0.5</td>
+<td align="left">1.0</td>
 </tr>
 </tbody>
 </table>
@@ -11340,7 +11340,7 @@ See also <a href="https://www.sciencedirect.com/science/article/pii/S14746670153
 <td align="left">forward_parking_lane_departure_margin</td>
 <td align="left">[m/s]</td>
 <td align="left">double</td>
-<td align="left">lane departure margin for front left corner of ego-vehicle when forkward parking</td>
+<td align="left">lane departure margin for front left corner of ego-vehicle when forward parking</td>
 <td align="left">0.0</td>
 </tr>
 </tbody>
