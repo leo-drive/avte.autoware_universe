@@ -10207,6 +10207,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#apply-steering-rate-limit" class="md-nav__link">
+    Apply steering rate limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#resample-trajectory" class="md-nav__link">
     Resample trajectory
   </a>
@@ -10363,6 +10370,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#limit-steering-angle-rate-parameters" class="md-nav__link">
+    Limit steering angle rate parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#weights-for-optimization" class="md-nav__link">
     Weights for optimization
   </a>
@@ -10483,6 +10497,8 @@ This function is used to approach near the obstacle or improve the accuracy of s
 It calculates the velocity limit from the curvature of the reference trajectory and the maximum lateral acceleration <code>max_lateral_accel</code>.
 The velocity limit is set as not to fall under <code>min_curve_velocity</code>.</p>
 <p>Note: velocity limit that requests larger than <code>nominal.jerk</code> is not applied. In other words, even if a sharp curve is planned just in front of the ego, no deceleration is performed.</p>
+<h4 id="apply-steering-rate-limit">Apply steering rate limit<a class="headerlink" href="#apply-steering-rate-limit" title="Permanent link">#</a></h4>
+<p>It calculates the desired steering angles of trajectory points. and it applies the steering rate limit. If the (<code>steering_angle_rate</code> &gt; <code>max_steering_angle_rate</code>), it decreases the velocity of the trajectory point to acceptable velocity.</p>
 <h4 id="resample-trajectory">Resample trajectory<a class="headerlink" href="#resample-trajectory" title="Permanent link">#</a></h4>
 <p>It resamples the points on the reference trajectory with designated time interval.
 Note that the range of the length of the trajectory is set between <code>min_trajectory_length</code> and <code>max_trajectory_length</code>, and the distance between two points is longer than <code>min_trajectory_interval_distance</code>.
@@ -10629,6 +10645,11 @@ In these algorithms, they use OSQP[1] as the solver of the optimization.</p>
 <td><code>~/debug/trajectory_lateral_acc_filtered</code></td>
 <td><code>autoware_auto_planning_msgs/Trajectory</code></td>
 <td>Lateral acceleration limit filtered trajectory (for debug)</td>
+</tr>
+<tr>
+<td><code>~/debug/trajectory_steering_rate_limited</code></td>
+<td><code>autoware_auto_planning_msgs/Trajectory</code></td>
+<td>Steering angle rate limit filtered trajectory (for debug)</td>
 </tr>
 <tr>
 <td><code>~/debug/trajectory_time_resampled</code></td>
@@ -10958,6 +10979,43 @@ In these algorithms, they use OSQP[1] as the solver of the optimization.</p>
 <td align="left"><code>post_sparse_min_interval_distance</code></td>
 <td align="left"><code>double</code></td>
 <td align="left">minimum points-interval length for sparse sampling [m]</td>
+<td align="left">1.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="limit-steering-angle-rate-parameters">Limit steering angle rate parameters<a class="headerlink" href="#limit-steering-angle-rate-parameters" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>max_steering_angle_rate</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">Maximum steering angle rate [degree/s]</td>
+<td align="left">40.0</td>
+</tr>
+<tr>
+<td align="left"><code>resample_ds</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">Distance between trajectory points [m]</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left"><code>curvature_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">If curvature &gt; curvature_threshold, steeringRateLimit is triggered [1/m]</td>
+<td align="left">0.02</td>
+</tr>
+<tr>
+<td align="left"><code>curvature_calculation_distance</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">Distance of points while curvature is calculating [m]</td>
 <td align="left">1.0</td>
 </tr>
 </tbody>
