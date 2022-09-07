@@ -10374,7 +10374,9 @@
 <h1 id="velodyne_monitor">velodyne_monitor<a class="headerlink" href="#velodyne_monitor" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>This node monitors the status of Velodyne LiDARs.
-The result of the status is published as diagnostics.</p>
+The result of the status is published as diagnostics.
+Take care not to use this diagnostics to decide the lidar error.
+Please read <a href="#assumptions--known-limits">Assumptions / Known limits</a> for the detail reason.</p>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
 <p>The status of Velodyne LiDAR can be retrieved from <code>http://[ip_address]/cgi/{info, settings, status, diag}.json</code>.</p>
 <p>The types of abnormal status and corresponding diagnostics status are following.</p>
@@ -10573,7 +10575,10 @@ Now, <code>VLP-16.param.yaml</code> is used as default argument because it is lo
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<p>TBD.</p>
+<p>This node uses the <a href="https://github.com/microsoft/cpprestsdk">http_client</a> and request results by GET method.
+It takes a few seconds to get results, or generate a timeout exception if it does not succeed the GET request.
+This occurs frequently and the diagnostics aggregator output STALE.
+Therefore I recommend to stop using this results to decide the lidar error, and only monitor it to confirm lidar status.</p>
 
 
 
