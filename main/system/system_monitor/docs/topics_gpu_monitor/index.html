@@ -9535,6 +9535,26 @@
     GPU Frequency
   </a>
   
+    <nav class="md-nav" aria-label="GPU Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intel-platform" class="md-nav__link">
+    Intel platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tegra-platform" class="md-nav__link">
+    Tegra platform
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -10259,6 +10279,26 @@
     GPU Frequency
   </a>
   
+    <nav class="md-nav" aria-label="GPU Frequency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intel-platform" class="md-nav__link">
+    Intel platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tegra-platform" class="md-nav__link">
+    Tegra platform
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -10492,10 +10532,51 @@ Tegra platform not supported.</p>
 </tbody>
 </table>
 <h2 id="gpu-frequency"><u>GPU Frequency</u><a class="headerlink" href="#gpu-frequency" title="Permanent link">#</a></h2>
-<blockquote>
-<p>Tegra platform only.</p>
-</blockquote>
 <p>/diagnostics/gpu_monitor: GPU Frequency</p>
+<h3 id="intel-platform">Intel platform<a class="headerlink" href="#intel-platform" title="Permanent link">#</a></h3>
+<p><b>[summary]</b></p>
+<table>
+<thead>
+<tr>
+<th>level</th>
+<th>message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>unsupported clock</td>
+</tr>
+</tbody>
+</table>
+<p><b>[values]</b></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPU [0-9]: status</td>
+<td>OK / unsupported clock</td>
+</tr>
+<tr>
+<td>GPU [0-9]: name</td>
+<td>GeForce GTX 1650</td>
+</tr>
+<tr>
+<td>GPU [0-9]: graphics clock</td>
+<td>1020 MHz</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tegra-platform">Tegra platform<a class="headerlink" href="#tegra-platform" title="Permanent link">#</a></h3>
 <p><b>[summary]</b></p>
 <table>
 <thead>
