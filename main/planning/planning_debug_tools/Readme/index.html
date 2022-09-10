@@ -10382,6 +10382,12 @@
 <span class="n">PlotVelocityOverArclength</span><span class="p">(</span><span class="s1">&#39;v_motion_smoother_latacc&#39;</span><span class="p">,</span> <span class="n">motion_smoother_latacc</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
 <span class="n">PlotVelocityOverArclength</span><span class="p">(</span><span class="s1">&#39;v_motion_smoother&#39;</span><span class="p">,</span> <span class="n">motion_smoother</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
 
+<span class="n">PlotAccelerationOverArclength</span><span class="p">(</span><span class="s1">&#39;a_behavior_path&#39;</span><span class="p">,</span> <span class="n">behavior_path</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
+<span class="n">PlotAccelerationOverArclength</span><span class="p">(</span><span class="s1">&#39;a_behavior_velocity&#39;</span><span class="p">,</span> <span class="n">behavior_velocity</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
+<span class="n">PlotAccelerationOverArclength</span><span class="p">(</span><span class="s1">&#39;a_motion_avoid&#39;</span><span class="p">,</span> <span class="n">motion_avoid</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
+<span class="n">PlotAccelerationOverArclength</span><span class="p">(</span><span class="s1">&#39;a_motion_smoother_latacc&#39;</span><span class="p">,</span> <span class="n">motion_smoother_latacc</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
+<span class="n">PlotAccelerationOverArclength</span><span class="p">(</span><span class="s1">&#39;a_motion_smoother&#39;</span><span class="p">,</span> <span class="n">motion_smoother</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
+
 <span class="n">PlotYawOverArclength</span><span class="p">(</span><span class="s1">&#39;yaw_behavior_path&#39;</span><span class="p">,</span> <span class="n">behavior_path</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
 <span class="n">PlotYawOverArclength</span><span class="p">(</span><span class="s1">&#39;yaw_behavior_velocity&#39;</span><span class="p">,</span> <span class="n">behavior_velocity</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
 <span class="n">PlotYawOverArclength</span><span class="p">(</span><span class="s1">&#39;yaw_motion_avoid&#39;</span><span class="p">,</span> <span class="n">motion_avoid</span><span class="p">,</span> <span class="n">tracker_time</span><span class="p">)</span>
@@ -10419,6 +10425,10 @@
 
 <span class="kr">function</span> <span class="nf">PlotVelocityOverArclength</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
   <span class="n">PlotValue</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span><span class="s2">&quot;velocity&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span> <span class="nf">PlotAccelerationOverArclength</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+  <span class="n">PlotValue</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span><span class="s2">&quot;acceleration&quot;</span><span class="p">)</span>
 <span class="kr">end</span>
 
 <span class="kr">function</span> <span class="nf">PlotYawOverArclength</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
