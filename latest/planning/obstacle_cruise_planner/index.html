@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/latest/planning/obstacle_cruise_planner/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.4">
     
     
       
@@ -10326,6 +10326,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#a-function-to-keep-the-closest-stop-obstacle-in-target-obstacles" class="md-nav__link">
+    A function to keep the closest stop obstacle in target obstacles
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10879,6 +10886,26 @@ In the case of the crosswalk described above, <code>obstacle_cruise_planner</cod
 </tr>
 </tbody>
 </table>
+<h3 id="a-function-to-keep-the-closest-stop-obstacle-in-target-obstacles">A function to keep the closest stop obstacle in target obstacles<a class="headerlink" href="#a-function-to-keep-the-closest-stop-obstacle-in-target-obstacles" title="Permanent link">#</a></h3>
+<p>In order to keep the closest stop obstacle in the target obstacles, we check whether it is disappeared or not from the target obstacles in the <code>checkConsistency</code> function.
+If the previous closest stop obstacle is remove from the lists, we keep it in the lists for <code>stop_obstacle_hold_time_threshold</code> seconds.
+Note that if a new stop obstacle appears and the previous closest obstacle removes from the lists, we do not add it to the target obstacles again.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>obstacle_filtering.stop_obstacle_hold_time_threshold</code></td>
+<td>double</td>
+<td>maximum time for holding closest stop obstacle [s]</td>
+</tr>
+</tbody>
+</table>
 <h2 id="visualization-for-debugging">Visualization for debugging<a class="headerlink" href="#visualization-for-debugging" title="Permanent link">#</a></h2>
 <h3 id="detection-area">Detection area<a class="headerlink" href="#detection-area" title="Permanent link">#</a></h3>
 <p>Green polygons which is a detection area is visualized by <code>detection_polygons</code> in the <code>~/debug/marker</code> topic.</p>
@@ -10917,6 +10944,7 @@ In the case of the crosswalk described above, <code>obstacle_cruise_planner</cod
 </ul>
 </li>
 </ul>
+
 
 
 

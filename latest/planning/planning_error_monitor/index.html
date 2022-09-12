@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/latest/planning/planning_error_monitor/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.4">
     
     
       
@@ -10397,6 +10397,7 @@
 </code></pre></div>
 <p>This node subscribes the target trajectory, inserts the invalid point, and publishes it with the same name. The invalid trajectory is supposed to be detected by the <code>planning_error_monitor</code>.</p>
 <p>Limitation: Once the <code>invalid_trajectory_publisher</code> receives the trajectory, it will turn off the subscriber. This is to prevent the trajectory from looping in the same node, therefore, only the one pattern of invalid trajectory is generated.</p>
+
 
 
 
