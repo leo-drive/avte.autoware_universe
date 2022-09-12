@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_planner/intersection-design/">
       
       <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.4">
     
     
       
@@ -10687,6 +10687,7 @@ To prevent going over the pass judge line before the traffic light stop line, th
 <p>As a default, IntersectionModule estimates a stop position by the crossing point of driving lane and attention lane. But there are some cases like Fig.2 in which we would like to set a stop position explicitly. When a <code>stop_line</code> is defined as a <code>RoadMarking</code> item in the intersection lane, it overwrites the stop position. (Not only creating <code>stop_line</code>, but also defining as a <code>RoadMaking</code> item are needed.)</p>
 <h3 id="exclusion-setting-of-attention-lanes-rightofway-fig3">Exclusion setting of attention lanes [RightOfWay] (Fig.3)<a class="headerlink" href="#exclusion-setting-of-attention-lanes-rightofway-fig3" title="Permanent link">#</a></h3>
 <p>By default, IntersectionModule treats all lanes crossing with the registered lane as attention targets (yellow and green lanelets). But in some cases (e.g. when driving lane is priority lane or traffic light is green for the driving lane), we want to ignore some of the yield lanes. By setting <code>RightOfWay</code> of the <code>RegulatoryElement</code> item, we can define lanes to be ignored. Register ignored lanes as “yield” and register the attention lanes and driving lane as “right_of_way” lanelets in <code>RightOfWay</code> RegulatoryElement (For an intersection with traffic lights, we need to create items for each lane in the intersection. Please note that it needs a lot of man-hours.)</p>
+
 
 
 
