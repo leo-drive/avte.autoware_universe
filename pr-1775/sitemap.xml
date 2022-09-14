@@ -741,6 +741,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-1775/planning/planning_debug_tools/doc-stop-reason-visualizer/</loc>
+         <lastmod>2022-09-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-1775/planning/planning_error_monitor/</loc>
          <lastmod>2022-09-14</lastmod>
          <changefreq>daily</changefreq>
