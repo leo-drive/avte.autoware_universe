@@ -4690,12 +4690,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
           <a href="./">Pose initializer</a>
+          
+            <label for="__nav_9_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -4706,6 +4712,73 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_9_2" type="checkbox" id="__nav_9_9_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9_9_2">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docs" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs/map_height_fitter/" class="md-nav__link">
+        map_height_fitter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs/pose_initializer/" class="md-nav__link">
+        pose_initializer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
             
           
         </ul>
@@ -10167,48 +10240,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    Purpose
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#input-output" class="md-nav__link">
-    Input / Output
-  </a>
-  
-    <nav class="md-nav" aria-label="Input / Output">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#input-topics" class="md-nav__link">
-    Input topics
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#output-topics" class="md-nav__link">
-    Output topics
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -10228,56 +10259,10 @@
 
 
 <h1 id="pose_initializer">pose_initializer<a class="headerlink" href="#pose_initializer" title="Permanent link">#</a></h1>
-<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
-<p><code>pose_initializer</code> is the package to send an initial pose to <code>ekf_localizer</code>.
-It receives roughly estimated initial pose from GNSS/user.
-Passing the pose to <code>ndt_scan_matcher</code>, and it gets a calculated ego pose from <code>ndt_scan_matcher</code> via service.
-Finally, it publishes the initial pose to <code>ekf_localizer</code>.</p>
-<h2 id="input-output">Input / Output<a class="headerlink" href="#input-output" title="Permanent link">#</a></h2>
-<h3 id="input-topics">Input topics<a class="headerlink" href="#input-topics" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/initialpose</code></td>
-<td>geometry_msgs::msg::PoseWithCovarianceStamped</td>
-<td>initial pose from rviz</td>
-</tr>
-<tr>
-<td><code>/sensing/gnss/pose_with_covariance</code></td>
-<td>geometry_msgs::msg::PoseWithCovarianceStamped</td>
-<td>pose from gnss</td>
-</tr>
-<tr>
-<td><code>/map/pointcloud_map</code></td>
-<td>sensor_msgs::msg::PointCloud2</td>
-<td>pointcloud map</td>
-</tr>
-</tbody>
-</table>
-<h3 id="output-topics">Output topics<a class="headerlink" href="#output-topics" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/initialpose3d</code></td>
-<td>geometry_msgs::msg::PoseWithCovarianceStamped</td>
-<td>calculated initial ego pose</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><a href="docs/pose_initializer/">pose_initializer</a></li>
+<li><a href="docs/map_height_fitter/">map_height_fitter</a></li>
+</ul>
 
 
 
@@ -10319,13 +10304,13 @@ Finally, it publishes the initial pose to <code>ekf_localizer</code>.</p>
       
       
         
-        <a href="../stop_filter/" class="md-footer__link md-footer__link--next" aria-label="Next: stop_filter" rel="next">
+        <a href="docs/map_height_fitter/" class="md-footer__link md-footer__link--next" aria-label="Next: map_height_fitter" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              stop_filter
+              map_height_fitter
             </div>
           </div>
           <div class="md-footer__button md-icon">
