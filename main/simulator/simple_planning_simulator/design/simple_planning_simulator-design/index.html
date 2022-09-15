@@ -4686,12 +4686,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../../localization/pose_initializer/">Pose initializer</a>
+          
+            <label for="__nav_9_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -4702,6 +4708,73 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_9_2" type="checkbox" id="__nav_9_9_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9_9_2">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docs" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../localization/pose_initializer/docs/map_height_fitter/" class="md-nav__link">
+        map_height_fitter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../localization/pose_initializer/docs/pose_initializer/" class="md-nav__link">
+        pose_initializer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
             
           
         </ul>
@@ -10488,7 +10561,7 @@
 <h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
 <h3 id="input">input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
 <ul>
-<li>/initialpose [<code>geometry_msgs/msg/PoseWithCovarianceStamped</code>] : for initial pose</li>
+<li>input/initialpose [<code>geometry_msgs/msg/PoseWithCovarianceStamped</code>] : for initial pose</li>
 <li>input/ackermann_control_command [<code>autoware_auto_msgs/msg/AckermannControlCommand</code>] : target command to drive a vehicle</li>
 <li>input/manual_ackermann_control_command [<code>autoware_auto_msgs/msg/AckermannControlCommand</code>] : manual target command to drive a vehicle (used when control_mode_request = Manual)</li>
 <li>input/gear_command [<code>autoware_auto_vehicle_msgs/msg/GearCommand</code>] : target gear command.</li>
@@ -10534,7 +10607,7 @@
 <tr>
 <td align="left">initialize_source</td>
 <td align="left">string</td>
-<td align="left">If "ORIGIN", the initial pose is set at (0,0,0). If "INITIAL_POSE_TOPIC", node will wait until the <code>/initialpose</code> topic is published.</td>
+<td align="left">If "ORIGIN", the initial pose is set at (0,0,0). If "INITIAL_POSE_TOPIC", node will wait until the <code>input/initialpose</code> topic is published.</td>
 <td align="left">"INITIAL_POSE_TOPIC"</td>
 </tr>
 <tr>

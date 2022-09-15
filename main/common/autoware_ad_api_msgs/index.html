@@ -4690,12 +4690,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../localization/pose_initializer/">Pose initializer</a>
+          
+            <label for="__nav_9_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -4706,6 +4712,73 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9_9_2" type="checkbox" id="__nav_9_9_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9_9_2">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docs" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../localization/pose_initializer/docs/map_height_fitter/" class="md-nav__link">
+        map_height_fitter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../localization/pose_initializer/docs/pose_initializer/" class="md-nav__link">
+        pose_initializer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
             
           
         </ul>
@@ -10194,6 +10267,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#localization" class="md-nav__link">
+    Localization
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -10249,7 +10329,11 @@ The status code zero is reserved for success. The status code 50000 or over are 
 The version of AD API follows <a href="https://semver.org/">Semantic Versioning</a> in order to provide an intuitive understanding of the changes between versions.</p>
 <h2 id="routing">Routing<a class="headerlink" href="#routing" title="Permanent link">#</a></h2>
 <p>The routing service support two formats. One uses pose and the other uses map dependent data directly.
-The body part of the route message is optional, since the route does not exist when it is cleared by the service.</p>
+The body part of the route message is optional, since the route does not exist when it is cleared by the service.
+<a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/ad-api/list/api/routing/">See also routing API</a>.</p>
+<h2 id="localization">Localization<a class="headerlink" href="#localization" title="Permanent link">#</a></h2>
+<p>The initialization state does not reflect localization errors. Use diagnostics for that purpose.
+<a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/ad-api/list/api/localization/">See also localization API</a>.</p>
 <!-- link -->
 
 
