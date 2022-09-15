@@ -10330,6 +10330,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#test-utility-scripts" class="md-nav__link">
+    Test utility scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Test utility scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constant-accelbrake-command-test" class="md-nav__link">
+    Constant accel/brake command test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -10510,6 +10530,20 @@ Diagnostic type <code>WARN</code> indicates that the current accel/brake map is 
 </tr>
 </tbody>
 </table>
+<h2 id="test-utility-scripts">Test utility scripts<a class="headerlink" href="#test-utility-scripts" title="Permanent link">#</a></h2>
+<h3 id="constant-accelbrake-command-test">Constant accel/brake command test<a class="headerlink" href="#constant-accelbrake-command-test" title="Permanent link">#</a></h3>
+<p>These scripts are useful to test for accel brake map calibration. These generate an <code>ActuationCmd</code> with a constant accel/brake value given interactively by a user through CLI.</p>
+<ul>
+<li>accel_tester.py</li>
+<li>brake_tester.py</li>
+<li>actuation_cmd_publisher.py</li>
+</ul>
+<p>The <code>accel/brake_tester.py</code> receives a target accel/brake command from CLI. It sends a target value to <code>actuation_cmd_publisher.py</code> which generates the <code>ActuationCmd</code>. You can run these scripts by the following commands in the different terminals, and it will be as in the screenshot below.</p>
+<div class="highlight"><pre><span></span><code>ros2 run accel_brake_map_calibrator accel_tester.py
+ros2 run accel_brake_map_calibrator brake_tester.py
+ros2 run accel_brake_map_calibrator actuation_cmd_publisher.py
+</code></pre></div>
+<p><img alt="actuation_cmd_publisher_util" src="media/actuation_cmd_publisher_util.png" /></p>
 
 
 
