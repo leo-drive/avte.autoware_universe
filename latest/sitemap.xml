@@ -731,6 +731,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/obstacle_avoidance_planner/debug/</loc>
+         <lastmod>2022-09-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/obstacle_cruise_planner/</loc>
          <lastmod>2022-09-15</lastmod>
          <changefreq>daily</changefreq>
