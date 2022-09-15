@@ -766,7 +766,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/planning/rtc_auto_approver/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/planning/rtc_auto_mode_manager/</loc>
          <lastmod>2022-09-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
