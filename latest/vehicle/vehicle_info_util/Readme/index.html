@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/latest/vehicle/vehicle_info_util/Readme/">
       
       <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.1">
     
     
       
@@ -10267,6 +10267,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    Scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-turning-radius" class="md-nav__link">
+    Minimum turning radius
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10342,6 +10362,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    Scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-turning-radius" class="md-nav__link">
+    Minimum turning radius
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10379,6 +10419,15 @@
 <p>This package is to get vehicle info parameters.</p>
 <h3 id="description">Description<a class="headerlink" href="#description" title="Permanent link">#</a></h3>
 <p>In <a href="https://autowarefoundation.github.io/autoware-documentation/main/design/autoware-interfaces/components/vehicle-dimensions/">here</a>, you can check the vehicle dimensions with more detail.</p>
+<h3 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">#</a></h3>
+<h4 id="minimum-turning-radius">Minimum turning radius<a class="headerlink" href="#minimum-turning-radius" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>$ ros2 run vehicle_info_util min_turning_radius_calculator.py
+yaml path is /home/autoware/pilot-auto/install/vehicle_info_util/share/vehicle_info_util/config/vehicle_info.param.yaml
+Minimum turning radius is <span class="m">3</span>.253042620027102 <span class="o">[</span>m<span class="o">]</span> <span class="k">for</span> rear, <span class="m">4</span>.253220695862465 <span class="o">[</span>m<span class="o">]</span> <span class="k">for</span> front.
+</code></pre></div>
+<p>You can designate yaml file with <code>-y</code> option as follows.</p>
+<div class="highlight"><pre><span></span><code>ros2 run vehicle_info_util min_turning_radius_calculator.py -y &lt;path-to-yaml&gt;
+</code></pre></div>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
 <p>TBD.</p>
 
@@ -10451,7 +10500,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.48f2be22.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d691e9de.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
