@@ -10529,7 +10529,19 @@ The result of topic status is published as diagnostics.</p>
 <td><code>topic_type</code></td>
 <td>string</td>
 <td>-</td>
-<td>Type of target topic</td>
+<td>Type of target topic (used if the topic is not transform)</td>
+</tr>
+<tr>
+<td><code>frame_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>Frame ID of transform parent (used if the topic is transform)</td>
+</tr>
+<tr>
+<td><code>child_frame_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>Frame ID of transform child (used if the topic is transform)</td>
 </tr>
 <tr>
 <td><code>transient_local</code></td>
