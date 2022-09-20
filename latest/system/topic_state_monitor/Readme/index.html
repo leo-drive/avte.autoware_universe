@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/latest/system/topic_state_monitor/Readme/">
       
       <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.1">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.2e8b5541.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9f9400aa.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -10560,31 +10560,6 @@ The result of topic status is published as diagnostics.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>update_rate</code></td>
-<td>double</td>
-<td>10.0</td>
-<td>Timer callback period [Hz]</td>
-</tr>
-<tr>
-<td><code>window_size</code></td>
-<td>int</td>
-<td>10</td>
-<td>Window size of target topic for calculating frequency</td>
-</tr>
-</tbody>
-</table>
-<h3 id="core-parameters">Core Parameters<a class="headerlink" href="#core-parameters" title="Permanent link">#</a></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
 <td><code>topic</code></td>
 <td>string</td>
 <td>-</td>
@@ -10615,6 +10590,25 @@ The result of topic status is published as diagnostics.</p>
 <td>Name used for the diagnostics to publish</td>
 </tr>
 <tr>
+<td><code>update_rate</code></td>
+<td>double</td>
+<td>10.0</td>
+<td>Timer callback period [Hz]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="core-parameters">Core Parameters<a class="headerlink" href="#core-parameters" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>warn_rate</code></td>
 <td>double</td>
 <td>0.5</td>
@@ -10631,6 +10625,12 @@ The result of topic status is published as diagnostics.</p>
 <td>double</td>
 <td>1.0</td>
 <td>If the topic subscription is stopped for more than this time [s], the topic status becomes <code>Timeout</code></td>
+</tr>
+<tr>
+<td><code>window_size</code></td>
+<td>int</td>
+<td>10</td>
+<td>Window size of target topic for calculating frequency</td>
 </tr>
 </tbody>
 </table>
@@ -10721,7 +10721,7 @@ The result of topic status is published as diagnostics.</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d691e9de.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.39f04ddb.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
