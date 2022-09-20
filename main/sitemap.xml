@@ -21,11 +21,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/common/autoware_ad_api_msgs/</loc>
-         <lastmod>2022-09-20</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/common/autoware_auto_common/design/comparisons/</loc>
          <lastmod>2022-09-20</lastmod>
          <changefreq>daily</changefreq>
