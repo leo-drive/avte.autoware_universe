@@ -10594,15 +10594,18 @@ This module is designed for rule-based intersection velocity decision that is ea
 <ul>
 <li>The type of object type is <strong>car</strong>, <strong>truck</strong>, <strong>bus</strong> or <strong>motorbike</strong>. (Bicycle, pedestrian, animal, unknown are not.)</li>
 <li>The center of gravity of object is <strong>located within a certain distance</strong> from the attention lane (threshold = <code>detection_area_margin</code>) .<ul>
-<li>In the past, the decision was made based on whether any points of the object's polygon exists in the attention lane, but since there were many false positives, the logic has changed to the current one.</li>
+<li>(Optional condition) The center of gravity is in the <strong>intersection area</strong>.<ul>
+<li>To deal with objects that is in the area not covered by the lanelets in the intersection.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>The posture of object is <strong>the same direction as the attention lane</strong> (threshold = <code>detection_area_angle_threshold</code>).<ul>
 <li>The orientation of the target is recalculated in this module according to the <code>orientation_reliable</code> and the sign of the velocity of the target.</li>
 </ul>
 </li>
-<li>Not being <strong>in the same lane as the ego vehicle</strong>.<ul>
-<li>To avoid judging the vehicle ahead as a collision target. This logic needs to be improved.</li>
+<li>Not being <strong>in the neighbouring lanes of the ego vehicle</strong>.<ul>
+<li>neighbouring lanes include the ego lane of the vehicle and the adjacent lanes of it with turn_direction as the ego lane.</li>
 </ul>
 </li>
 </ul>
