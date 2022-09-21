@@ -9609,8 +9609,50 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hdd-recoverederror" class="md-nav__link">
+    HDD RecoveredError
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hdd-usage" class="md-nav__link">
     HDD Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-readdatarate" class="md-nav__link">
+    HDD ReadDataRate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-writedatarate" class="md-nav__link">
+    HDD WriteDataRate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-readiops" class="md-nav__link">
+    HDD ReadIOPS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-writeiops" class="md-nav__link">
+    HDD WriteIOPS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-connection" class="md-nav__link">
+    HDD Connection
   </a>
   
 </li>
@@ -10312,8 +10354,50 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hdd-recoverederror" class="md-nav__link">
+    HDD RecoveredError
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#hdd-usage" class="md-nav__link">
     HDD Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-readdatarate" class="md-nav__link">
+    HDD ReadDataRate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-writedatarate" class="md-nav__link">
+    HDD WriteDataRate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-readiops" class="md-nav__link">
+    HDD ReadIOPS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-writeiops" class="md-nav__link">
+    HDD WriteIOPS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-connection" class="md-nav__link">
+    HDD Connection
   </a>
   
 </li>
@@ -10391,7 +10475,7 @@
 </tr>
 <tr>
 <td>HDD [0-9]: temperature</td>
-<td>37.0 DegC</td>
+<td>37.0 DegC <br> not available</td>
 </tr>
 </tbody>
 </table>
@@ -10443,7 +10527,7 @@
 </tr>
 <tr>
 <td>HDD [0-9]: power on hours</td>
-<td>4834 Hours</td>
+<td>4834 Hours <br> not available</td>
 </tr>
 </tbody>
 </table>
@@ -10496,6 +10580,58 @@
 <tr>
 <td>HDD [0-9]: total data written</td>
 <td>146295330 <br> not available</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hdd-recoverederror"><u>HDD RecoveredError</u><a class="headerlink" href="#hdd-recoverederror" title="Permanent link">#</a></h2>
+<p>/diagnostics/hdd_monitor: HDD RecoveredError</p>
+<p><b>[summary]</b></p>
+<table>
+<thead>
+<tr>
+<th>level</th>
+<th>message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>high soft error rate</td>
+</tr>
+</tbody>
+</table>
+<p><b>[values]</b></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDD [0-9]: status</td>
+<td>OK / high soft error rate</td>
+</tr>
+<tr>
+<td>HDD [0-9]: name</td>
+<td>/dev/nvme0</td>
+</tr>
+<tr>
+<td>HDD [0-9]: model</td>
+<td>PHISON PS5012-E12S-512G</td>
+</tr>
+<tr>
+<td>HDD [0-9]: serial</td>
+<td>FB590709182505050767</td>
+</tr>
+<tr>
+<td>HDD [0-9]: recovered error</td>
+<td>0 <br> not available</td>
 </tr>
 </tbody>
 </table>
@@ -10559,6 +10695,226 @@
 </tr>
 <tr>
 <td>HDD [0-9]: mounted on</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hdd-readdatarate"><u>HDD ReadDataRate</u><a class="headerlink" href="#hdd-readdatarate" title="Permanent link">#</a></h2>
+<p>/diagnostics/hdd_monitor: HDD ReadDataRate</p>
+<p><b>[summary]</b></p>
+<table>
+<thead>
+<tr>
+<th>level</th>
+<th>message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>high data rate of read</td>
+</tr>
+</tbody>
+</table>
+<p><b>[values]</b></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDD [0-9]: status</td>
+<td>OK / high data rate of read</td>
+</tr>
+<tr>
+<td>HDD [0-9]: name</td>
+<td>/dev/nvme0</td>
+</tr>
+<tr>
+<td>HDD [0-9]: data rate of read</td>
+<td>0.00 MB/s</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hdd-writedatarate"><u>HDD WriteDataRate</u><a class="headerlink" href="#hdd-writedatarate" title="Permanent link">#</a></h2>
+<p>/diagnostics/hdd_monitor: HDD WriteDataRate</p>
+<p><b>[summary]</b></p>
+<table>
+<thead>
+<tr>
+<th>level</th>
+<th>message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>high data rate of write</td>
+</tr>
+</tbody>
+</table>
+<p><b>[values]</b></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDD [0-9]: status</td>
+<td>OK / high data rate of write</td>
+</tr>
+<tr>
+<td>HDD [0-9]: name</td>
+<td>/dev/nvme0</td>
+</tr>
+<tr>
+<td>HDD [0-9]: data rate of write</td>
+<td>0.00 MB/s</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hdd-readiops"><u>HDD ReadIOPS</u><a class="headerlink" href="#hdd-readiops" title="Permanent link">#</a></h2>
+<p>/diagnostics/hdd_monitor: HDD ReadIOPS</p>
+<p><b>[summary]</b></p>
+<table>
+<thead>
+<tr>
+<th>level</th>
+<th>message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>high IOPS of read</td>
+</tr>
+</tbody>
+</table>
+<p><b>[values]</b></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDD [0-9]: status</td>
+<td>OK / high IOPS of read</td>
+</tr>
+<tr>
+<td>HDD [0-9]: name</td>
+<td>/dev/nvme0</td>
+</tr>
+<tr>
+<td>HDD [0-9]: IOPS of read</td>
+<td>0.00 IOPS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hdd-writeiops"><u>HDD WriteIOPS</u><a class="headerlink" href="#hdd-writeiops" title="Permanent link">#</a></h2>
+<p>/diagnostics/hdd_monitor: HDD WriteIOPS</p>
+<p><b>[summary]</b></p>
+<table>
+<thead>
+<tr>
+<th>level</th>
+<th>message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>high IOPS of write</td>
+</tr>
+</tbody>
+</table>
+<p><b>[values]</b></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDD [0-9]: status</td>
+<td>OK / high IOPS of write</td>
+</tr>
+<tr>
+<td>HDD [0-9]: name</td>
+<td>/dev/nvme0</td>
+</tr>
+<tr>
+<td>HDD [0-9]: IOPS of write</td>
+<td>0.00 IOPS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hdd-connection"><u>HDD Connection</u><a class="headerlink" href="#hdd-connection" title="Permanent link">#</a></h2>
+<p>/diagnostics/hdd_monitor: HDD Connection</p>
+<p><b>[summary]</b></p>
+<table>
+<thead>
+<tr>
+<th>level</th>
+<th>message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>WARN</td>
+<td>not connected</td>
+</tr>
+</tbody>
+</table>
+<p><b>[values]</b></p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDD [0-9]: status</td>
+<td>OK / not connected</td>
+</tr>
+<tr>
+<td>HDD [0-9]: name</td>
+<td>/dev/nvme0</td>
+</tr>
+<tr>
+<td>HDD [0-9]: mount point</td>
 <td>/</td>
 </tr>
 </tbody>
