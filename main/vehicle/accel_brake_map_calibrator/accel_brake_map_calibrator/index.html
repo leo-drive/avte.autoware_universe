@@ -10311,6 +10311,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#system-parameters" class="md-nav__link">
+    System Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm-parameters" class="md-nav__link">
+    Algorithm Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#test-utility-scripts" class="md-nav__link">
     Test utility scripts
   </a>
@@ -10369,12 +10383,13 @@ ros2 bag play &lt;rosbag_file&gt; --clock
 <img src="./media/calib_rviz_image_sample.png" width="600">
 </p>
 
-<p>The current status (velocity and pedal) is shown in the plugin. The color on the current cell varies green/red depending on the current data is valid/invalid. The data that doesn't satisfy the following conditions are considered invalid and will not be used for estimation.</p>
+<p>The current status (velocity and pedal) is shown in the plugin. The color on the current cell varies green/red depending on the current data is valid/invalid. The data that doesn't satisfy the following conditions are considered invalid and will not be used for estimation since aggressive data (e.g. when the pedal is moving fast) causes bad calibration accuracy.</p>
 <ul>
 <li>The velocity and pedal conditions are within certain ranges from the index values.</li>
 <li>The steer value, pedal speed, pitch value, etc. are less than corresponding thresholds.</li>
 <li>The velocity is higher than a threshold.</li>
 </ul>
+<p>The detailed parameters are described in the parameter section.</p>
 <p>Note: You don't need to worry about whether the current state is red or green during calibration. Just keep getting data until all the cells turn red.</p>
 <p>The value of each cell in the map is gray at first, and it changes from blue to red as the number of valid data in the cell accumulates. It is preferable to continue the calibration until each cell of the map becomes close to red. In particular, the performance near the stop depends strongly on the velocity of 0 ~ 6m/s range and the pedal value of +0.2 ~ -0.4, range so it is desirable to focus on those areas.</p>
 <h3 id="diagnostics">Diagnostics<a class="headerlink" href="#diagnostics" title="Permanent link">#</a></h3>
@@ -10462,6 +10477,7 @@ Diagnostic type <code>WARN</code> indicates that the current accel/brake map is 
 </li>
 </ol>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
+<h2 id="system-parameters">System Parameters<a class="headerlink" href="#system-parameters" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -10507,6 +10523,103 @@ Diagnostic type <code>WARN</code> indicates that the current accel/brake map is 
 <td align="left">str</td>
 <td align="left">directory of calibrated map</td>
 <td align="left">[directory of <em>accel_brake_map_calibrator</em>]/config/</td>
+</tr>
+<tr>
+<td align="left">update_hz</td>
+<td align="left">double</td>
+<td align="left">hz for update</td>
+<td align="left">10.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="algorithm-parameters">Algorithm Parameters<a class="headerlink" href="#algorithm-parameters" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">initial_covariance</td>
+<td align="left">double</td>
+<td align="left">Covariance of initial acceleration map (larger covariance makes the update speed faster)</td>
+<td align="left">0.05</td>
+</tr>
+<tr>
+<td align="left">velocity_min_threshold</td>
+<td align="left">double</td>
+<td align="left">Speeds smaller than this are not used for updating.</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left">velocity_diff_threshold</td>
+<td align="left">double</td>
+<td align="left">When the velocity data is more than this threshold away from the grid reference speed (center value), the associated data is not used for updating.</td>
+<td align="left">0.556</td>
+</tr>
+<tr>
+<td align="left">max_steer_threshold</td>
+<td align="left">double</td>
+<td align="left">If the steer angle is greater than this value, the associated data is not used for updating.</td>
+<td align="left">0.2</td>
+</tr>
+<tr>
+<td align="left">max_pitch_threshold</td>
+<td align="left">double</td>
+<td align="left">If the pitch angle is greater than this value, the associated data is not used for updating.</td>
+<td align="left">0.02</td>
+</tr>
+<tr>
+<td align="left">max_jerk_threshold</td>
+<td align="left">double</td>
+<td align="left">If the ego jerk calculated from ego acceleration is greater than this value, the associated data is not used for updating.</td>
+<td align="left">0.7</td>
+</tr>
+<tr>
+<td align="left">pedal_velocity_thresh</td>
+<td align="left">double</td>
+<td align="left">If the pedal moving speed is greater than this value, the associated data is not used for updating.</td>
+<td align="left">0.15</td>
+</tr>
+<tr>
+<td align="left">pedal_diff_threshold</td>
+<td align="left">double</td>
+<td align="left">If the current pedal value is more then this threshold away from the previous value, the associated data is not used for updating.</td>
+<td align="left">0.03</td>
+</tr>
+<tr>
+<td align="left">max_accel</td>
+<td align="left">double</td>
+<td align="left">Maximum value of acceleration calculated from velocity source.</td>
+<td align="left">5.0</td>
+</tr>
+<tr>
+<td align="left">min_accel</td>
+<td align="left">double</td>
+<td align="left">Minimum value of acceleration calculated from velocity source.</td>
+<td align="left">-5.0</td>
+</tr>
+<tr>
+<td align="left">pedal_to_accel_delay</td>
+<td align="left">double</td>
+<td align="left">The delay time between actuation_cmd to acceleration, considered in the update logic.</td>
+<td align="left">0.3</td>
+</tr>
+<tr>
+<td align="left">update_suggest_thresh</td>
+<td align="left">double</td>
+<td align="left">threshold of RMSE ratio that update suggest flag becomes true. ( RMSE ratio: [RMSE of new map] / [RMSE of original map] )</td>
+<td align="left">0.7</td>
+</tr>
+<tr>
+<td align="left">max_data_count</td>
+<td align="left">int</td>
+<td align="left">For visualization. When the data num of each grid gets this value, the grid color gets red.</td>
+<td align="left">100</td>
 </tr>
 </tbody>
 </table>
