@@ -7107,6 +7107,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-velocity-to-approach-the-obstacles" class="md-nav__link">
+    Insert velocity to approach the obstacles
+  </a>
+  
+    <nav class="md-nav" aria-label="Insert velocity to approach the obstacles">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#limit-velocity-with-specified-jerk-and-acc-limit" class="md-nav__link">
     Limit velocity with specified jerk and acc limit
@@ -10596,6 +10609,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-velocity-to-approach-the-obstacles" class="md-nav__link">
+    Insert velocity to approach the obstacles
+  </a>
+  
+    <nav class="md-nav" aria-label="Insert velocity to approach the obstacles">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#limit-velocity-with-specified-jerk-and-acc-limit" class="md-nav__link">
     Limit velocity with specified jerk and acc limit
@@ -10771,6 +10797,14 @@ So we select the point that is on the same side as the obstacle and close to ego
 <h5 id="insert-velocity-to-decelerate-for-obstacles">Insert velocity to decelerate for obstacles<a class="headerlink" href="#insert-velocity-to-decelerate-for-obstacles" title="Permanent link">#</a></h5>
 <p>If the collision is detected, stop point is inserted on distance of base link to front + stop margin from the selected collision point. The base link to front means the distance between base_link (center of rear-wheel axis) and front of the car. Stop margin is determined by the parameter of <code>stop_margin</code>.</p>
 <p><img alt="brief" src="../docs/run_out/insert_velocity.svg" /></p>
+<h4 id="insert-velocity-to-approach-the-obstacles">Insert velocity to approach the obstacles<a class="headerlink" href="#insert-velocity-to-approach-the-obstacles" title="Permanent link">#</a></h4>
+<p>If you select the method of <code>Points</code> or <code>ObjectWithoutPath</code>, sometimes ego keeps stopping in front of the obstacle.
+To avoid this problem, This feature has option to approach the obstacle with slow velocity after stopping.
+If the parameter of <code>approaching.enable</code> is set to true, ego will approach the obstacle after ego stopped for <code>state.stop_time_thresh</code> seconds.
+The maximum velocity of approaching can be specified by the parameter of <code>approaching.limit_vel_kmph</code>.
+The decision to approach the obstacle is determined by a simple state transition as following image.</p>
+<p><img alt="brief" src="../docs/run_out/insert_velocity_to_approach.svg" /></p>
+<p><img alt="brief" src="../docs/run_out/state_transition.svg" /></p>
 <h5 id="limit-velocity-with-specified-jerk-and-acc-limit">Limit velocity with specified jerk and acc limit<a class="headerlink" href="#limit-velocity-with-specified-jerk-and-acc-limit" title="Permanent link">#</a></h5>
 <p>The maximum slowdown velocity is calculated in order not to slowdown too much.
 See the <a href="../occlusion-spot-design/#maximum-slowdown-velocity">Occlusion Spot document</a> for more details.
@@ -10923,6 +10957,17 @@ You can choose whether to use this feature by parameter of <code>slow_down_limit
 <td>double</td>
 <td>[km/h] limit velocity for approaching after stopping</td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Parameter /state</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code>stop_thresh</code></td>
 <td>double</td>
@@ -10934,9 +10979,9 @@ You can choose whether to use this feature by parameter of <code>slow_down_limit
 <td>[sec] threshold for stopping time to transit to approaching state</td>
 </tr>
 <tr>
-<td><code>dist_thresh</code></td>
+<td><code>disable_approach_dist</code></td>
 <td>double</td>
-<td>[m] end the approaching state if distance to the obstacle is longer than stop_margin + dist_thresh</td>
+<td>[m] end the approaching state if distance to the obstacle is longer than this value</td>
 </tr>
 </tbody>
 </table>
