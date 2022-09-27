@@ -10493,6 +10493,24 @@
 <td><code>""</code></td>
 <td>path to DetectionHead TensorRT Engine file</td>
 </tr>
+<tr>
+<td><code>nms_iou_target_class_names</code></td>
+<td>list[string]</td>
+<td>-</td>
+<td>target classes for IoU-based Non Maximum Suppression</td>
+</tr>
+<tr>
+<td><code>nms_iou_search_distance_2d</code></td>
+<td>double</td>
+<td>-</td>
+<td>If two objects are farther than the value, NMS isn't applied.</td>
+</tr>
+<tr>
+<td><code>nms_iou_threshold</code></td>
+<td>double</td>
+<td>-</td>
+<td>IoU threshold for the IoU-based Non Maximum Suppression</td>
+</tr>
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
