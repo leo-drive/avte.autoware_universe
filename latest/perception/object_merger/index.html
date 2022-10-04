@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/latest/perception/object_merger/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -10506,6 +10506,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assumptions-known-limits" class="md-nav__link">
     Assumptions / Known limits
   </a>
@@ -10645,8 +10652,36 @@
 <td>double</td>
 <td>association frame</td>
 </tr>
+<tr>
+<td><code>distance_threshold_list</code></td>
+<td><code>std::vector&lt;double&gt;</code></td>
+<td>Distance threshold for each class used in judging overlap. The class order depends on <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/ObjectClassification.idl">ObjectClassification</a>.</td>
+</tr>
+<tr>
+<td><code>generalized_iou_threshold</code></td>
+<td>double</td>
+<td>Generalized IoU threshold</td>
+</tr>
 </tbody>
 </table>
+<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h2>
+<ul>
+<li>False Positive Unknown object detected by clustering method sometimes raises the risk of sudden stop and interferes with Planning module. If ML based detector rarely misses objects, you can tune the parameter of object_merger and make Perception module ignore unknown objects.<ul>
+<li>If you want to remove unknown object close to large vehicle,<ul>
+<li>use HIGH <code>distance_threshold_list</code><ul>
+<li>However, this causes high computational load</li>
+</ul>
+</li>
+<li>use LOW <code>precision_threshold_to_judge_overlapped</code></li>
+<li>use LOW <code>generalized_iou_threshold</code><ul>
+<li>However, these 2 params raise the risk of overlooking object close to known object.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
 <!-- Write assumptions and limitations of your implementation.
 
@@ -10770,7 +10805,7 @@ Example:
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
