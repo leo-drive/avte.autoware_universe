@@ -796,6 +796,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/rtc_replayer/</loc>
+         <lastmod>2022-10-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/scenario_selector/</loc>
          <lastmod>2022-10-06</lastmod>
          <changefreq>daily</changefreq>
