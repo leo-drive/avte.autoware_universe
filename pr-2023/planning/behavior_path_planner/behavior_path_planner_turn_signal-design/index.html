@@ -7108,15 +7108,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-avoidance-with-left-turn1" class="md-nav__link">
-    - Avoidance with left turn1
+  <a href="#-avoidance-with-left-turn-1" class="md-nav__link">
+    - Avoidance with left turn (1)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#-avoidance-with-left-turn2" class="md-nav__link">
-    - Avoidance with left turn2
+  <a href="#-avoidance-with-left-turn-2" class="md-nav__link">
+    - Avoidance with left turn (2)
   </a>
   
 </li>
@@ -10709,15 +10709,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-avoidance-with-left-turn1" class="md-nav__link">
-    - Avoidance with left turn1
+  <a href="#-avoidance-with-left-turn-1" class="md-nav__link">
+    - Avoidance with left turn (1)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#-avoidance-with-left-turn2" class="md-nav__link">
-    - Avoidance with left turn2
+  <a href="#-avoidance-with-left-turn-2" class="md-nav__link">
+    - Avoidance with left turn (2)
   </a>
   
 </li>
@@ -10764,7 +10764,7 @@
 <h2 id="purpose-role">Purpose / Role<a class="headerlink" href="#purpose-role" title="Permanent link">#</a></h2>
 <p>This module is responsible for activating a necessary blinker during driving. It uses rule-based algorithm to determine blinkers, and the details of this algorithm are described in the following sections. Note that this algorithm is strictly based on the Japanese Road Traffic Raw.</p>
 <h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h3>
-<p>Currently, this algorithm can sometimes give unnatural(not wrong) blinkers in a complicated situations. This is because it tries to follow the road traffic raw and cannot solve <code>blinker conflicts</code> clearly in that environment.</p>
+<p>Currently, this algorithm can sometimes give unnatural (not wrong) blinkers in a complicated situations. This is because it tries to follow the road traffic raw and cannot solve <code>blinker conflicts</code> clearly in that environment.</p>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
 <p>In this algorithm, it assumes that each blinker has two sections, which are <code>desired section</code> and <code>required section</code>. The image of these two sections are depicted in the following diagram.</p>
 <p><img alt="section_definition" src="../image/turn_signal_decider/sections_definition.drawio.svg" /></p>
@@ -10776,7 +10776,7 @@
 
 <h3 id="-required-section">- Required Section<a class="headerlink" href="#-required-section" title="Permanent link">#</a></h3>
 <div class="codehilite"><pre><span></span><code>- In this section, ego vehicle must activate designated blinkers. However, if there are blinker conflicts, it must solve them based on the algorithm we mention later in this document.
-- Required Section cannot be longer than desired section.
+- Required section cannot be longer than desired section.
 </code></pre></div>
 
 <p>For left turn, right turn, avoidance, lane change, pull over and pull out, we define these two sections, which are elaborated in the following part.</p>
@@ -10796,7 +10796,7 @@
 </ul>
 <ul>
 <li>required end point<br />
-  The earliest point that satisfies the following condition. <script type="math/tex; mode=display"> \theta - \theta*{end} < \delta </script> where <span class="arithmatex"><span class="MathJax_Preview">\theta*{end}</span><script type="math/tex">\theta*{end}</script></span> is yaw angle of the terminal point of the lanelet, <span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> is the angle of a required end point and <span class="arithmatex"><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> is the threshold defined by the user.</li>
+  The earliest point that satisfies the following condition. $ \theta - \theta_{\textrm{end}} &lt; \delta $, where $ \theta_{\textrm{end}} $ is yaw angle of the terminal point of the lanelet, $ \theta $ is the angle of a required end point and $ \delta $ is the threshold defined by the user.</li>
 </ul>
 <p><img alt="section_turn_signal" src="../image/turn_signal_decider/left_right_turn.drawio.svg" /></p>
 <h4 id="2-avoidance">2. Avoidance<a class="headerlink" href="#2-avoidance" title="Permanent link">#</a></h4>
@@ -10916,10 +10916,10 @@
 <h4 id="-several-right-and-left-turns-on-short-sections">- Several right and left turns on short sections<a class="headerlink" href="#-several-right-and-left-turns-on-short-sections" title="Permanent link">#</a></h4>
 <p>In this scenario, ego vehicle has to pass several turns that are close each other. Since this pattern can be solved by the pattern1 rule, the overall result is depicted in the following picture.</p>
 <p><img alt="continuous_turns" src="../image/turn_signal_decider/continuous_turns.drawio.svg" /></p>
-<h4 id="-avoidance-with-left-turn1">- Avoidance with left turn1<a class="headerlink" href="#-avoidance-with-left-turn1" title="Permanent link">#</a></h4>
+<h4 id="-avoidance-with-left-turn-1">- Avoidance with left turn (1)<a class="headerlink" href="#-avoidance-with-left-turn-1" title="Permanent link">#</a></h4>
 <p>In this scene, ego vehicle has to deal with the obstacle that is on its original path as well as make a left turn. The overall result can be varied by the position of the obstacle, but the image of the result is described in the following picture.</p>
 <p><img alt="avoidance_and_turn" src="../image/turn_signal_decider/avoidance_and_turn.drawio.svg" /></p>
-<h4 id="-avoidance-with-left-turn2">- Avoidance with left turn2<a class="headerlink" href="#-avoidance-with-left-turn2" title="Permanent link">#</a></h4>
+<h4 id="-avoidance-with-left-turn-2">- Avoidance with left turn (2)<a class="headerlink" href="#-avoidance-with-left-turn-2" title="Permanent link">#</a></h4>
 <p>Same as the previous scenario, ego vehicle has to avoid the obstacle as well as make a turn left. However, in this scene, the obstacle is parked after the intersection. Similar to the previous one, the overall result can be varied by the position of the obstacle, but the image of the result is described in the following picture.</p>
 <p><img alt="avoidance_and_turn" src="../image/turn_signal_decider/avoidance_and_turn2.drawio.svg" /></p>
 <h4 id="-lane-change-and-left-turn">- Lane change and left turn<a class="headerlink" href="#-lane-change-and-left-turn" title="Permanent link">#</a></h4>
