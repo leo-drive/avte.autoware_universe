@@ -6917,6 +6917,8 @@
         
           
         
+          
+        
       
       
         
@@ -6975,6 +6977,20 @@
     <li class="md-nav__item">
       <a href="behavior_path_planner_lane_change/" class="md-nav__link">
         Lane Change
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="behavior_path_planner_turn_signal-design/" class="md-nav__link">
+        Turn Signal Decider
       </a>
     </li>
   
@@ -10960,47 +10976,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#turn-signal" class="md-nav__link">
-    Turn signal
-  </a>
-  
-    <nav class="md-nav" aria-label="Turn signal">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#from-planned-path" class="md-nav__link">
-    From planned path
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#from-map-information" class="md-nav__link">
-    From map information
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conciliation" class="md-nav__link">
-    Conciliation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#limitation" class="md-nav__link">
-    Limitation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -12056,33 +12031,10 @@ See also <a href="https://www.sciencedirect.com/science/article/pii/S14746670153
 <h3 id="smooth-goal-connection">Smooth goal connection<a class="headerlink" href="#smooth-goal-connection" title="Permanent link">#</a></h3>
 <p>If the target path contains a goal, modify the points of the path so that the path and the goal are connected smoothly. This process will change the shape of the path by the distance of <code>refine_goal_search_radius_range</code> from the goal. Note that this logic depends on the interpolation algorithm that will be executed in a later module (at the moment it uses spline interpolation), so it needs to be updated in the future.</p>
 <p><img alt="path_goal_refinement" src="image/path_goal_refinement.drawio.svg" /></p>
-<h3 id="turn-signal">Turn signal<a class="headerlink" href="#turn-signal" title="Permanent link">#</a></h3>
-<p>Turn on signal when the planned path crosses lanes or when a right or left turn is required. The turn signal information includes the direction of the turn signal and the distance to the point where the turn signal is needed.</p>
-<h4 id="from-planned-path">From planned path<a class="headerlink" href="#from-planned-path" title="Permanent link">#</a></h4>
-<ul>
-<li>turn signal direction<br />
-  Calculate the lateral movement distance from the shift start and end point and judges whether the line is crossed or not. If the vehicle straddles the line during lateral movement, the system turns on the blinker.<br />
-<img alt="cross_judgment" src="image/turn_signal_fig1.drawio.svg" /><br />
-  The timing to start lighting is when the time required to reach the shift start point is 3 seconds or less, or when the distance becomes smaller than threshold (default: <code>10.0 m</code>).<br />
-  The Japanese Road Traffic Law requires turn signal to be turned on <code>3.0 sec</code> before the vehicle starts moving sideways, but it also gives a condition based on distance because the turn signal may be turned off by slowing down before the shift start point.</li>
-<li>distance<br />
-  The distance from the top of ego vehicle to the shift end point.</li>
-</ul>
-<h4 id="from-map-information">From map information<a class="headerlink" href="#from-map-information" title="Permanent link">#</a></h4>
-<ul>
-<li>turn signal direction<br />
-  Determine right or left turns based on the "turn_direction" information embedded in the lanelet.</li>
-</ul>
-<ul>
-<li>distance<br />
-  The distance to the lane where you start to turn.</li>
-</ul>
-<h4 id="conciliation">Conciliation<a class="headerlink" href="#conciliation" title="Permanent link">#</a></h4>
-<p>When multiple turn signal conditions are met, the turn signal with the smaller distance is selected.</p>
-<h4 id="limitation">Limitation<a class="headerlink" href="#limitation" title="Permanent link">#</a></h4>
-<p>Currently, the algorithm of turn signal has been chagned, and the document of the turn signal will be available soon.</p>
 <h2 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h2>
 <p>This module depends on the external <a href="https://github.com/BehaviorTree/BehaviorTree.CPP">BehaviorTreeCpp</a> library.</p>
+<!-- cspell:ignore Vorobieva, Minoiu, Enache, Mammar, IFAC -->
+
 <p><a href="https://www.sciencedirect.com/science/article/pii/S1474667015347431">[1]</a> H. Vorobieva, S. Glaser, N. Minoiu-Enache, and S. Mammar, “Geometric path planning for automatic parallel parking in tiny spots”, IFAC Proceedings Volumes, vol. 45, no. 24, pp. 36–42, 2012.</p>
 <h2 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
 <p>-</p>
