@@ -11415,6 +11415,13 @@ Once the lane change is executed, the path won’t be updated until the "finish-
 <td align="left">true</td>
 </tr>
 <tr>
+<td align="left">use_occupancy_grid_for_longitudinal_margin</td>
+<td align="left">-</td>
+<td align="left">bool</td>
+<td align="left">flag whether to use occupancy grid for keeping longitudinal margin</td>
+<td align="left">false</td>
+</tr>
+<tr>
 <td align="left">occupancy_grid_collision_check_margin</td>
 <td align="left">[m]</td>
 <td align="left">double</td>
@@ -11517,10 +11524,24 @@ searched for in certain range of the shoulder lane.</p>
 <td align="left">2.0</td>
 </tr>
 <tr>
-<td align="left">goal_to_obstacle_margin</td>
+<td align="left">longitudinal_margin</td>
 <td align="left">[m]</td>
 <td align="left">double</td>
 <td align="left">margin between ego-vehicle at the goal position and obstacles</td>
+<td align="left">3.0</td>
+</tr>
+<tr>
+<td align="left">max_lateral_offset</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">maximum offset of goal search in the latearl direction</td>
+<td align="left">3.0</td>
+</tr>
+<tr>
+<td align="left">lateral_offset_interval</td>
+<td align="left">[m]</td>
+<td align="left">double</td>
+<td align="left">distance interval of goal search in the latearl direction</td>
 <td align="left">3.0</td>
 </tr>
 </tbody>
