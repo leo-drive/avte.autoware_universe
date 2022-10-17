@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-2013/planning/static_centerline_optimizer/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -10633,6 +10633,8 @@ With the static centerline optimization, we have the following advantages.</p>
 <h2 id="usecases">Usecases<a class="headerlink" href="#usecases" title="Permanent link">#</a></h2>
 <p>There are two interfaces to communicate with the centerline optimizer.</p>
 <h3 id="vector-map-builder-interface">Vector Map Builder Interface<a class="headerlink" href="#vector-map-builder-interface" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>ros2 run static_centerline_optimizer run_planning_server.sh vehicle_model:<span class="o">=</span>&lt;vehicle-name&gt;
+</code></pre></div>
 <h3 id="command-line-interface">Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permanent link">#</a></h3>
 <p>The optimized centerline is generated from the command line interface.</p>
 <div class="highlight"><pre><span></span><code>ros2 run static_centerline_optimizer optimize_path.sh &lt;osm-map-path&gt; &lt;start-lanelet-id&gt; &lt;end-lanelet-id&gt; &lt;vehicle-model&gt;
