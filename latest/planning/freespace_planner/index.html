@@ -7516,12 +7516,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../freespace_planning_algorithms/">Freespace planning algorithms</a>
+          
+            <label for="__nav_12_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -7532,6 +7538,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../freespace_planning_algorithms/rrtstar/" class="md-nav__link">
+        Rrtstar
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -10632,6 +10652,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rrt-search-parameters" class="md-nav__link">
+    RRT* search parameters
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10751,6 +10778,16 @@ In other words, the output trajectory doesn't include both forward and backward 
 </thead>
 <tbody>
 <tr>
+<td><code>planning_algorithms</code></td>
+<td>string</td>
+<td>algorithms used in the node</td>
+</tr>
+<tr>
+<td><code>vehicle_shape_margin_m</code></td>
+<td>float</td>
+<td>collision margin in planning algorithm</td>
+</tr>
+<tr>
 <td><code>update_rate</code></td>
 <td>double</td>
 <td>timer's update rate</td>
@@ -10808,34 +10845,19 @@ In other words, the output trajectory doesn't include both forward and backward 
 </thead>
 <tbody>
 <tr>
-<td><code>planning_algorithms</code></td>
-<td>string</td>
-<td>algorithms used in the node</td>
-</tr>
-<tr>
 <td><code>time_limit</code></td>
 <td>double</td>
 <td>time limit of planning</td>
 </tr>
 <tr>
-<td><code>robot_length</code></td>
-<td>double</td>
-<td>robot length</td>
-</tr>
-<tr>
-<td><code>robot_width</code></td>
-<td>double</td>
-<td>robot width</td>
-</tr>
-<tr>
-<td><code>robot_base2back</code></td>
-<td>double</td>
-<td>distance from robot's back to robot's base_link</td>
-</tr>
-<tr>
 <td><code>minimum_turning_radius</code></td>
 <td>double</td>
 <td>minimum turning radius of robot</td>
+</tr>
+<tr>
+<td><code>maximum_turning_radius</code></td>
+<td>double</td>
+<td>maximum turning radius of robot</td>
 </tr>
 <tr>
 <td><code>theta_size</code></td>
@@ -10898,6 +10920,43 @@ In other words, the output trajectory doesn't include both forward and backward 
 <td><code>distance_heuristic_weight</code></td>
 <td>double</td>
 <td>heuristic weight for estimating node's cost</td>
+</tr>
+</tbody>
+</table>
+<h4 id="rrt-search-parameters">RRT* search parameters<a class="headerlink" href="#rrt-search-parameters" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max planning time</code></td>
+<td>double</td>
+<td>maximum planning time [msec] (used only when <code>enable_update</code> is set <code>true</code>)</td>
+</tr>
+<tr>
+<td><code>enable_update</code></td>
+<td>bool</td>
+<td>whether update after feasible solution found until <code>max_planning time</code> elapse</td>
+</tr>
+<tr>
+<td><code>use_informed_sampling</code></td>
+<td>bool</td>
+<td>Use informed RRT* (of Gammmell et al.)</td>
+</tr>
+<tr>
+<td><code>neighbour_radius</code></td>
+<td>double</td>
+<td>neighbour radius of RRT* algorithm</td>
+</tr>
+<tr>
+<td><code>margin</code></td>
+<td>double</td>
+<td>safety margin ensured in path's collision checking in RRT* algorithm</td>
 </tr>
 </tbody>
 </table>

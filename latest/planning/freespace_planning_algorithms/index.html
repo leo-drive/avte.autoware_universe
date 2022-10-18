@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#freespace-planning-algorithms" class="md-skip">
+        <a href="#macro-syntax-error" class="md-skip">
           Skip to content
         </a>
       
@@ -7516,12 +7516,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
           <a href="./">Freespace planning algorithms</a>
+          
+            <label for="__nav_12_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -7532,6 +7538,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rrtstar/" class="md-nav__link">
+        Rrtstar
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -10561,55 +10581,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#role" class="md-nav__link">
-    Role
-  </a>
-  
-    <nav class="md-nav" aria-label="Role">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#implemented-algorithms" class="md-nav__link">
-    Implemented algorithms
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#guide-to-implement-a-new-algorithm" class="md-nav__link">
-    Guide to implement a new algorithm
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-the-standalone-tests-and-visualization" class="md-nav__link">
-    Running the standalone tests and visualization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license-notice" class="md-nav__link">
-    License notice
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -10628,46 +10599,10 @@
   </a>
 
 
-<h1 id="freespace-planning-algorithms"><code>freespace planning algorithms</code><a class="headerlink" href="#freespace-planning-algorithms" title="Permanent link">#</a></h1>
-<h2 id="role">Role<a class="headerlink" href="#role" title="Permanent link">#</a></h2>
-<p>This package is for development of path planning algorithms in free space.</p>
-<h3 id="implemented-algorithms">Implemented algorithms<a class="headerlink" href="#implemented-algorithms" title="Permanent link">#</a></h3>
-<ul>
-<li>Hybrid A*</li>
-</ul>
-<h2 id="guide-to-implement-a-new-algorithm">Guide to implement a new algorithm<a class="headerlink" href="#guide-to-implement-a-new-algorithm" title="Permanent link">#</a></h2>
-<ul>
-<li>All planning algorithm class in this package must inherit <code>AbstractPlanningAlgorithm</code>
-  class. If necessary, please overwrite the virtual functions.</li>
-<li>All algorithms must use <code>nav_msgs::OccupancyGrid</code>-typed costmap.
-  Thus, <code>AbstractPlanningAlgorithm</code> class mainly implements the collision checking
-  using the costmap, grid-based indexing, and coordinate transformation related to
-  costmap.</li>
-<li>All algorithms must take both <code>PlannerCommonParam</code>-typed and algorithm-specific-
-  type structs as inputs of the constructor. For example, <code>AstarSearch</code> class's
-  constructor takes both <code>PlannerCommonParam</code> and <code>AstarParam</code>.</li>
-</ul>
-<h2 id="running-the-standalone-tests-and-visualization">Running the standalone tests and visualization<a class="headerlink" href="#running-the-standalone-tests-and-visualization" title="Permanent link">#</a></h2>
-<p>Building the package with ros-test and run tests:</p>
-<div class="highlight"><pre><span></span><code>colcon build --packages-select freespace_planning_algorithms
-colcon <span class="nb">test</span> --packages-select freespace_planning_algorithms
-</code></pre></div>
-<p>Inside the test, simulation results are stored in <code>/tmp/result_*.txt</code>.</p>
-<p>Note that the postfix corresponds to the testing scenario (multiple curvatures and single curvature cases).
-Loading these resulting files, by using <a href="test/debug_plot.py">test/debug_plot.py</a>,
-one can create plots visualizing the path and obstacles as shown
-in the figures below.</p>
-<p>The created figures are then again saved in <code>/tmp</code> with the name like <code>/tmp/result_multi0.png</code>.</p>
-<p><img alt="sample output figure" src="figs/freespace_planning_algorithms_astar_test_results.png" /></p>
-<p>The black cells, green box, and red box, respectively, indicate obstacles,
-start configuration, and goal configuration.
-The sequence of the blue boxes indicate the solution path.</p>
-<h2 id="license-notice">License notice<a class="headerlink" href="#license-notice" title="Permanent link">#</a></h2>
-<p>Files <code>src/reeds_shepp.cpp</code> and <code>include/astar_search/reeds_shepp.h</code>
-are fetched from <a href="https://github.com/ghliu/pyReedsShepp">pyReedsShepp</a>.
-Note that the implementation in <code>pyReedsShepp</code> is also heavily based on
-the code in <a href="https://github.com/ompl/ompl">ompl</a>.
-Both <code>pyReedsShepp</code> and <code>ompl</code> are distributed under 3-clause BSD license.</p>
+<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
+<p><em>Line 51 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
+<div class="highlight"><pre><span></span><code><span class="n">Inside</span> <span class="n">the</span> <span class="n">test</span><span class="p">,</span> <span class="n">simulation</span> <span class="n">results</span> <span class="n">are</span> <span class="n">stored</span> <span class="ow">in</span> <span class="err">`</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">fpalgos</span><span class="o">-</span><span class="p">{</span><span class="c1">#algorithm_type}-case{#scenario_number}` as a rosbag.</span>
+</code></pre></div></p>
 
 
 
@@ -10709,13 +10644,13 @@ Both <code>pyReedsShepp</code> and <code>ompl</code> are distributed under 3-cla
       
       
         
-        <a href="../mission_planner/" class="md-footer__link md-footer__link--next" aria-label="Next: Mission Planner" rel="next">
+        <a href="rrtstar/" class="md-footer__link md-footer__link--next" aria-label="Next: Rrtstar" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Mission Planner
+              Rrtstar
             </div>
           </div>
           <div class="md-footer__button md-icon">
