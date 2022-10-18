@@ -746,6 +746,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/planning/freespace_planning_algorithms/rrtstar/</loc>
+         <lastmod>2022-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/planning/mission_planner/</loc>
          <lastmod>2022-10-18</lastmod>
          <changefreq>daily</changefreq>
