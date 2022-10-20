@@ -9705,6 +9705,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_15_8_2">
@@ -9849,6 +9851,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#voltage-monitor" class="md-nav__link">
+    Voltage Monitor
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -9964,6 +9973,20 @@
     <li class="md-nav__item">
       <a href="../topics_process_monitor/" class="md-nav__link">
         ROS topics: Process Monitor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics_voltage_monitor/" class="md-nav__link">
+        ROS topics: Voltage Monitor
       </a>
     </li>
   
@@ -10629,6 +10652,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#voltage-monitor" class="md-nav__link">
+    Voltage Monitor
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -11082,6 +11112,42 @@
 <td align="center">%(1e-2)</td>
 <td align="center">1.00</td>
 <td align="left">Generates error when GPU memory usage reaches a specified value or higher.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="voltage-monitor"><u>Voltage Monitor</u><a class="headerlink" href="#voltage-monitor" title="Permanent link">#</a></h2>
+<p>voltage_monitor:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="center">Type</th>
+<th align="center">Unit</th>
+<th align="center">Default</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">cmos_battery_warn</td>
+<td align="center">float</td>
+<td align="center">volt</td>
+<td align="center">2.9</td>
+<td align="left">Generates warning when voltage of CMOS Battery is lower.</td>
+</tr>
+<tr>
+<td align="left">cmos_battery_error</td>
+<td align="center">float</td>
+<td align="center">volt</td>
+<td align="center">2.7</td>
+<td align="left">Generates error when voltage of CMOS Battery is lower.</td>
+</tr>
+<tr>
+<td align="left">cmos_battery_label</td>
+<td align="center">string</td>
+<td align="center">n/a</td>
+<td align="center">""</td>
+<td align="left">voltage string in sensors command outputs. if emtpy no voltage will be checked.</td>
 </tr>
 </tbody>
 </table>

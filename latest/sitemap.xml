@@ -1071,6 +1071,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/system_monitor/docs/topics_voltage_monitor/</loc>
+         <lastmod>2022-10-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/system_monitor/docs/traffic_reader/</loc>
          <lastmod>2022-10-20</lastmod>
          <changefreq>daily</changefreq>
