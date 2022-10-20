@@ -7280,8 +7280,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#showing-drivable-area-boundary" class="md-nav__link">
-    Showing drivable area boundary
+  <a href="#visualizing-drivable-area-boundary" class="md-nav__link">
+    Visualizing drivable area boundary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizing-drivable-area" class="md-nav__link">
+    Visualizing drivable area
   </a>
   
 </li>
@@ -11060,8 +11067,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#showing-drivable-area-boundary" class="md-nav__link">
-    Showing drivable area boundary
+  <a href="#visualizing-drivable-area-boundary" class="md-nav__link">
+    Visualizing drivable area boundary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualizing-drivable-area" class="md-nav__link">
+    Visualizing drivable area
   </a>
   
 </li>
@@ -11587,20 +11601,24 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
 <h3 id="publishing-visualization-marker">Publishing Visualization Marker<a class="headerlink" href="#publishing-visualization-marker" title="Permanent link">#</a></h3>
 <p>Developers can see what is going on in each process by visualizing all the avoidance planning process outputs. The example includes target vehicles, shift points for each object, shift points after each filtering process, etc.</p>
 <p><img alt="fig1" src="../image/avoidance_design/avoidance-debug-marker.png" /></p>
-<p>The debug marker can be enable via <code>avoidance.param.yaml</code>. Simply set the <code>publish_debug_marker</code> to <code>true</code>, restart <code>rviz2</code> and add the marker <code>planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/debug/markers/MarkerArray</code>.</p>
+<p>To enable the debug marker, execute <code>ros2 param set /planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner avoidance.publish_debug_marker true</code> (no restart is needed) or simply set the <code>publish_debug_marker</code> to <code>true</code> in the <code>avoidance.param.yaml</code> for permanent effect (restart is needed). Then add the marker <code>/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/debug/avoidance</code> in <code>rviz2</code>.</p>
 <h3 id="echoing-debug-message-to-find-out-why-the-objects-were-ignored">Echoing debug message to find out why the objects were ignored<a class="headerlink" href="#echoing-debug-message-to-find-out-why-the-objects-were-ignored" title="Permanent link">#</a></h3>
 <p>If for some reason, no shift point is generated for your object, you can check for the failure reason via <code>ros2 topic echo</code>.</p>
 <p><img alt="avoidance_debug_message_array" src="../image/avoidance_design/avoidance_debug_message_array.png" /></p>
 <p>To print the debug message, just run the following</p>
 <div class="highlight"><pre><span></span><code>ros2 topic <span class="nb">echo</span> /planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/debug/avoidance_debug_message_array
 </code></pre></div>
-<h3 id="showing-drivable-area-boundary">Showing drivable area boundary<a class="headerlink" href="#showing-drivable-area-boundary" title="Permanent link">#</a></h3>
+<h3 id="visualizing-drivable-area-boundary">Visualizing drivable area boundary<a class="headerlink" href="#visualizing-drivable-area-boundary" title="Permanent link">#</a></h3>
 <p>Sometimes, the developers might get a different result between two maps that may look identical during visual inspection.</p>
 <p>For example, in the same area, one can perform avoidance and another cannot. This might be related to the drivable area issues due to the non-compliance vector map design from the user.</p>
 <p>To debug the issue, the drivable area boundary can be visualized.</p>
 <p><img alt="drivable_area_boundary_marker1" src="../image/avoidance_design/drivable_area_boundary_marker_example1.png" /></p>
 <p><img alt="drivable_area_boundary_marker2" src="../image/avoidance_design/drivable_area_boundary_marker_example2.png" /></p>
 <p>The boundary can be visualize by adding the marker from <code>/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/drivable_area_boundary</code></p>
+<h3 id="visualizing-drivable-area">Visualizing drivable area<a class="headerlink" href="#visualizing-drivable-area" title="Permanent link">#</a></h3>
+<p>The drivable area can be visualize by adding the drivable area plugin</p>
+<p><img alt="drivable_area_plugin" src="../image/drivable_area_plugin.png" /></p>
+<p>and then add <code>/planning/scenario_planning/lane_driving/behavior_planning/path</code> as the topic.</p>
 
 
 
