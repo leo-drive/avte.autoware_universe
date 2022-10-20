@@ -11902,7 +11902,7 @@ Instead, if we use L-infinity norm where slack variables are shared by enabling 
 <li><code>advanced.mpt.bounds_search_widths</code><ul>
 <li>In order to efficiently search precise lateral boundaries on each trajectory point, different resolutions of search widths are defined.</li>
 <li>By default, [0.45, 0.15, 0.05, 0.01] is used. In this case, the goal is to get the boundaries' length on each trajectory point with 0.01 [m] resolution.</li>
-<li>Firstly, lateral boundaries are searhed with a rough resolution (= 0.45 [m]).</li>
+<li>Firstly, lateral boundaries are searched with a rough resolution (= 0.45 [m]).</li>
 <li>Then, within its 0.45 [m] resolution which boundaries are inside, they are searched again with a bit precise resolution (= 0.15 [m]).</li>
 <li>Following this rule, finally boundaries with 0.01 [m] will be found.</li>
 </ul>
@@ -12055,7 +12055,7 @@ According to the characteristics, we investigate pros and cons of the typical pl
 <p>Based on these pros/cons, we chose the optimization-based planner first.
 Although it has a cons to converge to the local minima, it can get a good solution by the preprocessing to approximate the convex problem that almost equals to the original non-convex problem.</p>
 <h1 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">#</a></h1>
-<p>Debug information are writen <a href="debug/">here</a>.</p>
+<p>Debug information are written <a href="debug/">here</a>.</p>
 
 
 
