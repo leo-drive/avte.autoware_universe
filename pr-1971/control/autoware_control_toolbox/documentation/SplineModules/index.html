@@ -3114,10 +3114,10 @@
       
         <li class="md-nav__item">
   <a href="#natural-cubic-spline-piecewise-by-preconditioned-conjugate-gradients" class="md-nav__link">
-    Natural Cubic Spline (Piecewise) by Preconditioned Conjugate Gradients.
+    Natural Cubic Spline (Piecewise) by Preconditioned Conjugate Gradients
   </a>
   
-    <nav class="md-nav" aria-label="Natural Cubic Spline (Piecewise) by Preconditioned Conjugate Gradients.">
+    <nav class="md-nav" aria-label="Natural Cubic Spline (Piecewise) by Preconditioned Conjugate Gradients">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -10402,10 +10402,10 @@
       
         <li class="md-nav__item">
   <a href="#natural-cubic-spline-piecewise-by-preconditioned-conjugate-gradients" class="md-nav__link">
-    Natural Cubic Spline (Piecewise) by Preconditioned Conjugate Gradients.
+    Natural Cubic Spline (Piecewise) by Preconditioned Conjugate Gradients
   </a>
   
-    <nav class="md-nav" aria-label="Natural Cubic Spline (Piecewise) by Preconditioned Conjugate Gradients.">
+    <nav class="md-nav" aria-label="Natural Cubic Spline (Piecewise) by Preconditioned Conjugate Gradients">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -10485,7 +10485,7 @@ coordinates of a path.</p>
 <span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">Nin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span><span class="p">;</span><span class="w">  </span><span class="c1">// input dimension</span>
 <span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">Nout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span><span class="w"> </span><span class="c1">// output dimension - down-sampled</span>
 
-<span class="c1">// Assume we have a noisy signal. </span>
+<span class="c1">// Assume we have a noisy signal.</span>
 <span class="kt">double</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">add_noise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 
 <span class="n">std</span><span class="o">::</span><span class="n">random_device</span><span class="w"> </span><span class="n">rd</span><span class="p">;</span><span class="w"></span>
@@ -10505,7 +10505,7 @@ coordinates of a path.</p>
 <span class="p">{</span><span class="w"></span>
 <span class="k">return</span><span class="w"> </span><span class="n">cy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">distribution</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">add_noise</span><span class="p">;</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
 
-<span class="c1">// for interpolating another signal with the same regressor. </span>
+<span class="c1">// for interpolating another signal with the same regressor.</span>
 <span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span><span class="w"> </span><span class="nf">ze</span><span class="p">(</span><span class="n">xe</span><span class="p">.</span><span class="n">unaryExpr</span><span class="p">([</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">distribution</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">add_noise</span><span class="p">;</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
@@ -10515,10 +10515,10 @@ coordinates of a path.</p>
 <span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span><span class="w"> </span><span class="nf">yinterp</span><span class="p">(</span><span class="n">ye</span><span class="p">.</span><span class="n">rows</span><span class="p">(),</span><span class="w"> </span><span class="n">ye</span><span class="p">.</span><span class="n">cols</span><span class="p">());</span><span class="w"></span>
 
 <span class="c1">// Create a new smoothing spline.</span>
-<span class="kt">double</span><span class="w"> </span><span class="n">know_number_ratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3</span><span class="p">;</span><span class="w">  </span><span class="c1">// percentage ratio of the number of know points to the input size. </span>
+<span class="kt">double</span><span class="w"> </span><span class="n">know_number_ratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3</span><span class="p">;</span><span class="w">  </span><span class="c1">// percentage ratio of the number of know points to the input size.</span>
 <span class="kt">bool</span><span class="w"> </span><span class="n">compute_derivatives</span><span class="p">{</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<span class="c1">// Create the smoother. </span>
+<span class="c1">// Create the smoother.</span>
 <span class="n">ns_splines</span><span class="o">::</span><span class="n">BSplineInterpolatorTemplated</span><span class="o">&lt;</span><span class="n">Nin</span><span class="p">,</span><span class="w"> </span><span class="n">Nout</span><span class="o">&gt;</span><span class="w"> </span><span class="n">interpolating_bspline</span><span class="p">(</span><span class="n">know_number_ratio</span><span class="p">,</span><span class="w"> </span><span class="n">compute_derivatives</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Store the interpolated data</span>
@@ -10544,7 +10544,7 @@ coordinates of a path.</p>
 <span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span><span class="w"> </span><span class="n">curvature_bspline_smoother</span><span class="p">;</span><span class="w"></span>
 <span class="n">curvature_bspline_smoother</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ns_eigen_utils</span><span class="o">::</span><span class="n">Curvature</span><span class="p">(</span><span class="n">rdot_interp</span><span class="p">,</span><span class="w"> </span><span class="n">rddot_interp</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<h2 id="natural-cubic-spline-piecewise-by-preconditioned-conjugate-gradients">Natural Cubic Spline (Piecewise) by Preconditioned Conjugate Gradients.<a class="headerlink" href="#natural-cubic-spline-piecewise-by-preconditioned-conjugate-gradients" title="Permanent link">#</a></h2>
+<h2 id="natural-cubic-spline-piecewise-by-preconditioned-conjugate-gradients">Natural Cubic Spline (Piecewise) by Preconditioned Conjugate Gradients<a class="headerlink" href="#natural-cubic-spline-piecewise-by-preconditioned-conjugate-gradients" title="Permanent link">#</a></h2>
 <p>The spline modules provide a piecewise cubic (and with a linear option) class which can be used to fit a curve or
 line to the given data piecewise. The implementation depends on the Eigen library, the matrix version of
 the spline method available in Autoware based on the C++ STL vectors. The following code snippets shows how to
@@ -10593,7 +10593,7 @@ construct and use the interpolators.</p>
 <li>Ruppert, D., Wand, M.P. and Carroll, R.J., 2003. Semiparametric regression (No. 12). Cambridge university press.</li>
 <li>Hastie, T., Tibshirani, R., Friedman, J.H. and Friedman, J.H., 2009. The elements of statistical learning: data
    mining, inference, and prediction (Vol. 2, pp. 1-758). New York: springer.</li>
-<li>https://en.wikipedia.org/wiki/Tikhonov_regularization</li>
+<li><a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">https://en.wikipedia.org/wiki/Tikhonov_regularization</a></li>
 </ol>
 
 
