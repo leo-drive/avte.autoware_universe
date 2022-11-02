@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/latest/common/osqp_interface/design/osqp_interface-design/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/latest/common/signal_processing/documentation/ButterworthFilter/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
     
     
       
-        <title>Interface for the OSQP library - Autoware Universe Documentation</title>
+        <title>ButterworthFilter - Autoware Universe Documentation</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#interface-for-the-osqp-library" class="md-skip">
+        <a href="#butterworth-low-pass-filter-design-tool-class" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Interface for the OSQP library
+              ButterworthFilter
             
           </span>
         </div>
@@ -1779,16 +1779,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_15" type="checkbox" id="__nav_5_15" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_15" type="checkbox" id="__nav_5_15" checked>
       
       
       
@@ -1813,14 +1811,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_15_1" type="checkbox" id="__nav_5_15_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_15_1" type="checkbox" id="__nav_5_15_1" checked>
       
       
       
@@ -1845,80 +1841,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Interface for the OSQP library
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../osqp_interface/design/osqp_interface-design/" class="md-nav__link">
         Interface for the OSQP library
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#purpose-use-cases" class="md-nav__link">
-    Purpose / Use cases
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#design" class="md-nav__link">
-    Design
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inputs-outputs-api" class="md-nav__link">
-    Inputs / Outputs / API
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references-external-links" class="md-nav__link">
-    References / External links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-issues" class="md-nav__link">
-    Related issues
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2093,14 +2020,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_19" type="checkbox" id="__nav_5_19" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_19" type="checkbox" id="__nav_5_19" checked>
       
       
       
@@ -2116,7 +2045,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../signal_processing/">Signal processing</a>
+          <a href="../../">Signal processing</a>
           
             <label for="__nav_5_19">
               <span class="md-nav__icon md-icon"></span>
@@ -2137,12 +2066,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_19_2" type="checkbox" id="__nav_5_19_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_19_2" type="checkbox" id="__nav_5_19_2" checked>
       
       
       
@@ -2167,11 +2098,75 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../signal_processing/documentation/ButterworthFilter/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ButterworthFilter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         ButterworthFilter
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#butterworth-low-pass-filter-design-tool-class" class="md-nav__link">
+    Butterworth Low-pass Filter Design Tool Class
+  </a>
+  
+    <nav class="md-nav" aria-label="Butterworth Low-pass Filter Design Tool Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obtaining-filter-transfer-functions" class="md-nav__link">
+    Obtaining Filter Transfer Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-time-transfer-function-difference-equations" class="md-nav__link">
+    Discrete Time Transfer Function (Difference Equations)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calling-filter-by-a-specified-cut-off-and-sampling-frequencies-in-hz" class="md-nav__link">
+    Calling Filter by a specified cut-off and sampling frequencies [in Hz]
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -10583,8 +10578,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -10593,37 +10586,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose-use-cases" class="md-nav__link">
-    Purpose / Use cases
+  <a href="#butterworth-low-pass-filter-design-tool-class" class="md-nav__link">
+    Butterworth Low-pass Filter Design Tool Class
+  </a>
+  
+    <nav class="md-nav" aria-label="Butterworth Low-pass Filter Design Tool Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obtaining-filter-transfer-functions" class="md-nav__link">
+    Obtaining Filter Transfer Functions
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#design" class="md-nav__link">
-    Design
+        
+          <li class="md-nav__item">
+  <a href="#discrete-time-transfer-function-difference-equations" class="md-nav__link">
+    Discrete Time Transfer Function (Difference Equations)
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#inputs-outputs-api" class="md-nav__link">
-    Inputs / Outputs / API
+        
+          <li class="md-nav__item">
+  <a href="#calling-filter-by-a-specified-cut-off-and-sampling-frequencies-in-hz" class="md-nav__link">
+    Calling Filter by a specified cut-off and sampling frequencies [in Hz]
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#references-external-links" class="md-nav__link">
-    References / External links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-issues" class="md-nav__link">
-    Related issues
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -10641,69 +10633,131 @@
                 
                   
 
-  <a href="https://github.com/autowarefoundation/autoware.universe/edit/main/common/osqp_interface/design/osqp_interface-design.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/autowarefoundation/autoware.universe/edit/main/common/signal_processing/documentation/ButterworthFilter.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="interface-for-the-osqp-library">Interface for the OSQP library<a class="headerlink" href="#interface-for-the-osqp-library" title="Permanent link">#</a></h1>
-<p>This is the design document for the <code>osqp_interface</code> package.</p>
-<h2 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h2>
-<!-- Required -->
-<!-- Things to consider:
-    - Why did we implement this feature? -->
+  <h1>ButterworthFilter</h1>
 
-<p>This packages provides a C++ interface for the <a href="https://osqp.org/docs/solver/index.html">OSQP library</a>.</p>
-<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<!-- Required -->
-<!-- Things to consider:
-    - How does it work? -->
+<h3 id="butterworth-low-pass-filter-design-tool-class">Butterworth Low-pass Filter Design Tool Class<a class="headerlink" href="#butterworth-low-pass-filter-design-tool-class" title="Permanent link">#</a></h3>
+<p>This Butterworth low-pass filter design tool can be used to design a Butterworth filter in continuous and discrete-time
+from the given specifications of the filter performance. The Butterworth filter is a class implementation. A default
+constructor creates the object without any argument.</p>
+<p>The filter can be prepared in three ways. If the filter specifications are known, such as the pass-band, and stop-band
+frequencies (Wp and Ws) together with the pass-band and stop-band ripple magnitudes (Ap and As), one can call the
+filter's buttord method with these arguments to obtain the recommended filter order (N) and cut-off frequency
+(Wc_rad_sec [rad/s]).</p>
+<p><img alt="img.png" src="../img.png" />
+Figure 1. Butterworth Low-pass filter specification from [1].</p>
+<p>An example call is demonstrated below;</p>
+<div class="codehilite"><pre><span></span><code>ButterworthFilter bf();
 
-<p>The class <code>OSQPInterface</code> takes a problem formulation as Eigen matrices and vectors, converts these objects into
-C-style Compressed-Column-Sparse matrices and dynamic arrays, loads the data into the OSQP workspace dataholder, and runs the optimizer.</p>
-<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
-<!-- Required -->
-<!-- Things to consider:
-    - How do you use the package / API? -->
+Wp = 2.0; // pass-band frequency [rad/sec]
+Ws = 3.0; // stop-band frequency [rad/sec]
+Ap = 6.0; // pass-band ripple mag or loss [dB]
+As = 20.0; // stop band ripple attenuation [dB]
 
-<p>The interface can be used in several ways:</p>
+// Computing filter coefficients from the specs
+bf.Buttord(Wp, Ws, Ap, As);
+
+// Get the computed order and Cut-Off frequency
+sOrderCutOff NWc = bf.getOrderCutOff();]
+
+cout &lt;&lt; &quot; The computed order is ;&quot; &lt;&lt; NWc.N &lt;&lt; endl;
+cout &lt;&lt; &quot; The computed cut-off frequency is ;&quot; &lt;&lt; NWc.Wc_rad_sec &lt;&lt; endl;
+</code></pre></div>
+
+<p>The filter order and cut-off frequency can be obtained in a struct using bf.getOrderCutoff() method. These specs can be
+printed on the screen by calling PrintFilterSpecs() method. If the user would like to define the order and cut-off
+frequency manually, the setter methods for these variables can be called to set the filter order (N) and the desired
+cut-off frequency (Wc_rad_sec [rad/sec]) for the filter.</p>
+<h4 id="obtaining-filter-transfer-functions">Obtaining Filter Transfer Functions<a class="headerlink" href="#obtaining-filter-transfer-functions" title="Permanent link">#</a></h4>
+<p>The discrete transfer function of the filter requires the roots and gain of the continuous-time transfer function.
+Therefore, it is a must to call the first computeContinuousTimeTF() to create the continuous-time transfer function
+of the filter using;</p>
+<div class="codehilite"><pre><span></span><code>bf.computeContinuousTimeTF();
+</code></pre></div>
+
+<p>The computed continuous-time transfer function roots can be printed on the screen using the methods;</p>
+<div class="codehilite"><pre><span></span><code>bf.PrintFilter_ContinuousTimeRoots();
+bf.PrintContinuousTimeTF();
+</code></pre></div>
+
+<p>The resulting screen output for a 5th order filter is demonstrated below.</p>
+<div class="codehilite"><pre><span></span><code> Roots of Continuous Time Filter Transfer Function Denominator are :
+-0.585518 + j 1.80204
+-1.53291 + j 1.11372
+-1.89478 + j 2.32043e-16
+-1.53291 + j -1.11372
+-0.585518 + j -1.80204
+
+
+The Continuous-Time Transfer Function of the Filter is ;
+
+                                   24.422
+-------------------------------------------------------------------------------
+1.000 *s[5] + 6.132 *s[4] + 18.798 *s[3] + 35.619 *s[2] + 41.711 *s[1] + 24.422
+</code></pre></div>
+
+<h4 id="discrete-time-transfer-function-difference-equations">Discrete Time Transfer Function (Difference Equations)<a class="headerlink" href="#discrete-time-transfer-function-difference-equations" title="Permanent link">#</a></h4>
+<p>The digital filter equivalent of the continuous-time definitions is produced by using the bi-linear transformation.
+When creating the discrete-time function of the ButterworthFilter object, its Numerator (Bn) and Denominator (An
+) coefficients are stored in a vector of filter order size N.</p>
+<p>The discrete transfer function method is called using ;</p>
+<div class="codehilite"><pre><span></span><code>bf.computeDiscreteTimeTF();
+bf.PrintDiscreteTimeTF();
+</code></pre></div>
+
+<p>The results are printed on the screen like;
+The Discrete-Time Transfer Function of the Filter is ;</p>
+<div class="codehilite"><pre><span></span><code>0.191 *z[-5] + 0.956 *z[-4] + 1.913 *z[-3] + 1.913 *z[-2] + 0.956 *z[-1] + 0.191
+--------------------------------------------------------------------------------
+1.000 *z[-5] + 1.885 *z[-4] + 1.888 *z[-3] + 1.014 *z[-2] + 0.298 *z[-1] + 0.037
+</code></pre></div>
+
+<p>and the associated difference coefficients An and Bn by withing a struct ;</p>
+<div class="codehilite"><pre><span></span><code>sDifferenceAnBn AnBn = bf.getAnBn();
+</code></pre></div>
+
+<p>The difference coefficients appear in the filtering equation in the form of.</p>
+<div class="codehilite"><pre><span></span><code>An * Y_filtered = Bn * Y_unfiltered
+</code></pre></div>
+
+<p>To filter a signal given in a vector form ;</p>
+<h4 id="calling-filter-by-a-specified-cut-off-and-sampling-frequencies-in-hz">Calling Filter by a specified cut-off and sampling frequencies [in Hz]<a class="headerlink" href="#calling-filter-by-a-specified-cut-off-and-sampling-frequencies-in-hz" title="Permanent link">#</a></h4>
+<p>The Butterworth filter can also be created by defining the desired order (N), a cut-off frequency (fc in [Hz]), and a
+sampling frequency (fs in [Hz]). In this method, the cut-off frequency is pre-warped with respect to the sampling
+frequency [1, 2] to match the continuous and digital filter frequencies.</p>
+<p>The filter is prepared by the following calling options;</p>
+<div class="codehilite"><pre><span></span><code> // 3rd METHOD defining a sampling frequency together with the cut-off fc, fs
+ bf.setOrder(2);
+ bf.setCutOffFrequency(10, 100);
+</code></pre></div>
+
+<p>At this step, we define a boolean variable whether to use the pre-warping option or not.</p>
+<div class="codehilite"><pre><span></span><code>// Compute Continuous Time TF
+bool use_sampling_frequency = true;
+bf.computeContinuousTimeTF(use_sampling_frequency);
+bf.PrintFilter_ContinuousTimeRoots();
+bf.PrintContinuousTimeTF();
+
+// Compute Discrete Time TF
+bf.computeDiscreteTimeTF(use_sampling_frequency);
+bf.PrintDiscreteTimeTF();
+</code></pre></div>
+
+<p><strong>References:</strong></p>
 <ol>
 <li>
-<p>Initialize the interface WITHOUT data. Load the problem formulation at the optimization call.</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">osqp_interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OSQPInterface</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">osqp_interface</span><span class="p">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
+<p>Manolakis, Dimitris G., and Vinay K. Ingle. Applied digital signal processing: theory and practice. Cambridge
+   University Press, 2011.</p>
 </li>
 <li>
-<p>Initialize the interface WITH data.</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">osqp_interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OSQPInterface</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">osqp_interface</span><span class="p">.</span><span class="n">optimize</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-</li>
-<li>
-<p>WARM START OPTIMIZATION by modifying the problem formulation between optimization runs.</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">osqp_interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OSQPInterface</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">osqp_interface</span><span class="p">.</span><span class="n">optimize</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">osqp</span><span class="p">.</span><span class="n">initializeProblem</span><span class="p">(</span><span class="n">P_new</span><span class="p">,</span><span class="w"> </span><span class="n">A_new</span><span class="p">,</span><span class="w"> </span><span class="n">q_new</span><span class="p">,</span><span class="w"> </span><span class="n">l_new</span><span class="p">,</span><span class="w"> </span><span class="n">u_new</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">osqp_interface</span><span class="p">.</span><span class="n">optimize</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<p>The optimization results are returned as a vector by the optimization function.</p>
-<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">osqp_interface</span><span class="p">.</span><span class="n">optimize</span><span class="p">();</span><span class="w"></span>
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">);</span><span class="w"></span>
-<span class="kt">double</span><span class="w"> </span><span class="n">x_0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
-<span class="kt">double</span><span class="w"> </span><span class="n">x_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
-</code></pre></div>
+<p><a href="https://en.wikibooks.org/wiki/Digital_Signal_Processing/Bilinear_Transform">https://en.wikibooks.org/wiki/Digital_Signal_Processing/Bilinear_Transform</a></p>
 </li>
 </ol>
-<h2 id="references-external-links">References / External links<a class="headerlink" href="#references-external-links" title="Permanent link">#</a></h2>
-<!-- Optional -->
-
-<ul>
-<li>OSQP library: <a href="https://osqp.org/">https://osqp.org/</a></li>
-</ul>
-<h2 id="related-issues">Related issues<a class="headerlink" href="#related-issues" title="Permanent link">#</a></h2>
-<!-- Required -->
 
 
 
@@ -10729,7 +10783,7 @@ C-style Compressed-Column-Sparse matrices and dynamic arrays, loads the data int
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../../motion_utils/docs/vehicle/vehicle/" class="md-footer__link md-footer__link--prev" aria-label="Previous: vehicle utils" rel="prev">
+        <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Signal Processing Methods" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -10738,20 +10792,20 @@ C-style Compressed-Column-Sparse matrices and dynamic arrays, loads the data int
               <span class="md-footer__direction">
                 Previous
               </span>
-              vehicle utils
+              Signal Processing Methods
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../../path_distance_calculator/Readme/" class="md-footer__link md-footer__link--next" aria-label="Next: path_distance_calculator" rel="next">
+        <a href="../../../tier4_autoware_utils/" class="md-footer__link md-footer__link--next" aria-label="Next: tier4_autoware_utils" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              path_distance_calculator
+              tier4_autoware_utils
             </div>
           </div>
           <div class="md-footer__button md-icon">
