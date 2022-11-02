@@ -131,6 +131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/common/signal_processing/documentation/ButterworthFilter/</loc>
+         <lastmod>2022-11-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/common/tier4_autoware_utils/</loc>
          <lastmod>2022-11-02</lastmod>
          <changefreq>daily</changefreq>
