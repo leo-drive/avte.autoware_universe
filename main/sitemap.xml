@@ -216,11 +216,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/common/vehicle_constants_manager/design/vehicle_constants_manager-design/</loc>
-         <lastmod>2022-11-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/common/web_controller/</loc>
          <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
