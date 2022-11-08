@@ -28,6 +28,7 @@
 namespace behavior_path_planner
 {
 using geometry_msgs::msg::Pose;
+using tier4_autoware_utils::MultiPolygon2d;
 
 struct GoalCandidate
 {
@@ -45,7 +46,7 @@ struct GoalCandidate
     return distance_from_original_goal < other.distance_from_original_goal;
   }
 };
-using GoalCandidates = std::vector<std::pair<GoalCandidate, size_t>>;
+using GoalCandidates = std::vector<GoalCandidate>;
 
 class GoalSearcherBase
 {
@@ -58,11 +59,13 @@ public:
     planner_data_ = planner_data;
   }
 
+  MultiPolygon2d getAreaPolygons() { return area_polygons_; }
   virtual GoalCandidates search(const Pose & original_goal_pose) = 0;
 
 protected:
   PullOverParameters parameters_;
   std::shared_ptr<const PlannerData> planner_data_;
+  MultiPolygon2d area_polygons_;
 };
 }  // namespace behavior_path_planner
 

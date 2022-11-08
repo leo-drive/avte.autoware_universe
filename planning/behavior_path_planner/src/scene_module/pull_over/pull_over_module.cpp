@@ -172,7 +172,7 @@ void PullOverModule::onEntry()
     GoalCandidate goal_candidate{};
     goal_candidate.goal_pose = refined_goal_pose_;
     goal_candidate.distance_from_original_goal = 0.0;
-    goal_candidates_.push_back({goal_candidate, 0});  // area_id = 0
+    goal_candidates_.push_back(goal_candidate);
   }
 }
 
@@ -310,11 +310,11 @@ bool PullOverModule::planWithEfficientPath()
   for (const auto & planner : pull_over_planners_) {
     for (const auto & goal_candidate : goal_candidates_) {
       planner->setPlannerData(planner_data_);
-      const auto pull_over_path = planner->plan(goal_candidate.first.goal_pose);
+      const auto pull_over_path = planner->plan(goal_candidate.goal_pose);
       if (!pull_over_path) {
         continue;
       }
-      modified_goal_pose_ = goal_candidate.first.goal_pose;
+      modified_goal_pose_ = goal_candidate.goal_pose;
       status_.pull_over_path = *pull_over_path;
       status_.planner = planner;
       return true;  // found safe path
@@ -329,11 +329,11 @@ bool PullOverModule::planWithCloseGoal()
   for (const auto & goal_candidate : goal_candidates_) {
     for (const auto & planner : pull_over_planners_) {
       planner->setPlannerData(planner_data_);
-      const auto pull_over_path = planner->plan(goal_candidate.first.goal_pose);
+      const auto pull_over_path = planner->plan(goal_candidate.goal_pose);
       if (!pull_over_path) {
         continue;
       }
-      modified_goal_pose_ = goal_candidate.first.goal_pose;
+      modified_goal_pose_ = goal_candidate.goal_pose;
       status_.pull_over_path = *pull_over_path;
       status_.planner = planner;
       return true;  // found safe path
@@ -828,9 +828,9 @@ void PullOverModule::setDebugData()
     const auto header = planner_data_->route_handler->getRouteHeader();
     const auto color = status_.has_decided_path ? createMarkerColor(1.0, 1.0, 0.0, 0.999)  // yellow
                                                 : createMarkerColor(0.0, 1.0, 0.0, 0.999);  // green
-    const auto p = planner_data_->parameters;
+    const double z = refined_goal_pose_.position.z;
     add(pull_over_utils::createPullOverAreaMarkerArray(
-      goal_candidates_, header, p.base_link2front, p.base_link2rear, p.vehicle_width, color));
+      goal_searcher_->getAreaPolygons(), header, color, z));
 
     // Visualize goal candidates
     add(pull_over_utils::createGoalCandidatesMarkerArray(goal_candidates_, color));

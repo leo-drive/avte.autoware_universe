@@ -51,9 +51,8 @@ PredictedObjects filterObjectsByLateralDistance(
 
 // debug
 MarkerArray createPullOverAreaMarkerArray(
-  GoalCandidates goal_candidates, const std_msgs::msg::Header & header,
-  const double base_link2front, const double base_link2rear, const double vehicle_width,
-  const std_msgs::msg::ColorRGBA & color);
+  const tier4_autoware_utils::MultiPolygon2d area_polygons, const std_msgs::msg::Header & header,
+  const std_msgs::msg::ColorRGBA & color, const double z);
 MarkerArray createPosesMarkerArray(
   const std::vector<Pose> & poses, std::string && ns, const std_msgs::msg::ColorRGBA & color);
 MarkerArray createTextsMarkerArray(

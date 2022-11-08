@@ -33,11 +33,13 @@ public:
     const std::shared_ptr<OccupancyGridBasedCollisionDetector> & occupancy_grid_map);
 
   GoalCandidates search(const Pose & original_goal_pose) override;
+
+private:
+  void createAreaPolygons(std::vector<Pose> original_search_poses);
   bool checkCollision(const Pose & pose) const;
   bool checkCollisionWithLongitudinalDistance(
     const Pose & ego_pose, const PredictedObjects & dynamic_objects) const;
 
-private:
   LinearRing2d vehicle_footprint_{};
   std::shared_ptr<OccupancyGridBasedCollisionDetector> occupancy_grid_map_{};
 };
