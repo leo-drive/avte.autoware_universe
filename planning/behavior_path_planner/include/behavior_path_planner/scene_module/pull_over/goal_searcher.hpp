@@ -32,7 +32,7 @@ public:
     const PullOverParameters & parameters, const LinearRing2d & vehicle_footprint,
     const std::shared_ptr<OccupancyGridBasedCollisionDetector> & occupancy_grid_map);
 
-  std::vector<GoalCandidate> search(const Pose & original_goal_pose) override;
+  GoalCandidates search(const Pose & original_goal_pose) override;
   bool checkCollision(const Pose & pose) const;
   bool checkCollisionWithLongitudinalDistance(
     const Pose & ego_pose, const PredictedObjects & dynamic_objects) const;

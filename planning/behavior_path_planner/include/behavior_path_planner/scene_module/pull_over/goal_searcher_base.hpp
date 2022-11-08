@@ -34,6 +34,7 @@ struct GoalCandidate
   Pose goal_pose{};
   double distance_from_original_goal{0.0};
   double lateral_offset{0.0};
+  size_t id{0};
 
   bool operator<(const GoalCandidate & other) const noexcept
   {
@@ -44,6 +45,7 @@ struct GoalCandidate
     return distance_from_original_goal < other.distance_from_original_goal;
   }
 };
+using GoalCandidates = std::vector<std::pair<GoalCandidate, size_t>>;
 
 class GoalSearcherBase
 {
@@ -56,7 +58,7 @@ public:
     planner_data_ = planner_data;
   }
 
-  virtual std::vector<GoalCandidate> search(const Pose & original_goal_pose) = 0;
+  virtual GoalCandidates search(const Pose & original_goal_pose) = 0;
 
 protected:
   PullOverParameters parameters_;

@@ -113,7 +113,7 @@ private:
   std::shared_ptr<OccupancyGridBasedCollisionDetector> occupancy_grid_map_;
   Pose modified_goal_pose_;
   Pose refined_goal_pose_;
-  std::vector<GoalCandidate> goal_candidates_;
+  GoalCandidates goal_candidates_;
   GeometricParallelParking parallel_parking_planner_;
   ParallelParkingParameters parallel_parking_parameters_;
   std::deque<nav_msgs::msg::Odometry::ConstSharedPtr> odometry_buffer_;

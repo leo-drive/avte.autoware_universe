@@ -86,30 +86,89 @@ PredictedObjects filterObjectsByLateralDistance(
   return filtered_objects;
 }
 
-Marker createPullOverAreaMarker(
-  const Pose & start_pose, const Pose & end_pose, const int32_t id,
-  const std_msgs::msg::Header & header, const double base_link2front, const double base_link2rear,
-  const double vehicle_width, const std_msgs::msg::ColorRGBA & color)
+MarkerArray createPullOverAreaMarkerArray(
+  GoalCandidates goal_candidates, const std_msgs::msg::Header & header,
+  const double base_link2front, const double base_link2rear, const double vehicle_width,
+  const std_msgs::msg::ColorRGBA & color)
 {
-  Marker marker = createDefaultMarker(
-    header.frame_id, header.stamp, "pull_over_area", id,
-    visualization_msgs::msg::Marker::LINE_STRIP, createMarkerScale(0.1, 0.0, 0.0), color);
+  using tier4_autoware_utils::MultiPolygon2d;
+  using tier4_autoware_utils::Point2d;
+  using tier4_autoware_utils::Polygon2d;
 
-  auto p_left_front = calcOffsetPose(end_pose, base_link2front, vehicle_width / 2, 0).position;
-  marker.points.push_back(createPoint(p_left_front.x, p_left_front.y, p_left_front.z));
+  MarkerArray marker_array{};
+  if (goal_candidates.empty()) {
+    return marker_array;
+  }
 
-  auto p_right_front = calcOffsetPose(end_pose, base_link2front, -vehicle_width / 2, 0).position;
-  marker.points.push_back(createPoint(p_right_front.x, p_right_front.y, p_right_front.z));
+  // sort goal candidates by id
+  std::sort(goal_candidates.begin(), goal_candidates.end(), [](auto const & a, auto const & b) {
+    return a.first.id < b.first.id;
+  });
 
-  auto p_right_back = calcOffsetPose(start_pose, -base_link2rear, -vehicle_width / 2, 0).position;
-  marker.points.push_back(createPoint(p_right_back.x, p_right_back.y, p_right_back.z));
+  // classify candidates by id
+  std::map<size_t, std::vector<Pose>> goal_poses_map{};
+  for (const auto & candidate : goal_candidates) {
+    goal_poses_map[candidate.second].push_back(candidate.first.goal_pose);
+  }
 
-  auto p_left_back = calcOffsetPose(start_pose, -base_link2rear, vehicle_width / 2, 0).position;
-  marker.points.push_back(createPoint(p_left_back.x, p_left_back.y, p_left_back.z));
+  const auto appendPointToPolygon =
+    [](Polygon2d & polygon, const geometry_msgs::msg::Point & geom_point) {
+      Point2d point{};
+      point.x() = geom_point.x;
+      point.y() = geom_point.y;
+      boost::geometry::append(polygon.outer(), point);
+    };
 
-  marker.points.push_back(createPoint(p_left_front.x, p_left_front.y, p_left_front.z));
+  // calculate average z of candidates
+  const double average_z =
+    std::accumulate(
+      begin(goal_candidates), end(goal_candidates), 0,
+      [](double sum, const auto & c) { return sum + c.first.goal_pose.position.z; }) /
+    goal_candidates.size();
 
-  return marker;
+  for (const auto & id_and_poses : goal_poses_map) {
+    const size_t area_id = id_and_poses.first;
+    const auto & poses = id_and_poses.second;
+
+    MultiPolygon2d unions{};
+    for (const auto p : poses) {
+      Polygon2d footprint{};
+      const Point p_left_front = calcOffsetPose(p, base_link2front, vehicle_width / 2, 0).position;
+      appendPointToPolygon(footprint, p_left_front);
+
+      const Point p_right_front =
+        calcOffsetPose(p, base_link2front, -vehicle_width / 2, 0).position;
+      appendPointToPolygon(footprint, p_right_front);
+
+      const Point p_right_back = calcOffsetPose(p, -base_link2rear, -vehicle_width / 2, 0).position;
+      appendPointToPolygon(footprint, p_right_back);
+
+      const Point p_left_back = calcOffsetPose(p, -base_link2rear, vehicle_width / 2, 0).position;
+      appendPointToPolygon(footprint, p_left_back);
+
+      appendPointToPolygon(footprint, p_left_front);
+
+      MultiPolygon2d current_result{};
+      boost::geometry::union_(footprint, unions, current_result);
+      unions = current_result;
+    }
+    if (unions.empty()) {
+      continue;
+    }
+
+    Marker marker = createDefaultMarker(
+      header.frame_id, header.stamp, "pull_over_area_" + std::to_string(area_id), area_id,
+      visualization_msgs::msg::Marker::LINE_STRIP, createMarkerScale(0.1, 0.0, 0.0), color);
+    for (const auto & u : unions) {
+      for (const auto & p : u.outer()) {
+        marker.points.push_back(createPoint(p.x(), p.y(), average_z));
+      }
+    }
+
+    marker_array.markers.push_back(marker);
+  }
+
+  return marker_array;
 }
 
 MarkerArray createPosesMarkerArray(
@@ -149,12 +208,12 @@ MarkerArray createTextsMarkerArray(
 }
 
 MarkerArray createGoalCandidatesMarkerArray(
-  std::vector<GoalCandidate> & goal_candidates, const std_msgs::msg::ColorRGBA & color)
+  GoalCandidates & goal_candidates, const std_msgs::msg::ColorRGBA & color)
 {
   // convert to pose vector
   std::vector<Pose> pose_vector{};
   for (const auto & goal_candidate : goal_candidates) {
-    pose_vector.push_back(goal_candidate.goal_pose);
+    pose_vector.push_back(goal_candidate.first.goal_pose);
   }
 
   auto marker_array = createPosesMarkerArray(pose_vector, "goal_candidates", color);
