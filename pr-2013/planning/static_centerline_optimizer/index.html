@@ -10544,26 +10544,28 @@ With the static centerline optimization, we have the following advantages.</p>
 <h2 id="usecases">Usecases<a class="headerlink" href="#usecases" title="Permanent link">#</a></h2>
 <p>There are two interfaces to communicate with the centerline optimizer.</p>
 <h3 id="vector-map-builder-interface">Vector Map Builder Interface<a class="headerlink" href="#vector-map-builder-interface" title="Permanent link">#</a></h3>
-<p>Run the autoware server with the following command by designating <code>vehicle_model</code> as lexus for example.</p>
+<p>Note: This service of Vector Map Builder has not been released. Please wait for a while.</p>
+<p>With the following command by designating <code>vehicle_model</code> as lexus for example, we can run</p>
+<ul>
+<li>path planning server</li>
+<li>http server to connect path planning server and cloud software</li>
+</ul>
 <div class="highlight"><pre><span></span><code>ros2 launch static_centerline_optimizer run_planning_server.launch.xml vehicle_model:<span class="o">=</span>lexus
 </code></pre></div>
-<p>Run http server with the following command.
-The port number is 5000 by default.</p>
-<div class="highlight"><pre><span></span><code>ros2 run static_centerline_optimizer app.py
-</code></pre></div>
+<p>Port ID of http server is 4010 by default.</p>
 <h3 id="command-line-interface">Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permanent link">#</a></h3>
 <p>The optimized centerline is generated from the command line interface.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ros2 run static_centerline_optimizer optimize_path.sh &lt;osm-map-path&gt; &lt;start-lanelet-id&gt; &lt;end-lanelet-id&gt; &lt;vehicle-model&gt;</span>
-$ ros2 launch static_centerline_optimizer static_centerline_optimizer.launch.xml lanelet2_input_file_name:<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">&quot;</span>/AutonomousDrivingScenarios/map/kashiwanoha/lanelet2_map.osm start_lanelet_id:<span class="o">=</span><span class="m">125</span> end_lanelet_id:<span class="o">=</span><span class="m">132</span> vehicle_model:<span class="o">=</span>lexus run_backgrond:<span class="o">=</span><span class="nb">false</span>
+$ ros2 launch static_centerline_optimizer static_centerline_optimizer.launch.xml lanelet2_input_file_path:<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">&quot;</span>/AutonomousDrivingScenarios/map/kashiwanoha/lanelet2_map.osm start_lanelet_id:<span class="o">=</span><span class="m">125</span> end_lanelet_id:<span class="o">=</span><span class="m">132</span> vehicle_model:<span class="o">=</span>lexus run_backgrond:<span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
 <p>image</p>
 <p>The yellow footprints are the original ones in the map file.
 The red footprints are the optimized ones.
 You can see that the red footprints are inside the lane although the yellow ones are outside.</p>
-<p>The output map with the optimized centerline locates <code>/tmp/lanelet2_map.osm</code>
-If you want to change the output map path, you can remap the path</p>
-<div class="highlight"><pre><span></span><code>ros2 run static_centerline_optimizer optimize_centerline.sh &lt;map-path&gt; &lt;start-lanelet-id&gt; &lt;end-lanelet-id&gt; --ros-args --remap output:<span class="o">=</span>&lt;output-map-path&gt;
+<div class="highlight"><pre><span></span><code>ros2 launch static_centerline_optimizer static_centerline_optimizer.launch.xml run_backgrond:<span class="o">=</span><span class="nb">false</span> lanelet2_input_file_path:<span class="o">=</span>&lt;input-osm-path&gt; start_lanelet_id:<span class="o">=</span>&lt;start-lane-id&gt; end_lanelet_id:<span class="o">=</span>&lt;end-lane-id&gt; vehicle_model:<span class="o">=</span>&lt;vehicle-model&gt;
 </code></pre></div>
+<p>The default output map with the optimized centerline locates <code>/tmp/lanelet2_map.osm</code>
+If you want to change the output map path, you can remap the path by adding the option <code>lanelet2_output_file_path:=&lt;output-osm-path&gt;</code></p>
 
 
 
