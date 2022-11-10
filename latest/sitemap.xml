@@ -996,6 +996,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/mrm_comfortable_stop_operator/</loc>
+         <lastmod>2022-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/mrm_emergency_stop_operator/READEME/</loc>
+         <lastmod>2022-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/system_error_monitor/</loc>
          <lastmod>2022-11-10</lastmod>
          <changefreq>daily</changefreq>
