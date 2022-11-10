@@ -10486,11 +10486,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usecases" class="md-nav__link">
-    Usecases
+  <a href="#use-cases" class="md-nav__link">
+    Use cases
   </a>
   
-    <nav class="md-nav" aria-label="Usecases">
+    <nav class="md-nav" aria-label="Use cases">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -10554,10 +10554,10 @@
 
 <h1 id="static-centerline-optimizer">Static Centerline Optimizer<a class="headerlink" href="#static-centerline-optimizer" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
-<p>This package statically calcualtes the centerline satisfying path footprints inside the drivable area.</p>
+<p>This package statically calculates the centerline satisfying path footprints inside the drivable area.</p>
 <p>On narrow-road driving, the default centerline, which is the middle line between lanelets' right and left boundaries, often causes path footprints outside the drivable area.
 To make path footprints inside the drivable area, we use online path shape optimization by <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/obstacle_avoidance_planner/">the obstacle_avoidance_planner package</a>.</p>
-<p>Instead of online path shape optimization, we introduce static ceneterline optimization.
+<p>Instead of online path shape optimization, we introduce static centerline optimization.
 With this static centerline optimization, we have following advantages.</p>
 <ul>
 <li>We can see the optimized centerline shape in advance.<ul>
@@ -10567,7 +10567,7 @@ With this static centerline optimization, we have following advantages.</p>
 </li>
 <li>We do not have to calculate a heavy and sometimes unstable path optimization since the path footprints are already inside the drivable area.</li>
 </ul>
-<h2 id="usecases">Usecases<a class="headerlink" href="#usecases" title="Permanent link">#</a></h2>
+<h2 id="use-cases">Use cases<a class="headerlink" href="#use-cases" title="Permanent link">#</a></h2>
 <p>There are two interfaces to communicate with the centerline optimizer.</p>
 <h3 id="vector-map-builder-interface">Vector Map Builder Interface<a class="headerlink" href="#vector-map-builder-interface" title="Permanent link">#</a></h3>
 <p>Note: This function of Vector Map Builder has not been released. Please wait for a while.
