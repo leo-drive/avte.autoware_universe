@@ -10517,6 +10517,19 @@
     Visualization
   </a>
   
+    <nav class="md-nav" aria-label="Visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unsafe-footprints" class="md-nav__link">
+    Unsafe footprints
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -10593,6 +10606,17 @@ If you want to change the output map path, you can remap the path by designating
 <li>The red footprints are the optimized ones.</li>
 <li>The gray area is the drivable area.</li>
 <li>You can see that the red footprints are inside the drivable area although the yellow ones are outside.</li>
+</ul>
+<h3 id="unsafe-footprints">Unsafe footprints<a class="headerlink" href="#unsafe-footprints" title="Permanent link">#</a></h3>
+<p>Sometimes the optimized centerline footprints are close to the lanes' boundaries.
+We can check how close they are with <code>unsafe footprints</code> marker as follows.</p>
+<p>Footprints' color depends on its distance to the boundaries, and text expresses its distance.</p>
+<p><img alt="rviz" src="./media/unsafe_footprints.png" /></p>
+<p>By default, footprints' color is</p>
+<ul>
+<li>when the distance is less than 0.1 [m] : red</li>
+<li>when the distance is less than 0.2 [m] : green</li>
+<li>when the distance is less than 0.3 [m] : blue</li>
 </ul>
 
 
