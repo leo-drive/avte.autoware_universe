@@ -10512,6 +10512,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#visualization" class="md-nav__link">
+    Visualization
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -10534,36 +10541,50 @@
 
 <h1 id="static-centerline-optimizer">Static Centerline Optimizer<a class="headerlink" href="#static-centerline-optimizer" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
-<p>This package statically calcualtes the centerline satisfying footprints inside the drivable area.</p>
-<p>On narrow-road driving, the default centerline, which is the middle line between lanelet's right and left bounds, often causes footprints outside the drivable area.
-With the static centerline optimization, we have the following advantages.</p>
+<p>This package statically calcualtes the centerline satisfying path footprints inside the drivable area.</p>
+<p>On narrow-road driving, the default centerline, which is the middle line between lanelets' right and left boundaries, often causes path footprints outside the drivable area.
+To make path footprints inside the drivable area, we use online path shape optimization by <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/obstacle_avoidance_planner/">the obstacle_avoidance_planner package</a>.</p>
+<p>Instead of online path shape optimization, we introduce static ceneterline optimization.
+With this static centerline optimization, we have following advantages.</p>
 <ul>
-<li>We can see the optimized centerline shape in advance.</li>
-<li>We do not have to calculate a heavy and sometimes unstable path optimization since the footprints are already inside the drivable area.</li>
+<li>We can see the optimized centerline shape in advance.<ul>
+<li>With the default autoware, path shape is not determined until the vehicle drives there.</li>
+<li>This enables offline path shape evaluation.</li>
+</ul>
+</li>
+<li>We do not have to calculate a heavy and sometimes unstable path optimization since the path footprints are already inside the drivable area.</li>
 </ul>
 <h2 id="usecases">Usecases<a class="headerlink" href="#usecases" title="Permanent link">#</a></h2>
 <p>There are two interfaces to communicate with the centerline optimizer.</p>
 <h3 id="vector-map-builder-interface">Vector Map Builder Interface<a class="headerlink" href="#vector-map-builder-interface" title="Permanent link">#</a></h3>
-<p>Note: This service of Vector Map Builder has not been released. Please wait for a while.</p>
-<p>With the following command by designating <code>vehicle_model</code> as lexus for example, we can run</p>
+<p>Note: This function of Vector Map Builder has not been released. Please wait for a while.
+Currently there is no documentation about Vector Map Builder's operation for this function.</p>
+<p>The optimized centerline can be generated from Vector Map Builder's operation.</p>
+<p>We can run</p>
 <ul>
 <li>path planning server</li>
-<li>http server to connect path planning server and cloud software</li>
+<li>http server to connect path planning server and Vector Map Builder</li>
 </ul>
-<div class="highlight"><pre><span></span><code>ros2 launch static_centerline_optimizer run_planning_server.launch.xml vehicle_model:<span class="o">=</span>lexus
+<p>with the following command by designating <code>&lt;vehicle_model&gt;</code></p>
+<div class="highlight"><pre><span></span><code>ros2 launch static_centerline_optimizer run_planning_server.launch.xml vehicle_model:<span class="o">=</span>&lt;vehicle-model&gt;
 </code></pre></div>
-<p>Port ID of http server is 4010 by default.</p>
+<p>FYI, port ID of the http server is 4010 by default.</p>
 <h3 id="command-line-interface">Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permanent link">#</a></h3>
-<p>The optimized centerline is generated from the command line interface.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># ros2 run static_centerline_optimizer optimize_path.sh &lt;osm-map-path&gt; &lt;start-lanelet-id&gt; &lt;end-lanelet-id&gt; &lt;vehicle-model&gt;</span>
-$ ros2 launch static_centerline_optimizer static_centerline_optimizer.launch.xml lanelet2_input_file_path:<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">&quot;</span>/AutonomousDrivingScenarios/map/kashiwanoha/lanelet2_map.osm start_lanelet_id:<span class="o">=</span><span class="m">125</span> end_lanelet_id:<span class="o">=</span><span class="m">132</span> vehicle_model:<span class="o">=</span>lexus run_backgrond:<span class="o">=</span><span class="nb">false</span>
+<p>The optimized centerline can be generated from the command line interface by designating</p>
+<ul>
+<li><code>&lt;input-osm-path&gt;</code></li>
+<li>(<code>&lt;output-osm-path&gt;</code> not mandatory)</li>
+<li><code>&lt;start-lanelet-id&gt;</code></li>
+<li><code>&lt;end-lanelet-id&gt;</code></li>
+<li><code>&lt;vehicle-model&gt;</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>ros2 launch static_centerline_optimizer static_centerline_optimizer.launch.xml run_backgrond:<span class="o">=</span><span class="nb">false</span> lanelet2_input_file_path:<span class="o">=</span>&lt;input-osm-path&gt; lanelet2_output_file_path:<span class="o">=</span>&lt;output-osm-path&gt; start_lanelet_id:<span class="o">=</span>&lt;start-lane-id&gt; end_lanelet_id:<span class="o">=</span>&lt;end-lane-id&gt; vehicle_model:<span class="o">=</span>&lt;vehicle-model&gt;
 </code></pre></div>
+<h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h2>
 <p>image</p>
 <p>The yellow footprints are the original ones in the map file.
 The red footprints are the optimized ones.
 You can see that the red footprints are inside the lane although the yellow ones are outside.</p>
-<div class="highlight"><pre><span></span><code>ros2 launch static_centerline_optimizer static_centerline_optimizer.launch.xml run_backgrond:<span class="o">=</span><span class="nb">false</span> lanelet2_input_file_path:<span class="o">=</span>&lt;input-osm-path&gt; start_lanelet_id:<span class="o">=</span>&lt;start-lane-id&gt; end_lanelet_id:<span class="o">=</span>&lt;end-lane-id&gt; vehicle_model:<span class="o">=</span>&lt;vehicle-model&gt;
-</code></pre></div>
 <p>The default output map with the optimized centerline locates <code>/tmp/lanelet2_map.osm</code>
 If you want to change the output map path, you can remap the path by adding the option <code>lanelet2_output_file_path:=&lt;output-osm-path&gt;</code></p>
 
