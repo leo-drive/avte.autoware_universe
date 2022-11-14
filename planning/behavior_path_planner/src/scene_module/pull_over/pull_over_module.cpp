@@ -821,10 +821,6 @@ void PullOverModule::setDebugData()
 
   if (parameters_.enable_goal_research) {
     // Visualize pull over areas
-    const Pose start_pose =
-      calcOffsetPose(refined_goal_pose_, -parameters_.backward_goal_search_length, 0, 0);
-    const Pose end_pose =
-      calcOffsetPose(refined_goal_pose_, parameters_.forward_goal_search_length, 0, 0);
     const auto header = planner_data_->route_handler->getRouteHeader();
     const auto color = status_.has_decided_path ? createMarkerColor(1.0, 1.0, 0.0, 0.999)  // yellow
                                                 : createMarkerColor(0.0, 1.0, 0.0, 0.999);  // green

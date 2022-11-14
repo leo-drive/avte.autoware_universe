@@ -38,7 +38,6 @@ ShiftPullOver::ShiftPullOver(
 boost::optional<PullOverPath> ShiftPullOver::plan(const Pose & goal_pose)
 {
   const auto & route_handler = planner_data_->route_handler;
-  const double after_pull_over_distance = parameters_.after_pull_over_distance;
   const double min_jerk = parameters_.minimum_lateral_jerk;
   const double max_jerk = parameters_.maximum_lateral_jerk;
   const int pull_over_sampling_num = parameters_.pull_over_sampling_num;
