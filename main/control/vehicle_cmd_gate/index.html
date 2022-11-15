@@ -10857,7 +10857,9 @@
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<p>TBD.</p>
+<p>The parameter <code>use_external_emergency_stop</code> (true by default) enables an emergency stop request from external modules.
+This feature requires a <code>~/input/external_emergency_stop_heartbeat</code> topic for health monitoring of the external module, and the vehicle_cmd_gate module will not start without the topic.
+The <code>use_external_emergency_stop</code> parameter must be false when the "external emergency stop" function is not used.</p>
 
 
 
