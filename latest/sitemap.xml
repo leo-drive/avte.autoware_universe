@@ -821,6 +821,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/static_centerline_optimizer/</loc>
+         <lastmod>2022-11-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/surround_obstacle_checker/</loc>
          <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
