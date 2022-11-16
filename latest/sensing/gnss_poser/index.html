@@ -10717,9 +10717,9 @@
 <td>gnss status message</td>
 </tr>
 <tr>
-<td><code>~/input/navpvt</code></td>
-<td><code>ublox_msgs::msg::NavPVT</code></td>
-<td>position, velocity and time solution. <a href="https://github.com/KumarRobotics/ublox.git">click here for more details</a></td>
+<td><code>~/input/autoware_orientation</code></td>
+<td><code>autoware_sensing_msgs::msg::GnssInsOrientationStamped</code></td>
+<td>orientation <a href="https://github.com/autowarefoundation/autoware_msgs/tree/main/autoware_sensing_msgs">click here for more details</a></td>
 </tr>
 </tbody>
 </table>
@@ -10791,12 +10791,6 @@
 <td>int</td>
 <td>"4"</td>
 <td>coordinate system enumeration; 0: UTM, 1: MGRS, 2: Plane, 3: WGS84 Local Coordinate System, 4: UTM Local Coordinate System</td>
-</tr>
-<tr>
-<td><code>use_ublox_receiver</code></td>
-<td>bool</td>
-<td>false</td>
-<td>flag to use ublox receiver</td>
 </tr>
 <tr>
 <td><code>plane_zone</code></td>
