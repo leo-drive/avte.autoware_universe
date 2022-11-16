@@ -257,11 +257,9 @@ Pose PullOverModule::calcRefinedGoal() const
 
   // const Pose center_pose =
   //   lanelet::utils::getClosestCenterPose(closest_shoulder_lanelet, goal_pose.position);
-
   const double distance_from_left_bound = util::getSignedDistanceFromShoulderLeftBoundary(
-    planner_data_->route_handler->getShoulderLanelets(), center_pose);
+    planner_data_->route_handler->getShoulderLanelets(), vehicle_footprint_, center_pose);
   const double offset_from_center_line = distance_from_left_bound +
-                                         planner_data_->parameters.vehicle_width / 2 +
                                          parameters_.margin_from_boundary;
   const auto refined_goal_pose = calcOffsetPose(center_pose, 0, -offset_from_center_line, 0);
 
@@ -708,10 +706,8 @@ double PullOverModule::calcMinimumShiftPathDistance() const
   const auto & route_handler = planner_data_->route_handler;
 
   double distance_to_left_bound = util::getSignedDistanceFromShoulderLeftBoundary(
-    route_handler->getShoulderLanelets(), current_pose);
-  double offset_from_center_line = distance_to_left_bound +
-                                   planner_data_->parameters.vehicle_width / 2 +
-                                   parameters_.margin_from_boundary;
+    route_handler->getShoulderLanelets(), vehicle_footprint_, current_pose);
+  double offset_from_center_line = distance_to_left_bound + parameters_.margin_from_boundary;
 
   // calculate minimum pull over distance at pull over velocity, maximum jerk and side offset
   const double pull_over_distance_min = PathShifter::calcLongitudinalDistFromJerk(
@@ -837,7 +833,7 @@ void PullOverModule::setDebugData()
     add(createPoseMarkerArray(
       status_.pull_over_path.start_pose, "pull_over_start_pose", 0, 0.3, 0.3, 0.9));
     add(createPoseMarkerArray(
-      status_.pull_over_path.end_pose, "pull_over_end_pose", 0, 0.9, 0.9, 0.3));
+      status_.pull_over_path.end_pose, "pull_over_end_pose", 0, 0.3, 0.3, 0.9));
     add(createPathMarkerArray(getFullPath(), "full_path", 0, 0.0, 0.5, 0.9));
   }
 

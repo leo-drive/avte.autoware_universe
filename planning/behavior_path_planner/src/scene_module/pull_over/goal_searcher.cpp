@@ -69,10 +69,12 @@ GoalCandidates GoalSearcher::search(const Pose & original_goal_pose)
   std::vector<Pose> original_search_poses{};
   for (size_t goal_id = 0; goal_id < center_line_path.points.size(); ++goal_id) {
     const auto & center_pose = center_line_path.points.at(goal_id).point.pose;
-    const double distance_from_left_bound =
-      util::getSignedDistanceFromShoulderLeftBoundary(pull_over_lanes, center_pose);
-    const double offset_from_center_line =
-      distance_from_left_bound + vehicle_width / 2 + margin_from_boundary;
+
+    const double distance_from_left_bound = util::getSignedDistanceFromShoulderLeftBoundary(
+      pull_over_lanes, vehicle_footprint_, center_pose);
+    // const double distance_from_left_bound =
+    //   util::getSignedDistanceFromShoulderLeftBoundary(pull_over_lanes, center_pose);
+    const double offset_from_center_line = distance_from_left_bound + margin_from_boundary;
     Pose original_search_pose = calcOffsetPose(center_pose, 0, -offset_from_center_line, 0);
     original_search_poses.push_back(original_search_pose);  // for createAreaPolygon
     Pose search_pose{};
@@ -83,7 +85,7 @@ GoalCandidates GoalSearcher::search(const Pose & original_goal_pose)
       lateral_offset = dy;
       search_pose = calcOffsetPose(original_search_pose, 0, -dy, 0);
 
-      const auto & transformed_vehicle_footprint =
+      const auto transformed_vehicle_footprint =
         transformVector(vehicle_footprint_, tier4_autoware_utils::pose2transform(search_pose));
       if (LaneDepartureChecker::isOutOfLane(lanes, transformed_vehicle_footprint)) {
         continue;
