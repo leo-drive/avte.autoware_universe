@@ -133,12 +133,6 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   // calculate shift start pose on road lane
   const double pull_over_distance = PathShifter::calcLongitudinalDistFromJerk(
     road_center_to_goal_distance, lateral_jerk, pull_over_velocity);
-  const double before_shifted_pull_over_distance = calcBeforeShiftedArcLegth(
-    road_lane_reference_path_to_goal, pull_over_distance, road_center_to_goal_distance);
-  const auto shift_start_pose = motion_utils::calcLongitudinalOffsetPose(
-    road_lane_reference_path_to_goal.points, shift_end_pose_road_lane->position,
-    -before_shifted_pull_over_distance);
-  if (!shift_start_pose) return {};
 
   // generate road lane reference path to shift end
   const auto road_lane_reference_path_to_shift_end = util::resamplePathWithSpline(
@@ -147,13 +141,21 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
 
   // calculate shift end pose on shoulder lane
   const double shoulder_left_bound_to_shift_end_road_distance =
-    util::getSignedDistanceFromShoulderLeftBoundary(shoulder_lanes, vehicle_footprint_, *shift_end_pose_road_lane);
+    util::getSignedDistanceFromShoulderLeftBoundary(
+      shoulder_lanes, vehicle_footprint_, *shift_end_pose_road_lane);
   debug(shoulder_left_bound_to_shift_end_road_distance);
   const double shift_end_road_to_target_distance =
     // -shoulder_left_bound_to_shift_end_road_distance - margin_from_boundary - vehicle_width / 2.0;
     -shoulder_left_bound_to_shift_end_road_distance - margin_from_boundary;
   const Pose shift_end_pose = tier4_autoware_utils::calcOffsetPose(
     *shift_end_pose_road_lane, 0, shift_end_road_to_target_distance, 0);
+
+  const double before_shifted_pull_over_distance = calcBeforeShiftedArcLegth(
+    road_lane_reference_path_to_shift_end, pull_over_distance, shift_end_road_to_target_distance);
+  const auto shift_start_pose = motion_utils::calcLongitudinalOffsetPose(
+    road_lane_reference_path_to_shift_end.points, shift_end_pose_road_lane->position,
+    -before_shifted_pull_over_distance);
+  if (!shift_start_pose) return {};
 
   // set path shifter and generate shifted path
   PathShifter path_shifter{};

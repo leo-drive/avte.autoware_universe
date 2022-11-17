@@ -133,15 +133,28 @@ std::vector<geometry_msgs::msg::Pose> resamplePoseVector(
     resampled_points.at(i) = pose;
   }
 
+  const double arc_length = std::invoke([points]() {
+    double l = 0;
+    for (size_t i = 0; i < points.size() - 1; ++i) {
+      l += tier4_autoware_utils::calcDistance2d(points.at(i).position, points.at(i + 1).position);
+    }
+    return l;
+  });
   const bool is_driving_forward =
     tier4_autoware_utils::isDrivingForward(points.at(0), points.at(1));
-  motion_utils::insertOrientation(resampled_points, is_driving_forward);
+  if (std::abs(arc_length - resampled_arclength.back() < 1e-3)) {
+    const auto terminal_orientation =
+      is_driving_forward ? points.back().orientation : points.front().orientation;
+    motion_utils::insertOrientation(resampled_points, is_driving_forward, terminal_orientation);
+  } else {
+    motion_utils::insertOrientation(resampled_points, is_driving_forward);
+  }
 
   // Initial orientation is depend on the initial value of the resampled_arclength
   // when backward driving
-  if (!is_driving_forward && resampled_arclength.front() < 1e-3) {
-    resampled_points.at(0).orientation = points.at(0).orientation;
-  }
+  // if (!is_driving_forward && resampled_arclength.front() < 1e-3) {
+  //   resampled_points.at(0).orientation = points.at(0).orientation;
+  // }
 
   return resampled_points;
 }
