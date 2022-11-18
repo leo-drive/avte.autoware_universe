@@ -10986,6 +10986,7 @@ This module is designed for rule-based intersection velocity decision that is ea
 </ol>
 </li>
 <li>when a collision is detected, the module inserts a stop velocity in front of the intersection. Note that there is a time margin for the stop release (*2).</li>
+<li>If ego is over the <code>pass_judge_line</code>, collision checking is not processed to avoid sudden braking. However if ego velocity is lower than the threshold <code>keep_detection_vel_thr</code> then this module continues collision checking.</li>
 </ol>
 <p>(*1) The parameters <code>collision_start_margin_time</code> and <code>collision_end_margin_time</code> can be interpreted as follows:</p>
 <ul>
@@ -11081,6 +11082,11 @@ To prevent going over the pass judge line before the traffic light stop line, th
 <td><code>assumed_front_car_decel: 1.0</code></td>
 <td>double</td>
 <td>[m/s^2] deceleration of front car used to check if it could stop in the stuck area at the exit</td>
+</tr>
+<tr>
+<td><code>keep_detection_vel_threshold</code></td>
+<td>double</td>
+<td>[m/s] the threshold for ego vehicle for keeping detection after passing <code>pass_judge_line</code></td>
 </tr>
 </tbody>
 </table>
