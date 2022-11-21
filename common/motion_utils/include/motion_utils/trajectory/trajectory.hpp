@@ -1140,9 +1140,7 @@ inline boost::optional<size_t> insertStopPoint(
 }
 
 template <class T>
-void insertOrientation(
-  T & points, const bool is_driving_forward,
-  const std::optional<geometry_msgs::msg::Quaternion> terminal_orientation = std::nullopt)
+void insertOrientation(T & points, const bool is_driving_forward)
 {
   if (is_driving_forward) {
     for (size_t i = 0; i < points.size() - 1; ++i) {
@@ -1153,13 +1151,9 @@ void insertOrientation(
       tier4_autoware_utils::setOrientation(
         tier4_autoware_utils::createQuaternionFromRPY(0.0, pitch, yaw), points.at(i));
       if (i == points.size() - 2) {
-        if (terminal_orientation) {
-          tier4_autoware_utils::setOrientation(*terminal_orientation, points.at(i + 1));
-        } else {
-          // Terminal orientation is same as the point before it
-          tier4_autoware_utils::setOrientation(
-            tier4_autoware_utils::getPose(points.at(i)).orientation, points.at(i + 1));
-        }
+        // Terminal orientation is same as the point before it
+        tier4_autoware_utils::setOrientation(
+          tier4_autoware_utils::getPose(points.at(i)).orientation, points.at(i + 1));
       }
     }
   } else {
@@ -1171,13 +1165,9 @@ void insertOrientation(
       tier4_autoware_utils::setOrientation(
         tier4_autoware_utils::createQuaternionFromRPY(0.0, pitch, yaw), points.at(i));
     }
-    if (terminal_orientation) {
-      tier4_autoware_utils::setOrientation(*terminal_orientation, points.at(0));
-    } else {
-      // Initial orientation is same as the point after it
-      tier4_autoware_utils::setOrientation(
-        tier4_autoware_utils::getPose(points.at(1)).orientation, points.at(0));
-    }
+    // Initial orientation is same as the point after it
+    tier4_autoware_utils::setOrientation(
+      tier4_autoware_utils::getPose(points.at(1)).orientation, points.at(0));
   }
 }
 
