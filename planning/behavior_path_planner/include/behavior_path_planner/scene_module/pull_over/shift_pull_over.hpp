@@ -53,6 +53,11 @@ protected:
   bool isSafePath(const PathWithLaneId & path) const;
   static double calcBeforeShiftedArcLegth(
     const PathWithLaneId & path, const double after_shifted_arc_length, const double dr);
+  static std::vector<double> splineTwoPoints(
+    std::vector<double> base_s, std::vector<double> base_x, const double begin_diff,
+    const double end_diff, std::vector<double> new_s);
+  static std::vector<Pose> interpolatePose(
+    const Pose & start_pose, const Pose & end_pose, const double resample_interval);
 
   LaneDepartureChecker lane_departure_checker_{};
   std::shared_ptr<OccupancyGridBasedCollisionDetector> occupancy_grid_map_{};
