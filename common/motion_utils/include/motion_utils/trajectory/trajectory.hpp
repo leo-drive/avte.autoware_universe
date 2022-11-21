@@ -583,24 +583,26 @@ double calcArcLength(const T & points)
 template <class T>
 inline std::vector<double> calcCurvature(const T & points)
 {
-  std::vector<double> curvature_arr;
-  curvature_arr.push_back(0.0);
+  std::vector<double> curvature_vec(points.size());
+
   for (size_t i = 1; i < points.size() - 1; ++i) {
     const auto p1 = tier4_autoware_utils::getPoint(points.at(i - 1));
     const auto p2 = tier4_autoware_utils::getPoint(points.at(i));
     const auto p3 = tier4_autoware_utils::getPoint(points.at(i + 1));
-    curvature_arr.push_back(tier4_autoware_utils::calcCurvature(p1, p2, p3));
+    curvature_vec.at(i) = (tier4_autoware_utils::calcCurvature(p1, p2, p3));
   }
-  curvature_arr.push_back(0.0);
-  return curvature_arr;
+  curvature_vec.at(0) = curvature_vec.at(1);
+  curvature_vec.at(curvature_vec.size() - 1) = curvature_vec.at(curvature_vec.size() - 2);
+
+  return curvature_vec;
 }
 
 template <class T>
 inline std::vector<std::pair<double, double>> calcCurvatureAndArcLength(const T & points)
 {
   // Note that arclength is for the segment, not the sum.
-  std::vector<std::pair<double, double>> curvature_arc_length_arr;
-  curvature_arc_length_arr.push_back(std::pair(0.0, 0.0));
+  std::vector<std::pair<double, double>> curvature_arc_length_vec;
+  curvature_arc_length_vec.push_back(std::pair(0.0, 0.0));
   for (size_t i = 1; i < points.size() - 1; ++i) {
     const auto p1 = tier4_autoware_utils::getPoint(points.at(i - 1));
     const auto p2 = tier4_autoware_utils::getPoint(points.at(i));
@@ -608,10 +610,11 @@ inline std::vector<std::pair<double, double>> calcCurvatureAndArcLength(const T 
     const double curvature = tier4_autoware_utils::calcCurvature(p1, p2, p3);
     const double arc_length = tier4_autoware_utils::calcDistance2d(points.at(i - 1), points.at(i)) +
                               tier4_autoware_utils::calcDistance2d(points.at(i), points.at(i + 1));
-    curvature_arc_length_arr.push_back(std::pair(curvature, arc_length));
+    curvature_arc_length_vec.push_back(std::pair(curvature, arc_length));
   }
-  curvature_arc_length_arr.push_back(std::pair(0.0, 0.0));
-  return curvature_arc_length_arr;
+  curvature_arc_length_vec.push_back(std::pair(0.0, 0.0));
+
+  return curvature_arc_length_vec;
 }
 
 /**
