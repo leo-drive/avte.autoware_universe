@@ -25,6 +25,28 @@
 
 namespace behavior_path_planner
 {
+
+// only two points is supported
+std::vector<double> splineTwoPoints(
+  std::vector<double> base_s, std::vector<double> base_x, const double begin_diff,
+  const double end_diff, std::vector<double> new_s)
+{
+  const double h = base_s.at(1) - base_s.at(0);
+
+  const double c = begin_diff;
+  const double d = base_x.at(0);
+  const double a = (end_diff * h - 2 * base_x.at(1) + c * h + 2 * d) / std::pow(h, 3);
+  const double b = (3 * base_x.at(1) - end_diff * h - 2 * c * h - 3 * d) / std::pow(h, 2);
+
+  std::vector<double> res;
+  for (const auto & s : new_s) {
+    const double ds = s - base_s.at(0);
+    res.push_back(d + (c + (b + a * ds) * ds) * ds);
+  }
+
+  return res;
+}
+
 ShiftPullOver::ShiftPullOver(
   rclcpp::Node & node, const PullOverParameters & parameters,
   const LaneDepartureChecker & lane_departure_checker,
@@ -34,13 +56,6 @@ ShiftPullOver::ShiftPullOver(
   occupancy_grid_map_{occupancy_grid_map}
 {
 }
-
-#define debug(var)  do{std::cerr << #var << " : ";view(var);}while(0)
-template<typename T> void view(T e){std::cerr << e << std::endl;}
-template<typename T> void view(const std::vector<T>& v){for(const auto& e : v){ std::cerr << e << " "; } std::cerr << std::endl;}
-template<typename T> void view(const std::vector<std::vector<T> >& vv){ for(const auto& v : vv){ view(v); } }
-#define line() {std::cerr << __func__ << ": " << __LINE__ << std::endl; }
-
 boost::optional<PullOverPath> ShiftPullOver::plan(const Pose & goal_pose)
 {
   const auto & route_handler = planner_data_->route_handler;
@@ -60,8 +75,8 @@ boost::optional<PullOverPath> ShiftPullOver::plan(const Pose & goal_pose)
   lanelet::utils::query::getClosestLanelet(road_lanes, goal_pose, &goal_closest_road_lane);
   const auto road_center_pose =
     lanelet::utils::getClosestCenterPose(goal_closest_road_lane, goal_pose.position);
-  const double shoulder_left_bound_to_road_center =
-    util::getSignedDistanceFromShoulderLeftBoundary(shoulder_lanes, vehicle_footprint_, road_center_pose);
+  const double shoulder_left_bound_to_road_center = util::getSignedDistanceFromShoulderLeftBoundary(
+    shoulder_lanes, vehicle_footprint_, road_center_pose);
   const double shoulder_left_bound_to_goal_distance =
     util::getSignedDistanceFromShoulderLeftBoundary(shoulder_lanes, vehicle_footprint_, goal_pose);
   const double road_center_to_goal_distance =
@@ -143,7 +158,6 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   const double shoulder_left_bound_to_shift_end_road_distance =
     util::getSignedDistanceFromShoulderLeftBoundary(
       shoulder_lanes, vehicle_footprint_, *shift_end_pose_road_lane);
-  debug(shoulder_left_bound_to_shift_end_road_distance);
   const double shift_end_road_to_target_distance =
     // -shoulder_left_bound_to_shift_end_road_distance - margin_from_boundary - vehicle_width / 2.0;
     -shoulder_left_bound_to_shift_end_road_distance - margin_from_boundary;
@@ -169,18 +183,34 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   const bool offset_back = true;  // offset front side from reference path
   if (!path_shifter.generate(&shifted_path, offset_back)) return {};
 
-  // // set prev goal pose with velocity 0
-  // {
-  //   PathPointWithLaneId p;
-  //   p.point.longitudinal_velocity_mps = 0.0;
-  //   p.point.pose = tier4_autoware_utils::calcOffsetPose(goal_pose, -0.1, 0, 0);
-  //   p.lane_ids = shifted_path.path.points.back().lane_ids;
-  //   for (const auto & lane : shoulder_lanes) {
-  //     p.lane_ids.push_back(lane.id());
-  //   }
-  //   shifted_path.path.points.push_back(p);
-  // }
-
+  // interpolate between shift end pose to goal pose
+  const Pose shift_last_pose = shifted_path.path.points.back().point.pose;
+  const std::vector<double> base_s{
+    0, tier4_autoware_utils::calcDistance2d(goal_pose.position, shift_last_pose.position)};
+  const std::vector<double> base_x{shift_last_pose.position.x, goal_pose.position.x};
+  const std::vector<double> base_y{shift_last_pose.position.y, goal_pose.position.y};
+  std::vector<double> new_s;
+  for (double s = resample_interval_; s < base_s.back() - resample_interval_;
+       s += resample_interval_) {
+    new_s.push_back(s);
+  }
+  const std::vector<double> interpolated_x = splineTwoPoints(
+    base_s, base_x, std::cos(tf2::getYaw(shift_last_pose.orientation)),
+    std::cos(tf2::getYaw(goal_pose.orientation)), new_s);
+  const std::vector<double> interpolated_y = splineTwoPoints(
+    base_s, base_y, std::sin(tf2::getYaw(shift_last_pose.orientation)),
+    std::sin(tf2::getYaw(goal_pose.orientation)), new_s);
+  std::vector<Pose> interpolated_poses{};  // for debug
+  for (size_t i = 0; i < interpolated_x.size(); ++i) {
+    PathPointWithLaneId p = shifted_path.path.points.back();
+    p.point.pose =
+      util::lerpByPose(goal_pose, shift_last_pose, (base_s.back() - new_s.at(i)) / base_s.back());
+    p.point.pose.position.x = interpolated_x.at(i);
+    p.point.pose.position.y = interpolated_y.at(i);
+    p.point.pose.position.z = goal_pose.position.z;
+    shifted_path.path.points.push_back(p);
+    interpolated_poses.push_back(p.point.pose);
+  }
 
   // set goal pose with velocity 0
   {
@@ -199,7 +229,7 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   // check lane departure with road and shoulder lanes
   lanelet::ConstLanelets lanes = road_lanes;
   lanes.insert(lanes.end(), shoulder_lanes.begin(), shoulder_lanes.end());
-  // if (lane_departure_checker_.checkPathWillLeaveLane(lanes, shifted_path.path)) return {};
+  if (lane_departure_checker_.checkPathWillLeaveLane(lanes, shifted_path.path)) return {};
 
   // check collision
   if (!isSafePath(shifted_path.path)) return {};
@@ -231,12 +261,13 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   pull_over_path.path = shifted_path.path;
   pull_over_path.partial_paths.push_back(pull_over_path.path);
   pull_over_path.start_pose = path_shifter.getShiftLines().front().start;
-  pull_over_path.end_pose = path_shifter.getShiftLines().front().end;
+  // pull_over_path.end_pose = path_shifter.getShiftLines().front().end;
+  pull_over_path.end_pose = shift_last_pose;
   pull_over_path.debug_poses.push_back(
     road_lane_reference_path_to_goal.points.back().point.pose);  // goal pose on road lane
   pull_over_path.debug_poses.push_back(*shift_end_pose_road_lane);
-  pull_over_path.debug_poses.push_back(
-    tier4_autoware_utils::calcOffsetPose(goal_pose, -after_pull_over_distance, 0, 0));
+  pull_over_path.debug_poses.insert(
+    pull_over_path.debug_poses.begin(), interpolated_poses.begin(), interpolated_poses.end());
 
   // check enough distance
   if (!hasEnoughDistance(
