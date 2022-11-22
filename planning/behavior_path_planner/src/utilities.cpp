@@ -1794,20 +1794,12 @@ double getSignedDistanceFromShoulderLeftBoundary(
 
         const double dy_front = inversed_p_front.y;
         const double dy_back = inversed_p_back.y;
-        // u turn lane
-        if (dy_front < 0 && dy_back < 0) {
-          continue;
-        }
-
         const double dx_front = inversed_p_front.x;
         const double dx_back = inversed_p_back.x;
         // is in segment
         if (dx_front < 0 && dx_back > 0) {
           const double lateral_distance_from_pose_to_segment =
             (dy_front * dx_back + dy_back * -dx_front) / (dx_back - dx_front);
-          if (lateral_distance_from_pose_to_segment < 0) {
-            continue;
-          }
           min_distance = std::min(lateral_distance_from_pose_to_segment, min_distance);
           break;
         }

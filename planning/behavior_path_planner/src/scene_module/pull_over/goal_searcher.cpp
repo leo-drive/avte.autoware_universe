@@ -72,10 +72,8 @@ GoalCandidates GoalSearcher::search(const Pose & original_goal_pose)
 
     const double distance_from_left_bound = util::getSignedDistanceFromShoulderLeftBoundary(
       pull_over_lanes, vehicle_footprint_, center_pose);
-    // const double distance_from_left_bound =
-    //   util::getSignedDistanceFromShoulderLeftBoundary(pull_over_lanes, center_pose);
     const double offset_from_center_line = distance_from_left_bound + margin_from_boundary;
-    Pose original_search_pose = calcOffsetPose(center_pose, 0, -offset_from_center_line, 0);
+    const Pose original_search_pose = calcOffsetPose(center_pose, 0, -offset_from_center_line, 0);
     original_search_poses.push_back(original_search_pose);  // for createAreaPolygon
     Pose search_pose{};
     // search goal_pose in lateral direction
