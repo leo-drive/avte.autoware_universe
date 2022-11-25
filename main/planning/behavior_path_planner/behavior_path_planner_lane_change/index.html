@@ -6984,6 +6984,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#collision-check-in-prepare-phase" class="md-nav__link">
+    Collision check in prepare phase
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -10816,6 +10823,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#collision-check-in-prepare-phase" class="md-nav__link">
+    Collision check in prepare phase
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -11009,6 +11023,10 @@ Front vehicle and rear vehicle assignment will depend on which predicted path's 
 <p>Finally minimum longitudinal distance for <code>d_rear</code> is added to compensate for object to near to each other when <code>d_rear = 0.0</code>. This yields</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">(</span><span class="n">longitudinal_distance_min_threshold</span><span class="p">,</span><span class="w"> </span><span class="n">d_rear</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">d_front</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d_inter</span><span class="w"></span>
 </code></pre></div>
+<h5 id="collision-check-in-prepare-phase">Collision check in prepare phase<a class="headerlink" href="#collision-check-in-prepare-phase" title="Permanent link">#</a></h5>
+<p>The ego vehicle may need to secure ample inter-vehicle distance ahead of the target vehicle before attempting a lane change. The flag <code>enable_collision_check_at_prepare_phase</code> can be enabled to gain this behavior. The following image illustrates the differences between the <code>false</code> and <code>true</code> cases.</p>
+<p><img alt="enable collision check at prepare phase" src="../image/lane_change/lane_change-enable_collision_check_at_prepare_phase.png" /></p>
+<p>The parameter <code>prepare_phase_ignore_target_speed_thresh</code> can be configured to ignore the prepare phase collision check for targets whose speeds are less than a specific threshold, such as stationary or very slow-moving objects.</p>
 <h4 id="if-the-lane-is-blocked-and-multiple-lane-changes">If the lane is blocked and multiple lane changes<a class="headerlink" href="#if-the-lane-is-blocked-and-multiple-lane-changes" title="Permanent link">#</a></h4>
 <p>When driving on the public road with other vehicles, there exist scenarios where lane changes cannot be executed. Suppose the candidate path is evaluated as unsafe, for example, due to incoming vehicles in the adjacent lane. In that case, the ego vehicle can't change lanes, and it is impossible to reach the goal. Therefore, the ego vehicle must stop earlier at a certain distance and wait for the adjacent lane to be evaluated as safe. The minimum stopping distance computation is as follows.</p>
 <div class="highlight"><pre><span></span><code><span class="n">minimum_lane_change_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_of_lane_changes</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">minimum_lane_change_length</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">backward_length_buffer_for_end_of_lane</span><span class="p">)</span><span class="w"></span>
@@ -11119,13 +11137,6 @@ Front vehicle and rear vehicle assignment will depend on which predicted path's 
 <td>10</td>
 </tr>
 <tr>
-<td align="left"><code>enable_abort_lane_change</code></td>
-<td>[-]</td>
-<td>boolean</td>
-<td>Enable abort lane change. (*1)</td>
-<td>false</td>
-</tr>
-<tr>
 <td align="left"><code>use_all_predicted_path</code></td>
 <td>[-]</td>
 <td>boolean</td>
@@ -11138,6 +11149,20 @@ Front vehicle and rear vehicle assignment will depend on which predicted path's 
 <td>double</td>
 <td>The turn signal activation distance during the lane change preparation phase.</td>
 <td>30.0</td>
+</tr>
+<tr>
+<td align="left"><code>enable_collision_check_at_prepare_phase</code></td>
+<td>[-]</td>
+<td>boolean</td>
+<td>Perform collision check starting from prepare phase. If <code>false</code>, collision check only evaluated for lane changing phase.</td>
+<td>false</td>
+</tr>
+<tr>
+<td align="left"><code>prepare_phase_ignore_target_speed_thresh</code></td>
+<td>[m/s]</td>
+<td>double</td>
+<td>Ignore collision check in prepare phase of object speed that is lesser that the configured value. <code>enable_collision_check_at_prepare_phase</code> must be <code>true</code></td>
+<td>0.1</td>
 </tr>
 </tbody>
 </table>
