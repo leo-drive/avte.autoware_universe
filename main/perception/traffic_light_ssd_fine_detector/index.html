@@ -10635,6 +10635,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#training-information" class="md-nav__link">
+    Training Information
+  </a>
+  
+    <nav class="md-nav" aria-label="Training Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pretrained-model" class="md-nav__link">
+    Pretrained Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-data" class="md-nav__link">
+    Training Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trained-onnx-model" class="md-nav__link">
+    Trained Onnx model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#inner-workings-algorithms" class="md-nav__link">
     Inner-workings / Algorithms
   </a>
@@ -10703,13 +10737,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#onnx-model" class="md-nav__link">
-    Onnx model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#reference-repositories" class="md-nav__link">
     Reference repositories
   </a>
@@ -10739,7 +10766,15 @@
 <h1 id="traffic_light_ssd_fine_detector">traffic_light_ssd_fine_detector<a class="headerlink" href="#traffic_light_ssd_fine_detector" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>It is a package for traffic light detection using MobileNetV2 and SSDLite.</p>
-<p>The trained model is based on <a href="https://github.com/qfgaohao/pytorch-ssd">pytorch-ssd</a>.</p>
+<h2 id="training-information">Training Information<a class="headerlink" href="#training-information" title="Permanent link">#</a></h2>
+<h3 id="pretrained-model">Pretrained Model<a class="headerlink" href="#pretrained-model" title="Permanent link">#</a></h3>
+<p>The model is based on <a href="https://github.com/qfgaohao/pytorch-ssd">pytorch-ssd</a> and the pretrained model could be downloaded from <a href="https://storage.googleapis.com/models-hao/mb2-ssd-lite-mp-0_686.pth">here</a>.</p>
+<h3 id="training-data">Training Data<a class="headerlink" href="#training-data" title="Permanent link">#</a></h3>
+<p>The model was fine-tuned on 1750 TierIV internal images of Japanese traffic lights.</p>
+<h3 id="trained-onnx-model">Trained Onnx model<a class="headerlink" href="#trained-onnx-model" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://drive.google.com/uc?id=1USFDPRH9JrVdGoqt27qHjRgittwc0kcO">https://drive.google.com/uc?id=1USFDPRH9JrVdGoqt27qHjRgittwc0kcO</a></li>
+</ul>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
 <p>Based on the camera image and the global ROI array detected by <code>map_based_detection</code> node, a CNN-based detection method enables highly accurate traffic light detection.</p>
 <h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
@@ -10863,10 +10898,6 @@
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<h2 id="onnx-model">Onnx model<a class="headerlink" href="#onnx-model" title="Permanent link">#</a></h2>
-<ul>
-<li><a href="https://drive.google.com/uc?id=1USFDPRH9JrVdGoqt27qHjRgittwc0kcO">https://drive.google.com/uc?id=1USFDPRH9JrVdGoqt27qHjRgittwc0kcO</a></li>
-</ul>
 <h2 id="reference-repositories">Reference repositories<a class="headerlink" href="#reference-repositories" title="Permanent link">#</a></h2>
 <p>pytorch-ssd github repository</p>
 <ul>
