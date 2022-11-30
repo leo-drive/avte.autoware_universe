@@ -611,6 +611,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/tensorrt_yolox/</loc>
+         <lastmod>2022-11-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/traffic_light_classifier/</loc>
          <lastmod>2022-11-30</lastmod>
          <changefreq>daily</changefreq>
