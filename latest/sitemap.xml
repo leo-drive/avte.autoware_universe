@@ -541,6 +541,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/lidar_centerpoint/launch/centerpoint_vs_centerpoint-tiny/</loc>
+         <lastmod>2022-12-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/perception/lidar_centerpoint_tvm/</loc>
          <lastmod>2022-12-01</lastmod>
          <changefreq>daily</changefreq>
