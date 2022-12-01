@@ -7237,6 +7237,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#avoidance-cancelling" class="md-nav__link">
+    Avoidance Cancelling
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -11326,6 +11333,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#avoidance-cancelling" class="md-nav__link">
+    Avoidance Cancelling
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -11568,6 +11582,14 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
 <li>Similar gradient removal: Connect two shift points with a straight line, and remove the shift points in between if their shift amount is in the vicinity of the straight line.</li>
 <li>Remove momentary returns: For shift points that reduce the avoidance width (for going back to the center line), if there is enough long distance in the longitudinal direction, remove them.</li>
 </ul>
+<h5 id="avoidance-cancelling">Avoidance Cancelling<a class="headerlink" href="#avoidance-cancelling" title="Permanent link">#</a></h5>
+<p>If <code>enable_update_path_when_object_is_gone</code> parameter is true, Avoidance Module takes different actions according to the situations as follows:</p>
+<ul>
+<li>If vehicle stops: If there is any object in the path of the vehicle, the avoidance path is generated. If this object goes away while the vehicle is stopping, the avoidance path will cancelled.</li>
+<li>If vehicle is in motion, but avoidance maneuver doesn't started: If there is any object in the path of the vehicle, the avoidance path is generated. If this object goes away while the vehicle is not started avoidance maneuver, the avoidance path will cancelled.</li>
+<li>If vehicle is in motion, avoidance maneuver started: If there is any object in the path of the vehicle, the avoidance path is generated,but if this object goes away while the vehicle is started avoidance maneuver, the avoidance path will not cancelled.</li>
+</ul>
+<p>If <code>enable_update_path_when_object_is_gone</code> parameter is false, Avoidance Module doesn't revert generated avoidance path even if path objects are gone.</p>
 <h4 id="how-to-keep-the-consistency-of-the-planning">How to keep the consistency of the planning<a class="headerlink" href="#how-to-keep-the-consistency-of-the-planning" title="Permanent link">#</a></h4>
 <p>TODO</p>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
@@ -11716,6 +11738,13 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
 <td align="left">bool</td>
 <td align="left">Extend avoidance trajectory to adjacent lanes that has opposite direction. <code>enable_avoidance_over_same_direction</code> must be <code>true</code> to take effects</td>
 <td align="left">true</td>
+</tr>
+<tr>
+<td align="left">enable_update_path_when_object_is_gone</td>
+<td align="left">[-]</td>
+<td align="left">bool</td>
+<td align="left">Reset trajectory when avoided objects are gone. If false, shifted path points remain same even though the avoided objects are gone.</td>
+<td align="left">false</td>
 </tr>
 </tbody>
 </table>
