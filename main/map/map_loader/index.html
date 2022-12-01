@@ -10734,18 +10734,38 @@
     Feature
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Feature">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-to-run" class="md-nav__link">
-    How to run
+  <a href="#publish-raw-pointcloud-map-ros-2-topic" class="md-nav__link">
+    Publish raw pointcloud map (ROS 2 topic)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#published-topics" class="md-nav__link">
-    Published Topics
+  <a href="#send-partial-pointcloud-map-ros-2-service" class="md-nav__link">
+    Send partial pointcloud map (ROS 2 service)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    Interfaces
   </a>
   
 </li>
@@ -10771,14 +10791,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-run_1" class="md-nav__link">
+  <a href="#how-to-run" class="md-nav__link">
     How to run
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#published-topics_1" class="md-nav__link">
+  <a href="#published-topics" class="md-nav__link">
     Published Topics
   </a>
   
@@ -10805,7 +10825,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-run_2" class="md-nav__link">
+  <a href="#how-to-run_1" class="md-nav__link">
     How to Run
   </a>
   
@@ -10819,7 +10839,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#published-topics_2" class="md-nav__link">
+  <a href="#published-topics_1" class="md-nav__link">
     Published Topics
   </a>
   
@@ -10854,21 +10874,56 @@
 <p>This package provides the features of loading various maps.</p>
 <h2 id="pointcloud_map_loader">pointcloud_map_loader<a class="headerlink" href="#pointcloud_map_loader" title="Permanent link">#</a></h2>
 <h3 id="feature">Feature<a class="headerlink" href="#feature" title="Permanent link">#</a></h3>
-<p>pointcloud_map_loader loads PointCloud file and publishes the map data as sensor_msgs/PointCloud2 message.</p>
-<h3 id="how-to-run">How to run<a class="headerlink" href="#how-to-run" title="Permanent link">#</a></h3>
-<p><code>ros2 run map_loader pointcloud_map_loader --ros-args -p "pcd_paths_or_directory:=[path/to/pointcloud1.pcd, path/to/pointcloud2.pcd, ...]"</code></p>
-<h3 id="published-topics">Published Topics<a class="headerlink" href="#published-topics" title="Permanent link">#</a></h3>
+<p><code>pointcloud_map_loader</code> provides pointcloud maps to the other Autoware nodes in various configurations.
+Currently, it supports the following two types:</p>
 <ul>
-<li>pointcloud_map (sensor_msgs/PointCloud2) : PointCloud Map</li>
+<li>Publish raw pointcloud map</li>
+<li>Send partial pointcloud map loading via ROS 2 service</li>
+</ul>
+<h4 id="publish-raw-pointcloud-map-ros-2-topic">Publish raw pointcloud map (ROS 2 topic)<a class="headerlink" href="#publish-raw-pointcloud-map-ros-2-topic" title="Permanent link">#</a></h4>
+<p>The node publishes the raw pointcloud map loaded from the <code>.pcd</code> file(s).</p>
+<h4 id="send-partial-pointcloud-map-ros-2-service">Send partial pointcloud map (ROS 2 service)<a class="headerlink" href="#send-partial-pointcloud-map-ros-2-service" title="Permanent link">#</a></h4>
+<p>Here, we assume that the pointcloud maps are divided into grids.</p>
+<p>Given a query from a client node, the node sends a set of pointcloud maps that overlaps with the queried area.
+Please see <a href="https://github.com/autowarefoundation/autoware_msgs/tree/main/autoware_map_msgs#getpartialpointcloudmapsrv">the description of <code>GetPartialPointCloudMap.srv</code></a> for details.</p>
+<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">enable_whole_load</td>
+<td align="left">bool</td>
+<td align="left">A flag to enable raw pointcloud map publishing</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left">enable_partial_load</td>
+<td align="left">bool</td>
+<td align="left">A flag to enable partial pointcloud map server</td>
+<td align="left">true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h3>
+<ul>
+<li><code>output/pointcloud_map</code> (sensor_msgs/msg/PointCloud2) : Raw pointcloud map</li>
+<li><code>service/get_partial_pcd_map</code> (autoware_map_msgs/srv/GetPartialPointCloudMap) : Partial pointcloud map</li>
 </ul>
 <hr />
 <h2 id="lanelet2_map_loader">lanelet2_map_loader<a class="headerlink" href="#lanelet2_map_loader" title="Permanent link">#</a></h2>
 <h3 id="feature_1">Feature<a class="headerlink" href="#feature_1" title="Permanent link">#</a></h3>
 <p>lanelet2_map_loader loads Lanelet2 file and publishes the map data as autoware_auto_mapping_msgs/HADMapBin message.
 The node projects lan/lon coordinates into MGRS coordinates.</p>
-<h3 id="how-to-run_1">How to run<a class="headerlink" href="#how-to-run_1" title="Permanent link">#</a></h3>
+<h3 id="how-to-run">How to run<a class="headerlink" href="#how-to-run" title="Permanent link">#</a></h3>
 <p><code>ros2 run map_loader lanelet2_map_loader --ros-args -p lanelet2_map_path:=path/to/map.osm</code></p>
-<h3 id="published-topics_1">Published Topics<a class="headerlink" href="#published-topics_1" title="Permanent link">#</a></h3>
+<h3 id="published-topics">Published Topics<a class="headerlink" href="#published-topics" title="Permanent link">#</a></h3>
 <ul>
 <li>~output/lanelet2_map (autoware_auto_mapping_msgs/HADMapBin) : Binary data of loaded Lanelet2 Map</li>
 </ul>
@@ -10876,13 +10931,13 @@ The node projects lan/lon coordinates into MGRS coordinates.</p>
 <h2 id="lanelet2_map_visualization">lanelet2_map_visualization<a class="headerlink" href="#lanelet2_map_visualization" title="Permanent link">#</a></h2>
 <h3 id="feature_2">Feature<a class="headerlink" href="#feature_2" title="Permanent link">#</a></h3>
 <p>lanelet2_map_visualization visualizes autoware_auto_mapping_msgs/HADMapBin messages into visualization_msgs/MarkerArray.</p>
-<h3 id="how-to-run_2">How to Run<a class="headerlink" href="#how-to-run_2" title="Permanent link">#</a></h3>
+<h3 id="how-to-run_1">How to Run<a class="headerlink" href="#how-to-run_1" title="Permanent link">#</a></h3>
 <p><code>ros2 run map_loader lanelet2_map_visualization</code></p>
 <h3 id="subscribed-topics">Subscribed Topics<a class="headerlink" href="#subscribed-topics" title="Permanent link">#</a></h3>
 <ul>
 <li>~input/lanelet2_map (autoware_auto_mapping_msgs/HADMapBin) : binary data of Lanelet2 Map</li>
 </ul>
-<h3 id="published-topics_2">Published Topics<a class="headerlink" href="#published-topics_2" title="Permanent link">#</a></h3>
+<h3 id="published-topics_1">Published Topics<a class="headerlink" href="#published-topics_1" title="Permanent link">#</a></h3>
 <ul>
 <li>~output/lanelet2_map_marker (visualization_msgs/MarkerArray) : visualization messages for RViz</li>
 </ul>
