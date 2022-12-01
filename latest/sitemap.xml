@@ -951,6 +951,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/sensing/radar_scan_to_pointcloud2/</loc>
+         <lastmod>2022-12-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/sensing/radar_static_pointcloud_filter/</loc>
          <lastmod>2022-12-01</lastmod>
          <changefreq>daily</changefreq>
