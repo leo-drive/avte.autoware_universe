@@ -17,18 +17,28 @@
 #include "behavior_path_planner/path_utilities.hpp"
 #include "behavior_path_planner/scene_module/pull_over/util.hpp"
 
-#include <lanelet2_extension/utility/utilities.hpp>
+#include "lanelet2_extension/utility/utilities.hpp"
+
+
 
 #include <boost/optional.hpp>
 
 #include <memory>
 #include <vector>
 
+#define debug(var)  do{std::cerr << #var << " : ";view(var);}while(0)
+template<typename T> void view(T e){std::cerr << e << std::endl;}
+template<typename T> void view(const std::vector<T>& v){for(const auto& e : v){ std::cerr << e << " "; } std::cerr << std::endl;}
+template<typename T> void view(const std::vector<std::vector<T> >& vv){ for(const auto& v : vv){ view(v); } }
+#define line() {std::cerr << __func__ << ": " << __LINE__ << std::endl; }
+
 namespace behavior_path_planner
 {
 using lane_departure_checker::LaneDepartureChecker;
 using tier4_autoware_utils::calcOffsetPose;
 using tier4_autoware_utils::inverseTransformPose;
+
+
 
 GoalSearcher::GoalSearcher(
   const PullOverParameters & parameters, const LinearRing2d & vehicle_footprint,
@@ -37,6 +47,21 @@ GoalSearcher::GoalSearcher(
   vehicle_footprint_{vehicle_footprint},
   occupancy_grid_map_{occupancy_grid_map}
 {
+}
+
+void GoalSearcher::insertOrientationToPrev(std::vector<PathPointWithLaneId> & points)
+{
+  for (size_t i = 1; i < points.size(); ++i) {
+    const auto & src_point = tier4_autoware_utils::getPoint(points.at(i - 1));
+    const auto & dst_point = tier4_autoware_utils::getPoint(points.at(i));
+    const double pitch = tier4_autoware_utils::calcElevationAngle(src_point, dst_point);
+    const double yaw = tier4_autoware_utils::calcAzimuthAngle(src_point, dst_point);
+    tier4_autoware_utils::setOrientation(
+      tier4_autoware_utils::createQuaternionFromRPY(0.0, pitch, yaw), points.at(i));
+  }
+  // First orientation is same as the second
+  tier4_autoware_utils::setOrientation(
+    tier4_autoware_utils::getPose(points.at(1)).orientation, points.at(0));
 }
 
 GoalCandidates GoalSearcher::search(const Pose & original_goal_pose)
@@ -59,9 +84,10 @@ GoalCandidates GoalSearcher::search(const Pose & original_goal_pose)
     lanelet::utils::getArcCoordinates(pull_over_lanes, original_goal_pose);
   const double s_start = std::max(0.0, goal_arc_coords.length - backward_length);
   const double s_end = goal_arc_coords.length + forward_length;
-  const auto center_line_path = util::resamplePathWithSpline(
+  auto center_line_path = util::resamplePathWithSpline(
     route_handler->getCenterLinePath(pull_over_lanes, s_start, s_end),
     parameters_.goal_search_interval);
+  // insertOrientationToPrev(center_line_path.points);
 
   const auto shoulder_lane_objects =
     util::filterObjectsByLanelets(*(planner_data_->dynamic_object), pull_over_lanes);
@@ -88,7 +114,6 @@ GoalCandidates GoalSearcher::search(const Pose & original_goal_pose)
       if (LaneDepartureChecker::isOutOfLane(lanes, transformed_vehicle_footprint)) {
         continue;
       }
-
       if (checkCollision(search_pose)) {
         continue;
       }

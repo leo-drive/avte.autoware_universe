@@ -176,6 +176,7 @@ private:
   rclcpp::Publisher<MarkerArray>::SharedPtr debug_drivable_area_lanelets_publisher_;
   rclcpp::Publisher<AvoidanceDebugMsgArray>::SharedPtr debug_avoidance_msg_array_publisher_;
   rclcpp::Publisher<LaneChangeDebugMsgArray>::SharedPtr debug_lane_change_msg_array_publisher_;
+  rclcpp::Publisher<MarkerArray>::SharedPtr pub_debug_marker_;
 
   /**
    * @brief check path if it is unsafe or forced

@@ -112,40 +112,47 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   const double margin_from_boundary = parameters_.margin_from_boundary;
   // const double vehicle_width = planner_data_->parameters.vehicle_width;
 
+  const Pose shift_end_pose = tier4_autoware_utils::calcOffsetPose(goal_pose, -after_pull_over_distance, 0, 0);
+  auto road_lane_reference_path_to_shift_end = util::resamplePathWithSpline(
+    generateReferencePath(road_lanes, shift_end_pose), resample_interval_);
+  // road_lane_reference_path_to_shift_end.points.back().point.pose.orientation = shift_end_pose.orientation;
+  const Pose & shift_end_pose_road_lane =   road_lane_reference_path_to_shift_end.points.back().point.pose;
+  const double shift_end_road_to_target_distance = tier4_autoware_utils::inverseTransformPoint(shift_end_pose.position, shift_end_pose_road_lane).y;
+
   // generate road lane reference path to goal for caluculating shift start/end pose
-  const auto road_lane_reference_path_to_goal = generateReferencePath(road_lanes, goal_pose);
+  // const auto road_lane_reference_path_to_goal = generateReferencePath(road_lanes, goal_pose);
 
   // calculate shift end pose on road lane
-  const double before_shifted_after_pull_over_distance = calcBeforeShiftedArcLegth(
-    road_lane_reference_path_to_goal, after_pull_over_distance, road_center_to_goal_distance);
-  const auto shift_end_pose_road_lane = motion_utils::calcLongitudinalOffsetPose(
-    road_lane_reference_path_to_goal.points, goal_pose.position,
-    -before_shifted_after_pull_over_distance);
-  if (!shift_end_pose_road_lane) return {};
+  // const double before_shifted_after_pull_over_distance = calcBeforeShiftedArcLegth(
+  //   road_lane_reference_path_to_goal, after_pull_over_distance, road_center_to_goal_distance);
+  // const auto shift_end_pose_road_lane = motion_utils::calcLongitudinalOffsetPose(
+  //   road_lane_reference_path_to_goal.points, goal_pose.position,
+  //   -before_shifted_after_pull_over_distance);
+  // if (!shift_end_pose_road_lane) return {};
 
   // calculate shift start pose on road lane
   const double pull_over_distance = PathShifter::calcLongitudinalDistFromJerk(
-    road_center_to_goal_distance, lateral_jerk, pull_over_velocity);
+    shift_end_road_to_target_distance, lateral_jerk, pull_over_velocity);
 
-  // generate road lane reference path to shift end
-  const auto road_lane_reference_path_to_shift_end = util::resamplePathWithSpline(
-    generateReferencePath(road_lanes, *shift_end_pose_road_lane), resample_interval_);
-  if (road_lane_reference_path_to_shift_end.points.empty()) return {};
+  // // generate road lane reference path to shift end
+  // const auto road_lane_reference_path_to_shift_end = util::resamplePathWithSpline(
+  //   generateReferencePath(road_lanes, *shift_end_pose_road_lane), resample_interval_);
+  // if (road_lane_reference_path_to_shift_end.points.empty()) return {};
 
   // calculate shift end pose on shoulder lane
-  const double shoulder_left_bound_to_shift_end_road_distance =
-    util::getSignedDistanceFromShoulderLeftBoundary(
-      shoulder_lanes, vehicle_footprint_, *shift_end_pose_road_lane);
-  const double shift_end_road_to_target_distance =
-    // -shoulder_left_bound_to_shift_end_road_distance - margin_from_boundary - vehicle_width / 2.0;
-    -shoulder_left_bound_to_shift_end_road_distance - margin_from_boundary;
-  const Pose shift_end_pose = tier4_autoware_utils::calcOffsetPose(
-    *shift_end_pose_road_lane, 0, shift_end_road_to_target_distance, 0);
+  // const double shoulder_left_bound_to_shift_end_road_distance =
+  //   util::getSignedDistanceFromShoulderLeftBoundary(
+  //     shoulder_lanes, vehicle_footprint_, *shift_end_pose_road_lane);
+  // const double shift_end_road_to_target_distance =
+  //   // -shoulder_left_bound_to_shift_end_road_distance - margin_from_boundary - vehicle_width / 2.0;
+  //   -shoulder_left_bound_to_shift_end_road_distance - margin_from_boundary;
+  // const Pose shift_end_pose = tier4_autoware_utils::calcOffsetPose(
+  //   *shift_end_pose_road_lane, 0, shift_end_road_to_target_distance, 0);
 
   const double before_shifted_pull_over_distance = calcBeforeShiftedArcLegth(
     road_lane_reference_path_to_shift_end, pull_over_distance, shift_end_road_to_target_distance);
   const auto shift_start_pose = motion_utils::calcLongitudinalOffsetPose(
-    road_lane_reference_path_to_shift_end.points, shift_end_pose_road_lane->position,
+    road_lane_reference_path_to_shift_end.points, shift_end_pose_road_lane.position,
     -before_shifted_pull_over_distance);
   if (!shift_start_pose) return {};
 
@@ -160,10 +167,12 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   ShiftedPath shifted_path{};
   const bool offset_back = true;  // offset front side from reference path
   if (!path_shifter.generate(&shifted_path, offset_back)) return {};
+  shifted_path.path.points.back().point.pose.orientation = shift_end_pose.orientation;
+  const Pose actual_shift_end_pose = shifted_path.path.points.back().point.pose;
 
   // interpolate between shift end pose to goal pose
   std::vector<Pose> interpolated_poses =
-    interpolatePose(shifted_path.path.points.back().point.pose, goal_pose, resample_interval_);
+    interpolatePose(shifted_path.path.points.back().point.pose, goal_pose, 0.5);
   for (const auto & pose : interpolated_poses) {
     PathPointWithLaneId p = shifted_path.path.points.back();
     p.point.pose = pose;
@@ -182,15 +191,25 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
     shifted_path.path.points.push_back(p);
 
     // insert a pose imediately around to the goal_pose to keep it's orientation after resampling
-    PathPointWithLaneId p_next = p;
-    p_next.point.pose = tier4_autoware_utils::calcOffsetPose(goal_pose, 0.1, 0, 0);
-    shifted_path.path.points.push_back(p_next);
+    // PathPointWithLaneId p_next = p;
+    // p_next.point.pose = tier4_autoware_utils::calcOffsetPose(goal_pose, 0.1, 0, 0);
+    // shifted_path.path.points.push_back(p_next);
+  }
+
+  for (auto & p : shifted_path.path.points) {
+    p.point.pose.position.z = goal_pose.position.z;
   }
 
   // check lane departure with road and shoulder lanes
-  lanelet::ConstLanelets lanes = road_lanes;
-  lanes.insert(lanes.end(), shoulder_lanes.begin(), shoulder_lanes.end());
-  if (lane_departure_checker_.checkPathWillLeaveLane(lanes, shifted_path.path)) return {};
+  const auto drivable_lanes =
+    util::generateDrivableLanesWithShoulderLanes(road_lanes, shoulder_lanes);
+  const auto expanded_lanes = util::expandLanelets(
+    drivable_lanes, parameters_.drivable_area_left_bound_offset,
+    parameters_.drivable_area_right_bound_offset);
+  if (lane_departure_checker_.checkPathWillLeaveLane(
+        util::transformToLanelets(expanded_lanes), shifted_path.path)) {
+    return {};
+  }
 
   // check collision
   if (!isSafePath(shifted_path.path)) return {};
@@ -223,9 +242,10 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   pull_over_path.partial_paths.push_back(pull_over_path.path);
   pull_over_path.start_pose = path_shifter.getShiftLines().front().start;
   pull_over_path.end_pose = path_shifter.getShiftLines().front().end;
-  pull_over_path.debug_poses.push_back(
-    road_lane_reference_path_to_goal.points.back().point.pose);     // goal pose on road lane
-  pull_over_path.debug_poses.push_back(*shift_end_pose_road_lane);  // shift end pose on road lane
+  // pull_over_path.debug_poses.push_back(
+  //   road_lane_reference_path_to_goal.points.back().point.pose);     // goal pose on road lane
+  pull_over_path.debug_poses.push_back(shift_end_pose_road_lane);  // shift end pose on road lane
+  pull_over_path.debug_poses.push_back(actual_shift_end_pose); 
 
   // check enough distance
   if (!hasEnoughDistance(
@@ -361,7 +381,7 @@ std::vector<Pose> ShiftPullOver::interpolatePose(
   const std::vector<double> base_y{start_pose.position.y, end_pose.position.y};
   std::vector<double> new_s;
 
-  constexpr double eps = 0.01;
+  constexpr double eps = 0.3;  // prevent overlapping
   for (double s = eps; s < base_s.back() - eps; s += resample_interval) {
     new_s.push_back(s);
   }

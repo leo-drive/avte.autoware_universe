@@ -18,11 +18,14 @@
 #include "behavior_path_planner/scene_module/pull_over/goal_searcher_base.hpp"
 #include "behavior_path_planner/scene_module/utils/occupancy_grid_based_collision_detector.hpp"
 
+#include "autoware_auto_planning_msgs/msg/path_point_with_lane_id.hpp"
+
 #include <memory>
 #include <vector>
 
 namespace behavior_path_planner
 {
+using autoware_auto_planning_msgs::msg::PathPointWithLaneId;
 using tier4_autoware_utils::LinearRing2d;
 
 class GoalSearcher : public GoalSearcherBase
@@ -39,6 +42,7 @@ private:
   bool checkCollision(const Pose & pose) const;
   bool checkCollisionWithLongitudinalDistance(
     const Pose & ego_pose, const PredictedObjects & dynamic_objects) const;
+  void insertOrientationToPrev(std::vector<PathPointWithLaneId> & points);
 
   LinearRing2d vehicle_footprint_{};
   std::shared_ptr<OccupancyGridBasedCollisionDetector> occupancy_grid_map_{};
