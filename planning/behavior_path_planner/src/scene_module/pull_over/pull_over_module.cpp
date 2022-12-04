@@ -259,8 +259,8 @@ Pose PullOverModule::calcRefinedGoal() const
   //   lanelet::utils::getClosestCenterPose(closest_shoulder_lanelet, goal_pose.position);
   const double distance_from_left_bound = util::getSignedDistanceFromShoulderLeftBoundary(
     planner_data_->route_handler->getShoulderLanelets(), vehicle_footprint_, center_pose);
-  const double offset_from_center_line = distance_from_left_bound +
-                                         parameters_.margin_from_boundary;
+  const double offset_from_center_line =
+    distance_from_left_bound + parameters_.margin_from_boundary;
   const auto refined_goal_pose = calcOffsetPose(center_pose, 0, -offset_from_center_line, 0);
 
   return refined_goal_pose;

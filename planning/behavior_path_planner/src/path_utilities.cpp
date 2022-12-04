@@ -55,7 +55,8 @@ std::vector<double> calcPathArcLengthArray(
 /**
  * @brief resamplePathWithSpline
  */
-PathWithLaneId resamplePathWithSpline(const PathWithLaneId & path, const double interval, const bool keep_input_point)
+PathWithLaneId resamplePathWithSpline(
+  const PathWithLaneId & path, const double interval, const bool keep_input_point)
 {
   if (path.points.size() < 2) {
     return path;
