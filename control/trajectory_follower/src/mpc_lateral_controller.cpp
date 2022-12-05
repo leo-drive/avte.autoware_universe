@@ -301,10 +301,14 @@ void MpcLateralController::setTrajectory(
   // consider the terminal yaw
   m_current_trajectory_ptr = std::make_shared<autoware_auto_planning_msgs::msg::Trajectory>(*msg);
   auto extended_point = msg->points.back();
-  constexpr double extend_length = 1.0;
-  extended_point.pose =
-    tier4_autoware_utils::calcOffsetPose(extended_point.pose, extend_length, 0.0, 0.0);
-  m_current_trajectory_ptr->points.push_back(extended_point);
+  constexpr double extend_dist = 10.0;
+  constexpr double extend_interval = 1.0;
+  const size_t num_extended_point = static_cast<size_t>(extend_dist / extend_interval);
+  for (size_t i = 0; i < num_extended_point; ++i) {
+    extended_point.pose =
+      tier4_autoware_utils::calcOffsetPose(extended_point.pose, extend_interval, 0.0, 0.0);
+    m_current_trajectory_ptr->points.push_back(extended_point);
+  }
 
   m_mpc.setReferenceTrajectory(
     *m_current_trajectory_ptr, m_traj_resample_dist, m_enable_path_smoothing,
