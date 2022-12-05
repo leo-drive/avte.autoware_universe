@@ -10878,6 +10878,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#publish-downsampled-pointcloud-map-ros-2-topic" class="md-nav__link">
+    Publish downsampled pointcloud map (ROS 2 topic)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#send-partial-pointcloud-map-ros-2-service" class="md-nav__link">
     Send partial pointcloud map (ROS 2 service)
   </a>
@@ -11011,10 +11018,13 @@
 Currently, it supports the following two types:</p>
 <ul>
 <li>Publish raw pointcloud map</li>
+<li>Publish downsampled pointcloud map</li>
 <li>Send partial pointcloud map loading via ROS 2 service</li>
 </ul>
 <h4 id="publish-raw-pointcloud-map-ros-2-topic">Publish raw pointcloud map (ROS 2 topic)<a class="headerlink" href="#publish-raw-pointcloud-map-ros-2-topic" title="Permanent link">#</a></h4>
 <p>The node publishes the raw pointcloud map loaded from the <code>.pcd</code> file(s).</p>
+<h4 id="publish-downsampled-pointcloud-map-ros-2-topic">Publish downsampled pointcloud map (ROS 2 topic)<a class="headerlink" href="#publish-downsampled-pointcloud-map-ros-2-topic" title="Permanent link">#</a></h4>
+<p>The node publishes the downsampled pointcloud map loaded from the <code>.pcd</code> file(s). You can specify the downsample resolution by changing the <code>leaf_size</code> parameter.</p>
 <h4 id="send-partial-pointcloud-map-ros-2-service">Send partial pointcloud map (ROS 2 service)<a class="headerlink" href="#send-partial-pointcloud-map-ros-2-service" title="Permanent link">#</a></h4>
 <p>Here, we assume that the pointcloud maps are divided into grids.</p>
 <p>Given a query from a client node, the node sends a set of pointcloud maps that overlaps with the queried area.
@@ -11037,16 +11047,29 @@ Please see <a href="https://github.com/autowarefoundation/autoware_msgs/tree/mai
 <td align="left">true</td>
 </tr>
 <tr>
+<td align="left">enable_downsampled_whole_load</td>
+<td align="left">bool</td>
+<td align="left">A flag to enable downsampled pointcloud map publishing</td>
+<td align="left">false</td>
+</tr>
+<tr>
 <td align="left">enable_partial_load</td>
 <td align="left">bool</td>
 <td align="left">A flag to enable partial pointcloud map server</td>
-<td align="left">true</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">leaf_size</td>
+<td align="left">float</td>
+<td align="left">Downsampling leaf size (only used when enable_downsampled_whole_load is set true)</td>
+<td align="left">3.0</td>
 </tr>
 </tbody>
 </table>
 <h3 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h3>
 <ul>
 <li><code>output/pointcloud_map</code> (sensor_msgs/msg/PointCloud2) : Raw pointcloud map</li>
+<li><code>output/debug/downsampled_pointcloud_map</code> (sensor_msgs/msg/PointCloud2) : Downsampled pointcloud map</li>
 <li><code>service/get_partial_pcd_map</code> (autoware_map_msgs/srv/GetPartialPointCloudMap) : Partial pointcloud map</li>
 </ul>
 <hr />
