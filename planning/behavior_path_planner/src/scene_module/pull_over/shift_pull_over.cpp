@@ -108,52 +108,26 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   const double road_center_to_goal_distance) const
 {
   const double pull_over_velocity = parameters_.pull_over_velocity;
-  const double after_pull_over_distance = parameters_.after_pull_over_distance;
+  const double after_pull_over_straight_distance = parameters_.after_pull_over_straight_distance;
   const double margin_from_boundary = parameters_.margin_from_boundary;
-  // const double vehicle_width = planner_data_->parameters.vehicle_width;
 
   const Pose shift_end_pose =
-    tier4_autoware_utils::calcOffsetPose(goal_pose, -after_pull_over_distance, 0, 0);
-  auto road_lane_reference_path_to_shift_end = util::resamplePathWithSpline(
+    tier4_autoware_utils::calcOffsetPose(goal_pose, -after_pull_over_straight_distance, 0, 0);
+
+  // generate road lane reference path to shift end
+  const auto road_lane_reference_path_to_shift_end = util::resamplePathWithSpline(
     generateReferencePath(road_lanes, shift_end_pose), resample_interval_);
-  // road_lane_reference_path_to_shift_end.points.back().point.pose.orientation =
-  // shift_end_pose.orientation;
+
+  // caluculate shift length
   const Pose & shift_end_pose_road_lane =
     road_lane_reference_path_to_shift_end.points.back().point.pose;
   const double shift_end_road_to_target_distance =
     tier4_autoware_utils::inverseTransformPoint(shift_end_pose.position, shift_end_pose_road_lane)
       .y;
 
-  // generate road lane reference path to goal for caluculating shift start/end pose
-  // const auto road_lane_reference_path_to_goal = generateReferencePath(road_lanes, goal_pose);
-
-  // calculate shift end pose on road lane
-  // const double before_shifted_after_pull_over_distance = calcBeforeShiftedArcLegth(
-  //   road_lane_reference_path_to_goal, after_pull_over_distance, road_center_to_goal_distance);
-  // const auto shift_end_pose_road_lane = motion_utils::calcLongitudinalOffsetPose(
-  //   road_lane_reference_path_to_goal.points, goal_pose.position,
-  //   -before_shifted_after_pull_over_distance);
-  // if (!shift_end_pose_road_lane) return {};
-
   // calculate shift start pose on road lane
   const double pull_over_distance = PathShifter::calcLongitudinalDistFromJerk(
     shift_end_road_to_target_distance, lateral_jerk, pull_over_velocity);
-
-  // // generate road lane reference path to shift end
-  // const auto road_lane_reference_path_to_shift_end = util::resamplePathWithSpline(
-  //   generateReferencePath(road_lanes, *shift_end_pose_road_lane), resample_interval_);
-  // if (road_lane_reference_path_to_shift_end.points.empty()) return {};
-
-  // calculate shift end pose on shoulder lane
-  // const double shoulder_left_bound_to_shift_end_road_distance =
-  //   util::getSignedDistanceFromShoulderLeftBoundary(
-  //     shoulder_lanes, vehicle_footprint_, *shift_end_pose_road_lane);
-  // const double shift_end_road_to_target_distance =
-  //   // -shoulder_left_bound_to_shift_end_road_distance - margin_from_boundary - vehicle_width
-  //   / 2.0; -shoulder_left_bound_to_shift_end_road_distance - margin_from_boundary;
-  // const Pose shift_end_pose = tier4_autoware_utils::calcOffsetPose(
-  //   *shift_end_pose_road_lane, 0, shift_end_road_to_target_distance, 0);
-
   const double before_shifted_pull_over_distance = calcBeforeShiftedArcLegth(
     road_lane_reference_path_to_shift_end, pull_over_distance, shift_end_road_to_target_distance);
   const auto shift_start_pose = motion_utils::calcLongitudinalOffsetPose(
@@ -172,7 +146,11 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   ShiftedPath shifted_path{};
   const bool offset_back = true;  // offset front side from reference path
   if (!path_shifter.generate(&shifted_path, offset_back)) return {};
+
+  // set same orientaion, because the reference center line orientation is not same to the
   shifted_path.path.points.back().point.pose.orientation = shift_end_pose.orientation;
+
+  // for debug. result of shift is not equal to the target
   const Pose actual_shift_end_pose = shifted_path.path.points.back().point.pose;
 
   // interpolate between shift end pose to goal pose
@@ -194,13 +172,9 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
       p.lane_ids.push_back(lane.id());
     }
     shifted_path.path.points.push_back(p);
-
-    // insert a pose imediately around to the goal_pose to keep it's orientation after resampling
-    // PathPointWithLaneId p_next = p;
-    // p_next.point.pose = tier4_autoware_utils::calcOffsetPose(goal_pose, 0.1, 0, 0);
-    // shifted_path.path.points.push_back(p_next);
   }
 
+  // set the same z as the goal
   for (auto & p : shifted_path.path.points) {
     p.point.pose.position.z = goal_pose.position.z;
   }
@@ -247,9 +221,7 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   pull_over_path.partial_paths.push_back(pull_over_path.path);
   pull_over_path.start_pose = path_shifter.getShiftLines().front().start;
   pull_over_path.end_pose = path_shifter.getShiftLines().front().end;
-  // pull_over_path.debug_poses.push_back(
-  //   road_lane_reference_path_to_goal.points.back().point.pose);     // goal pose on road lane
-  pull_over_path.debug_poses.push_back(shift_end_pose_road_lane);  // shift end pose on road lane
+  pull_over_path.debug_poses.push_back(shift_end_pose_road_lane);
   pull_over_path.debug_poses.push_back(actual_shift_end_pose);
 
   // check enough distance

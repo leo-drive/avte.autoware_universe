@@ -447,7 +447,7 @@ PullOverParameters BehaviorPathPlannerNode::getPullOverParam()
   p.deceleration_interval = dp("deceleration_interval", 10.0);
   p.pull_over_velocity = dp("pull_over_velocity", 8.3);
   p.pull_over_minimum_velocity = dp("pull_over_minimum_velocity", 0.3);
-  p.after_pull_over_distance = dp("after_pull_over_distance", 3.0);
+  p.after_pull_over_straight_distance = dp("after_pull_over_straight_distance", 3.0);
   p.before_pull_over_distance = dp("before_pull_over_distance", 3.0);
   // parallel parking
   p.enable_arc_forward_parking = dp("enable_arc_forward_parking", true);
