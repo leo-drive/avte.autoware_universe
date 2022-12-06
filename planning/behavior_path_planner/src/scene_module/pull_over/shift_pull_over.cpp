@@ -305,22 +305,27 @@ bool ShiftPullOver::isSafePath(const PathWithLaneId & path) const
 double ShiftPullOver::calcBeforeShiftedArcLegth(
   const PathWithLaneId & path, const double target_after_arc_length, const double dr)
 {
+  // reverse path for checking from the end point
+  // note that the sign of curvature is also reversed
   PathWithLaneId reversed_path{};
   std::reverse_copy(
     path.points.begin(), path.points.end(), std::back_inserter(reversed_path.points));
 
   double before_arc_length{0.0};
   double after_arc_length{0.0};
-  for (const auto & [curvature, segment_length] :
+  for (const auto & [k, segment_length] :
        motion_utils::calcCurvatureAndArcLength(reversed_path.points)) {
-    if (after_arc_length + segment_length > target_after_arc_length) {
+
+    // after shifted segment length
+    const double after_segment_length =
+      k > 0 ? segment_length * (1 + k * dr) : segment_length / (1 - k * dr);
+    if (after_arc_length + after_segment_length > target_after_arc_length) {
       const double offset = target_after_arc_length - after_arc_length;
-      before_arc_length += offset / (1 + curvature * dr);
+      before_arc_length += k > 0 ? offset / (1 + k * dr) : offset * (1 - k * dr);
       break;
     }
-
-    before_arc_length += segment_length / (1 + curvature * dr);
-    after_arc_length += segment_length;
+    before_arc_length += segment_length;
+    after_arc_length += after_segment_length;
   }
 
   return before_arc_length;
