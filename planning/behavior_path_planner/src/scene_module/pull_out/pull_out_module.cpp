@@ -32,36 +32,6 @@
 using motion_utils::calcLongitudinalOffsetPose;
 using tier4_autoware_utils::calcOffsetPose;
 
-#define debug(var)              \
-  do {                          \
-    std::cerr << #var << " : "; \
-    view(var);                  \
-  } while (0)
-template <typename T>
-void view(T e)
-{
-  std::cerr << e << std::endl;
-}
-template <typename T>
-void view(const std::vector<T> & v)
-{
-  for (const auto & e : v) {
-    std::cerr << e << " ";
-  }
-  std::cerr << std::endl;
-}
-template <typename T>
-void view(const std::vector<std::vector<T> > & vv)
-{
-  for (const auto & v : vv) {
-    view(v);
-  }
-}
-#define line()                                              \
-  {                                                         \
-    std::cerr << __func__ << ": " << __LINE__ << std::endl; \
-  }
-
 namespace behavior_path_planner
 {
 PullOutModule::PullOutModule(
@@ -202,6 +172,7 @@ BehaviorModuleOutput PullOutModule::plan()
 
   BehaviorModuleOutput output;
   if (!status_.is_safe) {
+    RCLCPP_INFO(getLogger(), "not found safe path");
     return output;
   }
 
@@ -212,7 +183,6 @@ BehaviorModuleOutput PullOutModule::plan()
       incrementPathIndex();
     }
     path = getCurrentPath();
-    debug(path.points.size());
   } else {
     path = status_.backward_path;
   }
@@ -403,6 +373,7 @@ void PullOutModule::planWithPriorityOnEfficientPath(
   status_.planner_type = PlannerType::NONE;
 
   // plan with each planner
+  debug(start_pose_candidates.size());
   for (const auto & planner : pull_out_planners_) {
     for (size_t i = 0; i < start_pose_candidates.size(); ++i) {
       // pull out start pose is current_pose
@@ -463,11 +434,8 @@ void PullOutModule::planWithPriorityOnShortBackDistance(
 void PullOutModule::generateStopPath()
 {
   const auto & current_pose = planner_data_->self_pose->pose;
-  // constexpr double dummy_path_distance = 1.0;
-
-  // const auto & moved_pose = calcOffsetPose(current_pose, dummy_path_distance, 0, 0);
-  const auto & moved_pose =
-    calcOffsetPose(current_pose, -planner_data_->parameters.backward_path_length, 0, 0);
+  constexpr double dummy_path_distance = 1.0;
+  const auto & moved_pose = calcOffsetPose(current_pose, dummy_path_distance, 0, 0);
 
   // convert Pose to PathPointWithLaneId with 0 velocity.
   auto toPathPointWithLaneId = [this](const Pose & pose) {
@@ -482,8 +450,8 @@ void PullOutModule::generateStopPath()
   };
 
   PathWithLaneId path{};
-  path.points.push_back(toPathPointWithLaneId(moved_pose));
   path.points.push_back(toPathPointWithLaneId(current_pose));
+  path.points.push_back(toPathPointWithLaneId(moved_pose));
 
   status_.pull_out_path.partial_paths.push_back(path);
   status_.pull_out_path.start_pose = current_pose;
