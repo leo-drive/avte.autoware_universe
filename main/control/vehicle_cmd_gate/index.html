@@ -11054,9 +11054,9 @@
 <td>true when emergency handler is used</td>
 </tr>
 <tr>
-<td><code>use_external_emergency_stop</code></td>
+<td><code>check_external_emergency_heartbeat</code></td>
 <td>bool</td>
-<td>true when external emergency stop information is used</td>
+<td>true when checking heartbeat for emergency stop</td>
 </tr>
 <tr>
 <td><code>system_emergency_heartbeat_timeout</code></td>
@@ -11131,9 +11131,9 @@
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<p>The parameter <code>use_external_emergency_stop</code> (true by default) enables an emergency stop request from external modules.
+<p>The parameter <code>check_external_emergency_heartbeat</code> (true by default) enables an emergency stop request from external modules.
 This feature requires a <code>~/input/external_emergency_stop_heartbeat</code> topic for health monitoring of the external module, and the vehicle_cmd_gate module will not start without the topic.
-The <code>use_external_emergency_stop</code> parameter must be false when the "external emergency stop" function is not used.</p>
+The <code>check_external_emergency_heartbeat</code> parameter must be false when the "external emergency stop" function is not used.</p>
 
 
 
