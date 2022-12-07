@@ -216,11 +216,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/main/common/web_controller/</loc>
-         <lastmod>2022-12-07</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/control/control_performance_analysis/</loc>
          <lastmod>2022-12-07</lastmod>
          <changefreq>daily</changefreq>
