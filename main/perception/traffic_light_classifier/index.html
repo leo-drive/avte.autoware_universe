@@ -11029,7 +11029,8 @@
 <p>traffic_light_classifier is a package for classifying traffic light labels using cropped image around a traffic light. This package has two classifier models: <code>cnn_classifier</code> and <code>hsv_classifier</code>.</p>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
 <h3 id="cnn_classifier">cnn_classifier<a class="headerlink" href="#cnn_classifier" title="Permanent link">#</a></h3>
-<p>Traffic light labels are classified by MobileNetV2.</p>
+<p>Traffic light labels are classified by MobileNetV2.<br />
+Totally 37600 (26300 for training, 6800 for evaluation and 4500 for test) TIER IV internal images of Japanese traffic lights were used for fine-tuning.</p>
 <h3 id="hsv_classifier">hsv_classifier<a class="headerlink" href="#hsv_classifier" title="Permanent link">#</a></h3>
 <p>Traffic light colors (green, yellow and red) are classified in HSV model.</p>
 <h3 id="about-label">About Label<a class="headerlink" href="#about-label" title="Permanent link">#</a></h3>
