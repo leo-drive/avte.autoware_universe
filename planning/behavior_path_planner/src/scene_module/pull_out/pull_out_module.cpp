@@ -373,7 +373,6 @@ void PullOutModule::planWithPriorityOnEfficientPath(
   status_.planner_type = PlannerType::NONE;
 
   // plan with each planner
-  debug(start_pose_candidates.size());
   for (const auto & planner : pull_out_planners_) {
     for (size_t i = 0; i < start_pose_candidates.size(); ++i) {
       // pull out start pose is current_pose

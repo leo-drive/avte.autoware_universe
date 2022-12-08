@@ -88,8 +88,6 @@ boost::optional<PullOutPath> ShiftPullOut::plan(Pose start_pose, Pose goal_pose)
       path_start_to_end.points.insert(
         path_start_to_end.points.begin(), shift_path.points.begin() + pull_out_start_idx,
         shift_path.points.begin() + collsion_check_end_idx+1);
-      debug(shift_path.points.size());
-      debug(path_start_to_end.points.size());
     }
 
     // check lane departure
