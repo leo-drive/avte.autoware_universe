@@ -222,7 +222,7 @@ std::vector<PullOutPath> ShiftPullOut::calcPullOutPaths(
     }
 
     // add shifted path to candidates
-    PullOutPath candidate_path{};
+    PullOutPath candidate_path;
     candidate_path.partial_paths.push_back(shifted_path.path);
     candidate_path.start_pose = shift_line.start;
     candidate_path.end_pose = shift_line.end;

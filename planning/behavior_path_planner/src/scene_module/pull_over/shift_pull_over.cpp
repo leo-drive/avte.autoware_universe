@@ -42,27 +42,17 @@ boost::optional<PullOverPath> ShiftPullOver::plan(const Pose & goal_pose)
   const int pull_over_sampling_num = parameters_.pull_over_sampling_num;
   const double jerk_resolution = std::abs(max_jerk - min_jerk) / pull_over_sampling_num;
 
+  // get road and shoulder lanes
   const auto road_lanes = util::getExtendedCurrentLanes(planner_data_);
   const auto shoulder_lanes = pull_over_utils::getPullOverLanes(*route_handler);
   if (road_lanes.empty() || shoulder_lanes.empty()) {
     return {};
   }
 
-  // calculate lateral distances from road lane center to goal
-  lanelet::ConstLanelet goal_closest_road_lane{};
-  lanelet::utils::query::getClosestLanelet(road_lanes, goal_pose, &goal_closest_road_lane);
-  const auto road_center_pose =
-    lanelet::utils::getClosestCenterPose(goal_closest_road_lane, goal_pose.position);
-  const double shoulder_left_bound_to_road_center = util::getSignedDistanceFromShoulderLeftBoundary(
-    shoulder_lanes, vehicle_footprint_, road_center_pose);
-  const double shoulder_left_bound_to_goal_distance =
-    util::getSignedDistanceFromShoulderLeftBoundary(shoulder_lanes, vehicle_footprint_, goal_pose);
-  const double road_center_to_goal_distance =
-    -shoulder_left_bound_to_road_center + shoulder_left_bound_to_goal_distance;
-
+  // find safe one from paths with diffrent jerk
   for (double lateral_jerk = min_jerk; lateral_jerk <= max_jerk; lateral_jerk += jerk_resolution) {
-    const auto pull_over_path = generatePullOverPath(
-      road_lanes, shoulder_lanes, goal_pose, lateral_jerk, road_center_to_goal_distance);
+    const auto pull_over_path =
+      generatePullOverPath(road_lanes, shoulder_lanes, goal_pose, lateral_jerk);
     if (!pull_over_path) continue;
     return *pull_over_path;
   }
@@ -104,12 +94,10 @@ PathWithLaneId ShiftPullOver::generateReferencePath(
 
 boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   const lanelet::ConstLanelets & road_lanes, const lanelet::ConstLanelets & shoulder_lanes,
-  const Pose & goal_pose, const double lateral_jerk,
-  const double road_center_to_goal_distance) const
+  const Pose & goal_pose, const double lateral_jerk) const
 {
   const double pull_over_velocity = parameters_.pull_over_velocity;
   const double after_pull_over_straight_distance = parameters_.after_pull_over_straight_distance;
-  const double margin_from_boundary = parameters_.margin_from_boundary;
 
   const Pose shift_end_pose =
     tier4_autoware_utils::calcOffsetPose(goal_pose, -after_pull_over_straight_distance, 0, 0);

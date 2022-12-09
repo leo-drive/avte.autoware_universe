@@ -45,8 +45,7 @@ protected:
     const lanelet::ConstLanelets & road_lanes, const Pose & end_pose) const;
   boost::optional<PullOverPath> generatePullOverPath(
     const lanelet::ConstLanelets & road_lanes, const lanelet::ConstLanelets & shoulder_lanes,
-    const Pose & goal_pose, const double lateral_jerk,
-    const double road_center_to_goal_distance) const;
+    const Pose & goal_pose, const double lateral_jerk) const;
   bool hasEnoughDistance(
     const PathWithLaneId & path, const lanelet::ConstLanelets & road_lanes, const Pose & start_pose,
     const Pose & goal_pose, const double pull_over_distance) const;

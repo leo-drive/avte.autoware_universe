@@ -23,36 +23,6 @@
 #include <memory>
 #include <vector>
 
-#define debug(var)              \
-  do {                          \
-    std::cerr << #var << " : "; \
-    view(var);                  \
-  } while (0)
-template <typename T>
-void view(T e)
-{
-  std::cerr << e << std::endl;
-}
-template <typename T>
-void view(const std::vector<T> & v)
-{
-  for (const auto & e : v) {
-    std::cerr << e << " ";
-  }
-  std::cerr << std::endl;
-}
-template <typename T>
-void view(const std::vector<std::vector<T> > & vv)
-{
-  for (const auto & v : vv) {
-    view(v);
-  }
-}
-#define line()                                              \
-  {                                                         \
-    std::cerr << __func__ << ": " << __LINE__ << std::endl; \
-  }
-
 namespace behavior_path_planner
 {
 using lane_departure_checker::LaneDepartureChecker;
