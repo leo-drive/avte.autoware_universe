@@ -27,6 +27,7 @@ namespace behavior_path_planner
 {
 using autoware_auto_planning_msgs::msg::PathPointWithLaneId;
 using tier4_autoware_utils::LinearRing2d;
+using BasicPolygons2d = std::vector<lanelet::BasicPolygon2d>;
 
 class GoalSearcher : public GoalSearcherBase
 {
@@ -43,6 +44,8 @@ private:
   bool checkCollisionWithLongitudinalDistance(
     const Pose & ego_pose, const PredictedObjects & dynamic_objects) const;
   void insertOrientationToPrev(std::vector<PathPointWithLaneId> & points);
+  BasicPolygons2d getNoStoppingAreaPolygons(const lanelet::ConstLanelets & lanes) const;
+  bool isInAreas(const LinearRing2d & footprint, const BasicPolygons2d & areas) const;
 
   LinearRing2d vehicle_footprint_{};
   std::shared_ptr<OccupancyGridBasedCollisionDetector> occupancy_grid_map_{};
