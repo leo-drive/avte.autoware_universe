@@ -12,7 +12,7 @@
     path_filter_moving_ave_num: 25 # param of moving average filter for path smoothing
 
     # -- trajectory extening --
-    enable_traj_extending: true  # flag of trajectory extending for ternimal yaw
+    enable_traj_extending: true  # flag of trajectory extending for terminal yaw
 
     # -- mpc optimization --
     qp_solver_type: "osqp"                       # optimization solver option (unconstraint_fast or osqp)
