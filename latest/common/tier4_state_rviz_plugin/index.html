@@ -10870,7 +10870,7 @@
 
 <h1 id="tier4_state_rviz_plugin">tier4_state_rviz_plugin<a class="headerlink" href="#tier4_state_rviz_plugin" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
-<p>This plugin displays the current status of autoware.<br />
+<p>This plugin displays the current status of autoware.
 This plugin also can engage from the panel.</p>
 <h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
 <h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
@@ -10884,24 +10884,34 @@ This plugin also can engage from the panel.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>/control/current_gate_mode</code></td>
-<td><code>tier4_control_msgs::msg::GateMode</code></td>
-<td>The topic represents the state of AUTO or EXTERNAL</td>
+<td><code>/api/operation_mode/state</code></td>
+<td><code>autoware_adapi_v1_msgs::msg::OperationModeState</code></td>
+<td>The topic represents the state of operation mode</td>
 </tr>
 <tr>
-<td><code>/autoware/state</code></td>
-<td><code>autoware_auto_system_msgs::msg::AutowareState</code></td>
-<td>The topic represents the state of Autoware</td>
+<td><code>/api/routing/state</code></td>
+<td><code>autoware_adapi_v1_msgs::msg::RouteState</code></td>
+<td>The topic represents the state of route</td>
+</tr>
+<tr>
+<td><code>/api/localization/initialization_state</code></td>
+<td><code>autoware_adapi_v1_msgs::msg::LocalizationInitializationState</code></td>
+<td>The topic represents the state of localization initialization</td>
+</tr>
+<tr>
+<td><code>/api/motion/state</code></td>
+<td><code>autoware_adapi_v1_msgs::msg::MotionState</code></td>
+<td>The topic represents the state of motion</td>
+</tr>
+<tr>
+<td><code>/api/autoware/get/emergency</code></td>
+<td><code>tier4_external_api_msgs::msg::Emergency</code></td>
+<td>The topic represents the state of external emergency</td>
 </tr>
 <tr>
 <td><code>/vehicle/status/gear_status</code></td>
 <td><code>autoware_auto_vehicle_msgs::msg::GearReport</code></td>
-<td>The topic represents the state of Gear</td>
-</tr>
-<tr>
-<td><code>/api/external/get/engage</code></td>
-<td><code>tier4_external_api_msgs::msg::EngageStatus</code></td>
-<td>The topic represents the state of Engage</td>
+<td>The topic represents the state of gear</td>
 </tr>
 </tbody>
 </table>
@@ -10916,20 +10926,71 @@ This plugin also can engage from the panel.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>/api/external/set/engage</code></td>
-<td><code>tier4_external_api_msgs::srv::Engage</code></td>
-<td>The service inputs engage true</td>
+<td><code>/api/operation_mode/change_to_autonomous</code></td>
+<td><code>autoware_adapi_v1_msgs::srv::ChangeOperationMode</code></td>
+<td>The service to change operation mode to autonomous</td>
+</tr>
+<tr>
+<td><code>/api/operation_mode/change_to_stop</code></td>
+<td><code>autoware_adapi_v1_msgs::srv::ChangeOperationMode</code></td>
+<td>The service to change operation mode to stop</td>
+</tr>
+<tr>
+<td><code>/api/operation_mode/change_to_local</code></td>
+<td><code>autoware_adapi_v1_msgs::srv::ChangeOperationMode</code></td>
+<td>The service to change operation mode to local</td>
+</tr>
+<tr>
+<td><code>/api/operation_mode/change_to_remote</code></td>
+<td><code>autoware_adapi_v1_msgs::srv::ChangeOperationMode</code></td>
+<td>The service to change operation mode to remote</td>
+</tr>
+<tr>
+<td><code>/api/operation_mode/enable_autoware_control</code></td>
+<td><code>autoware_adapi_v1_msgs::srv::ChangeOperationMode</code></td>
+<td>The service to enable vehicle control by Autoware</td>
+</tr>
+<tr>
+<td><code>/api/operation_mode/disable_autoware_control</code></td>
+<td><code>autoware_adapi_v1_msgs::srv::ChangeOperationMode</code></td>
+<td>The service to disable vehicle control by Autoware</td>
+</tr>
+<tr>
+<td><code>/api/routing/clear_route</code></td>
+<td><code>autoware_adapi_v1_msgs::srv::ClearRoute</code></td>
+<td>The service to clear route state</td>
+</tr>
+<tr>
+<td><code>/api/motion/accept_start</code></td>
+<td><code>autoware_adapi_v1_msgs::srv::AcceptStart</code></td>
+<td>The service to accept the vehicle to start</td>
+</tr>
+<tr>
+<td><code>/api/autoware/set/emergency</code></td>
+<td><code>tier4_external_api_msgs::srv::SetEmergency</code></td>
+<td>The service to set external emergency</td>
+</tr>
+<tr>
+<td><code>/planning/scenario_planning/max_velocity_default</code></td>
+<td><code>tier4_planning_msgs::msg::VelocityLimit</code></td>
+<td>The topic to set maximum speed of the vehicle</td>
 </tr>
 </tbody>
 </table>
 <h2 id="howtouse">HowToUse<a class="headerlink" href="#howtouse" title="Permanent link">#</a></h2>
 <ol>
-<li>Start rviz and select panels/Add new panel.
-   <img alt="select_panel" src="images/select_panels.png" /></li>
-<li>Select tier4_state_rviz_plugin/AutowareStatePanel and press OK.
-   <img alt="select_state_plugin" src="images/select_state_plugin.png" /></li>
-<li>If the AutowareState is WaitingForEngage, can engage by clicking the Engage button.
-   <img alt="select_engage" src="images/select_engage.png" /></li>
+<li>
+<p>Start rviz and select panels/Add new panel.</p>
+<p><img alt="select_panel" src="images/select_panels.png" /></p>
+</li>
+<li>
+<p>Select tier4_state_rviz_plugin/AutowareStatePanel and press OK.</p>
+<p><img alt="select_state_plugin" src="images/select_state_plugin.png" /></p>
+</li>
+<li>
+<p>If the auto button is activated, can engage by clicking it.</p>
+<p><img alt="select_auto" src="images/select_auto.png" /></p>
+</li>
 </ol>
 
 
