@@ -69,25 +69,21 @@ boost::optional<PullOutPath> ShiftPullOut::plan(Pose start_pose, Pose goal_pose)
     {
       const size_t pull_out_start_idx = findNearestIndex(shift_path.points, start_pose.position);
 
-      /////todo, make prams.
-      const double tmp_offset =  parameters_.before_pull_out_straight_distance;
-      //////
-
       // calculate collision check end idx
       const size_t collsion_check_end_idx = std::invoke([&]() {
         const auto collision_check_end_pose = motion_utils::calcLongitudinalOffsetPose(
-          shift_path.points, pull_out_path.end_pose.position, tmp_offset);
+          shift_path.points, pull_out_path.end_pose.position,
+          parameters_.collision_check_distane_from_end);
 
         if (collision_check_end_pose) {
           return findNearestIndex(shift_path.points, collision_check_end_pose->position);
         } else {
           return shift_path.points.size() - 1;
         }
-
       });
       path_start_to_end.points.insert(
         path_start_to_end.points.begin(), shift_path.points.begin() + pull_out_start_idx,
-        shift_path.points.begin() + collsion_check_end_idx+1);
+        shift_path.points.begin() + collsion_check_end_idx + 1);
     }
 
     // check lane departure
@@ -144,8 +140,7 @@ std::vector<PullOutPath> ShiftPullOut::calcPullOutPaths(
 
   for (double lateral_jerk = minimum_lateral_jerk; lateral_jerk <= maximum_lateral_jerk;
        lateral_jerk += jerk_resolution) {
-
-    //lateral distance from road center to start pose
+    // lateral distance from road center to start pose
     const double shift_length = getArcCoordinates(road_lanes, start_pose).distance;
 
     PathWithLaneId road_lane_reference_path{};
@@ -165,7 +160,8 @@ std::vector<PullOutPath> ShiftPullOut::calcPullOutPaths(
       PathShifter::calcLongitudinalDistFromJerk(
         abs(shift_length), lateral_jerk, shift_pull_out_velocity),
       minimum_shift_pull_out_distance);
-    const size_t shift_start_idx = findNearestIndex(road_lane_reference_path.points, start_pose.position);
+    const size_t shift_start_idx =
+      findNearestIndex(road_lane_reference_path.points, start_pose.position);
     PathWithLaneId road_lane_reference_path_from_ego = road_lane_reference_path;
     road_lane_reference_path_from_ego.points.erase(
       road_lane_reference_path_from_ego.points.begin(),
@@ -177,7 +173,8 @@ std::vector<PullOutPath> ShiftPullOut::calcPullOutPaths(
     // check has enough distance
     const bool is_in_goal_route_section = route_handler.isInGoalRouteSection(road_lanes.back());
     if (!hasEnoughDistance(
-          before_shifted_pull_out_distance, road_lanes, start_pose, is_in_goal_route_section, goal_pose)) {
+          before_shifted_pull_out_distance, road_lanes, start_pose, is_in_goal_route_section,
+          goal_pose)) {
       continue;
     }
 
@@ -257,9 +254,7 @@ double ShiftPullOut::calcBeforeShiftedArcLegth(
   double before_arc_length{0.0};
   double after_arc_length{0.0};
 
-  for (const auto & [k, segment_length] :
-       motion_utils::calcCurvatureAndArcLength(path.points)) {
-
+  for (const auto & [k, segment_length] : motion_utils::calcCurvatureAndArcLength(path.points)) {
     // after shifted segment length
     const double after_segment_length =
       k < 0 ? segment_length * (1 - k * dr) : segment_length / (1 + k * dr);
