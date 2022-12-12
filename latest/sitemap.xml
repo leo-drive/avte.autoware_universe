@@ -996,6 +996,46 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/default_ad_api/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/default_ad_api/document/autoware-state/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/default_ad_api/document/fail-safe/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/default_ad_api/document/interface/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/default_ad_api/document/localization/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/default_ad_api/document/motion/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/default_ad_api/document/operation-mode/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/default_ad_api/document/routing/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/system/default_ad_api_helpers/ad_api_adaptors/</loc>
          <lastmod>2022-12-12</lastmod>
          <changefreq>daily</changefreq>
