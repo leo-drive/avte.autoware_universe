@@ -11063,6 +11063,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#goal-validation" class="md-nav__link">
+    Goal Validation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#implementation" class="md-nav__link">
     Implementation
   </a>
@@ -11155,6 +11162,11 @@ In current Autoware.universe, only Lanelet2 map format is supported.</p>
 <td>double</td>
 <td>Duration threshold for goal check</td>
 </tr>
+<tr>
+<td><code>goal_angle_threshold</code></td>
+<td>double</td>
+<td>Max goal pose angle for goal approve</td>
+</tr>
 </tbody>
 </table>
 <h3 id="services">Services<a class="headerlink" href="#services" title="Permanent link">#</a></h3>
@@ -11231,6 +11243,11 @@ In current Autoware.universe, only Lanelet2 map format is supported.</p>
 <td>visualization_msgs::msg::MarkerArray</td>
 <td>route marker for debug</td>
 </tr>
+<tr>
+<td><code>debug/goal_footprint</code></td>
+<td>visualization_msgs::msg::MarkerArray</td>
+<td>goal footprint for debug</td>
+</tr>
 </tbody>
 </table>
 <h2 id="route-section">Route section<a class="headerlink" href="#route-section" title="Permanent link">#</a></h2>
@@ -11243,6 +11260,11 @@ Therefore, route message does not contain geometric information about the lane s
 <li><code>preferred_primitive</code>: Preferred lane to follow towards the goal.</li>
 <li><code>primitives</code>: All neighbor lanes in the same direction including the preferred lane.</li>
 </ul>
+<h2 id="goal-validation">Goal Validation<a class="headerlink" href="#goal-validation" title="Permanent link">#</a></h2>
+<p>The mission planner has control mechanism to validate the given goal pose and create a route. If goal pose angle between goal pose lanelet and goal pose' yaw is greater than <code>goal_angle_threshold</code> parameter, the goal is rejected.
+Another control mechanism is the creation of a footprint of the goal pose according to the dimensions of the vehicle and checking whether this footprint is within the lanelets. If goal footprint exceeds lanelets, then the goal is rejected.</p>
+<p>At the image below, there are sample goal pose validation cases.</p>
+<p><img alt="goal_footprints" src="media/goal_footprints.svg" /></p>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">#</a></h2>
 <h3 id="mission-planner_1">Mission Planner<a class="headerlink" href="#mission-planner_1" title="Permanent link">#</a></h3>
 <p>Two callbacks (goal and check points) are a trigger for route planning.
