@@ -11044,6 +11044,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#send-differential-pointcloud-map-ros-2-service" class="md-nav__link">
+    Send differential pointcloud map (ROS 2 service)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -11173,6 +11180,7 @@ Currently, it supports the following two types:</p>
 <li>Publish raw pointcloud map</li>
 <li>Publish downsampled pointcloud map</li>
 <li>Send partial pointcloud map loading via ROS 2 service</li>
+<li>Send differential pointcloud map loading via ROS 2 service</li>
 </ul>
 <h4 id="publish-raw-pointcloud-map-ros-2-topic">Publish raw pointcloud map (ROS 2 topic)<a class="headerlink" href="#publish-raw-pointcloud-map-ros-2-topic" title="Permanent link">#</a></h4>
 <p>The node publishes the raw pointcloud map loaded from the <code>.pcd</code> file(s).</p>
@@ -11182,6 +11190,10 @@ Currently, it supports the following two types:</p>
 <p>Here, we assume that the pointcloud maps are divided into grids.</p>
 <p>Given a query from a client node, the node sends a set of pointcloud maps that overlaps with the queried area.
 Please see <a href="https://github.com/autowarefoundation/autoware_msgs/tree/main/autoware_map_msgs#getpartialpointcloudmapsrv">the description of <code>GetPartialPointCloudMap.srv</code></a> for details.</p>
+<h4 id="send-differential-pointcloud-map-ros-2-service">Send differential pointcloud map (ROS 2 service)<a class="headerlink" href="#send-differential-pointcloud-map-ros-2-service" title="Permanent link">#</a></h4>
+<p>Here, we assume that the pointcloud maps are divided into grids.</p>
+<p>Given a query and set of map IDs, the node sends a set of pointcloud maps that overlap with the queried area and are not included in the set of map IDs.
+Please see <a href="https://github.com/autowarefoundation/autoware_msgs/tree/main/autoware_map_msgs#getdifferentialpointcloudmapsrv">the description of <code>GetDifferentialPointCloudMap.srv</code></a> for details.</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -11212,6 +11224,12 @@ Please see <a href="https://github.com/autowarefoundation/autoware_msgs/tree/mai
 <td align="left">false</td>
 </tr>
 <tr>
+<td align="left">enable_differential_load</td>
+<td align="left">bool</td>
+<td align="left">A flag to enable differential pointcloud map server</td>
+<td align="left">false</td>
+</tr>
+<tr>
 <td align="left">leaf_size</td>
 <td align="left">float</td>
 <td align="left">Downsampling leaf size (only used when enable_downsampled_whole_load is set true)</td>
@@ -11224,6 +11242,7 @@ Please see <a href="https://github.com/autowarefoundation/autoware_msgs/tree/mai
 <li><code>output/pointcloud_map</code> (sensor_msgs/msg/PointCloud2) : Raw pointcloud map</li>
 <li><code>output/debug/downsampled_pointcloud_map</code> (sensor_msgs/msg/PointCloud2) : Downsampled pointcloud map</li>
 <li><code>service/get_partial_pcd_map</code> (autoware_map_msgs/srv/GetPartialPointCloudMap) : Partial pointcloud map</li>
+<li><code>service/get_differential_pcd_map</code> (autoware_map_msgs/srv/GetDifferentialPointCloudMap) : Differential pointcloud map</li>
 </ul>
 <hr />
 <h2 id="lanelet2_map_loader">lanelet2_map_loader<a class="headerlink" href="#lanelet2_map_loader" title="Permanent link">#</a></h2>
