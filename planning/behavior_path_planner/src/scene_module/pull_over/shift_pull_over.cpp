@@ -184,23 +184,27 @@ boost::optional<PullOverPath> ShiftPullOver::generatePullOverPath(
   // set lane_id and velocity to shifted_path
   for (size_t i = 0; i < shifted_path.path.points.size() - 1; ++i) {
     auto & point = shifted_path.path.points.at(i);
-    // add road lane_ids if not found
-    for (const auto id : shifted_path.path.points.back().lane_ids) {
-      if (std::find(point.lane_ids.begin(), point.lane_ids.end(), id) == point.lane_ids.end()) {
-        point.lane_ids.push_back(id);
-      }
-    }
-    // add shoulder lane_id if not found
-    for (const auto & lane : shoulder_lanes) {
-      if (
-        std::find(point.lane_ids.begin(), point.lane_ids.end(), lane.id()) ==
-        point.lane_ids.end()) {
-        point.lane_ids.push_back(lane.id());
-      }
-    }
     // set velocity
     point.point.longitudinal_velocity_mps =
       std::min(point.point.longitudinal_velocity_mps, static_cast<float>(pull_over_velocity));
+
+    // add target lanes to points after shift start
+    if (path_shifter.getShiftLines().front().start_idx < i) {
+      // add road lane_ids if not found
+      for (const auto id : shifted_path.path.points.back().lane_ids) {
+        if (std::find(point.lane_ids.begin(), point.lane_ids.end(), id) == point.lane_ids.end()) {
+          point.lane_ids.push_back(id);
+        }
+      }
+      // add shoulder lane_id if not found
+      for (const auto & lane : shoulder_lanes) {
+        if (
+          std::find(point.lane_ids.begin(), point.lane_ids.end(), lane.id()) ==
+          point.lane_ids.end()) {
+          point.lane_ids.push_back(lane.id());
+        }
+      }
+    }
   }
 
   // set pull over path
@@ -303,7 +307,6 @@ double ShiftPullOver::calcBeforeShiftedArcLegth(
   double after_arc_length{0.0};
   for (const auto & [k, segment_length] :
        motion_utils::calcCurvatureAndArcLength(reversed_path.points)) {
-
     // after shifted segment length
     const double after_segment_length =
       k > 0 ? segment_length * (1 + k * dr) : segment_length / (1 - k * dr);
