@@ -11,7 +11,7 @@
     enable_path_smoothing: false   # flag for path smoothing
     path_filter_moving_ave_num: 25 # param of moving average filter for path smoothing
 
-    # -- trajectory extening --
+    # -- trajectory extending --
     extend_trajectory_for_end_yaw_control: true  # flag of trajectory extending for terminal yaw control
 
     # -- mpc optimization --
