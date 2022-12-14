@@ -431,17 +431,16 @@ BehaviorModuleOutput PullOverModule::plan()
         first_path, parameters_.pull_over_velocity, search_start_pose,
         -calcMinimumShiftPathDistance(), parameters_.deceleration_interval);
     }
-  }
 
-  // generate drivable area for each partial path
-  for (size_t i = status_.current_path_idx; i < status_.pull_over_path.partial_paths.size(); ++i) {
-    auto & path = status_.pull_over_path.partial_paths.at(i);
-    const auto p = planner_data_->parameters;
-    const auto shorten_lanes = util::cutOverlappedLanes(path, status_.lanes);
-    const auto lane = util::expandLanelets(
-      shorten_lanes, parameters_.drivable_area_left_bound_offset,
-      parameters_.drivable_area_right_bound_offset);
-    util::generateDrivableArea(path, lane, p.vehicle_length, planner_data_);
+    // generate drivable area for each partial path
+    for (auto & path : status_.pull_over_path.partial_paths) {
+      const auto shorten_lanes = util::cutOverlappedLanes(path, status_.lanes);
+      const auto expanded_lanes = util::expandLanelets(
+        shorten_lanes, parameters_.drivable_area_left_bound_offset,
+        parameters_.drivable_area_right_bound_offset);
+      util::generateDrivableArea(
+        path, expanded_lanes, planner_data_->parameters.vehicle_length, planner_data_);
+    }
   }
 
   BehaviorModuleOutput output;
@@ -608,13 +607,14 @@ PathWithLaneId PullOverModule::getReferencePath() const
     reference_path, parameters_.pull_over_velocity, search_start_pose,
     -calcMinimumShiftPathDistance(), parameters_.deceleration_interval);
 
+  // generate drivable area
   const auto drivable_lanes = util::generateDrivableLanes(status_.current_lanes);
   const auto shorten_lanes = util::cutOverlappedLanes(reference_path, drivable_lanes);
-  const auto lanes = util::expandLanelets(
+  const auto expanded_lanes = util::expandLanelets(
     shorten_lanes, parameters_.drivable_area_left_bound_offset,
     parameters_.drivable_area_right_bound_offset);
   util::generateDrivableArea(
-    reference_path, lanes, common_parameters.vehicle_length, planner_data_);
+    reference_path, expanded_lanes, common_parameters.vehicle_length, planner_data_);
 
   return reference_path;
 }
@@ -656,13 +656,13 @@ PathWithLaneId PullOverModule::generateStopPath() const
     }
   }
 
+  // generate drivable area
   const auto drivable_lanes = util::generateDrivableLanes(status_.current_lanes);
   const auto shorten_lanes = util::cutOverlappedLanes(stop_path, drivable_lanes);
-  const auto lanes = util::expandLanelets(
+  const auto expanded_lanes = util::expandLanelets(
     shorten_lanes, parameters_.drivable_area_left_bound_offset,
     parameters_.drivable_area_right_bound_offset);
-
-  util::generateDrivableArea(stop_path, lanes, common_parameters.vehicle_length, planner_data_);
+  util::generateDrivableArea(stop_path, expanded_lanes, common_parameters.vehicle_length, planner_data_);
 
   return stop_path;
 }
