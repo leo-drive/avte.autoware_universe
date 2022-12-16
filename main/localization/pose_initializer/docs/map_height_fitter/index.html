@@ -4591,6 +4591,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#services" class="md-nav__link">
     Services
   </a>
@@ -4600,6 +4607,13 @@
           <li class="md-nav__item">
   <a href="#subscriptions" class="md-nav__link">
     Subscriptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clients" class="md-nav__link">
+    Clients
   </a>
   
 </li>
@@ -11109,6 +11123,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#services" class="md-nav__link">
     Services
   </a>
@@ -11118,6 +11139,13 @@
           <li class="md-nav__item">
   <a href="#subscriptions" class="md-nav__link">
     Subscriptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clients" class="md-nav__link">
+    Clients
   </a>
   
 </li>
@@ -11153,7 +11181,33 @@
 Use this service as preprocessing for <code>pose_initializer</code> when using a initial poses with inaccurate height such as RViz and GNSS.
 This service replaces the Z value of the input pose with the lowest point of the map point cloud within a cylinder of XY-radius.
 If no point is found in this range, returns the input pose without changes.</p>
+<p>Note that this package supports partial map loading interface, which is disabled by default. The interface is intended to be enabled when
+the pointcloud map is too large to handle. By using the interface, the node will request for a partial map around the requested position
+instead of loading whole map by subscription interface. To use this interface,</p>
+<ol>
+<li>Set <code>enable_partial_map_load</code> in this node to <code>true</code></li>
+<li>Set <code>enable_partial_load</code> in <code>pointcloud_map_loader</code> to <code>true</code></li>
+</ol>
 <h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
+<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enable_partial_map_load</code></td>
+<td>bool</td>
+<td>If true, use partial map load interface. If false, use topic subscription interaface.</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
 <h3 id="services">Services<a class="headerlink" href="#services" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -11185,6 +11239,23 @@ If no point is found in this range, returns the input pose without changes.</p>
 <td><code>/map/pointcloud_map</code></td>
 <td>sensor_msgs::msg::PointCloud2</td>
 <td>pointcloud map</td>
+</tr>
+</tbody>
+</table>
+<h3 id="clients">Clients<a class="headerlink" href="#clients" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/map/get_partial_pointcloud_map</code></td>
+<td>autoware_map_msgs::srv::GetPartialPointCloudMap</td>
+<td>client for requesting partial pointcloud map</td>
 </tr>
 </tbody>
 </table>
