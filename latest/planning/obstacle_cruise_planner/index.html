@@ -11388,15 +11388,15 @@ This planner data is created first, and then sent to the planning algorithm.</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">TargetObstacle</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="n">time_stamp</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">orientation_reliable</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Pose</span><span class="w"> </span><span class="n">pose</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">orientation_reliable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">velocity</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">velocity_reliable</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">velocity</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_classified</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="n">ObjectClassification</span><span class="w"> </span><span class="n">classification</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">Shape</span><span class="w"> </span><span class="n">shape</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">uuid</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PredictedPath</span><span class="o">&gt;</span><span class="w"> </span><span class="n">predicted_paths</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Point</span><span class="w"> </span><span class="n">collision_point</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">PointStamped</span><span class="o">&gt;</span><span class="w"> </span><span class="n">collision_points</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_stopped</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </code></pre></div>
 <h3 id="obstacle-candidates-selection">Obstacle candidates selection<a class="headerlink" href="#obstacle-candidates-selection" title="Permanent link">#</a></h3>
