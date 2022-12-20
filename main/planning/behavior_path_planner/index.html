@@ -6971,6 +6971,8 @@
         
           
         
+          
+        
       
       
         
@@ -7015,6 +7017,20 @@
     <li class="md-nav__item">
       <a href="behavior_path_planner_design_limitations/" class="md-nav__link">
         Design limitation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="behavior_path_planner_drivable_area/" class="md-nav__link">
+        Drivable Area
       </a>
     </li>
   
@@ -11073,26 +11089,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#drivable-area-generation" class="md-nav__link">
-    Drivable Area Generation
-  </a>
-  
-    <nav class="md-nav" aria-label="Drivable Area Generation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameters-for-drivable-area-generation" class="md-nav__link">
-    Parameters for drivable area generation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#behavior-tree" class="md-nav__link">
     Behavior Tree
   </a>
@@ -11621,65 +11617,6 @@
 <li>path_change_force [<code>tier4_planning_msgs::PathChangeModule</code>] : (For remote control)</li>
 </ul>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
-<h3 id="drivable-area-generation">Drivable Area Generation<a class="headerlink" href="#drivable-area-generation" title="Permanent link">#</a></h3>
-<p>Drivable lanes are quantized and drawn on an image as a drivable area, whose resolution is <code>drivable_area_resolution</code>.
-To prevent the quantization from causing instability to the planning modules, drivable area's pose follows the rules below.</p>
-<ul>
-<li>Drivable area is generated in the map coordinate.</li>
-<li>Its position is quantized with <code>drivable_area_resolution</code>.</li>
-<li>Its orientation is 0.</li>
-</ul>
-<p>The size of the drivable area changes dynamically to realize both decreasing the computation cost and covering enough lanes to follow.
-For the second purpose, the drivable area covers a certain length forward and backward lanes with some margins defined by parameters.</p>
-<h4 id="parameters-for-drivable-area-generation">Parameters for drivable area generation<a class="headerlink" href="#parameters-for-drivable-area-generation" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Unit</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">drivable_area_resolution</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">resolution of the image of the drivable area</td>
-<td align="left">0.1</td>
-</tr>
-<tr>
-<td align="left">drivable_lane_forward_length</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">length of the forward lane from the ego covered by the drivable area</td>
-<td align="left">50.0</td>
-</tr>
-<tr>
-<td align="left">drivable_lane_backward_length</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">length of the backward lane from the ego covered by the drivable area</td>
-<td align="left">5.0</td>
-</tr>
-<tr>
-<td align="left">drivable_lane_margin</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">forward and backward lane margin from the ego covered by the drivable area</td>
-<td align="left">3.0</td>
-</tr>
-<tr>
-<td align="left">drivable_area_margin</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">margin of width and height of the drivable area</td>
-<td align="left">6.0</td>
-</tr>
-</tbody>
-</table>
 <h3 id="behavior-tree">Behavior Tree<a class="headerlink" href="#behavior-tree" title="Permanent link">#</a></h3>
 <p>In the behavior path planner, the behavior tree mechanism is used to manage which modules are activated in which situations. In general, this "behavior manager" like function is expected to become bigger as more and more modules are added in the future. To improve maintainability, we adopted the behavior tree. The behavior tree has the following advantages: easy visualization, easy configuration management (behaviors can be changed by replacing configuration files), and high scalability compared to the state machine.</p>
 <p>The current behavior tree structure is shown below. Each modules (LaneChange, Avoidance, etc) have <em>Request</em>, <em>Ready</em>, and <em>Plan</em> nodes as a common function.</p>
