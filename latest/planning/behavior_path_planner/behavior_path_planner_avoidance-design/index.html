@@ -6971,6 +6971,8 @@
         
           
         
+          
+        
       
       
         
@@ -7334,6 +7336,20 @@
     <li class="md-nav__item">
       <a href="../behavior_path_planner_design_limitations/" class="md-nav__link">
         Design limitation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior_path_planner_drivable_area/" class="md-nav__link">
+        Drivable Area
       </a>
     </li>
   
@@ -11913,6 +11929,13 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
 <td align="left">[-]</td>
 <td align="left">bool</td>
 <td align="left">Reset trajectory when avoided objects are gone. If false, shifted path points remain same even though the avoided objects are gone.</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left">enable_bound_clipping</td>
+<td align="left"><code>true</code></td>
+<td align="left">bool</td>
+<td align="left">Enable clipping left and right bound of drivable area when obstacles are in the drivable area</td>
 <td align="left">false</td>
 </tr>
 </tbody>
