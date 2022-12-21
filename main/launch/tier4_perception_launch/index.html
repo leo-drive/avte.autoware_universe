@@ -11087,9 +11087,15 @@
 <p>Please see <code>&lt;exec_depend&gt;</code> in <code>package.xml</code>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <p>You can include as follows in <code>*.launch.xml</code> to use <code>perception.launch.xml</code>.</p>
+<p>Note that you should provide parameter paths as <code>PACKAGE_param_path</code>. The list of parameter paths you should provide is written at the top of <code>perception.launch.xml</code>.</p>
 <div class="highlight"><pre><span></span><code>  <span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find-pkg-share tier4_perception_launch)/launch/perception.launch.xml&quot;</span><span class="nt">&gt;</span>
     <span class="cm">&lt;!-- options for mode: camera_lidar_fusion, lidar, camera --&gt;</span>
     <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;mode&quot;</span> <span class="na">value=</span><span class="s">&quot;lidar&quot;</span> <span class="nt">/&gt;</span>
+
+    <span class="cm">&lt;!-- Parameter files --&gt;</span>
+    <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;FOO_param_path&quot;</span> <span class="na">value=</span><span class="s">&quot;...&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;BAR_param_path&quot;</span> <span class="na">value=</span><span class="s">&quot;...&quot;</span><span class="nt">/&gt;</span>
+    ...
   <span class="nt">&lt;/include&gt;</span>
 </code></pre></div>
 
