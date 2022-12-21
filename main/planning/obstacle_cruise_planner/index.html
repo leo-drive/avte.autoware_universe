@@ -11308,12 +11308,12 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>The <code>obstacle_cruise_planner</code> package has following modules.</p>
 <ul>
-<li>obstacle stop planning<ul>
-<li>inserting a stop point in the trajectory when there is a static obstacle on the trajectory.</li>
+<li>Stop planning<ul>
+<li>stop when there is a static obstacle near the trajectory.</li>
 </ul>
 </li>
-<li>adaptive cruise planning<ul>
-<li>sending an external velocity limit to <code>motion_velocity_smoother</code> when there is a dynamic obstacle to cruise on the trajectory</li>
+<li>Cruise planning<ul>
+<li>slow down when there is a dynamic obstacle to cruise near the trajectory</li>
 </ul>
 </li>
 </ul>
@@ -11332,11 +11332,6 @@
 <td><code>~/input/trajectory</code></td>
 <td>autoware_auto_planning_msgs::Trajectory</td>
 <td>input trajectory</td>
-</tr>
-<tr>
-<td><code>~/input/smoothed_trajectory</code></td>
-<td>autoware_auto_planning_msgs::Trajectory</td>
-<td>trajectory with smoothed velocity</td>
 </tr>
 <tr>
 <td><code>~/input/objects</code></td>
@@ -11361,22 +11356,22 @@
 </thead>
 <tbody>
 <tr>
-<td><code>~output/trajectory</code></td>
+<td><code>~/output/trajectory</code></td>
 <td>autoware_auto_planning_msgs::Trajectory</td>
 <td>output trajectory</td>
 </tr>
 <tr>
-<td><code>~output/velocity_limit</code></td>
+<td><code>~/output/velocity_limit</code></td>
 <td>tier4_planning_msgs::VelocityLimit</td>
 <td>velocity limit for cruising</td>
 </tr>
 <tr>
-<td><code>~output/clear_velocity_limit</code></td>
+<td><code>~/output/clear_velocity_limit</code></td>
 <td>tier4_planning_msgs::VelocityLimitClearCommand</td>
 <td>clear command for velocity limit</td>
 </tr>
 <tr>
-<td><code>~output/stop_reasons</code></td>
+<td><code>~/output/stop_reasons</code></td>
 <td>tier4_planning_msgs::StopReasonArray</td>
 <td>reasons that make the vehicle to stop</td>
 </tr>
@@ -11632,13 +11627,13 @@ This includes not only cruising a front vehicle, but also reacting a cut-in and 
 <p>The safe distance is calculated dynamically based on the Responsibility-Sensitive Safety (RSS) by the following equation.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
-d = v_{ego} t_{idling} + \frac{1}{2} a_{ego} t_{idling}^2 + \frac{v_{ego}^2}{2 a_{ego}} - \frac{v_{obstacle}^2}{2 a_{obstacle}},
+d_{rss} = v_{ego} t_{idling} + \frac{1}{2} a_{ego} t_{idling}^2 + \frac{v_{ego}^2}{2 a_{ego}} - \frac{v_{obstacle}^2}{2 a_{obstacle}},
 </div>
 <script type="math/tex; mode=display">
-d = v_{ego} t_{idling} + \frac{1}{2} a_{ego} t_{idling}^2 + \frac{v_{ego}^2}{2 a_{ego}} - \frac{v_{obstacle}^2}{2 a_{obstacle}},
+d_{rss} = v_{ego} t_{idling} + \frac{1}{2} a_{ego} t_{idling}^2 + \frac{v_{ego}^2}{2 a_{ego}} - \frac{v_{obstacle}^2}{2 a_{obstacle}},
 </script>
 </div>
-<p>assuming that <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> is the calculated safe distance, <span class="arithmatex"><span class="MathJax_Preview">t_{idling}</span><script type="math/tex">t_{idling}</script></span> is the idling time for the ego to detect the front vehicle's deceleration, <span class="arithmatex"><span class="MathJax_Preview">v_{ego}</span><script type="math/tex">v_{ego}</script></span> is the ego's current velocity, <span class="arithmatex"><span class="MathJax_Preview">v_{obstacle}</span><script type="math/tex">v_{obstacle}</script></span> is the front obstacle's current velocity, <span class="arithmatex"><span class="MathJax_Preview">a_{ego}</span><script type="math/tex">a_{ego}</script></span> is the ego's acceleration, and <span class="arithmatex"><span class="MathJax_Preview">a_{obstacle}</span><script type="math/tex">a_{obstacle}</script></span> is the obstacle's acceleration.
+<p>assuming that <span class="arithmatex"><span class="MathJax_Preview">d_rss</span><script type="math/tex">d_rss</script></span> is the calculated safe distance, <span class="arithmatex"><span class="MathJax_Preview">t_{idling}</span><script type="math/tex">t_{idling}</script></span> is the idling time for the ego to detect the front vehicle's deceleration, <span class="arithmatex"><span class="MathJax_Preview">v_{ego}</span><script type="math/tex">v_{ego}</script></span> is the ego's current velocity, <span class="arithmatex"><span class="MathJax_Preview">v_{obstacle}</span><script type="math/tex">v_{obstacle}</script></span> is the front obstacle's current velocity, <span class="arithmatex"><span class="MathJax_Preview">a_{ego}</span><script type="math/tex">a_{ego}</script></span> is the ego's acceleration, and <span class="arithmatex"><span class="MathJax_Preview">a_{obstacle}</span><script type="math/tex">a_{obstacle}</script></span> is the obstacle's acceleration.
 These values are parameterized as follows. Other common values such as ego's minimum acceleration is defined in <code>common.param.yaml</code>.</p>
 <table>
 <thead>
@@ -11655,9 +11650,67 @@ These values are parameterized as follows. Other common values such as ego's min
 <td>idling time for the ego to detect the front vehicle starting deceleration [s]</td>
 </tr>
 <tr>
+<td><code>common.min_ego_accel_for_rss</code></td>
+<td>double</td>
+<td>ego's acceleration for RSS [m/ss]</td>
+</tr>
+<tr>
 <td><code>common.min_object_accel_for_rss</code></td>
 <td>double</td>
-<td>front obstacle's acceleration [m/ss]</td>
+<td>front obstacle's acceleration for RSS [m/ss]</td>
+</tr>
+</tbody>
+</table>
+<p>The detailed formulation is as follows.</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+d_{error} = d - d_{rss} \\
+d_{normalized} = lpf(d_{error} / d_{obstacle}) \\
+d_{quad, normalized} = sign(d_{normalized}) *d_{normalized}*d_{normalized} \\
+v_{pid} = pid(d_{quad, normalized}) \\
+v_{add} = v_{pid} &gt; 0 ? v_{pid}* w_{acc} : v_{pid} \\
+v_{target} = max(v_{ego} + v_{add}, v_{min, cruise})
+</div>
+<script type="math/tex; mode=display">
+d_{error} = d - d_{rss} \\
+d_{normalized} = lpf(d_{error} / d_{obstacle}) \\
+d_{quad, normalized} = sign(d_{normalized}) *d_{normalized}*d_{normalized} \\
+v_{pid} = pid(d_{quad, normalized}) \\
+v_{add} = v_{pid} > 0 ? v_{pid}* w_{acc} : v_{pid} \\
+v_{target} = max(v_{ego} + v_{add}, v_{min, cruise})
+</script>
+</div>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d</code></td>
+<td>actual distane to obstacle</td>
+</tr>
+<tr>
+<td><code>d_{rss}</code></td>
+<td>ideal distance to obstacle based on RSS</td>
+</tr>
+<tr>
+<td><code>v_{min, cruise}</code></td>
+<td><code>min_cruise_target_vel</code></td>
+</tr>
+<tr>
+<td><code>w_{acc}</code></td>
+<td><code>output_ratio_during_accel</code></td>
+</tr>
+<tr>
+<td><code>lpf(val)</code></td>
+<td>apply low-pass filter to <code>val</code></td>
+</tr>
+<tr>
+<td><code>pid(val)</code></td>
+<td>apply pid to <code>val</code></td>
 </tr>
 </tbody>
 </table>
