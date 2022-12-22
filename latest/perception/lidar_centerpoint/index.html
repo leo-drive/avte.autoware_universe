@@ -11339,6 +11339,12 @@
 </ul>
 <h2 id="trained-models">Trained Models<a class="headerlink" href="#trained-models" title="Permanent link">#</a></h2>
 <p>You can download the onnx format of trained models by clicking on the links below.</p>
+<ul>
+<li>Centerpoint : <a href="https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint.onnx">pts_voxel_encoder_centerpoint.onnx</a>, <a href="https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint.onnx">pts_backbone_neck_head_centerpoint.onnx</a></li>
+<li>Centerpoint tiny: <a href="https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_voxel_encoder_centerpoint_tiny.onnx">pts_voxel_encoder_centerpoint_tiny.onnx</a>, <a href="https://awf.ml.dev.web.auto/perception/models/centerpoint/v2/pts_backbone_neck_head_centerpoint_tiny.onnx">pts_backbone_neck_head_centerpoint_tiny.onnx</a></li>
+</ul>
+<p><code>Centerpoint</code> was trained in <code>nuScenes</code> (~110k lidar frames) [8] and TIER IV's internal database (~11k lidar frames) for 60 epochs.
+<code>Centerpoint tiny</code> was trained in <code>Argoverse 2</code> (~28k lidar frames) [9] and TIER IV's internal database (~11k lidar frames) for 20 epochs.</p>
 <h2 id="standalone-inference-and-visualization">Standalone inference and visualization<a class="headerlink" href="#standalone-inference-and-visualization" title="Permanent link">#</a></h2>
 <p>In addition to its use as a standard ROS node, <code>lidar_centerpoint</code> can also be used to perform inferences in an isolated manner.
 To do so, execute the following launcher, where <code>pcd_path</code> is the path of the pointcloud to be used for inference.</p>
@@ -11415,6 +11421,8 @@ Example:
 <p>[5] <a href="https://github.com/open-mmlab/OpenPCDet">https://github.com/open-mmlab/OpenPCDet</a></p>
 <p>[6] <a href="https://github.com/yukkysaito/autoware_perception">https://github.com/yukkysaito/autoware_perception</a></p>
 <p>[7] <a href="https://github.com/NVIDIA-AI-IOT/CUDA-PointPillars">https://github.com/NVIDIA-AI-IOT/CUDA-PointPillars</a></p>
+<p>[8] <a href="https://www.nuscenes.org/nuscenes">https://www.nuscenes.org/nuscenes</a></p>
+<p>[9] <a href="https://www.argoverse.org/av2.html">https://www.argoverse.org/av2.html</a></p>
 <h2 id="optional-future-extensions-unimplemented-parts">(Optional) Future extensions / Unimplemented parts<a class="headerlink" href="#optional-future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
 <!-- Write future extensions of this package.
 
