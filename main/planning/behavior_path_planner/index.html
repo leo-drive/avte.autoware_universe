@@ -12053,13 +12053,6 @@ The lateral jerk is searched for among the predetermined minimum and maximum val
 <td align="left">straight line distance after pull over end point</td>
 <td align="left">5.0</td>
 </tr>
-<tr>
-<td align="left">before_pull_over_straight_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">straight line distance before pull over end point. a safe path should have a distance that includes this</td>
-<td align="left">5.0</td>
-</tr>
 </tbody>
 </table>
 <h5 id="geometric-parallel-parking"><strong>geometric parallel parking</strong><a class="headerlink" href="#geometric-parallel-parking" title="Permanent link">#</a></h5>
@@ -12273,11 +12266,11 @@ See also <a href="https://www.sciencedirect.com/science/article/pii/S14746670153
 <td align="left">1.0</td>
 </tr>
 <tr>
-<td align="left">pull_out_finish_judge_buffer</td>
+<td align="left">collision_check_distance_from_end</td>
 <td align="left">[m]</td>
 <td align="left">double</td>
-<td align="left">threshold for finish judgment distance from pull out end point</td>
-<td align="left">1.0</td>
+<td align="left">collision check distance from end point. currently only for pull out</td>
+<td align="left">15.0</td>
 </tr>
 </tbody>
 </table>
@@ -12331,13 +12324,6 @@ See also <a href="https://www.sciencedirect.com/science/article/pii/S14746670153
 <td align="left">int</td>
 <td align="left">Number of samplings in the minimum to maximum range of lateral_jerk</td>
 <td align="left">4</td>
-</tr>
-<tr>
-<td align="left">before_pull_out_straight_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">distance before pull out start point</td>
-<td align="left">0.0</td>
 </tr>
 <tr>
 <td align="left">maximum_lateral_jerk</td>
