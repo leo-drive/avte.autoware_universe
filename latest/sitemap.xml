@@ -661,6 +661,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/behavior_path_planner/behavior_path_planner_path_generation/</loc>
+         <lastmod>2022-12-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/behavior_path_planner/behavior_path_planner_side-shift/</loc>
          <lastmod>2022-12-23</lastmod>
          <changefreq>daily</changefreq>
