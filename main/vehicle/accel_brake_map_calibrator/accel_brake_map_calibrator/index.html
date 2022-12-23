@@ -11157,6 +11157,100 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#calibration-method" class="md-nav__link">
+    Calibration Method
+  </a>
+  
+    <nav class="md-nav" aria-label="Calibration Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-preprocessing" class="md-nav__link">
+    Data Preprocessing
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Preprocessing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_offset_each_cell" class="md-nav__link">
+    update_offset_each_cell
+  </a>
+  
+    <nav class="md-nav" aria-label="update_offset_each_cell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-formula" class="md-nav__link">
+    Update formula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_offset_four_cell_around-1" class="md-nav__link">
+    update_offset_four_cell_around [1]
+  </a>
+  
+    <nav class="md-nav" aria-label="update_offset_four_cell_around [1]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -11450,6 +11544,117 @@ ros2 run accel_brake_map_calibrator brake_tester.py
 ros2 run accel_brake_map_calibrator actuation_cmd_publisher.py
 </code></pre></div>
 <p><img alt="actuation_cmd_publisher_util" src="media/actuation_cmd_publisher_util.png" /></p>
+<h2 id="calibration-method">Calibration Method<a class="headerlink" href="#calibration-method" title="Permanent link">#</a></h2>
+<p>Two algorithms are selectable for the acceleration map update, <a href="#update_offset_each_cell">update_offset_four_cell_around</a> and <a href="update_offset_each_cell">update_offset_each_cell</a>. Please see the link for datails.</p>
+<h3 id="data-preprocessing">Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permanent link">#</a></h3>
+<p>Before calibration, missing or unusable data (e.g., too large handle angles) must first be eliminated. The following parameters are used to determine which data to remove.</p>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>velocity_min_threshold</td>
+<td>Exclude minimal velocity</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>max_steer_threshold</td>
+<td>Exclude large steering angle</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>max_pitch_threshold</td>
+<td>Exclude large pitch angle</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>max_jerk_threshold</td>
+<td>Exclude large jerk</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td>pedal_velocity_thresh</td>
+<td>Exclude large pedaling speed</td>
+<td>0.15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="update_offset_each_cell">update_offset_each_cell<a class="headerlink" href="#update_offset_each_cell" title="Permanent link">#</a></h3>
+<p>Update by Recursive Least Squares(RLS) method using data close enough to each grid.</p>
+<p><strong>Advantage</strong> : Only data close enough to each grid is used for calibration, allowing accurate updates at each point.</p>
+<p><strong>Disadvantage</strong> : Calibration is time-consuming due to a large amount of data to be excluded.</p>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h4>
+<p>Data selection is determined by the following thresholds.
+| Name | Default Value |
+| -------- | -------- |
+|velocity_diff_threshold|0.556|
+|pedal_diff_threshold|0.03|</p>
+<h4 id="update-formula">Update formula<a class="headerlink" href="#update-formula" title="Permanent link">#</a></h4>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+    \theta[n]=&amp;
+    \theta[n-1]+\frac{p[n-1]x^{(n)}}{\lambda+p[n-1](x^{(n)})^2}(y^{(n)}-\theta[n-1]x^{(n)})\\
+    p[n]=&amp;\frac{p[n-1]}{\lambda+p[n-1](x^{(n)})^2}
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+    \theta[n]=&
+    \theta[n-1]+\frac{p[n-1]x^{(n)}}{\lambda+p[n-1](x^{(n)})^2}(y^{(n)}-\theta[n-1]x^{(n)})\\
+    p[n]=&\frac{p[n-1]}{\lambda+p[n-1](x^{(n)})^2}
+\end{align}
+</script>
+</div>
+<h4 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Variable name</th>
+<th>Symbol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>covariance</td>
+<td><span class="arithmatex"><span class="MathJax_Preview">p[n-1]</span><script type="math/tex">p[n-1]</script></span></td>
+</tr>
+<tr>
+<td>map_offset</td>
+<td><span class="arithmatex"><span class="MathJax_Preview">\theta[n]</span><script type="math/tex">\theta[n]</script></span></td>
+</tr>
+<tr>
+<td>forgetting<em>factor</em></td>
+<td><span class="arithmatex"><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span></td>
+</tr>
+<tr>
+<td>phi</td>
+<td><span class="arithmatex"><span class="MathJax_Preview">x(=1)</span><script type="math/tex">x(=1)</script></span></td>
+</tr>
+<tr>
+<td>measured_acc</td>
+<td><span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="update_offset_four_cell_around-1">update_offset_four_cell_around [1]<a class="headerlink" href="#update_offset_four_cell_around-1" title="Permanent link">#</a></h3>
+<p>Update the offsets by RLS in four grids around newly obtained data. By considering linear interpolation, the update takes into account appropriate weights. Therefore, there is no need to remove data by thresholding.</p>
+<p><strong>Advantage</strong> : No data is wasted because updates are performed on the 4 grids around the data with appropriate weighting.
+<strong>Disadvantage</strong> : Accuracy may be degraded due to extreme bias of the data. For example, if data <span class="arithmatex"><span class="MathJax_Preview">z(k)</span><script type="math/tex">z(k)</script></span> is biased near <span class="arithmatex"><span class="MathJax_Preview">Z_{RR}</span><script type="math/tex">Z_{RR}</script></span> in Fig. 2, updating is performed at the four surrounding points ( <span class="arithmatex"><span class="MathJax_Preview">Z_{RR}</span><script type="math/tex">Z_{RR}</script></span>, <span class="arithmatex"><span class="MathJax_Preview">Z_{RL}</span><script type="math/tex">Z_{RL}</script></span>, <span class="arithmatex"><span class="MathJax_Preview">Z_{LR}</span><script type="math/tex">Z_{LR}</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">Z_{LL}</span><script type="math/tex">Z_{LL}</script></span>), but accuracy at <span class="arithmatex"><span class="MathJax_Preview">Z_{LL}</span><script type="math/tex">Z_{LL}</script></span> is not expected.</p>
+<p align="center">
+  <img src="./media/fourcell_RLS.png" width="600">
+</p>
+
+<h4 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">#</a></h4>
+<p>See eq.(7)-(10) in [1] for the updated formula. In addition, eq.(17),(18) from [1] are used for Anti-Windup.</p>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h3>
+<p>[1] <a href="https://www.sciencedirect.com/science/article/pii/S240589632102320X">Gabrielle Lochrie, Michael Doljevic, Mario Nona, Yongsoon Yoon, Anti-Windup Recursive Least Squares Method for Adaptive Lookup Tables with Application to Automotive Powertrain Control Systems, IFAC-PapersOnLine, Volume 54, Issue 20, 2021, Pages 840-845</a></p>
 
 
 
