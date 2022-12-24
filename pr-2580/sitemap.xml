@@ -236,17 +236,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2580/control/mpc_lateral_controller/design/mpc_lateral_controller-design/</loc>
-         <lastmod>2022-12-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2580/control/mpc_lateral_controller/design/pid_longitudinal_controller-design/</loc>
-         <lastmod>2022-12-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2580/control/mpc_lateral_controller/design/trajectory_follower-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2580/control/mpc_lateral_controller/</loc>
          <lastmod>2022-12-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -276,12 +266,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2580/control/trajectory_follower_nodes/design/simple_trajectory_follower-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2580/control/trajectory_follower_nodes/</loc>
          <lastmod>2022-12-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2580/control/trajectory_follower_nodes/design/trajectory_follower-design/</loc>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2580/control/trajectory_follower_nodes/design/simple_trajectory_follower-design/</loc>
          <lastmod>2022-12-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
