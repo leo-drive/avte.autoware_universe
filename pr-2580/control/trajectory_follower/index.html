@@ -11144,9 +11144,8 @@
     - Why did we implement this feature? -->
 
 <p>This package provides the interface of longitudinal and lateral controllers used by the node of the <code>trajectory_follower_nodes</code> package.
-We can implement a detailed controller by deriving <code>LongitudinalControllerBase</code> and <code>LateralControllerBase</code>.</p>
+We can implement a detailed controller by deriving the longitudinal and lateral base interfaces.</p>
 <h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
-<p><img alt="Controller" src="../../trajectory_follower_nodes/design/media/Controller.drawio.svg" /></p>
 <p>There are lateral and longitudinal base interface classes and each algorithm inherits from this class to implement.
 The interface class has the following base functions.</p>
 <ul>
@@ -11161,7 +11160,7 @@ The interface class has the following base functions.</p>
 </ul>
 </li>
 </ul>
-<p>See <a href="../../trajectory_follower_nodes/README.md#Design">the Design of Trajectory Follower Nodes</a> for how these functions work in the node.</p>
+<p>See <a href="../trajectory_follower_nodes/#Design">the Design of Trajectory Follower Nodes</a> for how these functions work in the node.</p>
 <h2 id="separated-lateral-steering-and-longitudinal-velocity-controls">Separated lateral (steering) and longitudinal (velocity) controls<a class="headerlink" href="#separated-lateral-steering-and-longitudinal-velocity-controls" title="Permanent link">#</a></h2>
 <p>This longitudinal controller assumes that the roles of lateral and longitudinal control are separated as follows.</p>
 <ul>
