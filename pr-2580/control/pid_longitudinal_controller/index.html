@@ -3344,14 +3344,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../trajectory_follower/">Trajectory follower</a>
+          <a href="../trajectory_follower_base/">Trajectory follower base</a>
           
         </div>
       
-      <nav class="md-nav" aria-label="Trajectory follower" data-md-level="2">
+      <nav class="md-nav" aria-label="Trajectory follower base" data-md-level="2">
         <label class="md-nav__title" for="__nav_6_10">
           <span class="md-nav__icon md-icon"></span>
-          Trajectory follower
+          Trajectory follower base
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -3391,7 +3391,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../trajectory_follower_nodes/">Trajectory follower nodes</a>
+          <a href="../trajectory_follower_node/">Trajectory follower node</a>
           
             <label for="__nav_6_11">
               <span class="md-nav__icon md-icon"></span>
@@ -3399,10 +3399,10 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Trajectory follower nodes" data-md-level="2">
+      <nav class="md-nav" aria-label="Trajectory follower node" data-md-level="2">
         <label class="md-nav__title" for="__nav_6_11">
           <span class="md-nav__icon md-icon"></span>
-          Trajectory follower nodes
+          Trajectory follower node
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -3444,7 +3444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trajectory_follower_nodes/design/simple_trajectory_follower-design/" class="md-nav__link">
+      <a href="../trajectory_follower_node/design/simple_trajectory_follower-design/" class="md-nav__link">
         Simple Trajectory Follower
       </a>
     </li>
@@ -11409,13 +11409,13 @@ Depending on the actuating principle of the vehicle, the mechanism that physical
 </ol>
 <h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
 <h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
-<p>Set the following from the <a href="../../pid_longitudinal_controller_nodes/design/pid_longitudinal_controller-design.md">controller_node</a></p>
+<p>Set the following from the <a href="../../trajectory_follower_node/design/pid_longitudinal_controller-design.md">controller_node</a></p>
 <ul>
 <li><code>autoware_auto_planning_msgs/Trajectory</code> : reference trajectory to follow.</li>
 <li><code>nav_msgs/Odometry</code>: current odometry</li>
 </ul>
 <h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
-<p>Return LongitudinalOutput which contains the following to <a href="../../pid_longitudinal_controller_nodes/design/pid_longitudinal_controller-design.md">controller_node</a></p>
+<p>Return LongitudinalOutput which contains the following to <a href="../../trajectory_follower_node/design/pid_longitudinal_controller-design.md">controller_node</a></p>
 <ul>
 <li><code>autoware_auto_control_msgs/LongitudinalCommand</code>: command to control the longitudinal motion of the vehicle. It contains the target velocity and target acceleration.</li>
 <li>LongitudinalSyncData<ul>
