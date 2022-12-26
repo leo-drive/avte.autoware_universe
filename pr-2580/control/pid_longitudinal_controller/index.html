@@ -11362,7 +11362,7 @@ It is assumed that the target acceleration calculated here will be properly real
 <li>Large integral terms may cause unintended behavior by users.</li>
 <li>Unintended noise may cause the output of the derivative term to be very large.</li>
 </ul>
-<p>Also, the integral term is not accumulated when the vehicle is stopped. This is to prevent unintended accumulation of the integral term in cases such as "Autoware assumes that the vehicle is engaged, but an external system has locked the vehicle to start.
+<p>Also, the integral term is not accumulated when the vehicle is stopped. This is to prevent unintended accumulation of the integral term in cases such as Autoware assumes that the vehicle is engaged, but an external system has locked the vehicle to start.
 On the other hand, if the vehicle gets stuck in a depression in the road surface when starting, the vehicle will not start forever, which is currently being addressed by developers.</p>
 <p>At present, PID control is implemented from the viewpoint of trade-off between development/maintenance cost and performance.
 This may be replaced by a higher performance controller (adaptive control or robust control) in future development.</p>
@@ -11409,13 +11409,13 @@ Depending on the actuating principle of the vehicle, the mechanism that physical
 </ol>
 <h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
 <h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
-<p>Set the following from the <a href="../../trajectory_follower_node/design/pid_longitudinal_controller-design.md">controller_node</a></p>
+<p>Set the following from the <a href="../trajectory_follower_node/">controller_node</a></p>
 <ul>
 <li><code>autoware_auto_planning_msgs/Trajectory</code> : reference trajectory to follow.</li>
 <li><code>nav_msgs/Odometry</code>: current odometry</li>
 </ul>
 <h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
-<p>Return LongitudinalOutput which contains the following to <a href="../../trajectory_follower_node/design/pid_longitudinal_controller-design.md">controller_node</a></p>
+<p>Return LongitudinalOutput which contains the following to the controller node</p>
 <ul>
 <li><code>autoware_auto_control_msgs/LongitudinalCommand</code>: command to control the longitudinal motion of the vehicle. It contains the target velocity and target acceleration.</li>
 <li>LongitudinalSyncData<ul>
