@@ -11746,6 +11746,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#scatter-implementation" class="md-nav__link">
+    Scatter Implementation
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -11879,6 +11886,8 @@ The <code>L-fit</code> method of fitting a bounding box to a cluster is used for
 <h3 id="limitation-and-known-issue">Limitation and Known Issue<a class="headerlink" href="#limitation-and-known-issue" title="Permanent link">#</a></h3>
 <p>Due to an accuracy issue of <code>centerpoint</code> model, <code>vulkan</code> cannot be used at the moment.
 As for 'llvm' backend, real-time performance cannot be achieved.</p>
+<h3 id="scatter-implementation">Scatter Implementation<a class="headerlink" href="#scatter-implementation" title="Permanent link">#</a></h3>
+<p>Scatter function can be implemented using either TVMScript or C++. For C++ implementation, please refer to <a href="https://github.com/angry-crab/autoware.universe/blob/c020419fe52e359287eccb1b77e93bdc1a681e24/perception/lidar_centerpoint_tvm/lib/network/scatter.cpp#L65">https://github.com/angry-crab/autoware.universe/blob/c020419fe52e359287eccb1b77e93bdc1a681e24/perception/lidar_centerpoint_tvm/lib/network/scatter.cpp#L65</a></p>
 <h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">#</a></h2>
 <p>[1] Yin, Tianwei, Xingyi Zhou, and Philipp Krähenbühl. "Center-based 3d object detection and tracking." arXiv preprint arXiv:2006.11275 (2020).</p>
 <p>[2] Lang, Alex H., et al. "Pointpillars: Fast encoders for object detection from point clouds." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2019.</p>
