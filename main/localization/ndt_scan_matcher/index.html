@@ -11778,6 +11778,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#scan-matching-score-based-on-de-grounded-lidar-scan" class="md-nav__link">
+    Scan matching score based on de-grounded LiDAR scan
+  </a>
+  
+    <nav class="md-nav" aria-label="Scan matching score based on de-grounded LiDAR scan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract_1" class="md-nav__link">
+    Abstract
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -11873,6 +11900,11 @@
 <td>[debug topic] pointcloud aligned by scan matching</td>
 </tr>
 <tr>
+<td><code>points_aligned_no_ground</code></td>
+<td><code>sensor_msgs::msg::PointCloud2</code></td>
+<td>[debug topic] de-grounded pointcloud aligned by scan matching</td>
+</tr>
+<tr>
 <td><code>initial_pose_with_covariance</code></td>
 <td><code>geometry_msgs::msg::PoseWithCovarianceStamped</code></td>
 <td>[debug topic] initial pose used in scan matching</td>
@@ -11886,6 +11918,11 @@
 <td><code>transform_probability</code></td>
 <td><code>tier4_debug_msgs::msg::Float32Stamped</code></td>
 <td>[debug topic] score of scan matching</td>
+</tr>
+<tr>
+<td><code>no_ground_transform_probability</code></td>
+<td><code>tier4_debug_msgs::msg::Float32Stamped</code></td>
+<td>[debug topic] score of scan matching based on de-grounded LiDAR scan</td>
 </tr>
 <tr>
 <td><code>iteration_num</code></td>
@@ -12128,6 +12165,32 @@ The color of the trajectory indicates the error (meter) from the reference traje
 <li>The right figure shows that the regularization suppresses the longitudinal error.</li>
 </ul>
 <p><img src="./media/trajectory_without_regularization.png" alt="drawing" width="300"/> <img src="./media/trajectory_with_regularization.png" alt="drawing" width="300"/></p>
+<h2 id="scan-matching-score-based-on-de-grounded-lidar-scan">Scan matching score based on de-grounded LiDAR scan<a class="headerlink" href="#scan-matching-score-based-on-de-grounded-lidar-scan" title="Permanent link">#</a></h2>
+<h3 id="abstract_1">Abstract<a class="headerlink" href="#abstract_1" title="Permanent link">#</a></h3>
+<p>This is a function that using de-grounded LiDAR scan estimate scan matching score.This score can more accurately reflect the current localization performance.
+<a href="https://github.com/autowarefoundation/autoware.universe/issues/2044">related issue</a>.</p>
+<h3 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>estimate_scores_for_degrounded_scan</code></td>
+<td>bool</td>
+<td>Flag for using scan matching score based on de-grounded LiDAR scan (FALSE by default)</td>
+</tr>
+<tr>
+<td><code>z_margin_for_ground_removal</code></td>
+<td>double</td>
+<td>Z-value margin for removal ground points</td>
+</tr>
+</tbody>
+</table>
 
 
 
