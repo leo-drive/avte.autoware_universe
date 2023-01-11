@@ -7544,6 +7544,8 @@
         
           
         
+          
+        
       
       
         
@@ -7672,6 +7674,20 @@
     <li class="md-nav__item">
       <a href="run-out-design/" class="md-nav__link">
         Run out design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="speed-bump-design/" class="md-nav__link">
+        Speed bump design
       </a>
     </li>
   
@@ -11720,6 +11736,7 @@ It consists of several modules. Please refer to the links listed below for detai
 <li><a href="occlusion-spot-design/">Occlusion Spot</a></li>
 <li><a href="no-stopping-area-design/">No Stopping Area</a></li>
 <li><a href="run-out-design/">Run Out</a></li>
+<li><a href="speed-bump-design/">Speed Bump</a></li>
 </ul>
 <p>When each module plans velocity, it considers based on <code>base_link</code>(center of rear-wheel axis) pose.
 So for example, in order to stop at a stop line with the vehicles' front on the stop line, it calculates <code>base_link</code> position from the distance between <code>base_link</code> to front and modifies path velocity from the <code>base_link</code> position.</p>
@@ -11842,6 +11859,11 @@ So for example, in order to stop at a stop line with the vehicles' front on the 
 <td><code>launch_run_out</code></td>
 <td>bool</td>
 <td>whether to launch run_out module</td>
+</tr>
+<tr>
+<td><code>launch_speed_bump</code></td>
+<td>bool</td>
+<td>whether to launch speed_bump module</td>
 </tr>
 <tr>
 <td><code>forward_path_length</code></td>
