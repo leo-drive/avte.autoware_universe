@@ -11921,26 +11921,25 @@
 <tr>
 <td><code>input</code></td>
 <td><code>sensor_msgs::msg::PointCloud2</code></td>
-<td>input pointcloud</td>
+<td>pointcloud</td>
 </tr>
 <tr>
-<td><code>input/camera_infoID</code></td>
+<td><code>input/camera_info[0-7]</code></td>
 <td><code>sensor_msgs::msg::CameraInfo</code></td>
-<td>camera information to project 3d points onto image planes, <code>ID</code> is between 0 and 7</td>
+<td>camera information to project 3d points onto image planes</td>
 </tr>
 <tr>
-<td><code>input/roisID</code></td>
+<td><code>input/rois[0-7]</code></td>
 <td><code>tier4_perception_msgs::msg::DetectedObjectsWithFeature</code></td>
-<td>ROIs from each image, <code>ID</code> is between 0 and 7</td>
+<td>ROIs from each image</td>
 </tr>
 <tr>
-<td><code>input/image_rawID</code></td>
+<td><code>input/image_raw[0-7]</code></td>
 <td><code>sensor_msgs::msg::Image</code></td>
-<td>images for visualization, <code>ID</code> is between 0 and 7</td>
+<td>images for visualization</td>
 </tr>
 </tbody>
 </table>
-<p>| `</p>
 <h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -11954,7 +11953,7 @@
 <tr>
 <td><code>output</code></td>
 <td><code>sensor_msgs::msg::PointCloud2</code></td>
-<td>painted pointclouda</td>
+<td>painted pointcloud</td>
 </tr>
 <tr>
 <td><code>~/output/objects</code></td>
@@ -11962,9 +11961,9 @@
 <td>detected objects</td>
 </tr>
 <tr>
-<td><code>output/image_rawID</code></td>
+<td><code>~/debug/image_raw[0-7]</code></td>
 <td><code>sensor_msgs::msg::Image</code></td>
-<td>images for visualization, <code>ID</code> is between 0 and 7</td>
+<td>images for visualization</td>
 </tr>
 </tbody>
 </table>
