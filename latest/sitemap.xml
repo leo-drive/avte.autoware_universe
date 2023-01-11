@@ -721,6 +721,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/behavior_velocity_planner/speed-bump-design/</loc>
+         <lastmod>2023-01-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/behavior_velocity_planner/stop-line-design/</loc>
          <lastmod>2023-01-11</lastmod>
          <changefreq>daily</changefreq>
