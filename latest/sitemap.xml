@@ -826,6 +826,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/planning_validator/</loc>
+         <lastmod>2023-01-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/latest/planning/route_handler/</loc>
          <lastmod>2023-01-20</lastmod>
          <changefreq>daily</changefreq>
