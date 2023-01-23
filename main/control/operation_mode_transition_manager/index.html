@@ -11716,6 +11716,82 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-use-cases" class="md-nav__link">
+    Purpose / Use cases
+  </a>
+  
+    <nav class="md-nav" aria-label="Purpose / Use cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs-outputs-api" class="md-nav__link">
+    Inputs / Outputs / API
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs / Outputs / API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-extensions-unimplemented-parts" class="md-nav__link">
+    Future extensions / Unimplemented parts
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -11734,6 +11810,217 @@
 
 
 <h1 id="operation_mode_transition_manager">operation_mode_transition_manager<a class="headerlink" href="#operation_mode_transition_manager" title="Permanent link">#</a></h1>
+<h2 id="purpose-use-cases">Purpose / Use cases<a class="headerlink" href="#purpose-use-cases" title="Permanent link">#</a></h2>
+<p>This module is responsible for managing the different modes of operation for the Autoware system. The possible modes are:</p>
+<ul>
+<li><code>Autonomous</code>: the vehicle is fully controlled by the autonomous driving system</li>
+<li><code>Local</code>: the vehicle is controlled by a physically connected control system such as a joy stick</li>
+<li><code>Remote</code>: the vehicle is controlled by a remote controller</li>
+<li><code>Stop</code>: the vehicle is stopped and there is no active control system.</li>
+</ul>
+<p>There is also an <code>In Transition</code> state that occurs during each mode transitions. During this state, the transition to the new operator is not yet complete, and the previous operator is still responsible for controlling the system until the transition is complete. Some actions may be restricted during the <code>In Transition</code> state, such as sudden braking or steering. (This is restricted by the <code>vehicle_cmd_gate</code>).</p>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">#</a></h3>
+<ul>
+<li>Transit mode between <code>Autonomous</code>, <code>Local</code>, <code>Remote</code> and <code>Stop</code> based on the indication command.</li>
+<li>Check whether the each transition is available (safe or not).</li>
+<li>Limit some sudden motion control in <code>In Transition</code> mode (this is done with <code>vehicle_cmd_gate</code> feature).</li>
+<li>Check whether the transition is completed.</li>
+</ul>
+<ul>
+<li>Transition between the <code>Autonomous</code>, <code>Local</code>, <code>Remote</code>, and <code>Stop</code> modes based on the indicated command.</li>
+<li>Determine whether each transition is safe to execute.</li>
+<li>Restrict certain sudden motion controls during the <code>In Transition</code> mode (using the <code>vehicle_cmd_gate</code> feature).</li>
+<li>Verify that the transition is complete.</li>
+</ul>
+<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">#</a></h2>
+<!-- ## Assumptions / Known limits -->
+
+<h2 id="inputs-outputs-api">Inputs / Outputs / API<a class="headerlink" href="#inputs-outputs-api" title="Permanent link">#</a></h2>
+<h3 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h3>
+<p>For the mode transition:</p>
+<ul>
+<li>/system/operation_mode/change_autoware_control [<code>tier4_system_msgs/srv/ChangeAutowareControl</code>]: change operation mode to Autonomous</li>
+<li>/system/operation_mode/change_operation_mode [<code>tier4_system_msgs/srv/ChangeOperationMode</code>]: change operation mode</li>
+</ul>
+<p>For the transition availability/completion check:</p>
+<ul>
+<li>/control/command/control_cmd [<code>autoware_auto_control_msgs/msg/AckermannControlCommand</code>]: vehicle control signal</li>
+<li>/localization/kinematic_state [<code>nav_msgs/msg/Odometry</code>]: ego vehicle state</li>
+<li>/planning/scenario_planning/trajectory [<code>autoware_auto_planning_msgs/msg/Trajectory</code>]: planning trajectory</li>
+<li>/vehicle/status/control_mode [<code>autoware_auto_vehicle_msgs/msg/ControlModeReport</code>]: vehicle control mode (autonomous/manual)</li>
+<li>/control/vehicle_cmd_gate/operation_mode [<code>autoware_adapi_v1_msgs/msg/OperationModeState</code>]: the operation mode in the <code>vehicle_cmd_gate</code>. (To be removed)</li>
+</ul>
+<p>For the backward compatibility (to be removed):</p>
+<ul>
+<li>/api/autoware/get/engage [<code>autoware_auto_vehicle_msgs/msg/Engage</code>]</li>
+<li>/control/current_gate_mode [<code>tier4_control_msgs/msg/GateMode</code>]</li>
+<li>/control/external_cmd_selector/current_selector_mode [<code>tier4_control_msgs/msg/ExternalCommandSelectorMode</code>]</li>
+</ul>
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h3>
+<ul>
+<li>/system/operation_mode/state [<code>autoware_adapi_v1_msgs/msg/OperationModeState</code>]: to inform the current operation mode</li>
+<li>/control/operation_mode_transition_manager/debug_info [<code>operation_mode_transition_manager/msg/OperationModeTransitionManagerDebug</code>]: detailed information about the operation mode transition</li>
+</ul>
+<ul>
+<li>/control/gate_mode_cmd [<code>tier4_control_msgs/msg/GateMode</code>]: to change the <code>vehicle_cmd_gate</code> state to use its features (to be removed)</li>
+<li>/autoware/engage [<code>autoware_auto_vehicle_msgs/msg/Engage</code>]:</li>
+</ul>
+<ul>
+<li>/control/control_mode_request [<code>autoware_auto_vehicle_msgs/srv/ControlModeCommand</code>]: to change the vehicle control mode (autonomous/manual)</li>
+<li>/control/external_cmd_selector/select_external_command [<code>tier4_control_msgs/srv/ExternalCommandSelect</code>]:</li>
+</ul>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>transition_timeout</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">If the state transition is not completed within this time, it is considered a transition failure.</td>
+<td align="left">10.0</td>
+</tr>
+<tr>
+<td align="left"><code>frequency_hz</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">running hz</td>
+<td align="left">10.0</td>
+</tr>
+<tr>
+<td align="left"><code>check_engage_condition</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">If false, autonomous transition is always available</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left"><code>nearest_dist_deviation_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">distance threshold used to find nearest trajectory point</td>
+<td align="left">3.0</td>
+</tr>
+<tr>
+<td align="left"><code>nearest_yaw_deviation_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">angle threshold used to find nearest trajectory point</td>
+<td align="left">1.57</td>
+</tr>
+</tbody>
+</table>
+<p>For <code>engage_acceptable_limits</code> related parameters:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>allow_autonomous_in_stopped</code></td>
+<td align="left"><code>bool</code></td>
+<td align="left">If true, autonomous transition is available when the vehicle is stopped even if other checks fail.</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left"><code>dist_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the distance between the trajectory and ego vehicle must be within this distance for <code>Autonomous</code> transition.</td>
+<td align="left">1.5</td>
+</tr>
+<tr>
+<td align="left"><code>yaw_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the yaw angle between trajectory and ego vehicle must be within this threshold for <code>Autonomous</code> transition.</td>
+<td align="left">0.524</td>
+</tr>
+<tr>
+<td align="left"><code>speed_upper_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the velocity deviation between control command and ego vehicle must be within this threshold for <code>Autonomous</code> transition.</td>
+<td align="left">10.0</td>
+</tr>
+<tr>
+<td align="left"><code>speed_lower_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the velocity deviation between the control command and ego vehicle must be within this threshold for <code>Autonomous</code> transition.</td>
+<td align="left">-10.0</td>
+</tr>
+<tr>
+<td align="left"><code>acc_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the control command acceleration must be less than this threshold for <code>Autonomous</code> transition.</td>
+<td align="left">1.5</td>
+</tr>
+<tr>
+<td align="left"><code>lateral_acc_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the control command lateral acceleration must be less than this threshold for <code>Autonomous</code> transition.</td>
+<td align="left">1.0</td>
+</tr>
+<tr>
+<td align="left"><code>lateral_acc_diff_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the lateral acceleration deviation between the control command must be less than this threshold for <code>Autonomous</code> transition.</td>
+<td align="left">0.5</td>
+</tr>
+</tbody>
+</table>
+<p>For <code>stable_check</code> related parameters:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+<th align="left">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>duration</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the stable condition must be satisfied for this duration to complete the transition.</td>
+<td align="left">0.1</td>
+</tr>
+<tr>
+<td align="left"><code>dist_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the distance between the trajectory and ego vehicle must be within this distance to complete <code>Autonomous</code> transition.</td>
+<td align="left">1.5</td>
+</tr>
+<tr>
+<td align="left"><code>yaw_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the yaw angle between trajectory and ego vehicle must be within this threshold to complete <code>Autonomous</code> transition.</td>
+<td align="left">0.262</td>
+</tr>
+<tr>
+<td align="left"><code>speed_upper_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the velocity deviation between control command and ego vehicle must be within this threshold to complete <code>Autonomous</code> transition.</td>
+<td align="left">2.0</td>
+</tr>
+<tr>
+<td align="left"><code>speed_lower_threshold</code></td>
+<td align="left"><code>double</code></td>
+<td align="left">the velocity deviation between control command and ego vehicle must be within this threshold to complete <code>Autonomous</code> transition.</td>
+<td align="left">2.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="future-extensions-unimplemented-parts">Future extensions / Unimplemented parts<a class="headerlink" href="#future-extensions-unimplemented-parts" title="Permanent link">#</a></h2>
+<ul>
+<li>Need to remove backward compatibility interfaces.</li>
+<li>This node should be merged to the <code>vehicle_cmd_gate</code> due to its strong connection.</li>
+</ul>
 
 
 
