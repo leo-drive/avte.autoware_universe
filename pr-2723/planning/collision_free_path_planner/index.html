@@ -12870,7 +12870,7 @@ This hard constraints is formulated as follows.</p>
 </div>
 <h4 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">#</a></h4>
 <h5 id="steer-angle-limitation">Steer angle limitation<a class="headerlink" href="#steer-angle-limitation" title="Permanent link">#</a></h5>
-<p>Steer angle has a certain limitation (<span class="arithmatex"><span class="MathJax_Preview">\delta_{max}</span><script type="math/tex">\delta_{max}</script></span>, <span class="arithmatex"><span class="MathJax_Preview">\delta_{min}</span><script type="math/tex">\delta_{min}</script></span>).
+<p>Steer angle has a limitation <span class="arithmatex"><span class="MathJax_Preview">\delta_{max}</span><script type="math/tex">\delta_{max}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">\delta_{min}</span><script type="math/tex">\delta_{min}</script></span>.
 Therefore we add linear inequality equations.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
@@ -12885,11 +12885,29 @@ Therefore we add linear inequality equations.</p>
 </script>
 </div>
 <h5 id="collision-free">Collision free<a class="headerlink" href="#collision-free" title="Permanent link">#</a></h5>
-<p>To realize collision-free path planning, we have to formulate constraints that the vehicle is inside the road (moreover, a certain meter far from the road boundary) and does not collide with obstacles in linear equations.
-For linearity, we chose a method to approximate the vehicle shape with a set of circles, that is reliable and easy to implement.</p>
+<p>To realize collision-free trajectory planning, we have to formulate constraints that the vehicle is inside the road and also does not collide with obstacles in linear equations.
+For linearity, we implemented some methods to approximate the vehicle shape with a set of circles, that is reliable and easy to implement.</p>
+<ul>
+<li>
+<ol>
+<li>Bibycle Model</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Uniform Circles</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Fitting Uniform Circles</li>
+</ol>
+</li>
+</ul>
+<p><img alt="vehicle_circles" src="media/vehicle_circles.svg" /></p>
 <p>Now we formulate the linear constraints where a set of circles on each trajectory point is collision-free.
-For collision checking, we have a drivable area in the format of an image where walls or obstacles are filled with a color.
-By using this drivable area, we calculate upper (left) and lower (right) boundaries along reference points so that we can interpolate boundaries on any position on the trajectory.</p>
+By using the drivable area, we calculate upper and lower boundaries along reference points, which will be interpolated on any position on the trajectory.
+NOTE that upper and lower boundary is left and right, respectively.</p>
 <p>Assuming that upper and lower boundaries are <span class="arithmatex"><span class="MathJax_Preview">b_l</span><script type="math/tex">b_l</script></span>, <span class="arithmatex"><span class="MathJax_Preview">b_u</span><script type="math/tex">b_u</script></span> respectively, and <span class="arithmatex"><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> is a radius of a circle, lateral deviation of the circle center <span class="arithmatex"><span class="MathJax_Preview">y'</span><script type="math/tex">y'</script></span> has to be</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
@@ -12899,6 +12917,7 @@ b_l + r \leq y' \leq b_u - r.
 b_l + r \leq y' \leq b_u - r.
 </script>
 </div>
+<p><img alt="bounds" src="media/bounds.svg" /></p>
 <p>Based on the following figure, <span class="arithmatex"><span class="MathJax_Preview">y'</span><script type="math/tex">y'</script></span> can be formulated as follows.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
