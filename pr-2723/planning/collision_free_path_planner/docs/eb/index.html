@@ -11881,15 +11881,14 @@
 
 <h1 id="elastic-band">Elastic band<a class="headerlink" href="#elastic-band" title="Permanent link">#</a></h1>
 <h2 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link">#</a></h2>
-<p>Elastic band smooths the path generated in the behavior.
-Since the latter process of optimization uses the curvature and normal vector of the reference path, smoothing should be applied here so that the optimization will be stable.</p>
-<p>This smoothing process does not consider collision.
+<p>Elastic band smooths the input path.
+Since the latter optimization (model predictive trajectory) uses the curvature and normal vector of the reference path, path smoothing is applied here so that the latter optimization will be stable.</p>
+<p>Note that this smoothing process does not consider collision checking.
 Therefore the output path may have a collision with road boundaries or obstacles.</p>
 <h2 id="formulation">Formulation<a class="headerlink" href="#formulation" title="Permanent link">#</a></h2>
-<p>We formulate a QP problem minimizing the distance between the previous point and the next point for each point.
-Conditions that each point can move to a certain extent are used so that the path will not changed a lot but will be smoother.</p>
-<p>For <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>'th point (<span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{p}_k = (x_k, y_k)</span><script type="math/tex">\boldsymbol{p}_k = (x_k, y_k)</script></span>), the objective function is as follows.
-The beginning and end point are fixed during the optimization.</p>
+<p>We formulate a quadratic problem minimizing the distance between the previous point and the next point on each point.</p>
+<p><img alt="eb" src="./media/eb.svg" /></p>
+<p>Assuming that <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>'th point is <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{p}_k = (x_k, y_k)</span><script type="math/tex">\boldsymbol{p}_k = (x_k, y_k)</script></span>, the objective function is as follows.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 \begin{align}
@@ -12012,6 +12011,8 @@ The beginning and end point are fixed during the optimization.</p>
 \end{align}
 </script>
 </div>
+<p>Regarding the constraint, the distance that each point can move is limited so that the path will not changed a lot but will be smoother.</p>
+<p>In addition, the beginning point is fixed and the end point as well if the end point is considered as the goal.</p>
 
 
 
