@@ -11887,30 +11887,30 @@ Since the latter optimization (model predictive trajectory) uses the curvature a
 Therefore the output path may have a collision with road boundaries or obstacles.</p>
 <h2 id="formulation">Formulation<a class="headerlink" href="#formulation" title="Permanent link">#</a></h2>
 <p>We formulate a quadratic problem minimizing the distance between the previous point and the next point on each point.</p>
-<p><img alt="eb" src="./media/eb.svg" /></p>
+<p><img alt="eb" src="../../media/eb.svg" /></p>
 <p>Assuming that <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>'th point is <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{p}_k = (x_k, y_k)</span><script type="math/tex">\boldsymbol{p}_k = (x_k, y_k)</script></span>, the objective function is as follows.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 \begin{align}
-\ J &amp; = \min \sum_{k=1}^{n-1} ||(\boldsymbol{p}_{k+1} - \boldsymbol{p}_{k}) - (\boldsymbol{p}_{k} - \boldsymbol{p}_{k-1})||^2 \\
-\ &amp; = \min \sum_{k=1}^{n-1} ||\boldsymbol{p}_{k+1} - 2 \boldsymbol{p}_{k} + \boldsymbol{p}_{k-1}||^2 \\
-\ &amp; = \min \sum_{k=1}^{n-1} \{(x_{k+1} - x_k + x_{k-1})^2 + (y_{k+1} - y_k + y_{k-1})^2\} \\
+\ J &amp; = \min \sum_{k=1}^{n-2} ||(\boldsymbol{p}_{k+1} - \boldsymbol{p}_{k}) - (\boldsymbol{p}_{k} - \boldsymbol{p}_{k-1})||^2 \\
+\ &amp; = \min \sum_{k=1}^{n-2} ||\boldsymbol{p}_{k+1} - 2 \boldsymbol{p}_{k} + \boldsymbol{p}_{k-1}||^2 \\
+\ &amp; = \min \sum_{k=1}^{n-2} \{(x_{k+1} - x_k + x_{k-1})^2 + (y_{k+1} - y_k + y_{k-1})^2\} \\
 \ &amp; = \min
     \begin{pmatrix}
         \ x_0 \\
         \ x_1 \\
         \ x_2 \\
         \vdots \\
-        \ x_{n-2}\\
+        \ x_{n-3}\\
+        \ x_{n-2} \\
         \ x_{n-1} \\
-        \ x_{n} \\
         \ y_0 \\
         \ y_1 \\
         \ y_2 \\
         \vdots \\
-        \ y_{n-2}\\
+        \ y_{n-3}\\
+        \ y_{n-2} \\
         \ y_{n-1} \\
-        \ y_{n} \\
     \end{pmatrix}^T
     \begin{pmatrix}
       1 &amp; -2 &amp; 1 &amp; 0 &amp; \dots&amp; \\
@@ -11937,40 +11937,40 @@ Therefore the output path may have a collision with road boundaries or obstacles
         \ x_1 \\
         \ x_2 \\
         \vdots \\
-        \ x_{n-2}\\
+        \ x_{n-3}\\
+        \ x_{n-2} \\
         \ x_{n-1} \\
-        \ x_{n} \\
         \ y_0 \\
         \ y_1 \\
         \ y_2 \\
         \vdots \\
-        \ y_{n-2}\\
+        \ y_{n-3}\\
+        \ y_{n-2} \\
         \ y_{n-1} \\
-        \ y_{n} \\
     \end{pmatrix}
 \end{align}
 </div>
 <script type="math/tex; mode=display">
 \begin{align}
-\ J & = \min \sum_{k=1}^{n-1} ||(\boldsymbol{p}_{k+1} - \boldsymbol{p}_{k}) - (\boldsymbol{p}_{k} - \boldsymbol{p}_{k-1})||^2 \\
-\ & = \min \sum_{k=1}^{n-1} ||\boldsymbol{p}_{k+1} - 2 \boldsymbol{p}_{k} + \boldsymbol{p}_{k-1}||^2 \\
-\ & = \min \sum_{k=1}^{n-1} \{(x_{k+1} - x_k + x_{k-1})^2 + (y_{k+1} - y_k + y_{k-1})^2\} \\
+\ J & = \min \sum_{k=1}^{n-2} ||(\boldsymbol{p}_{k+1} - \boldsymbol{p}_{k}) - (\boldsymbol{p}_{k} - \boldsymbol{p}_{k-1})||^2 \\
+\ & = \min \sum_{k=1}^{n-2} ||\boldsymbol{p}_{k+1} - 2 \boldsymbol{p}_{k} + \boldsymbol{p}_{k-1}||^2 \\
+\ & = \min \sum_{k=1}^{n-2} \{(x_{k+1} - x_k + x_{k-1})^2 + (y_{k+1} - y_k + y_{k-1})^2\} \\
 \ & = \min
     \begin{pmatrix}
         \ x_0 \\
         \ x_1 \\
         \ x_2 \\
         \vdots \\
-        \ x_{n-2}\\
+        \ x_{n-3}\\
+        \ x_{n-2} \\
         \ x_{n-1} \\
-        \ x_{n} \\
         \ y_0 \\
         \ y_1 \\
         \ y_2 \\
         \vdots \\
-        \ y_{n-2}\\
+        \ y_{n-3}\\
+        \ y_{n-2} \\
         \ y_{n-1} \\
-        \ y_{n} \\
     \end{pmatrix}^T
     \begin{pmatrix}
       1 & -2 & 1 & 0 & \dots& \\
@@ -11997,22 +11997,52 @@ Therefore the output path may have a collision with road boundaries or obstacles
         \ x_1 \\
         \ x_2 \\
         \vdots \\
-        \ x_{n-2}\\
+        \ x_{n-3}\\
+        \ x_{n-2} \\
         \ x_{n-1} \\
-        \ x_{n} \\
         \ y_0 \\
         \ y_1 \\
         \ y_2 \\
         \vdots \\
-        \ y_{n-2}\\
+        \ y_{n-3}\\
+        \ y_{n-2} \\
         \ y_{n-1} \\
-        \ y_{n} \\
     \end{pmatrix}
 \end{align}
 </script>
 </div>
 <p>Regarding the constraint, the distance that each point can move is limited so that the path will not changed a lot but will be smoother.</p>
-<p>In addition, the beginning point is fixed and the end point as well if the end point is considered as the goal.</p>
+<p><img alt="eb_constraint" src="../../media/eb_constraint.svg" /></p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+C_k^l \leq C_k \leq C_k^u
+</div>
+<script type="math/tex; mode=display">
+C_k^l \leq C_k \leq C_k^u
+</script>
+</div>
+<p>In addition, the beginning point is fixed and the end point as well if the end point is considered as the goal.
+Assume that <span class="arithmatex"><span class="MathJax_Preview">(x_0^{start}, y_0^{start})</span><script type="math/tex">(x_0^{start}, y_0^{start})</script></span> and <span class="arithmatex"><span class="MathJax_Preview">(x_0^{goal}, y_0^{goal})</span><script type="math/tex">(x_0^{goal}, y_0^{goal})</script></span> are the input start and goal point.</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+x_0 = x_0^{start} \\
+y_0 = y_0^{start}
+</div>
+<script type="math/tex; mode=display">
+x_0 = x_0^{start} \\
+y_0 = y_0^{start}
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+x_{n-1} = x_{n-1}^{goal} \\
+y_{n-1}= y_{n-1}^[goal}
+</div>
+<script type="math/tex; mode=display">
+x_{n-1} = x_{n-1}^{goal} \\
+y_{n-1}= y_{n-1}^[goal}
+</script>
+</div>
 
 
 
