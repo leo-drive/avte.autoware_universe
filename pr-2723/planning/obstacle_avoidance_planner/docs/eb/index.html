@@ -11817,7 +11817,7 @@ Since the latter optimization (model predictive trajectory) uses the curvature a
 Therefore the output path may have a collision with road boundaries or obstacles.</p>
 <h2 id="formulation">Formulation<a class="headerlink" href="#formulation" title="Permanent link">#</a></h2>
 <p>We formulate a quadratic problem minimizing the distance between the previous point and the next point on each point.</p>
-<p><img alt="eb" src="../../media/eb.svg" width="1000" /></p>
+<p><img alt="eb" src="../../media/eb.svg" style="width:700px" /></p>
 <p>Assuming that <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>'th point is <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{p}_k = (x_k, y_k)</span><script type="math/tex">\boldsymbol{p}_k = (x_k, y_k)</script></span>, the objective function is as follows.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
@@ -11942,7 +11942,7 @@ Therefore the output path may have a collision with road boundaries or obstacles
 </script>
 </div>
 <p>Regarding the constraint, the distance that each point can move is limited so that the path will not changed a lot but will be smoother.</p>
-<p><img alt="eb_constraint" src="../../media/eb_constraint.svg" width="500" /></p>
+<p><img alt="eb_constraint" src="../../media/eb_constraint.svg" style="width:700px" /></p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
 C_k^l \leq C_k \leq C_k^u
@@ -11955,22 +11955,22 @@ C_k^l \leq C_k \leq C_k^u
 Assume that <span class="arithmatex"><span class="MathJax_Preview">(x_0^{start}, y_0^{start})</span><script type="math/tex">(x_0^{start}, y_0^{start})</script></span> and <span class="arithmatex"><span class="MathJax_Preview">(x_0^{goal}, y_0^{goal})</span><script type="math/tex">(x_0^{goal}, y_0^{goal})</script></span> are the input start and goal point.</p>
 <div class="arithmatex">
 <div class="MathJax_Preview">
-x_0 = x_0^{start} \\
-y_0 = y_0^{start}
+x_0 = x_0^{\mathrm{start}} \\
+y_0 = y_0^{\mathrm{start}}
 </div>
 <script type="math/tex; mode=display">
-x_0 = x_0^{start} \\
-y_0 = y_0^{start}
+x_0 = x_0^{\mathrm{start}} \\
+y_0 = y_0^{\mathrm{start}}
 </script>
 </div>
 <div class="arithmatex">
 <div class="MathJax_Preview">
-x_{n-1} = x_{n-1}^{goal} \\
-y_{n-1}= y_{n-1}^[goal}
+x_{n-1} = x_{n-1}^{\mathrm{goal}} \\
+y_{n-1} = y_{n-1}^{\mathrm{goal}}
 </div>
 <script type="math/tex; mode=display">
-x_{n-1} = x_{n-1}^{goal} \\
-y_{n-1}= y_{n-1}^[goal}
+x_{n-1} = x_{n-1}^{\mathrm{goal}} \\
+y_{n-1} = y_{n-1}^{\mathrm{goal}}
 </script>
 </div>
 
