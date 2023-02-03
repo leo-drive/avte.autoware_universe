@@ -11845,6 +11845,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dynamic-map-loading" class="md-nav__link">
+    Dynamic map loading
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic map loading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-interfaces" class="md-nav__link">
+    Additional interfaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-inputs" class="md-nav__link">
+    Additional inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-outputs" class="md-nav__link">
+    Additional outputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-client" class="md-nav__link">
+    Additional client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabling-the-dynamic-map-loading-feature" class="md-nav__link">
+    Enabling the dynamic map loading feature
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scan-matching-score-based-on-de-grounded-lidar-scan" class="md-nav__link">
     Scan matching score based on de-grounded LiDAR scan
   </a>
@@ -11860,7 +11921,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#parameters_2" class="md-nav__link">
+  <a href="#parameters_3" class="md-nav__link">
     Parameters
   </a>
   
@@ -12091,11 +12152,6 @@
 <td>Threshold for deciding whether to trust the estimation result</td>
 </tr>
 <tr>
-<td><code>neighborhood_search_method</code></td>
-<td>int</td>
-<td>neighborhood search method (0=KDTREE, 1=DIRECT26, 2=DIRECT7, 3=DIRECT1)</td>
-</tr>
-<tr>
 <td><code>num_threads</code></td>
 <td>int</td>
 <td>Number of threads used for parallel computing</td>
@@ -12231,11 +12287,160 @@ The color of the trajectory indicates the error (meter) from the reference traje
 <li>The right figure shows that the regularization suppresses the longitudinal error.</li>
 </ul>
 <p><img src="./media/trajectory_without_regularization.png" alt="drawing" width="300"/> <img src="./media/trajectory_with_regularization.png" alt="drawing" width="300"/></p>
+<h2 id="dynamic-map-loading">Dynamic map loading<a class="headerlink" href="#dynamic-map-loading" title="Permanent link">#</a></h2>
+<p>Autoware supports dynamic map loading feature for <code>ndt_scan_matcher</code>. Using this feature, NDT dynamically requests for the surrounding pointcloud map to <code>pointcloud_map_loader</code>, and then receive and preprocess the map in an online fashion.</p>
+<p>Using the feature, <code>ndt_scan_matcher</code> can theoretically handle any large size maps in terms of memory usage. (Note that it is still possible that there exists a limitation due to other factors, e.g. floating-point error)</p>
+<p><img src="./media/differential_area_loading.gif" alt="drawing" width="400"/></p>
+<h3 id="additional-interfaces">Additional interfaces<a class="headerlink" href="#additional-interfaces" title="Permanent link">#</a></h3>
+<h4 id="additional-inputs">Additional inputs<a class="headerlink" href="#additional-inputs" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>input_ekf_odom</code></td>
+<td><code>nav_msgs::msg::Odometry</code></td>
+<td>Vehicle localization results (used for map update decision)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="additional-outputs">Additional outputs<a class="headerlink" href="#additional-outputs" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>debug/loaded_pointcloud_map</code></td>
+<td><code>sensor_msgs::msg::PointCloud2</code></td>
+<td>pointcloud maps used for localization (for debug)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="additional-client">Additional client<a class="headerlink" href="#additional-client" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>client_map_loader</code></td>
+<td><code>autoware_map_msgs::srv::GetDifferentialPointCloudMap</code></td>
+<td>map loading client</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>use_dynamic_map_loading</code></td>
+<td>bool</td>
+<td>Flag to enable dynamic map loading feature for NDT (TRUE by default)</td>
+</tr>
+<tr>
+<td><code>dynamic_map_loading_update_distance</code></td>
+<td>double</td>
+<td>Distance traveled to load new map(s)</td>
+</tr>
+<tr>
+<td><code>dynamic_map_loading_map_radius</code></td>
+<td>double</td>
+<td>Map loading radius for every update</td>
+</tr>
+<tr>
+<td><code>lidar_radius</code></td>
+<td>double</td>
+<td>LiDAR radius used for localization (only used for diagnosis)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="enabling-the-dynamic-map-loading-feature">Enabling the dynamic map loading feature<a class="headerlink" href="#enabling-the-dynamic-map-loading-feature" title="Permanent link">#</a></h3>
+<p>To use dynamic map loading feature for <code>ndt_scan_matcher</code>, you also need to appropriately configure some other settings outside of this node.
+Follow the next two instructions.</p>
+<ol>
+<li>enable dynamic map loading interface in <code>pointcloud_map_loader</code> (by setting <code>enable_differential_load</code> to true in the package)</li>
+<li>split the PCD files into grids (recommended size: 20[m] x 20[m])</li>
+</ol>
+<p>Note that the dynamic map loading may FAIL if the map is split into two or more large size map (e.g. 1000[m] x 1000[m]). Please provide either of</p>
+<ul>
+<li>one PCD map file</li>
+<li>multiple PCD map files divided into small size (~20[m])</li>
+</ul>
+<p>Here is a split PCD map for <code>sample-map-rosbag</code> from Autoware tutorial: <a href="https://github.com/autowarefoundation/autoware.universe/files/10349104/sample-map-rosbag_split.zip"><code>sample-map-rosbag_split.zip</code></a></p>
+<table>
+<thead>
+<tr>
+<th align="center">PCD files</th>
+<th align="center"><code>use_dynamic_map_loading</code></th>
+<th align="center"><code>enable_differential_load</code></th>
+<th align="center">How NDT loads map(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">single file</td>
+<td align="center">true</td>
+<td align="center">true</td>
+<td align="center">at once (standard)</td>
+</tr>
+<tr>
+<td align="center">single file</td>
+<td align="center">true</td>
+<td align="center">false</td>
+<td align="center"><strong>does NOT work</strong></td>
+</tr>
+<tr>
+<td align="center">single file</td>
+<td align="center">false</td>
+<td align="center">true/false</td>
+<td align="center">at once (standard)</td>
+</tr>
+<tr>
+<td align="center">splitted</td>
+<td align="center">true</td>
+<td align="center">true</td>
+<td align="center">dynamically</td>
+</tr>
+<tr>
+<td align="center">splitted</td>
+<td align="center">true</td>
+<td align="center">false</td>
+<td align="center"><strong>does NOT work</strong></td>
+</tr>
+<tr>
+<td align="center">splitted</td>
+<td align="center">false</td>
+<td align="center">true/false</td>
+<td align="center">at once (standard)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="scan-matching-score-based-on-de-grounded-lidar-scan">Scan matching score based on de-grounded LiDAR scan<a class="headerlink" href="#scan-matching-score-based-on-de-grounded-lidar-scan" title="Permanent link">#</a></h2>
 <h3 id="abstract_1">Abstract<a class="headerlink" href="#abstract_1" title="Permanent link">#</a></h3>
 <p>This is a function that using de-grounded LiDAR scan estimate scan matching score.This score can more accurately reflect the current localization performance.
 <a href="https://github.com/autowarefoundation/autoware.universe/issues/2044">related issue</a>.</p>
-<h3 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h3>
+<h3 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
