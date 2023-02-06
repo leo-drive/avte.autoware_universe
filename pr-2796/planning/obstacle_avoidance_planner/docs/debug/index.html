@@ -11941,7 +11941,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="drivable_area" src="./media/drivable_area.png" /></p>
+<p><img alt="drivable_area" src="../../media/drivable_area.png" /></p>
 <ul>
 <li><strong>Path from behavior</strong><ul>
 <li>The input path of obstacle_avoidance_planner. Whether this path is continuous and the curvature is not so high can be checked.</li>
@@ -11949,7 +11949,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="behavior_path" src="./media/behavior_path.png" /></p>
+<p><img alt="behavior_path" src="../../media/behavior_path.png" /></p>
 <ul>
 <li><strong>EB trajectory</strong><ul>
 <li>The output trajectory of elastic band. Whether this trajectory is very smooth and a sampling width is constant can be checked.</li>
@@ -11957,7 +11957,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="eb_traj" src="./media/eb_traj.png" /></p>
+<p><img alt="eb_traj" src="../../media/eb_traj.png" /></p>
 <ul>
 <li><strong>MPT reference trajectory</strong><ul>
 <li>The reference trajectory of model predictive trajectory. Whether this trajectory is very smooth and a sampling width is constant can be checked.</li>
@@ -11965,7 +11965,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="mpt_ref_traj" src="./media/mpt_ref_traj.png" /></p>
+<p><img alt="mpt_ref_traj" src="../../media/mpt_ref_traj.png" /></p>
 <ul>
 <li><strong>MPT fixed trajectory</strong><ul>
 <li>The fixed trajectory around the ego of model predictive trajectory.</li>
@@ -11973,7 +11973,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="mpt_fixed_traj" src="./media/mpt_fixed_traj.png" /></p>
+<p><img alt="mpt_fixed_traj" src="../../media/mpt_fixed_traj.png" /></p>
 <ul>
 <li><strong>bounds</strong><ul>
 <li>Lateral Distance to the road or object boundaries to check collision in model predictive trajectory.</li>
@@ -11982,7 +11982,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="bounds" src="./media/bounds.png" /></p>
+<p><img alt="bounds" src="../../media/bounds.png" /></p>
 <ul>
 <li><strong>MPT trajectory</strong><ul>
 <li>The output of model predictive trajectory. Whether this trajectory is smooth enough and inside the drivable area can be checked.</li>
@@ -11990,7 +11990,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="mpt_traj" src="./media/mpt_traj.png" /></p>
+<p><img alt="mpt_traj" src="../../media/mpt_traj.png" /></p>
 <ul>
 <li><strong>Output trajectory</strong><ul>
 <li>The output of obstacle_avoidance_planner. Whether this trajectory is smooth enough can be checked.</li>
@@ -11998,7 +11998,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="output_traj" src="./media/output_traj.png" /></p>
+<p><img alt="output_traj" src="../../media/output_traj.png" /></p>
 <h2 id="calculation-cost">Calculation cost<a class="headerlink" href="#calculation-cost" title="Permanent link">#</a></h2>
 <p>Obstacle avoidance planner consists of many functions such as clearance map generation, boundary search, reference path smoothing, trajectory optimization, ...
 We can see the calculation time for each function as follows.</p>
@@ -12051,7 +12051,7 @@ pathCallback:<span class="o">=</span><span class="w"> </span><span class="m">34<
 <p>With a script, we can plot some of above time as follows.</p>
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>scripts/calclation_time_analyzer.py<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;solveOsqp,initOsqp,pathCallback&quot;</span>
 </code></pre></div>
-<p><img alt="calculation_cost_plot" src="./media/calculation_cost_plot.svg" /></p>
+<p><img alt="calculation_cost_plot" src="../../media/calculation_cost_plot.svg" /></p>
 
 
 
