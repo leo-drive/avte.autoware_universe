@@ -17,7 +17,7 @@
         <link rel="next" href="../../external_cmd_converter/">
       
       <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -12225,7 +12225,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>accel_brake_map_calibrato
 </code></pre></div>
 <p><img alt="actuation_cmd_publisher_util" src="media/actuation_cmd_publisher_util.png" /></p>
 <h2 id="calibration-method">Calibration Method<a class="headerlink" href="#calibration-method" title="Permanent link">#</a></h2>
-<p>Two algorithms are selectable for the acceleration map update, <a href="#update_offset_each_cell">update_offset_four_cell_around</a> and <a href="update_offset_each_cell">update_offset_each_cell</a>. Please see the link for datails.</p>
+<p>Two algorithms are selectable for the acceleration map update, <a href="#update_offset_four_cell_around-1">update_offset_four_cell_around</a> and <a href="#update_offset_each_cell">update_offset_each_cell</a>. Please see the link for datails.</p>
 <h3 id="data-preprocessing">Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permanent link">#</a></h3>
 <p>Before calibration, missing or unusable data (e.g., too large handle angles) must first be eliminated. The following parameters are used to determine which data to remove.</p>
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h4>
@@ -12280,15 +12280,15 @@ ros2<span class="w"> </span>run<span class="w"> </span>accel_brake_map_calibrato
 <div class="MathJax_Preview">
 \begin{align}
     \theta[n]=&amp;
-    \theta[n-1]+\frac{p[n-1]x^{(n)}}{\lambda+p[n-1](x^{(n)})^2}(y^{(n)}-\theta[n-1]x^{(n)})\\
-    p[n]=&amp;\frac{p[n-1]}{\lambda+p[n-1](x^{(n)})^2}
+    \theta[n-1]+\frac{p[n-1]x^{(n)}}{\lambda+p[n-1]{(x^{(n)})}^2}(y^{(n)}-\theta[n-1]x^{(n)})\\
+    p[n]=&amp;\frac{p[n-1]}{\lambda+p[n-1]{(x^{(n)})}^2}
 \end{align}
 </div>
 <script type="math/tex; mode=display">
 \begin{align}
     \theta[n]=&
-    \theta[n-1]+\frac{p[n-1]x^{(n)}}{\lambda+p[n-1](x^{(n)})^2}(y^{(n)}-\theta[n-1]x^{(n)})\\
-    p[n]=&\frac{p[n-1]}{\lambda+p[n-1](x^{(n)})^2}
+    \theta[n-1]+\frac{p[n-1]x^{(n)}}{\lambda+p[n-1]{(x^{(n)})}^2}(y^{(n)}-\theta[n-1]x^{(n)})\\
+    p[n]=&\frac{p[n-1]}{\lambda+p[n-1]{(x^{(n)})}^2}
 \end{align}
 </script>
 </div>
@@ -12422,7 +12422,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>accel_brake_map_calibrato
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
