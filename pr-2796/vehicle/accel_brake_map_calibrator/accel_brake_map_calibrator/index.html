@@ -12313,7 +12313,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>accel_brake_map_calibrato
 </code></pre></div>
 <p><img alt="actuation_cmd_publisher_util" src="media/actuation_cmd_publisher_util.png" /></p>
 <h2 id="calibration-method">Calibration Method<a class="headerlink" href="#calibration-method" title="Permanent link">#</a></h2>
-<p>Two algorithms are selectable for the acceleration map update, <a href="#update_offset_each_cell">update_offset_four_cell_around</a> and <a href="update_offset_each_cell">update_offset_each_cell</a>. Please see the link for datails.</p>
+<p>Two algorithms are selectable for the acceleration map update, <a href="#update_offset_four_cell_around-1">update_offset_four_cell_around</a> and <a href="#update_offset_each_cell">update_offset_each_cell</a>. Please see the link for datails.</p>
 <h3 id="data-preprocessing">Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permanent link">#</a></h3>
 <p>Before calibration, missing or unusable data (e.g., too large handle angles) must first be eliminated. The following parameters are used to determine which data to remove.</p>
 <h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">#</a></h4>
@@ -12368,15 +12368,15 @@ ros2<span class="w"> </span>run<span class="w"> </span>accel_brake_map_calibrato
 <div class="MathJax_Preview">
 \begin{align}
     \theta[n]=&amp;
-    \theta[n-1]+\frac{p[n-1]x^{(n)}}{\lambda+p[n-1](x^{(n)})^2}(y^{(n)}-\theta[n-1]x^{(n)})\\
-    p[n]=&amp;\frac{p[n-1]}{\lambda+p[n-1](x^{(n)})^2}
+    \theta[n-1]+\frac{p[n-1]x^{(n)}}{\lambda+p[n-1]{(x^{(n)})}^2}(y^{(n)}-\theta[n-1]x^{(n)})\\
+    p[n]=&amp;\frac{p[n-1]}{\lambda+p[n-1]{(x^{(n)})}^2}
 \end{align}
 </div>
 <script type="math/tex; mode=display">
 \begin{align}
     \theta[n]=&
-    \theta[n-1]+\frac{p[n-1]x^{(n)}}{\lambda+p[n-1](x^{(n)})^2}(y^{(n)}-\theta[n-1]x^{(n)})\\
-    p[n]=&\frac{p[n-1]}{\lambda+p[n-1](x^{(n)})^2}
+    \theta[n-1]+\frac{p[n-1]x^{(n)}}{\lambda+p[n-1]{(x^{(n)})}^2}(y^{(n)}-\theta[n-1]x^{(n)})\\
+    p[n]=&\frac{p[n-1]}{\lambda+p[n-1]{(x^{(n)})}^2}
 \end{align}
 </script>
 </div>
