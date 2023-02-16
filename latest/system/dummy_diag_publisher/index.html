@@ -11764,6 +11764,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#yaml-format-for-dummy_diag_publisher" class="md-nav__link">
+    YAML format for dummy_diag_publisher
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -11780,6 +11787,26 @@
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launch" class="md-nav__link">
+    launch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reconfigure" class="md-nav__link">
+    reconfigure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -11825,6 +11852,7 @@
 </table>
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
 <h3 id="node-parameters">Node Parameters<a class="headerlink" href="#node-parameters" title="Permanent link">#</a></h3>
+<p>The parameter <code>DIAGNOSTIC_NAME</code> must be a name that exists in the parameter YAML file. If the parameter <code>status</code> is given from a command line, the parameter <code>is_active</code> is automatically set to <code>true</code>.</p>
 <table>
 <thead>
 <tr>
@@ -11844,32 +11872,56 @@
 <td>false</td>
 </tr>
 <tr>
-<td><code>diag_name</code></td>
-<td>string</td>
-<td><code>diag_name</code></td>
-<td>Diag_name set by dummy diag publisher</td>
-<td>false</td>
-</tr>
-<tr>
-<td><code>is_active</code></td>
+<td><code>DIAGNOSTIC_NAME.is_active</code></td>
 <td>bool</td>
 <td><code>true</code></td>
 <td>Force update or not</td>
 <td>true</td>
 </tr>
 <tr>
-<td><code>status</code></td>
-<td>DummyDiagPublisherNode::Status</td>
-<td><code>0 (OK)</code></td>
+<td><code>DIAGNOSTIC_NAME.status</code></td>
+<td>string</td>
+<td><code>"OK"</code></td>
 <td>diag status set by dummy diag publisher</td>
 <td>true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="yaml-format-for-dummy_diag_publisher">YAML format for dummy_diag_publisher<a class="headerlink" href="#yaml-format-for-dummy_diag_publisher" title="Permanent link">#</a></h3>
+<p>If the value is <code>default</code>, the default value will be set.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>required_diags.DIAGNOSTIC_NAME.is_active</code></td>
+<td>bool</td>
+<td><code>true</code></td>
+<td>Force update or not</td>
+</tr>
+<tr>
+<td><code>required_diags.DIAGNOSTIC_NAME.status</code></td>
+<td>string</td>
+<td><code>"OK"</code></td>
+<td>diag status set by dummy diag publisher</td>
 </tr>
 </tbody>
 </table>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
 <p>TBD.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<h3 id="launch">launch<a class="headerlink" href="#launch" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>dummy_diag_publisher<span class="w"> </span>dummy_diag_publisher.launch.xml
+</code></pre></div>
+<h3 id="reconfigure">reconfigure<a class="headerlink" href="#reconfigure" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>param<span class="w"> </span><span class="nb">set</span><span class="w"> </span>/dummy_diag_publisher<span class="w"> </span>velodyne_connection.status<span class="w"> </span><span class="s2">&quot;Warn&quot;</span>
+ros2<span class="w"> </span>param<span class="w"> </span><span class="nb">set</span><span class="w"> </span>/dummy_diag_publisher<span class="w"> </span>velodyne_connection.is_active<span class="w"> </span><span class="nb">true</span>
 </code></pre></div>
 
 
