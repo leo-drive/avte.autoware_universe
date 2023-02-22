@@ -11822,6 +11822,53 @@
     Inner-workings / Algorithms
   </a>
   
+    <nav class="md-nav" aria-label="Inner-workings / Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sync-algorithm" class="md-nav__link">
+    Sync Algorithm
+  </a>
+  
+    <nav class="md-nav" aria-label="Sync Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matching" class="md-nav__link">
+    matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fusion-and-timer" class="md-nav__link">
+    fusion and timer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-limits" class="md-nav__link">
+    Known Limits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-description-of-each-fusions-algorithm-is-in-the-following-links" class="md-nav__link">
+    Detail description of each fusion's algorithm is in the following links
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -11846,7 +11893,38 @@
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>The <code>image_projection_based_fusion</code> is a package to fuse detected obstacles (bounding box or segmentation) from image and 3d pointcloud or obstacles (bounding box, cluster or segmentation).</p>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
-<p>Detail description of each fusion's algorithm is in the following links.</p>
+<h3 id="sync-algorithm">Sync Algorithm<a class="headerlink" href="#sync-algorithm" title="Permanent link">#</a></h3>
+<h4 id="matching">matching<a class="headerlink" href="#matching" title="Permanent link">#</a></h4>
+<p>The offset between each camera and the lidar is set according to their shutter timing.
+After applying the offset to the timestamp, if the interval between the timestamp of pointcloud topic and the roi message is less than the match threshold, the two messages are matched.</p>
+<p><img alt="roi_sync_image1" src="docs/images/roi_sync_1.png" /></p>
+<p>current default value at autoware.universe for TIER IV Robotaxi are: - input_offset_ms: [61.67, 111.67, 45.0, 28.33, 78.33, 95.0] - match_threshold_ms: 30.0</p>
+<h4 id="fusion-and-timer">fusion and timer<a class="headerlink" href="#fusion-and-timer" title="Permanent link">#</a></h4>
+<p><img alt="roi_sync_image2" src="docs/images/roi_sync_2.png" /></p>
+<p>The subscription status of the message is signed with 'O'.
+1.if a pointcloud message is subscribed under the below condition:
+| | pointcloud | roi msg 1 | roi msg 2 | roi msg 3 |
+| :-----------------: | :--------: | :-------: | :-------: | :-------: |
+| subscription status | | O | O | O |</p>
+<p>If the roi msgs can be matched, fuse them and postprocess the pointcloud message.
+Otherwise, fuse the matched roi msgs and cache the pointcloud.
+2.if a pointcloud message is subscribed under the below condition:
+| | pointcloud | roi msg 1 | roi msg 2 | roi msg 3 |
+| :-----------------: | :--------: | :-------: | :-------: | :-------: |
+| subscription status | | O | O | |</p>
+<p>if the roi msgs can be matched, fuse them and cache the pointcloud.
+3.if a pointcloud message is subscribed under the below condition:
+| | pointcloud | roi msg 1 | roi msg 2 | roi msg 3 |
+| :-----------------: | :--------: | :-------: | :-------: | :-------: |
+| subscription status | O | O | O | |</p>
+<p>If the roi msg 3 is subscribed before the next pointcloud messge coming or timeout, fuse it if matched, otherwise wait for the next roi msg 3.
+If the roi msg 3 is not subscribed before the next pointcloud messge coming or timeout, postprocess the pointcloud messege as it is.</p>
+<p>The timeout threshold should be set according to the postprocessing time.
+E.g, if the postprocessing time is around 50ms, the timeout threshold should be set smaller than 50ms, so that the whole processing time could be less than 100ms.
+current default value at autoware.universe for XX1: - timeout_ms: 50.0</p>
+<h4 id="known-limits">Known Limits<a class="headerlink" href="#known-limits" title="Permanent link">#</a></h4>
+<p>The rclcpp::TimerBase timer could not break a for loop, therefore even if time is out when fusing a roi msg at the middle, the program will run until all msgs are fused.</p>
+<h3 id="detail-description-of-each-fusions-algorithm-is-in-the-following-links">Detail description of each fusion's algorithm is in the following links<a class="headerlink" href="#detail-description-of-each-fusions-algorithm-is-in-the-following-links" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -11865,6 +11943,11 @@
 <td>roi_detected_object_fusion</td>
 <td>Overwrite a classification label of detected objects by that of ROIs from a 2D object detector.</td>
 <td><a href="docs/roi-detected-object-fusion/">link</a></td>
+</tr>
+<tr>
+<td>pointpainting_fusion</td>
+<td>Paint the point cloud with the ROIs from a 2D object detector and feed to a 3D object detector.</td>
+<td><a href="docs/pointpainting-fusion/">link</a></td>
 </tr>
 </tbody>
 </table>

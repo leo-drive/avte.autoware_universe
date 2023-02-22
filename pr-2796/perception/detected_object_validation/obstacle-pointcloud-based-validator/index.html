@@ -12015,9 +12015,19 @@ The obstacle point cloud can be a point cloud after compare map filtering or a g
 </thead>
 <tbody>
 <tr>
-<td><code>min_pointcloud_num</code></td>
+<td><code>min_points_num</code></td>
+<td>int</td>
+<td>The minimum number of obstacle point clouds in DetectedObjects</td>
+</tr>
+<tr>
+<td><code>max_points_num</code></td>
+<td>int</td>
+<td>The max number of obstacle point clouds in DetectedObjects</td>
+</tr>
+<tr>
+<td><code>min_points_and_distance_ratio</code></td>
 <td>float</td>
-<td>Threshold for the minimum number of obstacle point clouds in DetectedObjects</td>
+<td>Threshold value of the number of point clouds per object when the distance from baselink is 1m, because the number of point clouds varies with the distance from baselink.</td>
 </tr>
 <tr>
 <td><code>enable_debugger</code></td>
