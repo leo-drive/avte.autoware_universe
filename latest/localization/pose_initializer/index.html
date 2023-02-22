@@ -14,7 +14,7 @@
         <link rel="prev" href="../pose2twist/">
       
       
-        <link rel="next" href="docs/map_height_fitter/">
+        <link rel="next" href="../stop_filter/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
@@ -385,7 +385,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../map/map_loader/" class="md-tabs__link">
+      <a href="../../map/map_height_fitter/" class="md-tabs__link">
         Map
       </a>
     </li>
@@ -4731,18 +4731,12 @@
             
           
         
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
           <a href="./">Pose initializer</a>
-          
-            <label for="__nav_9_7">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
           
         </div>
       
@@ -4753,76 +4747,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_7_2" >
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_9_7_2" id="__nav_9_7_2_label" tabindex="0">
-          Docs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_9_7_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_9_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Docs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="docs/map_height_fitter/" class="md-nav__link">
-        map_height_fitter
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="docs/pose_initializer/" class="md-nav__link">
-        pose_initializer
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
             
           
         </ul>
@@ -4957,6 +4881,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
@@ -4999,14 +4925,14 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../map/map_loader/">Map loader</a>
+          <a href="../../map/map_height_fitter/">Map height fitter</a>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_10_1">
           <span class="md-nav__icon md-icon"></span>
-          Map loader
+          Map height fitter
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -5039,16 +4965,64 @@
       
         
           
+            
+          
         
       
       
-        <label class="md-nav__link" for="__nav_10_2" id="__nav_10_2_label" tabindex="0">
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../map/map_loader/">Map loader</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Map loader
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_3" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
           Map tf generator
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_10_2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10_3">
           <span class="md-nav__icon md-icon"></span>
           Map tf generator
         </label>
@@ -11716,6 +11690,76 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    Purpose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    Interfaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clients" class="md-nav__link">
+    Clients
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriptions" class="md-nav__link">
+    Subscriptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publications" class="md-nav__link">
+    Publications
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-with-default-ad-api" class="md-nav__link">
+    Connection with Default AD API
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -11733,10 +11777,132 @@
 
 
 <h1 id="pose_initializer">pose_initializer<a class="headerlink" href="#pose_initializer" title="Permanent link">#</a></h1>
-<ul>
-<li><a href="docs/pose_initializer/">pose_initializer</a></li>
-<li><a href="docs/map_height_fitter/">map_height_fitter</a></li>
-</ul>
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
+<p>The <code>pose_initializer</code> is the package to send an initial pose to <code>ekf_localizer</code>.
+It receives roughly estimated initial pose from GNSS/user.
+Passing the pose to <code>ndt_scan_matcher</code>, and it gets a calculated ego pose from <code>ndt_scan_matcher</code> via service.
+Finally, it publishes the initial pose to <code>ekf_localizer</code>.
+This node depends on the map height fitter library.
+<a href="../../map/map_height_fitter/">See here for more details.</a></p>
+<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
+<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ndt_enabled</code></td>
+<td>bool</td>
+<td>If true, the pose will be estimated by NDT scan matcher, otherwise it is passed through.</td>
+</tr>
+<tr>
+<td><code>stop_check_enabled</code></td>
+<td>bool</td>
+<td>If true, initialization is accepted only when the vehicle is stopped.</td>
+</tr>
+<tr>
+<td><code>stop_check_duration</code></td>
+<td>bool</td>
+<td>The duration used for the stop check above.</td>
+</tr>
+<tr>
+<td><code>gnss_enabled</code></td>
+<td>bool</td>
+<td>If true, use the GNSS pose when no pose is specified.</td>
+</tr>
+<tr>
+<td><code>gnss_pose_timeout</code></td>
+<td>bool</td>
+<td>The duration that the GNSS pose is valid.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="services">Services<a class="headerlink" href="#services" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/localization/initialize</code></td>
+<td>autoware_adapi_v1_msgs::srv::InitializeLocalization</td>
+<td>initial pose from api</td>
+</tr>
+</tbody>
+</table>
+<h3 id="clients">Clients<a class="headerlink" href="#clients" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/localization/pose_estimator/ndt_align_srv</code></td>
+<td>tier4_localization_msgs::srv::PoseWithCovarianceStamped</td>
+<td>pose estimation service</td>
+</tr>
+</tbody>
+</table>
+<h3 id="subscriptions">Subscriptions<a class="headerlink" href="#subscriptions" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/sensing/gnss/pose_with_covariance</code></td>
+<td>geometry_msgs::msg::PoseWithCovarianceStamped</td>
+<td>pose from gnss</td>
+</tr>
+<tr>
+<td><code>/sensing/vehicle_velocity_converter/twist_with_covariance</code></td>
+<td>geometry_msgs::msg::TwistStamped</td>
+<td>twist for stop check</td>
+</tr>
+</tbody>
+</table>
+<h3 id="publications">Publications<a class="headerlink" href="#publications" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/localization/initialization_state</code></td>
+<td>autoware_adapi_v1_msgs::msg::LocalizationInitializationState</td>
+<td>pose initialization state</td>
+</tr>
+<tr>
+<td><code>/initialpose3d</code></td>
+<td>geometry_msgs::msg::PoseWithCovarianceStamped</td>
+<td>calculated initial ego pose</td>
+</tr>
+</tbody>
+</table>
+<h2 id="connection-with-default-ad-api">Connection with Default AD API<a class="headerlink" href="#connection-with-default-ad-api" title="Permanent link">#</a></h2>
+<p>This <code>pose_initializer</code> is used via default AD API. For detailed description of the API description, please refer to <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/system/default_ad_api/document/localization.md">the description of <code>default_ad_api</code></a>.</p>
+<p><img src="../../system/default_ad_api/document/images/localization.drawio.svg" alt="drawing" width="800"/></p>
 
 
 
@@ -11779,13 +11945,13 @@
         
         
           
-          <a href="docs/map_height_fitter/" class="md-footer__link md-footer__link--next" aria-label="Next: map_height_fitter" rel="next">
+          <a href="../stop_filter/" class="md-footer__link md-footer__link--next" aria-label="Next: stop_filter" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Next
                 </span>
-                map_height_fitter
+                stop_filter
               </div>
             </div>
             <div class="md-footer__button md-icon">
