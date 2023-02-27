@@ -7497,8 +7497,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-to-pervent-shift-line-chattering-that-is-caused-by-perception-noise" class="md-nav__link">
-    How to pervent shift line chattering that is caused by perception noise
+  <a href="#how-to-prevent-shift-line-chattering-that-is-caused-by-perception-noise" class="md-nav__link">
+    How to prevent shift line chattering that is caused by perception noise
   </a>
   
 </li>
@@ -12124,8 +12124,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-to-pervent-shift-line-chattering-that-is-caused-by-perception-noise" class="md-nav__link">
-    How to pervent shift line chattering that is caused by perception noise
+  <a href="#how-to-prevent-shift-line-chattering-that-is-caused-by-perception-noise" class="md-nav__link">
+    How to prevent shift line chattering that is caused by perception noise
   </a>
   
 </li>
@@ -12456,7 +12456,7 @@ ratio =  {l_d \over l_D}
 <h3 id="compensation-for-detection-lost">Compensation for detection lost<a class="headerlink" href="#compensation-for-detection-lost" title="Permanent link">#</a></h3>
 <p>In order to prevent chattering of recognition results, once an obstacle is targeted, it is hold for a while even if it disappears. This is effective when recognition is unstable. However, since it will result in over-detection (increase a number of false-positive), it is necessary to adjust parameters according to the recognition accuracy (if <code>object_last_seen_threshold = 0.0</code>, the recognition result is 100% trusted).</p>
 <h2 id="overview-of-algorithm-for-avoidance-path-generation">Overview of algorithm for avoidance path generation<a class="headerlink" href="#overview-of-algorithm-for-avoidance-path-generation" title="Permanent link">#</a></h2>
-<h3 id="how-to-pervent-shift-line-chattering-that-is-caused-by-perception-noise">How to pervent shift line chattering that is caused by perception noise<a class="headerlink" href="#how-to-pervent-shift-line-chattering-that-is-caused-by-perception-noise" title="Permanent link">#</a></h3>
+<h3 id="how-to-prevent-shift-line-chattering-that-is-caused-by-perception-noise">How to prevent shift line chattering that is caused by perception noise<a class="headerlink" href="#how-to-prevent-shift-line-chattering-that-is-caused-by-perception-noise" title="Permanent link">#</a></h3>
 <p>Since object recognition results contain noise related to position ,orientation and boundary size, if the raw object recognition results are used in path generation, the avoidance path will be directly affected by the noise.</p>
 <p>Therefore, in order to reduce the influence of the noise, avoidance module generate a envelope polygon for the avoidance target that covers it, and the avoidance path should be generated based on that polygon. The envelope polygons are generated so that they are parallel to the reference path and the polygon size is larger than the avoidance target (define by <code>object_envelope_buffer</code>). The position and size of the polygon is not updated as long as the avoidance target exists within that polygon.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># default value</span>
@@ -12576,6 +12576,7 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
 <span class="nt">safety_check_idling_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.5</span><span class="w"> </span><span class="c1"># [s]</span>
 <span class="nt">safety_check_accel_for_rss</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.5</span><span class="w"> </span><span class="c1"># [m/ss]</span>
 </code></pre></div>
+<p><img alt="fig1" src="../image/avoidance/safety_check_flowchart.svg" /></p>
 <p><code>safety_check_backward_distance</code> is the parameter related to the safety check area. The module checks a collision risk for all vehicle that is within shift side lane and between object <code>object_check_forward_distance</code> ahead and <code>safety_check_backward_distance</code> behind.</p>
 <p><img alt="fig1" src="../image/avoidance/safety_check_step_1.svg" /></p>
 <p><strong>NOTE</strong>: Even if a part of an object polygon overlaps the detection area, if the center of gravity of the object does not exist on the lane, the vehicle is excluded from the safety check target.</p>
@@ -12598,9 +12599,40 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
 <span class="w">      </span><span class="nv">0.75 ... 1.50</span><span class="p p-Indicator">,</span>
 <span class="w">    </span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># margin [m]</span>
 </code></pre></div>
+<hr />
 <h3 id="yield-maneuver">Yield maneuver<a class="headerlink" href="#yield-maneuver" title="Permanent link">#</a></h3>
 <h4 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h4>
+<p>If an avoidance path can be generated and it is determined that avoidance maneuver should not be executed due to surrounding traffic conditions, the module executes YIELD maneuver. In yield maneuver, the vehicle slows down to the target vehicle velocity (<code>yield_velocity</code>) and keep that speed until the module judge that avoidance path is safe. If the YIELD condition goes on and the vehicle approaches the avoidance target, it stops at the avoidable position and waits until the safety is confirmed.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># For yield maneuver</span>
+<span class="nt">yield_velocity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.78</span><span class="w"> </span><span class="c1"># [m/s]</span>
+</code></pre></div>
+<p><img alt="fig1" src="../image/avoidance/yield_maneuver.svg" /></p>
+<p><strong>NOTE</strong>: In yield maneuver, the vehicle decelerates target velocity under constraints.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">nominal_deceleration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-1.0</span><span class="w"> </span><span class="c1"># [m/ss]</span>
+<span class="nt">nominal_jerk</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span><span class="w"> </span><span class="c1"># [m/sss]</span>
+</code></pre></div>
+<p>If it satisfies following all of three conditions, the module inserts stop point in front of the avoidance target with an avoidable interval.</p>
+<ul>
+<li>Can't pass through the side of target object without avoidance.</li>
+<li>There is enough lane width to avoid target object.</li>
+<li>In waiting approval or yield maneuver.</li>
+</ul>
+<p>The module determines that it is NOT passable without avoidance if the object overhang is less than the threshold.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">lateral_passable_collision_margin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span><span class="w"> </span><span class="c1"># [-]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>L_{overhang} &lt; \frac{W}{2} + L_{margin} (not passable)
+</code></pre></div>
+<p>The <span class="arithmatex"><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span> represents vehicle width, and <span class="arithmatex"><span class="MathJax_Preview">L_{margin}</span><script type="math/tex">L_{margin}</script></span> represents <code>lateral_passable_collision_margin</code>.</p>
 <h4 id="limitation">Limitation<a class="headerlink" href="#limitation" title="Permanent link">#</a></h4>
+<p><strong>Limitation1</strong></p>
+<p>The current behavior in unsafe condition is just slow down and it is so conservative. It is difficult to achieve aggresive behavior in the current architecture because of modulatiry. There are many modules in autoware that change the vehicle speed, and the avoidance module cannot know what speed planning they will output, so it is forced to choose a behavior that is as independent of other modules' processing as possible.</p>
+<p><strong>Limitation2</strong></p>
+<p>The YIELD maneuver is executed <strong>ONLY</strong> when the vehicle has <strong>NOT</strong> initiated avoidance maneuver. The module has a threshold parameter (<code>avoidance_initiate_threshold</code>) for the amount of shifting and determines that the vehicle is initiating avoidance if the vehicle current shift exceeds the threshold.</p>
+<div class="highlight"><pre><span></span><code>SHIFT_{current} &gt; L_{threshold}
+</code></pre></div>
+<p><img alt="fig1" src="../image/avoidance/yield_limitation.svg" /></p>
+<p><img alt="fig1" src="../image/avoidance/yield_maneuver_flowchart.svg" /></p>
+<hr />
 <h3 id="avoidance-cancelling-maneuver">Avoidance cancelling maneuver<a class="headerlink" href="#avoidance-cancelling-maneuver" title="Permanent link">#</a></h3>
 <p>If <code>enable_update_path_when_object_is_gone</code> parameter is true, Avoidance Module takes different actions according to the situations as follows:</p>
 <ul>
@@ -12899,7 +12931,7 @@ To solve that, this module provides a parameter for the minimum avoidance speed,
 <td align="left">safety_check_time_horizon</td>
 <td>[s]</td>
 <td>double</td>
-<td>Time holizon to check lateral/longitudinal margin is enough or not.</td>
+<td>Time horizon to check lateral/longitudinal margin is enough or not.</td>
 <td>10.0</td>
 </tr>
 <tr>
