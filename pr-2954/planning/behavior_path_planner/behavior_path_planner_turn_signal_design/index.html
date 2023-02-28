@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-2954/planning/behavior_path_planner/behavior_path_planner_drivable_area/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/pr-2954/planning/behavior_path_planner/behavior_path_planner_turn_signal_design/">
       
       
-        <link rel="prev" href="../behavior_path_planner_design_limitations/">
+        <link rel="prev" href="../behavior_path_planner_side_shift_design/">
       
       
-        <link rel="next" href="../behavior_path_planner_lane_change/">
+        <link rel="next" href="../../behavior_velocity_planner/">
       
       <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
-        <title>Drivable Area - Autoware Universe Documentation</title>
+        <title>Turn Signal design - Autoware Universe Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#drivable-area" class="md-skip">
+        <a href="#turn-signal-design" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Drivable Area
+              Turn Signal design
             
           </span>
         </div>
@@ -7374,8 +7374,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../behavior_path_planner_avoidance-design/" class="md-nav__link">
-        Avoidance Module
+      <a href="../behavior_path_planner_avoidance_design/" class="md-nav__link">
+        Avoidance design
       </a>
     </li>
   
@@ -7388,8 +7388,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../behavior_path_planner_design_limitations/" class="md-nav__link">
-        Design limitation
+      <a href="../behavior_path_planner_drivable_area_design/" class="md-nav__link">
+        Drivable Area design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior_path_planner_lane_change_design/" class="md-nav__link">
+        Lane Change design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior_path_planner_limitations/" class="md-nav__link">
+        Limitations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior_path_planner_path_generation_design/" class="md-nav__link">
+        Path Generation design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior_path_planner_side_shift_design/" class="md-nav__link">
+        Side Shift design
       </a>
     </li>
   
@@ -7412,12 +7468,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Drivable Area
+          Turn Signal design
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Drivable Area
+        Turn Signal design
       </a>
       
         
@@ -7440,25 +7496,31 @@
     Purpose / Role
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assumption" class="md-nav__link">
-    Assumption
+    <nav class="md-nav" aria-label="Purpose / Role">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    Assumptions
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#limitations" class="md-nav__link">
     Limitations
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#parameters-for-drivable-area-generation" class="md-nav__link">
-    Parameters for drivable area generation
+  <a href="#parameters-for-turn-signal-decider" class="md-nav__link">
+    Parameters for turn signal decider
   </a>
   
 </li>
@@ -7472,50 +7534,85 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#drivable-lanes-generation" class="md-nav__link">
-    Drivable Lanes Generation
+  <a href="#-desired-section" class="md-nav__link">
+    - Desired Section
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#drivable-area-generation" class="md-nav__link">
-    Drivable Area Generation
+  <a href="#-required-section" class="md-nav__link">
+    - Required Section
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#drivable-area-expansion" class="md-nav__link">
-    Drivable Area Expansion
-  </a>
-  
-    <nav class="md-nav" aria-label="Drivable Area Expansion">
+    <nav class="md-nav" aria-label="- Required Section">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#static-expansion" class="md-nav__link">
-    Static Expansion
+  <a href="#1-left-and-right-turn" class="md-nav__link">
+    1. Left and Right turn
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dynamic-expansion" class="md-nav__link">
-    Dynamic Expansion
+  <a href="#2-avoidance" class="md-nav__link">
+    2. Avoidance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-lane-change" class="md-nav__link">
+    3. Lane Change
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pull-out" class="md-nav__link">
+    4. Pull out
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pull-over" class="md-nav__link">
+    5. Pull over
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-several-right-and-left-turns-on-short-sections" class="md-nav__link">
+    - Several right and left turns on short sections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-avoidance-with-left-turn-1" class="md-nav__link">
+    - Avoidance with left turn (1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-avoidance-with-left-turn-2" class="md-nav__link">
+    - Avoidance with left turn (2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-lane-change-and-left-turn" class="md-nav__link">
+    - Lane change and left turn
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visualizing-maximum-drivable-area-debug" class="md-nav__link">
-    Visualizing maximum drivable area (Debug)
-  </a>
   
 </li>
         
@@ -7528,62 +7625,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../behavior_path_planner_lane_change/" class="md-nav__link">
-        Lane Change
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../behavior_path_planner_path_generation/" class="md-nav__link">
-        Behavior path planner path generation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../behavior_path_planner_side-shift/" class="md-nav__link">
-        Side shift Module
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../behavior_path_planner_turn_signal-design/" class="md-nav__link">
-        Turn Signal Decider
-      </a>
     </li>
   
 
@@ -11774,25 +11815,31 @@
     Purpose / Role
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assumption" class="md-nav__link">
-    Assumption
+    <nav class="md-nav" aria-label="Purpose / Role">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    Assumptions
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#limitations" class="md-nav__link">
     Limitations
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#parameters-for-drivable-area-generation" class="md-nav__link">
-    Parameters for drivable area generation
+  <a href="#parameters-for-turn-signal-decider" class="md-nav__link">
+    Parameters for turn signal decider
   </a>
   
 </li>
@@ -11806,50 +11853,85 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#drivable-lanes-generation" class="md-nav__link">
-    Drivable Lanes Generation
+  <a href="#-desired-section" class="md-nav__link">
+    - Desired Section
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#drivable-area-generation" class="md-nav__link">
-    Drivable Area Generation
+  <a href="#-required-section" class="md-nav__link">
+    - Required Section
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#drivable-area-expansion" class="md-nav__link">
-    Drivable Area Expansion
-  </a>
-  
-    <nav class="md-nav" aria-label="Drivable Area Expansion">
+    <nav class="md-nav" aria-label="- Required Section">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#static-expansion" class="md-nav__link">
-    Static Expansion
+  <a href="#1-left-and-right-turn" class="md-nav__link">
+    1. Left and Right turn
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dynamic-expansion" class="md-nav__link">
-    Dynamic Expansion
+  <a href="#2-avoidance" class="md-nav__link">
+    2. Avoidance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-lane-change" class="md-nav__link">
+    3. Lane Change
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pull-out" class="md-nav__link">
+    4. Pull out
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pull-over" class="md-nav__link">
+    5. Pull over
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-several-right-and-left-turns-on-short-sections" class="md-nav__link">
+    - Several right and left turns on short sections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-avoidance-with-left-turn-1" class="md-nav__link">
+    - Avoidance with left turn (1)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-avoidance-with-left-turn-2" class="md-nav__link">
+    - Avoidance with left turn (2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-lane-change-and-left-turn" class="md-nav__link">
+    - Lane change and left turn
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#visualizing-maximum-drivable-area-debug" class="md-nav__link">
-    Visualizing maximum drivable area (Debug)
-  </a>
   
 </li>
         
@@ -11876,24 +11958,20 @@
   
 
 
-<h1 id="drivable-area">Drivable Area<a class="headerlink" href="#drivable-area" title="Permanent link">#</a></h1>
-<p>Drivable Area represents the area where ego vehicle can pass.</p>
+<h1 id="turn-signal-design">Turn Signal design<a class="headerlink" href="#turn-signal-design" title="Permanent link">#</a></h1>
+<p>Turn Signal decider determines necessary blinkers.</p>
 <h2 id="purpose-role">Purpose / Role<a class="headerlink" href="#purpose-role" title="Permanent link">#</a></h2>
-<p>In order to defined the area that ego vehicle can travel safely, we generate drivable area in behavior path planner module. Our drivable area is represented by two line strings, which are <code>left_bound</code> line and <code>right_bound</code> line respectively. Both <code>left_bound</code> and <code>right_bound</code> are created from left and right boundaries of lanelets. Note that <code>left_bound</code> and <code>right bound</code> are generated by <code>generateDrivableArea</code> function.</p>
-<h2 id="assumption">Assumption<a class="headerlink" href="#assumption" title="Permanent link">#</a></h2>
-<p>Our drivable area has several assumptions.</p>
-<ul>
-<li>Drivable Area should have all of the necessary area but should not represent unnecessary area for current behaviors. For example, when ego vehicle is in <code>follow lane</code> mode, drivable area should not contain adjacent lanes.</li>
-</ul>
-<ul>
-<li>When generating a drivable area, lanes need to be arranged in the order in which cars pass by (More details can be found in following sections).</li>
-</ul>
-<ul>
-<li>Both left and right bounds should cover the front of the path and the end of the path.</li>
-</ul>
-<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h2>
-<p>Currently, when clipping left bound or right bound, it can clip the bound more than necessary and the generated path might be conservative.</p>
-<h2 id="parameters-for-drivable-area-generation">Parameters for drivable area generation<a class="headerlink" href="#parameters-for-drivable-area-generation" title="Permanent link">#</a></h2>
+<p>This module is responsible for activating a necessary blinker during driving. It uses rule-based algorithm to determine blinkers, and the details of this algorithm are described in the following sections. Note that this algorithm is strictly based on the Japanese Road Traffic Raw.</p>
+<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">#</a></h3>
+<p>Autoware has following order of priorities for turn signals.</p>
+<ol>
+<li>Activate turn signal to safely navigate ego vehicle and protect other road participants</li>
+<li>Follow traffic laws</li>
+<li>Follow human driving practices</li>
+</ol>
+<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">#</a></h3>
+<p>Currently, this algorithm can sometimes give unnatural (not wrong) blinkers in a complicated situations. This is because it tries to follow the road traffic raw and cannot solve <code>blinker conflicts</code> clearly in that environment.</p>
+<h2 id="parameters-for-turn-signal-decider">Parameters for turn signal decider<a class="headerlink" href="#parameters-for-turn-signal-decider" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -11906,228 +11984,210 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">enabled</td>
-<td align="left">[-]</td>
-<td align="left">boolean</td>
-<td align="left">whether to dynamically the drivable area using the ego footprint</td>
-<td align="left">false</td>
-</tr>
-<tr>
-<td align="left">ego.extra_footprint_offset.front</td>
+<td align="left">turn_signal_intersection_search_distance</td>
 <td align="left">[m]</td>
 <td align="left">double</td>
-<td align="left">extra length to add to the front of the ego footprint</td>
-<td align="left">0.0</td>
+<td align="left">constant search distance to decide activation of blinkers at intersections</td>
+<td align="left">30</td>
 </tr>
 <tr>
-<td align="left">ego.extra_footprint_offset.rear</td>
+<td align="left">turn_signal_intersection_angle_threshold_degree</td>
+<td align="left">deg</td>
+<td align="left">double</td>
+<td align="left">angle threshold to determined the end point of intersection required section</td>
+<td align="left">15</td>
+</tr>
+<tr>
+<td align="left">turn_signal_minimum_search_distance</td>
 <td align="left">[m]</td>
 <td align="left">double</td>
-<td align="left">extra length to add to the rear of the ego footprint</td>
-<td align="left">0.0</td>
+<td align="left">minimum search distance for avoidance and lane change</td>
+<td align="left">10</td>
 </tr>
 <tr>
-<td align="left">ego.extra_footprint_offset.left</td>
-<td align="left">[m]</td>
+<td align="left">turn_signal_search_time</td>
+<td align="left">[s]</td>
 <td align="left">double</td>
-<td align="left">extra length to add to the left of the ego footprint</td>
-<td align="left">0.0</td>
-</tr>
-<tr>
-<td align="left">ego.extra_footprint_offset.right</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">extra length to add to the rear of the ego footprint</td>
-<td align="left">0.0</td>
-</tr>
-<tr>
-<td align="left">dynamic_objects.avoid</td>
-<td align="left">[-]</td>
-<td align="left">boolean</td>
-<td align="left">if true, the drivable area is not expanded in the predicted path of dynamic objects</td>
-<td align="left">true</td>
-</tr>
-<tr>
-<td align="left">dynamic_objects.extra_footprint_offset.front</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">extra length to add to the front of the ego footprint</td>
-<td align="left">0.5</td>
-</tr>
-<tr>
-<td align="left">dynamic_objects.extra_footprint_offset.rear</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">extra length to add to the rear of the ego footprint</td>
-<td align="left">0.5</td>
-</tr>
-<tr>
-<td align="left">dynamic_objects.extra_footprint_offset.left</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">extra length to add to the left of the ego footprint</td>
-<td align="left">0.5</td>
-</tr>
-<tr>
-<td align="left">dynamic_objects.extra_footprint_offset.right</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">extra length to add to the rear of the ego footprint</td>
-<td align="left">0.5</td>
-</tr>
-<tr>
-<td align="left">max_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">maximum distance by which the drivable area can be expended. A value of 0.0 means no maximum distance.</td>
-<td align="left">0.0</td>
-</tr>
-<tr>
-<td align="left">expansion.method</td>
-<td align="left">[-]</td>
-<td align="left">string</td>
-<td align="left">method to use for the expansion: "polygon" will expand the drivable area around the ego footprint polygons; "lanelet" will expand to the whole lanelets overlapped by the ego footprints</td>
-<td align="left">"polygon"</td>
-</tr>
-<tr>
-<td align="left">expansion.max_arc_path_length</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">maximum length along the path where the ego footprint is projected</td>
-<td align="left">50.0</td>
-</tr>
-<tr>
-<td align="left">expansion.extra_arc_length</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">extra arc length (relative to the path) around ego footprints where the drivable area is expanded</td>
-<td align="left">0.5</td>
-</tr>
-<tr>
-<td align="left">expansion.avoid_linestring.types</td>
-<td align="left">[-]</td>
-<td align="left">string array</td>
-<td align="left">linestring types in the lanelet maps that will not be crossed when expanding the drivable area</td>
-<td align="left">[guard_rail, road_border]</td>
-</tr>
-<tr>
-<td align="left">avoid_linestring.distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">distance to keep between the drivable area and the linestrings to avoid</td>
-<td align="left">0.0</td>
-</tr>
-<tr>
-<td align="left">avoid_linestring.compensate.enable</td>
-<td align="left">[-]</td>
-<td align="left">bool</td>
-<td align="left">if true, when the expansion is blocked by a linestring on one side of the path, we try to compensate and expand on the other side</td>
-<td align="left">true</td>
-</tr>
-<tr>
-<td align="left">avoid_linestring.compensate.extra_distance</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">extra distance added to the expansion when compensating</td>
+<td align="left">search time for to decide activation of blinkers</td>
 <td align="left">3.0</td>
 </tr>
-</tbody>
-</table>
-<p>The following parameters are defined for each module. Please refer to the <code>config/drivable_area_expansion.yaml</code> file.</p>
-<table>
-<thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Unit</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-<th align="left">Default value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">drivable_area_right_bound_offset</td>
+<td align="left">turn_signal_shift_length_threshold</td>
 <td align="left">[m]</td>
 <td align="left">double</td>
-<td align="left">right offset length to expand drivable area</td>
-<td align="left">5.0</td>
+<td align="left">shift length threshold to decide activation of blinkers</td>
+<td align="left">0.3</td>
 </tr>
 <tr>
-<td align="left">drivable_area_left_bound_offset</td>
-<td align="left">[m]</td>
-<td align="left">double</td>
-<td align="left">left offset length to expand drivable area</td>
-<td align="left">5.0</td>
-</tr>
-<tr>
-<td align="left">drivable_area_types_to_skip</td>
+<td align="left">turn_signal_on_swerving</td>
 <td align="left">[-]</td>
-<td align="left">string</td>
-<td align="left">linestring types (as defined in the lanelet map) that will not be expanded</td>
-<td align="left">road_border</td>
+<td align="left">bool</td>
+<td align="left">flag to activate blinkers when swerving</td>
+<td align="left">true</td>
 </tr>
 </tbody>
 </table>
+<p>Note that the default values for <code>turn_signal_intersection_search_distance</code> and <code>turn_signal_search_time</code> is strictly followed by <a href="https://www.japaneselawtranslation.go.jp/ja/laws/view/2962">Japanese Road Traffic Laws</a>. So if your country does not allow to use these default values, you should change these values in configuration files.</p>
 <h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
-<p>This section gives details of the generation of the drivable area (<code>left_bound</code> and <code>right_bound</code>).</p>
-<h3 id="drivable-lanes-generation">Drivable Lanes Generation<a class="headerlink" href="#drivable-lanes-generation" title="Permanent link">#</a></h3>
-<p>Before generating drivable areas, drivable lanes need to be sorted. Drivable Lanes are selected in each module (<code>Lane Follow</code>, <code>Avoidance</code>, <code>Lane Change</code>, <code>Pull Over</code>, <code>Pull Out</code> and etc.), so more details about selection of drivable lanes can be found in each module's document. We use the following structure to define the drivable lanes.</p>
-<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXMtYXNjaWkiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSIxMzZweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjE4OXB4O2hlaWdodDoxMzZweDtiYWNrZ3JvdW5kOiMwMDAwMDA7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxODkgMTM2IiB3aWR0aD0iMTg5cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48cmVjdCBmaWxsPSIjMUQyMzBCIiBoZWlnaHQ9IjEiIHN0eWxlPSJzdHJva2U6IzFEMjMwQjtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEiIHg9IjAiIHk9IjAiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZm9udC1zdHlsZT0iaXRhbGljIiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNjciIHg9IjUiIHk9IjE3Ij5QbGFudFVNTCAxLjIwMjMuMmJldGE4PC90ZXh0PjxyZWN0IGZpbGw9IiMzM0ZGMDIiIGhlaWdodD0iMjEuMjk2OSIgc3R5bGU9InN0cm9rZTojMzNGRjAyO3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTc3IiB4PSI1IiB5PSIyNi45Njg4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE3NSIgeD0iNiIgeT0iNDEuOTY4OCI+W0Zyb20gc3RyaW5nIChsaW5lIDMpIF08L3RleHQ+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjUiIHg9IjUiIHk9IjYyLjI2NTYiPiYjMTYwOzwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iODYiIHg9IjUiIHk9Ijc4LjU2MjUiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTc0IiB4PSI1IiB5PSI5NC44NTk0Ij5zdHJ1Y3QgRHJpdmFsYmxlTGFuZXM8L3RleHQ+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHQtZGVjb3JhdGlvbj0id2F2eSB1bmRlcmxpbmUiIHRleHRMZW5ndGg9IjEwIiB4PSI1IiB5PSIxMTEuMTU2MyI+ezwvdGV4dD48dGV4dCBmaWxsPSIjRkYwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTA5IiB4PSIxMCIgeT0iMTI3LjQ1MzEiPlN5bnRheCBFcnJvcj88L3RleHQ+PCEtLVNSQz1bQW91ZkFhcWtLTjBmb1luQnA0ZEFJVkw5cDRpanZnaGNLVzIyNzIweDl4TjRvaWV2RnctdW4wVjJLb1pBSkN5ZVlPVkFNSWxld3FENDU3QnBZcWwwTWwzZXBLYkRHektBNFkxNlB4NTJSY1BBSWF1Z0o3Q25NM1Q0M0FvWmNBbE02VzAwXS0tPjwvZz48L3N2Zz4=" class="uml" alt="uml diagram" title="" /></p>
-<p>The image of the sorted drivable lanes is depicted in the following picture.</p>
-<p><img alt="sorted_lanes" src="../image/drivable_area/sorted_lanes.drawio.svg" /></p>
-<p>Note that, the order of drivable lanes become</p>
-<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXMtYXNjaWkiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSIzMjdweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjgxNHB4O2hlaWdodDozMjdweDtiYWNrZ3JvdW5kOiMwMDAwMDA7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA4MTQgMzI3IiB3aWR0aD0iODE0cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48cmVjdCBmaWxsPSIjMDMwOTA5IiBoZWlnaHQ9IjEiIHN0eWxlPSJzdHJva2U6IzAzMDkwOTtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEiIHg9IjAiIHk9IjAiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjIwNi44NTY2IiBzdHlsZT0ic3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSI4MTIiIHg9IjAiIHk9IjAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTYxIiB4PSI1IiB5PSIxNi4xMzg3Ij5XZWxjb21lIHRvIFBsYW50VU1MITwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI0IiB4PSI1IiB5PSIzMC4xMDc0Ij4mIzE2MDs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjczIiB4PSI1IiB5PSI0NC4wNzYyIj5Zb3UgY2FuIHN0YXJ0IHdpdGggYSBzaW1wbGUgVU1MIERpYWdyYW0gbGlrZTo8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNCIgeD0iNSIgeT0iNTguMDQ0OSI+JiMxNjA7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTE5IiB4PSI1IiB5PSI3MS45ODcxIj5Cb2ItJmd0O0FsaWNlOiYjMTYwO0hlbGxvPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQiIHg9IjUiIHk9Ijg2LjQxMzgiPiYjMTYwOzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNSIgeD0iNSIgeT0iMTAwLjM4MjUiPk9yPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQiIHg9IjUiIHk9IjExNC4zNTEzIj4mIzE2MDs8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5MSIgeD0iNSIgeT0iMTI4LjI5MzQiPmNsYXNzJiMxNjA7RXhhbXBsZTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI0IiB4PSI1IiB5PSIxNDIuNzIwMSI+JiMxNjA7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjMzNCIgeD0iNSIgeT0iMTU2LjY4ODkiPllvdSB3aWxsIGZpbmQgbW9yZSBpbmZvcm1hdGlvbiBhYm91dCBQbGFudFVNTCBzeW50YXggb248L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dC1kZWNvcmF0aW9uPSJ1bmRlcmxpbmUiIHRleHRMZW5ndGg9IjEyMSIgeD0iMzQzIiB5PSIxNTYuNjg4OSI+aHR0cHM6Ly9wbGFudHVtbC5jb208L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNCIgeD0iNSIgeT0iMTcwLjY1NzYiPiYjMTYwOzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDYiIHg9IjUiIHk9IjE4NS4wNTc3Ij4oRGV0YWlscyBieSB0eXBpbmc8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI0OSIgeD0iMTE1IiB5PSIxODQuNTk5OCI+bGljZW5zZTwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI1OCIgeD0iMTY4IiB5PSIxODUuMDU3NyI+a2V5d29yZCk8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNCIgeD0iNSIgeT0iMTk5LjAyNjUiPiYjMTYwOzwvdGV4dD48aW1hZ2UgaGVpZ2h0PSI3MSIgd2lkdGg9IjgwIiB4PSI0OTMiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBRkFBQUFCSENBTUFBQUNuSERDOEFBQURBRkJNVkVYLy8vK0JwYnZEM3UvZjd2ZlB6OCtueitnM2tzdVpFRGtXQURyL3VqbHZzZHBUb2RMQ3dzT0x3T0ViZzhULy92NnBxYW1aRVRuTHlzdlQwOVRvNStqcUxTNFZBVGo5L2YyN3U3dkR3OE1UZnNLK3Y3L2o0K1NPd2VKcHJkakw0L0t4c2JFcmk4ams4UGdYYTU3YzI5dVVFVGV6MXV0UW9OSjF0TnRFbWM5Y3B0V0J1dDZheU9XLzNPNllFRGpZNnZVZmhjWEJ3Y0hzN096dzkvdjgzdDc5dVRuNysvdlgxOWVob2FIeDhmRzJ0TFhIeDhmdVZsZnJOVFlhQmpuL3ZVSDUrZm1rbzZXWGw1Zi8rZm45NXViKzlQVCs4UEQzcUtpZG1hTXhJVXJucURXY0ZqN241ZVgwOVBUdTd1MlNrcEtmblo2cnE2ejBsSlRtNHR6SnJIVWZEVDMzOS9lRkdEbjZ0amNyRXpPdnJiQnVaM2w0ZW9tU01TN0h6OVNtcHFhc3U4U0ZpWXVRRVRmYTJkdTFtNk9PTTA1MUowTldUV0w1eHNlNHVMajZ6YzMzcjYvNHZiN3lkSFhxTGkvNzJkbnRURTN0UjBpamJuNWpXM0MrdThOQU5WUXJHMFhGdWJxUlZHWnphNEdRR1QyVmFTN2EwTlBKdEk2SUpqL3pzenJmcWtYWHpyL0h3OGNnQzBMVXFsdE9RMkpzU0M1YlRHak9wRmFmU2kyK2lER3R5dDE0bTdUSmhUQ1BKVVN3b0lHL3FhK2lrSGlJZ3BDUkhqSTlqOEtYYm5hUUgwRkxmNkZHUGxwMGNuWXlLRTJyZzQ5V2o3ZEZYSG1jd3RycDZ1dSt4TWp2WVdMdlcxejk3ZTNzUEQzc1AwRHVVbFA3MDlQWXpkRFBtenFaV1d5U1JWeWdmSEhkMXNtV2taK1BnbmliRVRxc2wyNjBxNWZMdXBwSkxDL2RwajJIUEZMVHRIdi91anJUd0p5NXM2aVdqSWkwaUQzam9UVENtVTN0cmp1dlpTMnpsRnZqcTBIU3lMYllwMHFSdHMxMFhHeEVLQzl5UFZCUVpJT1BkbE52TWsyTmVZTnFSbHVqdGNDVnJyM2o1ZVkxZ0s5UW45R0xwN2xiZUpYUnhyQ2tpWkRhb3p5dWtvSitIMEIzcmMrT1l5K2lwckprWVhkaG1yNmVlMGFmczc5eHE5QmlrckdLakkzRm9tRWlMRk8wYXk2bmZJbTRwWlhSalRGdWhaU1pXbTB6Y1p5Sk4wS05UazRlZWJOZmRJR0dsWjkzaDVrY0VENW5PVll5UldiemlJazlkSjRrZXJFNVpZeFJVbkxHMWQ3cDhQVHZZMlB0VGsvMW5aMXljVi9iQUFBRngwbEVRVlI0WHUxWWUxQlVWUmcvZTNkaGw0Y3NLeXhxUGxCSlFWRVRGMmljQVkxM0dvZ2tFRnFpenFSUnBvQnBUQ0lhcGFVT2hXTmpVZE9NU0JwcUpZWlRnNEtpZ0ZLQUR6U0lWWjRxRDVWRmx1WGhMZ3ZiUGVlK3I0OVI3djJ6Myt6Y2M3N2ZPZlBiN3p2ZlBkODV1d0NJaHdUNHdQaXNBTndQQXVJS0huYkhIMUkrS3dBWERBMThTaERXNThDbmVDRW5YbDhKR3dtZkh5bENQU3ZsWi9GV3hoOFlJUkl4VFdrWkFFb2ZrVHo4c05xN3RBcUUyZ09ET0I2R1lab2JWYUgyMFNWWjRvUWNkbVhWMEw3YzRiOE9GdkpIUm9Zd2RWSW95UFgzZ3h0RkRBK1Y4ZTZtTThwQm9DamlqNHdRaVdvL0FMelYva3BraWZCaTEzcDR3YVp1R3JKRUVDeWNpeGNFVlNiWWdGd1Vvemc0L3FTcmFPeHJQN084RW9najJIRHh5TVdtenBrNjgyMyt5SWpodlI3ZkxPcERzQ3VHaHdDMFdmYmtqUXE4QTBNV0MwRWdJWXpQQ1lNeW1NOEl3Y3Z6Nks0SVd3OHNrVHJncTNpUE1JUW54ZGZLcnZ5ZWRweXZiU3N5QlF0NnpjSDZPeFhtanFZeGc5UGJnWEJCdmVLNmFSQVhORWwxU3NjK2h6N0JnbnR5b2hiL2dnUWxOcnJkemZJdW9ZS1NiNzkwNjdQclJvTG1HbzI1U2VnaEpSbjF5TXJTYlBUcHRaYW9CbHd0bFdiQkhzcHhpVyttVzgrNDZlcmVWbk1YR3hiRlErbWpvZmlIWlRyY2xKbjVFMTRVRWdkck85dFJWcGgwSERKbFlsUnNMdjRYRkE3UkJBMWtLNW9nQmI3Z3RuMDhBdnhXeW1jMmIrWXpMSEMzbm5PQ05IdmRheVVzWnBubnduUHFHZit5R0tjUEtsdjkydnRKQzIwOXpHeVJXSm1neWQxNnNTR0dUL0FtTTJyZEtaS1pIeHdDejdLVW9kTHpKT084dGg0T0JxeGRvMGMydGZVa05yM1FsSmtaUVdXTUJQMHV3Qkh2bVFRYjN6UlZDTW5zTU82QVRhemYzZjBra3phMEhUYVBDZElocHlUa25xUDYxVGUxZVYyZ1JwcjFGVW40eHR4UlQ3MnBESGhqMDkvVW5CTGppdjcycDRkOEZFdGxMaWJCZDdRZzB4SzUrWGZTOXEyQXp4U1ZIUG5OSU1CUzhCUVB3OE4xVzRnbFFXajBtdHA0K25TSGh2S1lPTTRHTDZ2SDFqR1RjRFEzcDE5NzlBUVBJNWFnWEVEWXd1UzVhd2tuSjczckhVNTZSeUxBcjZBQ3BPNWlNUkd2cDNYeWtqSW1nczRGZ20yLzdVUmM4ZGhiZUQ5amRoWVZOb24wbWRGY0FqVElYYm1DNzVWcm1WSGNRK0pESVhidU5tWVVZbFpvWXg2WGNXaktUV2F2WVhkMVd6VTlPRWg5d0xGZkVWRnphNVBFaFZoREF2Zkx4NjBjV00zZVBNYTloeVpHNUROcjZEYlFpQ1VjWVUwQUtHekd5WXhsa2Yrd3huQ2srd2R3Q2JBL1RrV0g3RGJnb3E4ZGNtS05zc1FRM0YvSm1NeGxJai9mem8vN3M5T0l3VU1lYmJZemJoMnpMZms3ZWhCR3pJYXU2T2VPK3h6R0tsQlJ3Q0dBWE5hQ0ZnWWJSb0tHK2hNVGZNZmY0TTZoMExZeHBtdi85MnltOXRJeGM0dVJ6YXd5bkNFV0dodW03b2RmOS83NXZoOHpnMGJLaWpYNUFNeGhNYWNzSzhwQnhhSmlodG5RcXIxS0c4eUZNenEvZHV0SjJpS3dOQ2JYQTdZYW1zbTJYbjBYdGd0b3dZM1h5OHJwWWM0Tk5xb244ZU00OWsrTnR6VTU1R3RNbGVHQWtOUjZvbGRETWhIK2U5RVgwSkIrVVlLdjRXZ0xackxDakhWN3dueVlsekpadllWNkE2ZDF3NnhFcGg4NDJVVXlUa2pHSWJ6d1JBL0pJT0JKS1N0ODh5Z2xxTkQxaDZUcGlRcVFWOTl3bUo3bmtuUWNnSUlIcWQwMEV3U3pndWRpZ0dZUVVIRTRxRk1jR0piMjJrcDdsTm9wOHA2em5TdHZnNVMyZTFUVlJ0aTU2dy96ajhmWnpLTGlEYTMxN01xQlFGYnMrSjNkY2JTZ28rSDREMGtMT29rSjgyL05SOEtaYnA5ZUlaZ2xsd0tSOEVjMWVqSVg4MjdQT2svMDZIcFlmZkdkNWRrb1pKWE1xREFWWGQxTmJoYXZseDRPeXVBaVBjeUFGM0ljazhmYVhBdUU1V1RvQXBrTXh5a0wxUGJOUko5MVNEa1hPeXltUEZSMVVNbHc5R2pSUEtDclBzUlN2VW5iemJrRUxqMlBTU1JrUUxpSDFBdlJPVHV0bHByeUxIUUFvQ0QrQzJCQlA0bnBNd2Q5enNJZ3pnYURzSytiY3RtVnczaGV0YWk1dDlSUzRQRXF1YjRRbkN2eHRlR3pPWnlRWHhqc2N4a2hIaXNXS01pNzIrVDBwMWR4R2VHWWtHMGV6K2VlRzdJbi9uL29OT2V4QzlmeklpTHZQeFZ0S3A4NGl6YStBQUFBQUVsRlRrU3VRbUNDIiB5PSI2Ii8+PHJlY3QgZmlsbD0iIzAwMDAwMCIgaGVpZ2h0PSIxMTguNDUzMSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iODEyIiB4PSIwIiB5PSIyMDYuODU2NiIvPjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXN0eWxlPSJpdGFsaWMiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE2NyIgeD0iNSIgeT0iMjIzLjg1NjYiPlBsYW50VU1MIDEuMjAyMy4yYmV0YTg8L3RleHQ+PHJlY3QgZmlsbD0iIzMzRkYwMiIgaGVpZ2h0PSIyMS4yOTY5IiBzdHlsZT0ic3Ryb2tlOiMzM0ZGMDI7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxNzciIHg9IjUiIHk9IjIzMy44MjUzIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE3NSIgeD0iNiIgeT0iMjQ4LjgyNTMiPltGcm9tIHN0cmluZyAobGluZSAyKSBdPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI1IiB4PSI1IiB5PSIyNjkuMTIyMiI+JiMxNjA7PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4NiIgeD0iNSIgeT0iMjg1LjQxOTEiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dC1kZWNvcmF0aW9uPSJ3YXZ5IHVuZGVybGluZSIgdGV4dExlbmd0aD0iODAyIiB4PSI1IiB5PSIzMDEuNzE1OSI+ZHJpdmFibGVfbGFuZXMgPSB7RHJpdmFibGVMYW5lMSwgRHJpdmFibGVMYW5lczIsIERyaXZhYmxlTGFuZXMzLCBEcml2YWJsZUxhbmVzNCwgRHJpdmFibGVMYW5lczV9PC90ZXh0Pjx0ZXh0IGZpbGw9IiNGRjAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDkiIHg9IjEwIiB5PSIzMTguMDEyOCI+U3ludGF4IEVycm9yPzwvdGV4dD48IS0tU1JDPVtJb2RBQjRqQ29hY0RwcWRDSW9yTWk1TWVUZTZBLTAwNTM3S0thQmQ1SGNYeU9wSS0ySGhWajFPMF0tLT48L2c+PC9zdmc+" class="uml" alt="uml diagram" title="" /></p>
-<h3 id="drivable-area-generation">Drivable Area Generation<a class="headerlink" href="#drivable-area-generation" title="Permanent link">#</a></h3>
-<p>In this section, a drivable area is created using drivable lanes arranged in the order in which vehicles pass by. We created <code>left_bound</code> from left boundary of the leftmost lanelet and <code>right_bound</code> from right boundary of the rightmost lanelet. The image of the created drivable area will be the following blue lines. Note that the drivable area is defined in the <code>Path</code> and <code>PathWithLaneId</code> messages as</p>
-<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXMtYXNjaWkiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSI3N3B4IiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBzdHlsZT0id2lkdGg6MzQ0cHg7aGVpZ2h0Ojc3cHg7YmFja2dyb3VuZDojRkZGRkZGOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMzQ0IDc3IiB3aWR0aD0iMzQ0cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48ZyBpZD0ic3RkIj48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjY0LjIzNDQiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMzMwIiB4PSI3IiB5PSI3Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB4MT0iNyIgeDI9IjMzNyIgeTE9IjMzLjI5NjkiIHkyPSIzMy4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjMiIHg9IjE2MC41IiB5PSIyNC45OTUxIj5zdGQ8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzAyIiB4PSIxMiIgeT0iNDkuNDM1NSI+OnZlY3RvciZsdDtnZW9tZXRyeV9tc2dzOjptc2c6OlBvaW50Jmd0OyBsZWZ0X2JvdW5kOzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzMTAiIHg9IjEyIiB5PSI2My40MDQzIj46dmVjdG9yJmx0O2dlb21ldHJ5X21zZ3M6Om1zZzo6UG9pbnQmZ3Q7IHJpZ2h0X2JvdW5kOzwvdGV4dD48L2c+PCEtLVNSQz1bQW92OWlSOGdJcXFrb0ktb0lLX0RwcXFqQVFnQ3BvckVCeFFvMGY5TUxXN3ZjTmFiVFdldmdNYWJ5S2R2Zk5hZnJicDVuNmFmb2FwRldFYTEwMDAwXS0tPjwvZz48L3N2Zz4=" class="uml" alt="uml diagram" title="" /></p>
-<p>and each point of right bound and left bound has a position in the absolute coordinate system.</p>
-<p><img alt="drivable_lines" src="../image/drivable_area/drivable_lines.drawio.svg" /></p>
-<h3 id="drivable-area-expansion">Drivable Area Expansion<a class="headerlink" href="#drivable-area-expansion" title="Permanent link">#</a></h3>
-<h4 id="static-expansion">Static Expansion<a class="headerlink" href="#static-expansion" title="Permanent link">#</a></h4>
-<p>Each module can statically expand the left and right bounds of the target lanes by the parameter defined values.
-This enables large vehicles to pass narrow curve. The image of this process can be described as</p>
-<p><img alt="expanded_lanes" src="../image/drivable_area/expanded_lanes.drawio.svg" /></p>
-<p>Note that we only expand right bound of the rightmost lane and left bound of the leftmost lane.</p>
-<h4 id="dynamic-expansion">Dynamic Expansion<a class="headerlink" href="#dynamic-expansion" title="Permanent link">#</a></h4>
-<p>The drivable area can also be expanded dynamically by considering the ego vehicle footprint projected on each path point.
-This expansion can be summarized with the following steps:</p>
-<ol>
-<li>Build the ego path footprint.</li>
-<li>Build the dynamic objects' predicted footprints (optional).</li>
-<li>Build "uncrossable" lines.</li>
-<li>Remove the footprints from step 2 and the lines from step 3 from the ego path footprint from step 1.</li>
-<li>Expand the drivable area with the result of step 4.</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Inputs</td>
-<td align="left"><img alt="drivable_area_expansion_inputs" src="../image/drivable_area/drivable_area_expansion_inputs.png" /></td>
-</tr>
-<tr>
-<td align="left">Footprints and uncrossable lines</td>
-<td align="left"><img alt="drivable_area_expansion_footprints" src="../image/drivable_area/drivable_area_expansion_footprints.png" /></td>
-</tr>
-<tr>
-<td align="left">Expanded drivable area</td>
-<td align="left"><img alt="drivable_area_expansion_result" src="../image/drivable_area/drivable_area_expansion_result.png" /></td>
-</tr>
-</tbody>
-</table>
-<p>Please note that the dynamic expansion can only increase the size of the drivable area and cannot remove any part from the original drivable area.</p>
-<h3 id="visualizing-maximum-drivable-area-debug">Visualizing maximum drivable area (Debug)<a class="headerlink" href="#visualizing-maximum-drivable-area-debug" title="Permanent link">#</a></h3>
-<p>Sometimes, the developers might get a different result between two maps that may look identical during visual inspection.</p>
-<p>For example, in the same area, one can perform avoidance and another cannot. This might be related to the maximum drivable area issues due to the non-compliance vector map design from the user.</p>
-<p>To debug the issue, the maximum drivable area boundary can be visualized.</p>
-<p><img alt="drivable_area_boundary_marker1" src="../image/drivable_area/drivable_area_boundary_marker_example1.png" /></p>
-<p><img alt="drivable_area_boundary_marker2" src="../image/drivable_area/drivable_area_boundary_marker_example2.png" /></p>
-<p>The maximum drivable area can be visualize by adding the marker from <code>/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/maximum_drivable_area</code></p>
+<p>In this algorithm, it assumes that each blinker has two sections, which are <code>desired section</code> and <code>required section</code>. The image of these two sections are depicted in the following diagram.</p>
+<p><img alt="section_definition" src="../image/turn_signal_decider/sections_definition.drawio.svg" /></p>
+<p>These two sections have the following meanings.</p>
+<h3 id="-desired-section">- Desired Section<a class="headerlink" href="#-desired-section" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>- This section is defined by road traffic laws. It cannot be longer or shorter than the designated length defined by the law.
+- In this section, you do not have to activate the designated blinkers if it is dangerous to do so.
+</code></pre></div>
+
+<h3 id="-required-section">- Required Section<a class="headerlink" href="#-required-section" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>- In this section, ego vehicle must activate designated blinkers. However, if there are blinker conflicts, it must solve them based on the algorithm we mention later in this document.
+- Required section cannot be longer than desired section.
+</code></pre></div>
+
+<p>For left turn, right turn, avoidance, lane change, pull over and pull out, we define these two sections, which are elaborated in the following part.</p>
+<h4 id="1-left-and-right-turn">1. Left and Right turn<a class="headerlink" href="#1-left-and-right-turn" title="Permanent link">#</a></h4>
+<p>Turn signal decider checks each lanelet on the map if it has <code>turn_direction</code> information. If a lanelet has this information, it activates necessary blinker based on this information.</p>
+<ul>
+<li>desired start point<br />
+  The <code>search_distance</code> for blinkers at intersections is <code>v * turn_signal_search_time + turn_signal_intersection_search_distance</code>. Then the start point becomes <code>search_distance</code> meters before the start point of the intersection lanelet(depicted in gree in the following picture), where <code>v</code> is the velocity of the ego vehicle. However, if we set <code>turn_signal_distance</code> in the lanelet, we use that length as search distance.</li>
+</ul>
+<ul>
+<li>desired end point<br />
+  Terminal point of the intersection lanelet.</li>
+</ul>
+<ul>
+<li>required start point<br />
+  Initial point of the intersection lanelet.</li>
+</ul>
+<ul>
+<li>required end point<br />
+  The earliest point that satisfies the following condition. <span class="arithmatex"><span class="MathJax_Preview">\theta - \theta_{\textrm{end}} &lt; \delta</span><script type="math/tex">\theta - \theta_{\textrm{end}} < \delta</script></span>, where <span class="arithmatex"><span class="MathJax_Preview">\theta_{\textrm{end}}</span><script type="math/tex">\theta_{\textrm{end}}</script></span> is yaw angle of the terminal point of the lanelet, <span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> is the angle of a required end point and <span class="arithmatex"><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> is the threshold defined by the user.</li>
+</ul>
+<p><img alt="section_turn_signal" src="../image/turn_signal_decider/left_right_turn.drawio.svg" /></p>
+<h4 id="2-avoidance">2. Avoidance<a class="headerlink" href="#2-avoidance" title="Permanent link">#</a></h4>
+<p>Avoidance can be separated into two sections, first section and second section. The first section is from the start point of the path shift to the end of the path shift. The second section is from the end of shift point to the end of avoidance. Note that avoidance module will not activate turn signal when its shift length is below <code>turn_signal_shift_length_threshold</code>.</p>
+<p>First section</p>
+<ul>
+<li>desired start point<br />
+<code>v * turn_signal_search_time</code> meters before the start point of the avoidance shift path.</li>
+</ul>
+<ul>
+<li>desired end point<br />
+  Shift complete point where the path shift is completed.</li>
+</ul>
+<ul>
+<li>required start point<br />
+  Avoidance start point.</li>
+</ul>
+<ul>
+<li>required end point<br />
+  Shift complete point same as the desired end point.</li>
+</ul>
+<p><img alt="section_first_avoidance" src="../image/turn_signal_decider/avoidance_first_section.drawio.svg" /></p>
+<p>Second section</p>
+<ul>
+<li>desired start point<br />
+  Shift complete point.</li>
+</ul>
+<ul>
+<li>desired end point<br />
+  Avoidance terminal point</li>
+</ul>
+<ul>
+<li>required start point<br />
+  Shift complete point.</li>
+</ul>
+<ul>
+<li>required end point<br />
+  Avoidance terminal point.</li>
+</ul>
+<p><img alt="section_second_avoidance" src="../image/turn_signal_decider/avoidance_second_section.drawio.svg" /></p>
+<h4 id="3-lane-change">3. Lane Change<a class="headerlink" href="#3-lane-change" title="Permanent link">#</a></h4>
+<ul>
+<li>desired start point<br />
+<code>v * turn_signal_search_time</code> meters before the start point of the lane change path.</li>
+</ul>
+<ul>
+<li>desired end point<br />
+  Terminal point of the lane change path.</li>
+</ul>
+<ul>
+<li>required start point<br />
+  Initial point of the lane change path.</li>
+</ul>
+<ul>
+<li>required end point<br />
+  Cross point with lane change path and boundary line of the adjacent lane.</li>
+</ul>
+<p><img alt="section_lane_change" src="../image/turn_signal_decider/lane_change.drawio.svg" /></p>
+<h4 id="4-pull-out">4. Pull out<a class="headerlink" href="#4-pull-out" title="Permanent link">#</a></h4>
+<ul>
+<li>desired start point<br />
+  Start point of the path of pull out.</li>
+</ul>
+<ul>
+<li>desired end point<br />
+  Terminal point of the path of pull out.</li>
+</ul>
+<ul>
+<li>required start point<br />
+  Start point of the path pull out.</li>
+</ul>
+<ul>
+<li>required end point<br />
+  Terminal point of the path of pull out.</li>
+</ul>
+<p><img alt="section_pull_out" src="../image/turn_signal_decider/pull_out.drawio.svg" /></p>
+<h4 id="5-pull-over">5. Pull over<a class="headerlink" href="#5-pull-over" title="Permanent link">#</a></h4>
+<ul>
+<li>desired start point<br />
+<code>v * turn_signal_search_time</code> meters before the start point of the pull over path.</li>
+</ul>
+<ul>
+<li>desired end point<br />
+  Terminal point of the path of pull over.</li>
+</ul>
+<ul>
+<li>required start point<br />
+  Start point of the path of pull over.</li>
+</ul>
+<ul>
+<li>required end point<br />
+  Terminal point of the path of pull over.</li>
+</ul>
+<p><img alt="section_pull_over" src="../image/turn_signal_decider/pull_over.drawio.svg" /></p>
+<p>When it comes to handle several blinkers, it gives priority to the first blinker that comes first. However, this rule sometimes activate unnatural blinkers, so turn signal decider uses the following five rules to decide the necessary turn signal.</p>
+<ul>
+<li>pattern1<br />
+<img alt="pattern1" src="../image/turn_signal_decider/pattern1.drawio.svg" /></li>
+</ul>
+<ul>
+<li>pattern2<br />
+<img alt="pattern2" src="../image/turn_signal_decider/pattern2.drawio.svg" /></li>
+</ul>
+<ul>
+<li>pattern3<br />
+<img alt="pattern3" src="../image/turn_signal_decider/pattern3.drawio.svg" /></li>
+</ul>
+<ul>
+<li>pattern4<br />
+<img alt="pattern4" src="../image/turn_signal_decider/pattern4.drawio.svg" /></li>
+</ul>
+<ul>
+<li>pattern5<br />
+<img alt="pattern5" src="../image/turn_signal_decider/pattern5.drawio.svg" /></li>
+</ul>
+<p>Based on these five rules, turn signal decider can solve <code>blinker conflicts</code>. The following pictures show some examples of this kind of conflicts.</p>
+<h4 id="-several-right-and-left-turns-on-short-sections">- Several right and left turns on short sections<a class="headerlink" href="#-several-right-and-left-turns-on-short-sections" title="Permanent link">#</a></h4>
+<p>In this scenario, ego vehicle has to pass several turns that are close each other. Since this pattern can be solved by the pattern1 rule, the overall result is depicted in the following picture.</p>
+<p><img alt="continuous_turns" src="../image/turn_signal_decider/continuous_turns.drawio.svg" /></p>
+<h4 id="-avoidance-with-left-turn-1">- Avoidance with left turn (1)<a class="headerlink" href="#-avoidance-with-left-turn-1" title="Permanent link">#</a></h4>
+<p>In this scene, ego vehicle has to deal with the obstacle that is on its original path as well as make a left turn. The overall result can be varied by the position of the obstacle, but the image of the result is described in the following picture.</p>
+<p><img alt="avoidance_and_turn" src="../image/turn_signal_decider/avoidance_and_turn.drawio.svg" /></p>
+<h4 id="-avoidance-with-left-turn-2">- Avoidance with left turn (2)<a class="headerlink" href="#-avoidance-with-left-turn-2" title="Permanent link">#</a></h4>
+<p>Same as the previous scenario, ego vehicle has to avoid the obstacle as well as make a turn left. However, in this scene, the obstacle is parked after the intersection. Similar to the previous one, the overall result can be varied by the position of the obstacle, but the image of the result is described in the following picture.</p>
+<p><img alt="avoidance_and_turn" src="../image/turn_signal_decider/avoidance_and_turn2.drawio.svg" /></p>
+<h4 id="-lane-change-and-left-turn">- Lane change and left turn<a class="headerlink" href="#-lane-change-and-left-turn" title="Permanent link">#</a></h4>
+<p>In this scenario, ego vehicle has to do lane change before making a left turn. In the following example, ego vehicle does not activate left turn signal until it reaches the end point of the lane change path.</p>
+<p><img alt="avoidance_and_turn" src="../image/turn_signal_decider/lane_change_and_turn.drawio.svg" /></p>
 
 
 
@@ -12154,7 +12214,7 @@ This expansion can be summarized with the following steps:</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../behavior_path_planner_design_limitations/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Design limitation" rel="prev">
+          <a href="../behavior_path_planner_side_shift_design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Side Shift design" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -12163,20 +12223,20 @@ This expansion can be summarized with the following steps:</p>
                 <span class="md-footer__direction">
                   Previous
                 </span>
-                Design limitation
+                Side Shift design
               </div>
             </div>
           </a>
         
         
           
-          <a href="../behavior_path_planner_lane_change/" class="md-footer__link md-footer__link--next" aria-label="Next: Lane Change" rel="next">
+          <a href="../../behavior_velocity_planner/" class="md-footer__link md-footer__link--next" aria-label="Next: Behavior Velocity Planner" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Next
                 </span>
-                Lane Change
+                Behavior Velocity Planner
               </div>
             </div>
             <div class="md-footer__button md-icon">
