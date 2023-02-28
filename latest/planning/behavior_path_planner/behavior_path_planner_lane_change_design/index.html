@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/latest/planning/behavior_path_planner/behavior_path_planner_lane_change/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/latest/planning/behavior_path_planner/behavior_path_planner_lane_change_design/">
       
       
-        <link rel="prev" href="../behavior_path_planner_drivable_area/">
+        <link rel="prev" href="../behavior_path_planner_drivable_area_design/">
       
       
-        <link rel="next" href="../behavior_path_planner_path_generation/">
+        <link rel="next" href="../behavior_path_planner_limitations/">
       
       <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
-        <title>Lane Change - Autoware Universe Documentation</title>
+        <title>Lane Change design - Autoware Universe Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lane-change" class="md-skip">
+        <a href="#lane-change-design" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lane Change
+              Lane Change design
             
           </span>
         </div>
@@ -7374,8 +7374,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../behavior_path_planner_avoidance-design/" class="md-nav__link">
-        Avoidance Module
+      <a href="../behavior_path_planner_avoidance_design/" class="md-nav__link">
+        Avoidance design
       </a>
     </li>
   
@@ -7388,22 +7388,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../behavior_path_planner_design_limitations/" class="md-nav__link">
-        Design limitation
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../behavior_path_planner_drivable_area/" class="md-nav__link">
-        Drivable Area
+      <a href="../behavior_path_planner_drivable_area_design/" class="md-nav__link">
+        Drivable Area design
       </a>
     </li>
   
@@ -7426,12 +7412,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Lane Change
+          Lane Change design
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Lane Change
+        Lane Change design
       </a>
       
         
@@ -7641,8 +7627,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../behavior_path_planner_path_generation/" class="md-nav__link">
-        Behavior path planner path generation
+      <a href="../behavior_path_planner_limitations/" class="md-nav__link">
+        Limitations
       </a>
     </li>
   
@@ -7655,8 +7641,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../behavior_path_planner_side-shift/" class="md-nav__link">
-        Side shift Module
+      <a href="../behavior_path_planner_path_generation_design/" class="md-nav__link">
+        Path Generation design
       </a>
     </li>
   
@@ -7669,8 +7655,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../behavior_path_planner_turn_signal-design/" class="md-nav__link">
-        Turn Signal Decider
+      <a href="../behavior_path_planner_side_shift_design/" class="md-nav__link">
+        Side Shift design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior_path_planner_turn_signal_design/" class="md-nav__link">
+        Turn Signal design
       </a>
     </li>
   
@@ -12052,7 +12052,7 @@
   
 
 
-<h1 id="lane-change">Lane Change<a class="headerlink" href="#lane-change" title="Permanent link">#</a></h1>
+<h1 id="lane-change-design">Lane Change design<a class="headerlink" href="#lane-change-design" title="Permanent link">#</a></h1>
 <p>The Lane Change module is activated when lane change is needed and can be safely executed.</p>
 <h2 id="lane-change-requirement">Lane Change Requirement<a class="headerlink" href="#lane-change-requirement" title="Permanent link">#</a></h2>
 <ul>
@@ -12450,7 +12450,7 @@ Front vehicle and rear vehicle assignment will depend on which predicted path's 
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../behavior_path_planner_drivable_area/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Drivable Area" rel="prev">
+          <a href="../behavior_path_planner_drivable_area_design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Drivable Area design" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -12459,20 +12459,20 @@ Front vehicle and rear vehicle assignment will depend on which predicted path's 
                 <span class="md-footer__direction">
                   Previous
                 </span>
-                Drivable Area
+                Drivable Area design
               </div>
             </div>
           </a>
         
         
           
-          <a href="../behavior_path_planner_path_generation/" class="md-footer__link md-footer__link--next" aria-label="Next: Behavior path planner path generation" rel="next">
+          <a href="../behavior_path_planner_limitations/" class="md-footer__link md-footer__link--next" aria-label="Next: Limitations" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Next
                 </span>
-                Behavior path planner path generation
+                Limitations
               </div>
             </div>
             <div class="md-footer__button md-icon">
