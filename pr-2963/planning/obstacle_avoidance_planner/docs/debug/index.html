@@ -8210,33 +8210,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#qa-for-debug" class="md-nav__link">
-    Q&amp;A for Debug
-  </a>
-  
-    <nav class="md-nav" aria-label="Q&amp;A for Debug">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#when-a-part-of-the-trajectory-has-high-curvature" class="md-nav__link">
-    When a part of the trajectory has high curvature
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#when-the-trajectorys-shape-is-zigzag" class="md-nav__link">
-    When the trajectory's shape is zigzag
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#calculation-time" class="md-nav__link">
     Calculation time
   </a>
@@ -8254,6 +8227,40 @@
           <li class="md-nav__item">
   <a href="#plot" class="md-nav__link">
     Plot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa-for-debug" class="md-nav__link">
+    Q&amp;A for Debug
+  </a>
+  
+    <nav class="md-nav" aria-label="Q&amp;A for Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-output-frequency-is-low" class="md-nav__link">
+    The output frequency is low
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-a-part-of-the-trajectory-has-high-curvature" class="md-nav__link">
+    When a part of the trajectory has high curvature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-the-trajectorys-shape-is-zigzag" class="md-nav__link">
+    When the trajectory's shape is zigzag
   </a>
   
 </li>
@@ -11889,33 +11896,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#qa-for-debug" class="md-nav__link">
-    Q&amp;A for Debug
-  </a>
-  
-    <nav class="md-nav" aria-label="Q&amp;A for Debug">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#when-a-part-of-the-trajectory-has-high-curvature" class="md-nav__link">
-    When a part of the trajectory has high curvature
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#when-the-trajectorys-shape-is-zigzag" class="md-nav__link">
-    When the trajectory's shape is zigzag
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#calculation-time" class="md-nav__link">
     Calculation time
   </a>
@@ -11933,6 +11913,40 @@
           <li class="md-nav__item">
   <a href="#plot" class="md-nav__link">
     Plot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa-for-debug" class="md-nav__link">
+    Q&amp;A for Debug
+  </a>
+  
+    <nav class="md-nav" aria-label="Q&amp;A for Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-output-frequency-is-low" class="md-nav__link">
+    The output frequency is low
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-a-part-of-the-trajectory-has-high-curvature" class="md-nav__link">
+    When a part of the trajectory has high curvature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-the-trajectorys-shape-is-zigzag" class="md-nav__link">
+    When the trajectory's shape is zigzag
   </a>
   
 </li>
@@ -11963,7 +11977,7 @@
 <h1 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">#</a></h1>
 <h2 id="debug-visualization">Debug visualization<a class="headerlink" href="#debug-visualization" title="Permanent link">#</a></h2>
 <p>The visualization markers of the planning flow (Input, Elastic Band, Model Predictive Trajectory, and Output) will be explained.</p>
-<p>The rviz config file for <code>obstacle_avoidance_planner</code> is <a href="../../rviz/obstacle_avoidance_planner.rviz">here</a>.
+<p>The rviz config file for <code>obstacle_avoidance_planner</code> is <a href="https://github.com/autowarefoundation/autoware.universe/tree/main/planning/obstacle_avoidance_planner/rviz/obstacle_avoidance_planner.rviz">here</a>.
 All the following visualization markers are contained.</p>
 <h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
 <ul>
@@ -11977,6 +11991,11 @@ All the following visualization markers are contained.</p>
 <ul>
 <li><strong>Path Footprint</strong><ul>
 <li>The path generated in the <code>behavior</code> planner is converted to footprints.</li>
+<li>NOTE:<ul>
+<li>Please make sure that there is no high curvature.</li>
+<li>The path may be outside the drivable area in some cases, but it is okay to ignore it.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -11985,6 +12004,14 @@ All the following visualization markers are contained.</p>
 <li><strong>Drivalbe Area</strong><ul>
 <li>The Drivable area generated in the <code>behavior</code> planner.</li>
 <li>The skyblue left and right line strings, that is visualized by default.</li>
+<li>NOTE:<ul>
+<li>Please make sure that the path is almost inside the drivable area.<ul>
+<li>Then, the <code>obstacle_avoidance_planner</code> tries to make the trajectory inside the drivable area 100%.</li>
+</ul>
+</li>
+<li>During avoidance or lane change by the <code>behavior</code> planner, please make sure that the drivable area is expanded correctly.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -12036,6 +12063,7 @@ All the following visualization markers are contained.</p>
 <ul>
 <li><strong>Vehicle Circles on Trajectory</strong><ul>
 <li>The vehicle's circles on the MPT trajectory.</li>
+<li>Please make sure that the circles are not so big compared to the road's width.</li>
 </ul>
 </li>
 </ul>
@@ -12063,26 +12091,11 @@ All the following visualization markers are contained.</p>
 </li>
 </ul>
 <p><img alt="traj_footprint" src="../../media/debug/traj_footprint_visualization.png" /></p>
-<h2 id="qa-for-debug">Q&amp;A for Debug<a class="headerlink" href="#qa-for-debug" title="Permanent link">#</a></h2>
-<h3 id="when-a-part-of-the-trajectory-has-high-curvature">When a part of the trajectory has high curvature<a class="headerlink" href="#when-a-part-of-the-trajectory-has-high-curvature" title="Permanent link">#</a></h3>
-<ul>
-<li>Input path
-    - Please check the input path does not have such high curvature.</li>
-<li>Drivable area
-    - The <code>obstacle_avoidance_planner</code> tries to make the trajectory inside the drivable area as much as possible.
-    - Please check the input path is almost inside the drivable area.</li>
-<li>Boundaries' width calculation
-    - Please check the width is calculated correctly.</li>
-</ul>
-<h3 id="when-the-trajectorys-shape-is-zigzag">When the trajectory's shape is zigzag<a class="headerlink" href="#when-the-trajectorys-shape-is-zigzag" title="Permanent link">#</a></h3>
-<ul>
-<li>Vehicle's Circles</li>
-</ul>
 <h2 id="calculation-time">Calculation time<a class="headerlink" href="#calculation-time" title="Permanent link">#</a></h2>
 <p>The <code>obstacle_avoidance_planner</code> consists of many functions such as boundaries' width calculation, reference path smoothing, collision-free planning, etc.
 We can see the calculation time for each function as follows.</p>
 <h3 id="raw-data">Raw data<a class="headerlink" href="#raw-data" title="Permanent link">#</a></h3>
-<p>Enable <code>option.enable_calculation_time_info</code> or echo the topic as follows.
+<p>Enable <code>option.enable_calculation_time_info</code> or echo the topic as follows.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/calculation_time<span class="w"> </span>--field<span class="w"> </span>data
 ---
 <span class="w">        </span>insertFixedPoint:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.008<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
@@ -12115,15 +12128,45 @@ We can see the calculation time for each function as follows.</p>
 <span class="w">  </span>extendTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.326<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
 <span class="w">  </span>publishDebugData:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.008<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
 onPath:<span class="o">=</span><span class="w"> </span><span class="m">20</span>.737<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="plot">Plot<a class="headerlink" href="#plot" title="Permanent link">#</a></h3>
 <p>With the following script, any calculation time of the above functions can be plot.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>obstacle_avoidance_planner<span class="w"> </span>calclation_time_plotter.py
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>obstacle_avoidance_planner<span class="w"> </span>calclation_time_plotter.py
 </code></pre></div>
 <p><img alt="calculation_time_plot" src="../../media/debug/calculation_time_plot.png" /></p>
 <p>You can specify functions to plot with the <code>-f</code> option.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>obstacle_avoidance_planner<span class="w"> </span>calclation_time_plotter.py<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;onPath, generateOptimizedTrajectory, calcReferencePoints&quot;</span>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>obstacle_avoidance_planner<span class="w"> </span>calclation_time_plotter.py<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;onPath, generateOptimizedTrajectory, calcReferencePoints&quot;</span>
 </code></pre></div>
+<h2 id="qa-for-debug">Q&amp;A for Debug<a class="headerlink" href="#qa-for-debug" title="Permanent link">#</a></h2>
+<h3 id="the-output-frequency-is-low">The output frequency is low<a class="headerlink" href="#the-output-frequency-is-low" title="Permanent link">#</a></h3>
+<p>Check the function which is comparatively heavy according to <a href="#calculation-cost">here</a> or <a href=".#calculation-cost">here</a>.</p>
+<p>The following functions for optimization and its initialization may be heavy in some complicated cases.</p>
+<ul>
+<li>MPT<ul>
+<li><code>initOsqp</code></li>
+<li><code>solveOsqp</code></li>
+</ul>
+</li>
+<li>EB<ul>
+<li><code>optimizeTrajectory</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="when-a-part-of-the-trajectory-has-high-curvature">When a part of the trajectory has high curvature<a class="headerlink" href="#when-a-part-of-the-trajectory-has-high-curvature" title="Permanent link">#</a></h3>
+<p>Some of the following may have an issue.
+Please check by the visualization.</p>
+<ul>
+<li>Input Path</li>
+<li>Drivable Area</li>
+<li>Boundaries' Width</li>
+</ul>
+<h3 id="when-the-trajectorys-shape-is-zigzag">When the trajectory's shape is zigzag<a class="headerlink" href="#when-the-trajectorys-shape-is-zigzag" title="Permanent link">#</a></h3>
+<p>Some of the following may have an issue.
+Please check by the visualization.</p>
+<ul>
+<li>EB Trajectory</li>
+<li>Vehicle Circles on Trajectory</li>
+</ul>
 
 
 
