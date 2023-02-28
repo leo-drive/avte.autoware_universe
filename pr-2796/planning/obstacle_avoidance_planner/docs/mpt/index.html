@@ -17,7 +17,7 @@
         <link rel="next" href="../../../obstacle_cruise_planner/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.14">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
@@ -8070,8 +8070,6 @@
         
           
         
-          
-        
       
       
         
@@ -8098,20 +8096,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../../debug/" class="md-nav__link">
-        Debug
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -8121,7 +8105,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_9_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_9_2" checked>
       
       
         
@@ -8133,13 +8117,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_12_9_3" id="__nav_12_9_3_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_12_9_2" id="__nav_12_9_2_label" tabindex="0">
           Docs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_12_9_3_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_12_9_3">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_12_9_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_12_9_2">
           <span class="md-nav__icon md-icon"></span>
           Docs
         </label>
@@ -8215,6 +8199,13 @@
         <li class="md-nav__item">
   <a href="#abstract" class="md-nav__link">
     Abstract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flowchart" class="md-nav__link">
+    Flowchart
   </a>
   
 </li>
@@ -11878,6 +11869,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#flowchart" class="md-nav__link">
+    Flowchart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#vehicle-kinematics" class="md-nav__link">
     Vehicle kinematics
   </a>
@@ -12000,6 +11998,8 @@
 <p>Conditions for collision free is considered to be not hard constraints but soft constraints.
 When the optimization failed or the optimized trajectory is not collision free, the output trajectory will be previously generated trajectory.</p>
 <p>Trajectory near the ego must be stable, therefore the condition where trajectory points near the ego are the same as previously generated trajectory is considered, and this is the only hard constraints in MPT.</p>
+<h2 id="flowchart">Flowchart<a class="headerlink" href="#flowchart" title="Permanent link">#</a></h2>
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXMtYXNjaWkiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSI1NTJweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjIwMnB4O2hlaWdodDo1NTJweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyMDIgNTUyIiB3aWR0aD0iMjAycHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTA2IiB4PSI0Ni41IiB5PSIzMi45OTUxIj5wYXRoQ2FsbGJhY2s8L3RleHQ+PGVsbGlwc2UgY3g9IjEwMSIgY3k9IjU3LjI5NjkiIGZpbGw9IiMyMjIyMjIiIHJ4PSIxMCIgcnk9IjEwIiBzdHlsZT0ic3Ryb2tlOiMyMjIyMjI7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTQxIiB4PSIzMC41IiB5PSI4Ny4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTIxIiB4PSI0MC41IiB5PSIxMDguNDM1NSI+Y2FsY1JlZmVyZW5jZVBvaW50czwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTE5IiB4PSI0MS41IiB5PSIxNDEuMjY1NiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijk5IiB4PSI1MS41IiB5PSIxNjIuNDA0MyI+Y2FsYyBzdGF0ZSBtYXRyaXg8L3RleHQ+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjExMyIgeD0iNDQuNSIgeT0iMTk1LjIzNDQiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5MyIgeD0iNTQuNSIgeT0iMjE2LjM3MyI+Y2FsY1ZhbHVlTWF0cml4PC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMzgiIHg9IjMyIiB5PSIyNDkuMjAzMSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExOCIgeD0iNDIiIHk9IjI3MC4zNDE4Ij5jYWxjT2JqZWN0aXZlTWF0cml4PC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxNDAiIHg9IjMxIiB5PSIzMDMuMTcxOSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEyMCIgeD0iNDEiIHk9IjMyNC4zMTA1Ij5jYWxjQ29uc3RyYWludE1hdHJpeDwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTgwIiB4PSIxMSIgeT0iMzU3LjE0MDYiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNjAiIHg9IjIxIiB5PSIzNzguMjc5MyI+Y2FsY09wdGltaXplZFN0ZWVyQW5nbGVzPC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMDIiIHg9IjUwIiB5PSI0MTEuMTA5NCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjgyIiB4PSI2MCIgeT0iNDMyLjI0OCI+Y2FsY01QVFBvaW50czwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTc1IiB4PSIxMy41IiB5PSI0NjUuMDc4MSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE1NSIgeD0iMjMuNSIgeT0iNDg2LjIxNjgiPnB1Ymxpc2hEZWJ1Z1RyYWplY3RvcmllczwvdGV4dD48ZWxsaXBzZSBjeD0iMTAxIiBjeT0iNTMwLjA0NjkiIGZpbGw9Im5vbmUiIHJ4PSIxMSIgcnk9IjExIiBzdHlsZT0ic3Ryb2tlOiMyMjIyMjI7c3Ryb2tlLXdpZHRoOjEuMDsiLz48ZWxsaXBzZSBjeD0iMTAxIiBjeT0iNTMwLjA0NjkiIGZpbGw9IiMyMjIyMjIiIHJ4PSI2IiByeT0iNiIgc3R5bGU9InN0cm9rZTojMTExMTExO3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTAxIiB4Mj0iMTAxIiB5MT0iNjcuMjk2OSIgeTI9Ijg3LjI5NjkiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9Ijk3LDc3LjI5NjksMTAxLDg3LjI5NjksMTA1LDc3LjI5NjksMTAxLDgxLjI5NjkiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjEwMSIgeDI9IjEwMSIgeTE9IjEyMS4yNjU2IiB5Mj0iMTQxLjI2NTYiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9Ijk3LDEzMS4yNjU2LDEwMSwxNDEuMjY1NiwxMDUsMTMxLjI2NTYsMTAxLDEzNS4yNjU2IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxMDEiIHgyPSIxMDEiIHkxPSIxNzUuMjM0NCIgeTI9IjE5NS4yMzQ0Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSI5NywxODUuMjM0NCwxMDEsMTk1LjIzNDQsMTA1LDE4NS4yMzQ0LDEwMSwxODkuMjM0NCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTAxIiB4Mj0iMTAxIiB5MT0iMjI5LjIwMzEiIHkyPSIyNDkuMjAzMSIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iOTcsMjM5LjIwMzEsMTAxLDI0OS4yMDMxLDEwNSwyMzkuMjAzMSwxMDEsMjQzLjIwMzEiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjEwMSIgeDI9IjEwMSIgeTE9IjI4My4xNzE5IiB5Mj0iMzAzLjE3MTkiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9Ijk3LDI5My4xNzE5LDEwMSwzMDMuMTcxOSwxMDUsMjkzLjE3MTksMTAxLDI5Ny4xNzE5IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxMDEiIHgyPSIxMDEiIHkxPSIzMzcuMTQwNiIgeTI9IjM1Ny4xNDA2Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSI5NywzNDcuMTQwNiwxMDEsMzU3LjE0MDYsMTA1LDM0Ny4xNDA2LDEwMSwzNTEuMTQwNiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTAxIiB4Mj0iMTAxIiB5MT0iMzkxLjEwOTQiIHkyPSI0MTEuMTA5NCIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iOTcsNDAxLjEwOTQsMTAxLDQxMS4xMDk0LDEwNSw0MDEuMTA5NCwxMDEsNDA1LjEwOTQiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjEwMSIgeDI9IjEwMSIgeTE9IjQ0NS4wNzgxIiB5Mj0iNDY1LjA3ODEiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9Ijk3LDQ1NS4wNzgxLDEwMSw0NjUuMDc4MSwxMDUsNDU1LjA3ODEsMTAxLDQ1OS4wNzgxIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxMDEiIHgyPSIxMDEiIHkxPSI0OTkuMDQ2OSIgeTI9IjUxOS4wNDY5Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSI5Nyw1MDkuMDQ2OSwxMDEsNTE5LjA0NjksMTA1LDUwOS4wNDY5LDEwMSw1MTMuMDQ2OSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PCEtLVNSQz1bTk92QjNlOTA0ME50ZDg5cHdDaFdiYVlLa0V5UE1zWGpQWU96M3M4eWxNWnlIQlFMb2dpN1dOQVAyN3I1Z2V4eWpTV1dHcjZpRkFkVnl2Y0RXLVNjSWExVWx0NHZFLTFvODlaU0ZsMThFZEJ6WHRSa21YdW9CTjBMR3VSSGxCWkc0c0lHRXZ5RU9CUER3OUlfb1JmZlZuX0l3NUhvbHNLdFRndEhDbjlETmQ5NkoweTBdLS0+PC9nPjwvc3ZnPg==" class="uml" alt="uml diagram" title="" /></p>
 <h2 id="vehicle-kinematics">Vehicle kinematics<a class="headerlink" href="#vehicle-kinematics" title="Permanent link">#</a></h2>
 <p>As the following figure, we consider the bicycle kinematics model in the frenet frame to track the reference path.
 At time step <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>, we define lateral distance to the reference path, heading angle against the reference path, and steer angle as <span class="arithmatex"><span class="MathJax_Preview">y_k</span><script type="math/tex">y_k</script></span>, <span class="arithmatex"><span class="MathJax_Preview">\theta_k</span><script type="math/tex">\theta_k</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">\delta_k</span><script type="math/tex">\delta_k</script></span> respectively.</p>
