@@ -8179,10 +8179,82 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12_9_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_12_9_2" id="__nav_12_9_2_label" tabindex="0">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_12_9_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_12_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../obstacle_avoidance_planner/debug/" class="md-nav__link">
+      <a href="../../obstacle_avoidance_planner/docs/debug/" class="md-nav__link">
         Debug
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../obstacle_avoidance_planner/docs/eb/" class="md-nav__link">
+        Elastic band
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../obstacle_avoidance_planner/docs/mpt/" class="md-nav__link">
+        Model predictive trajectory
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -11795,7 +11867,7 @@
 
 
 <h1 id="path-generation-design">Path Generation design<a class="headerlink" href="#path-generation-design" title="Permanent link">#</a></h1>
-<p>This document explains how the path is generated for lane change and avoidance, etc. The implementation can be found in <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/planning/behavior_path_planner/include/behavior_path_planner/scene_module/utils/path_shifter.hpp">path_shifter.hpp</a>.</p>
+<p>This document explains how the path is generated for lane change and avoidance, etc. The implementation can be found in <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/planning/behavior_path_planner/include/behavior_path_planner/util/path_shifter/path_shifter.hpp">path_shifter.hpp</a>.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>The base idea of the path generation in lane change and avoidance is to smoothly shift the reference path, such as the center line, in the lateral direction. This is achieved by using a constant-jerk profile as in the figure below. More details on how it is used can be found in <a href="https://github.com/autowarefoundation/autoware.universe/blob/main/planning/behavior_path_planner/README.md">README</a>. It is assumed that the reference path is smooth enough for this algorithm.</p>
 <p>The figure below explains how the application of a constant lateral jerk <span class="arithmatex"><span class="MathJax_Preview">l^{'''}(s)</span><script type="math/tex">l^{'''}(s)</script></span> can be used to induce lateral shifting. In order to comply with the limits on lateral acceleration and velocity, zero-jerk time is employed in the figure ( <span class="arithmatex"><span class="MathJax_Preview">T_a</span><script type="math/tex">T_a</script></span> and <span class="arithmatex"><span class="MathJax_Preview">T_v</span><script type="math/tex">T_v</script></span> ). In each interval where constant jerk is applied, the shift position <span class="arithmatex"><span class="MathJax_Preview">l(s)</span><script type="math/tex">l(s)</script></span> can be characterized by a third-degree polynomial. Therefore the shift length from the reference path can then be calculated by combining spline curves.</p>
