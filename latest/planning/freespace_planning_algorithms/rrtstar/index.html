@@ -17,7 +17,7 @@
         <link rel="next" href="../../mission_planner/">
       
       <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.113286f1.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.402914a4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -95,7 +95,7 @@
 
   
 
-<header class="md-header md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Autoware Universe Documentation" class="md-header__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
       
@@ -7346,6 +7346,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -7432,6 +7436,34 @@
     <li class="md-nav__item">
       <a href="../../behavior_path_planner/behavior_path_planner_path_generation_design/" class="md-nav__link">
         Path Generation design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior_path_planner/behavior_path_planner_pull_out_design/" class="md-nav__link">
+        Pull Out design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior_path_planner/behavior_path_planner_pull_over_design/" class="md-nav__link">
+        Pull Over design
       </a>
     </li>
   
@@ -11823,8 +11855,10 @@
 <h2 id="note-on-implementation-of-informed-rrt">Note on implementation of informed RRT*<a class="headerlink" href="#note-on-implementation-of-informed-rrt" title="Permanent link">#</a></h2>
 <h3 id="preliminary-knowledge-on-informed-rrt">Preliminary knowledge on informed-RRT*<a class="headerlink" href="#preliminary-knowledge-on-informed-rrt" title="Permanent link">#</a></h3>
 <p>Let us define <span class="arithmatex"><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> as minimum cost of the path when path is constrained to pass through <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> (so path will be <span class="arithmatex"><span class="MathJax_Preview">x_{\mathrm{start}} \to \mathrm{x} \to \mathrm{x_{\mathrm{goal}}}</span><script type="math/tex">x_{\mathrm{start}} \to \mathrm{x} \to \mathrm{x_{\mathrm{goal}}}</script></span>). Also, let us define <span class="arithmatex"><span class="MathJax_Preview">c_{\mathrm{best}}</span><script type="math/tex">c_{\mathrm{best}}</script></span> as the current minimum cost of the feasible paths. Let us define a set $ X(f) = \left{ x \in X | f(x) &lt; c*{\mathrm{best}} \right} $. If we could sample a new point from <span class="arithmatex"><span class="MathJax_Preview">X_f</span><script type="math/tex">X_f</script></span> instead of <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> as in vanilla RRT*, chance that <span class="arithmatex"><span class="MathJax_Preview">c*{\mathrm{best}}</span><script type="math/tex">c*{\mathrm{best}}</script></span> is updated is increased, thus the convergence rate is improved.</p>
-<p>In most case, <span class="arithmatex"><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> is unknown, thus it is straightforward to approximiate the function <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> by a heuristic function <span class="arithmatex"><span class="MathJax_Preview">\hat{f}</span><script type="math/tex">\hat{f}</script></span>. A heuristic function is <a href="https://en.wikipedia.org/wiki/Admissible_heuristic">admissible</a> if <span class="arithmatex"><span class="MathJax_Preview">\forall x \in X, \hat{f}(x) &lt; f(x)</span><script type="math/tex">\forall x \in X, \hat{f}(x) < f(x)</script></span>, which is sufficient condition of conversion to optimal path. The good heuristic function <span class="arithmatex"><span class="MathJax_Preview">\hat{f}</span><script type="math/tex">\hat{f}</script></span> has two properties: 1) it is an admissible tight lower bound of <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> and 2) sampling from <span class="arithmatex"><span class="MathJax_Preview">X(\hat{f})</span><script type="math/tex">X(\hat{f})</script></span> is easy.</p>
-<p>According to Gammell et al [1], a good heursitic function when path is always straight is <span class="arithmatex"><span class="MathJax_Preview">\hat{f}(x) = ||x_{\mathrm{start}} - x|| + ||x - x_{\mathrm{goal}}||</span><script type="math/tex">\hat{f}(x) = ||x_{\mathrm{start}} - x|| + ||x - x_{\mathrm{goal}}||</script></span>. If we don't assume any obstacle information the heursitic is tightest. Also, <span class="arithmatex"><span class="MathJax_Preview">X(\hat{f})</span><script type="math/tex">X(\hat{f})</script></span> is hyper-ellipsoid, and hence sampling from it can be done analitically.</p>
+<p>In most case, <span class="arithmatex"><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> is unknown, thus it is straightforward to approximate the function <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> by a heuristic function <span class="arithmatex"><span class="MathJax_Preview">\hat{f}</span><script type="math/tex">\hat{f}</script></span>. A heuristic function is <a href="https://en.wikipedia.org/wiki/Admissible_heuristic">admissible</a> if <span class="arithmatex"><span class="MathJax_Preview">\forall x \in X, \hat{f}(x) &lt; f(x)</span><script type="math/tex">\forall x \in X, \hat{f}(x) < f(x)</script></span>, which is sufficient condition of conversion to optimal path. The good heuristic function <span class="arithmatex"><span class="MathJax_Preview">\hat{f}</span><script type="math/tex">\hat{f}</script></span> has two properties: 1) it is an admissible tight lower bound of <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> and 2) sampling from <span class="arithmatex"><span class="MathJax_Preview">X(\hat{f})</span><script type="math/tex">X(\hat{f})</script></span> is easy.</p>
+<!-- cspell: ignore Gammell -->
+
+<p>According to Gammell et al [1], a good heuristic function when path is always straight is <span class="arithmatex"><span class="MathJax_Preview">\hat{f}(x) = ||x_{\mathrm{start}} - x|| + ||x - x_{\mathrm{goal}}||</span><script type="math/tex">\hat{f}(x) = ||x_{\mathrm{start}} - x|| + ||x - x_{\mathrm{goal}}||</script></span>. If we don't assume any obstacle information the heuristic is tightest. Also, <span class="arithmatex"><span class="MathJax_Preview">X(\hat{f})</span><script type="math/tex">X(\hat{f})</script></span> is hyper-ellipsoid, and hence sampling from it can be done analytically.</p>
 <h3 id="modification-to-fit-reeds-sheep-path-case">Modification to fit reeds-sheep path case<a class="headerlink" href="#modification-to-fit-reeds-sheep-path-case" title="Permanent link">#</a></h3>
 <p>In the vehicle case, state is <span class="arithmatex"><span class="MathJax_Preview">x = (x_{1}, x_{2}, \theta)</span><script type="math/tex">x = (x_{1}, x_{2}, \theta)</script></span>. Unlike normal informed-RRT* where we can connect path by a straight line, here we connect the vehicle path by a reeds-sheep path. So, we need some modification of the original algorithm a bit. To this end, one might first consider a heuristic function <span class="arithmatex"><span class="MathJax_Preview">\hat{f}_{\mathrm{RS}}(x) = \mathrm{RS}(x_{\mathrm{start}}, x) + \mathrm{RS}(x, x_{\mathrm{goal}}) &lt; f(x)</span><script type="math/tex">\hat{f}_{\mathrm{RS}}(x) = \mathrm{RS}(x_{\mathrm{start}}, x) + \mathrm{RS}(x, x_{\mathrm{goal}}) < f(x)</script></span> where <span class="arithmatex"><span class="MathJax_Preview">\mathrm{RS}</span><script type="math/tex">\mathrm{RS}</script></span> computes reeds-sheep distance. Though it is good in the sense of tightness, however, sampling from <span class="arithmatex"><span class="MathJax_Preview">X(\hat{f}_{RS})</span><script type="math/tex">X(\hat{f}_{RS})</script></span> is really difficult. Therefore, we use <span class="arithmatex"><span class="MathJax_Preview">\hat{f}_{euc} = ||\mathrm{pos}(x_{\mathrm{start}}) - \mathrm{pos}(x)|| + ||\mathrm{pos}(x)- \mathrm{pos}(x_{\mathrm{goal}})||</span><script type="math/tex">\hat{f}_{euc} = ||\mathrm{pos}(x_{\mathrm{start}}) - \mathrm{pos}(x)|| + ||\mathrm{pos}(x)- \mathrm{pos}(x_{\mathrm{goal}})||</script></span>, which is admissible because <span class="arithmatex"><span class="MathJax_Preview">\forall x \in X, \hat{f}_{euc}(x) &lt; \hat{f}_{\mathrm{RS}}(x) &lt; f(x)</span><script type="math/tex">\forall x \in X, \hat{f}_{euc}(x) < \hat{f}_{\mathrm{RS}}(x) < f(x)</script></span>. Here, <span class="arithmatex"><span class="MathJax_Preview">\mathrm{pos}</span><script type="math/tex">\mathrm{pos}</script></span> function returns position <span class="arithmatex"><span class="MathJax_Preview">(x_{1}, x_{2})</span><script type="math/tex">(x_{1}, x_{2})</script></span> of the vehicle.</p>
 <p>Sampling from <span class="arithmatex"><span class="MathJax_Preview">X(\hat{f}_{\mathrm{euc}})</span><script type="math/tex">X(\hat{f}_{\mathrm{euc}})</script></span> is easy because <span class="arithmatex"><span class="MathJax_Preview">X(\hat{f}_{\mathrm{euc}}) = \mathrm{Ellipse} \times (-\pi, \pi]</span><script type="math/tex">X(\hat{f}_{\mathrm{euc}}) = \mathrm{Ellipse} \times (-\pi, \pi]</script></span>. Here <span class="arithmatex"><span class="MathJax_Preview">\mathrm{Ellipse}</span><script type="math/tex">\mathrm{Ellipse}</script></span>'s focal points are <span class="arithmatex"><span class="MathJax_Preview">x_{\mathrm{start}}</span><script type="math/tex">x_{\mathrm{start}}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">x_{\mathrm{goal}}</span><script type="math/tex">x_{\mathrm{goal}}</script></span> and conjugate diameters is $\sqrt{c^{2}<em _mathrm_start="\mathrm{start">{\mathrm{best}} - ||\mathrm{pos}(x</em>}) - \mathrm{pos}(x_{\mathrm{goal}}))|| } $ (similar to normal informed-rrtstar's ellipsoid). Please notice that <span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> can be arbitrary because <span class="arithmatex"><span class="MathJax_Preview">\hat{f}_{\mathrm{euc}}</span><script type="math/tex">\hat{f}_{\mathrm{euc}}</script></span> is independent of <span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span>.</p>
@@ -11916,7 +11950,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b78d2936.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
