@@ -17,7 +17,7 @@
         <link rel="next" href="../external_cmd_selector/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.113286f1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -95,7 +95,7 @@
 
   
 
-<header class="md-header md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Autoware Universe Documentation" class="md-header__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
       
@@ -7346,6 +7346,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -7432,6 +7436,34 @@
     <li class="md-nav__item">
       <a href="../../planning/behavior_path_planner/behavior_path_planner_path_generation_design/" class="md-nav__link">
         Path Generation design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/behavior_path_planner/behavior_path_planner_pull_out_design/" class="md-nav__link">
+        Pull Out design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/behavior_path_planner/behavior_path_planner_pull_over_design/" class="md-nav__link">
+        Pull Over design
       </a>
     </li>
   
@@ -11825,7 +11857,9 @@
 That's why it doesn't interfere with the core logic of autonomous driving.</p>
 <p>Based on the various input from planning, control, and vehicle, it publishes the result of analysis as <code>control_performance_analysis::msg::ErrorStamped</code> defined in this package.</p>
 <p>All results in <code>ErrorStamped</code> message are calculated in Frenet Frame of curve. Errors and velocity errors are calculated by using paper below.</p>
-<p><code>Werling, Moritz &amp; Groell, Lutz &amp; Bretthauer, Georg. (2010). Invariant Trajectory Tracking With a Full-Size Autonomous Road Vehicle. Robotics, IEEE Transactions on. 26. 758 - 765. 10.1109/TRO.2010.2052325.</code></p>
+<!-- cspell: ignore Werling Moritz Groell Lutz Bretthauer Georg -->
+
+<p><code>Werling, Moritz &amp; Groell, Lutz &amp; Bretthauer, Georg. (2010). Invariant Trajectory Tracking With a Full-Size Autonomous Road Vehicle. IEEE Transactions on Robotics. 26. 758 - 765. 10.1109/TRO.2010.2052325.</code></p>
 <p>If you are interested in calculations, you can see the error and error velocity calculations in section <code>C. Asymptotical Trajectory Tracking With Orientation Control</code>.</p>
 <p>Error acceleration calculations are made based on the velocity calculations above. You can see below the calculation of error acceleration.</p>
 <p><img alt="CodeCogsEqn" src="https://user-images.githubusercontent.com/45468306/169027099-ef15b306-2868-4084-a350-0e2b652c310f.png" /></p>
@@ -12170,7 +12204,7 @@ That's why it doesn't interfere with the core logic of autonomous driving.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

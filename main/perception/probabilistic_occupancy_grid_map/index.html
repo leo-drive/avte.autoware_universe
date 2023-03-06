@@ -17,7 +17,7 @@
         <link rel="next" href="laserscan-based-occupancy-grid-map/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.113286f1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -95,7 +95,7 @@
 
   
 
-<header class="md-header md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Autoware Universe Documentation" class="md-header__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
       
@@ -7346,6 +7346,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -7432,6 +7436,34 @@
     <li class="md-nav__item">
       <a href="../../planning/behavior_path_planner/behavior_path_planner_path_generation_design/" class="md-nav__link">
         Path Generation design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/behavior_path_planner/behavior_path_planner_pull_out_design/" class="md-nav__link">
+        Pull Out design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/behavior_path_planner/behavior_path_planner_pull_over_design/" class="md-nav__link">
+        Pull Over design
       </a>
     </li>
   
@@ -11726,6 +11758,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    Settings
+  </a>
+  
+    <nav class="md-nav" aria-label="Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#each-config-paramters" class="md-nav__link">
+    Each config paramters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#referencesexternal-links" class="md-nav__link">
     References/External links
   </a>
@@ -11754,6 +11806,105 @@
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
 <p>This package outputs the probability of having an obstacle as occupancy grid map.
 <img alt="pointcloud_based_occupancy_grid_map_sample_image" src="image/pointcloud_based_occupancy_grid_map_sample_image.gif" /></p>
+<h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">#</a></h2>
+<p>Occupancy grid map is generated on <code>map_frame</code>, and grid orientation is fixed.</p>
+<p>You may need to choose <code>output_frame</code> which means grid map origin. Default is <code>base_link</code>, but your main LiDAR sensor frame (e.g. <code>velodyne_top</code> in sample_vehicle) would be the better choice.</p>
+<h3 id="each-config-paramters">Each config paramters<a class="headerlink" href="#each-config-paramters" title="Permanent link">#</a></h3>
+<p>Config parameters are managed in <code>config/*.yaml</code> and here shows its outline.</p>
+<ul>
+<li>Pointcloud based occupancy grid map</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Ros param name</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>map_frame</td>
+<td>"map"</td>
+</tr>
+<tr>
+<td>base_link_frame</td>
+<td>"base_link"</td>
+</tr>
+<tr>
+<td>output_frame</td>
+<td>"base_link"</td>
+</tr>
+<tr>
+<td>use_height_filter</td>
+<td>true</td>
+</tr>
+<tr>
+<td>enable_single_frame_mode</td>
+<td>false</td>
+</tr>
+<tr>
+<td>map_length</td>
+<td>100.0 [m]</td>
+</tr>
+<tr>
+<td>map_width</td>
+<td>100.0 [m]</td>
+</tr>
+<tr>
+<td>map_resolution</td>
+<td>0.5 [m]</td>
+</tr>
+<tr>
+<td>input_obstacle_pointcloud</td>
+<td>true</td>
+</tr>
+<tr>
+<td>input_obstacle_and_raw_pointcloud</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Laserscan based occupancy grid map</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Ros param name</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>map_length</td>
+<td>100 [m]</td>
+</tr>
+<tr>
+<td>map_resolution</td>
+<td>0.5 [m]</td>
+</tr>
+<tr>
+<td>use_height_filter</td>
+<td>true</td>
+</tr>
+<tr>
+<td>enable_single_frame_mode</td>
+<td>false</td>
+</tr>
+<tr>
+<td>map_frame</td>
+<td>"map"</td>
+</tr>
+<tr>
+<td>base_link_frame</td>
+<td>"base_link"</td>
+</tr>
+<tr>
+<td>output_frame</td>
+<td>"base_link"</td>
+</tr>
+</tbody>
+</table>
 <h2 id="referencesexternal-links">References/External links<a class="headerlink" href="#referencesexternal-links" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="pointcloud-based-occupancy-grid-map/">Pointcloud based occupancy grid map</a></li>
@@ -11846,7 +11997,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

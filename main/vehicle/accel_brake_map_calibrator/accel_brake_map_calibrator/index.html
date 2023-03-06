@@ -17,7 +17,7 @@
         <link rel="next" href="../../external_cmd_converter/">
       
       <link rel="icon" href="../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.113286f1.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.402914a4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -95,7 +95,7 @@
 
   
 
-<header class="md-header md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Autoware Universe Documentation" class="md-header__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
       
@@ -7346,6 +7346,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -7432,6 +7436,34 @@
     <li class="md-nav__item">
       <a href="../../../planning/behavior_path_planner/behavior_path_planner_path_generation_design/" class="md-nav__link">
         Path Generation design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../planning/behavior_path_planner/behavior_path_planner_pull_out_design/" class="md-nav__link">
+        Pull Out design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../planning/behavior_path_planner/behavior_path_planner_pull_over_design/" class="md-nav__link">
+        Pull Over design
       </a>
     </li>
   
@@ -12322,6 +12354,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>accel_brake_map_calibrato
 <p>Update the offsets by RLS in four grids around newly obtained data. By considering linear interpolation, the update takes into account appropriate weights. Therefore, there is no need to remove data by thresholding.</p>
 <p><strong>Advantage</strong> : No data is wasted because updates are performed on the 4 grids around the data with appropriate weighting.
 <strong>Disadvantage</strong> : Accuracy may be degraded due to extreme bias of the data. For example, if data <span class="arithmatex"><span class="MathJax_Preview">z(k)</span><script type="math/tex">z(k)</script></span> is biased near <span class="arithmatex"><span class="MathJax_Preview">Z_{RR}</span><script type="math/tex">Z_{RR}</script></span> in Fig. 2, updating is performed at the four surrounding points ( <span class="arithmatex"><span class="MathJax_Preview">Z_{RR}</span><script type="math/tex">Z_{RR}</script></span>, <span class="arithmatex"><span class="MathJax_Preview">Z_{RL}</span><script type="math/tex">Z_{RL}</script></span>, <span class="arithmatex"><span class="MathJax_Preview">Z_{LR}</span><script type="math/tex">Z_{LR}</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">Z_{LL}</span><script type="math/tex">Z_{LL}</script></span>), but accuracy at <span class="arithmatex"><span class="MathJax_Preview">Z_{LL}</span><script type="math/tex">Z_{LL}</script></span> is not expected.</p>
+<!-- cspell: ignore fourcell -->
 <p align="center">
   <img src="./media/fourcell_RLS.png" width="600">
 </p>
@@ -12329,6 +12362,8 @@ ros2<span class="w"> </span>run<span class="w"> </span>accel_brake_map_calibrato
 <h4 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">#</a></h4>
 <p>See eq.(7)-(10) in [1] for the updated formula. In addition, eq.(17),(18) from [1] are used for Anti-Windup.</p>
 <h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h3>
+<!-- cspell: ignore Lochrie, Doljevic, Yongsoon, Yoon, IFAC -->
+
 <p>[1] <a href="https://www.sciencedirect.com/science/article/pii/S240589632102320X">Gabrielle Lochrie, Michael Doljevic, Mario Nona, Yongsoon Yoon, Anti-Windup Recursive Least Squares Method for Adaptive Lookup Tables with Application to Automotive Powertrain Control Systems, IFAC-PapersOnLine, Volume 54, Issue 20, 2021, Pages 840-845</a></p>
 
 
@@ -12417,7 +12452,7 @@ ros2<span class="w"> </span>run<span class="w"> </span>accel_brake_map_calibrato
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b78d2936.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

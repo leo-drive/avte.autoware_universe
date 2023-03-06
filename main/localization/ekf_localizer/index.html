@@ -17,7 +17,7 @@
         <link rel="next" href="../gyro_odometer/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.113286f1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.402914a4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -95,7 +95,7 @@
 
   
 
-<header class="md-header md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Autoware Universe Documentation" class="md-header__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
       
@@ -7346,6 +7346,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -7432,6 +7436,34 @@
     <li class="md-nav__item">
       <a href="../../planning/behavior_path_planner/behavior_path_planner_path_generation_design/" class="md-nav__link">
         Path Generation design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/behavior_path_planner/behavior_path_planner_pull_out_design/" class="md-nav__link">
+        Pull Out design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/behavior_path_planner/behavior_path_planner_pull_over_design/" class="md-nav__link">
+        Pull Over design
       </a>
     </li>
   
@@ -12216,7 +12248,7 @@ Increasing the number will improve the smoothness of the estimation, but may hav
 <ul>
 <li><code>proc_stddev_vx_c</code> : set to maximum linear acceleration</li>
 <li><code>proc_stddev_wz_c</code> : set to maximum angular acceleration</li>
-<li><code>proc_stddev_yaw_c</code> : This parameter describes the correlation between the yaw and yawrate. A large value means the change in yaw does not correlate to the estimated yawrate. If this is set to 0, it means the change in estimated yaw is equal to yawrate. Usually, this should be set to 0.</li>
+<li><code>proc_stddev_yaw_c</code> : This parameter describes the correlation between the yaw and yaw rate. A large value means the change in yaw does not correlate to the estimated yaw rate. If this is set to 0, it means the change in estimated yaw is equal to yaw rate. Usually, this should be set to 0.</li>
 <li><code>proc_stddev_yaw_bias_c</code> : This parameter is the standard deviation for the rate of change in yaw bias. In most cases, yaw bias is constant, so it can be very small, but must be non-zero.</li>
 </ul>
 <h2 id="kalman-filter-model">Kalman Filter Model<a class="headerlink" href="#kalman-filter-model" title="Permanent link">#</a></h2>
@@ -12325,7 +12357,7 @@ Increasing the number will improve the smoothness of the estimation, but may hav
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b78d2936.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
