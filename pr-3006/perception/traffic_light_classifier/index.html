@@ -11866,6 +11866,47 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#customization-of-cnn-model" class="md-nav__link">
+    Customization of CNN model
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization of CNN model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0-install-mmcv-and-mim" class="md-nav__link">
+    step 0. Install MMCV and MIM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-mmclassification" class="md-nav__link">
+    step 1. Install MMClassification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-train-your-model" class="md-nav__link">
+    step 2. Train your model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-export-onnx-model" class="md-nav__link">
+    step 3. Export onnx model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assumptions-known-limits" class="md-nav__link">
     Assumptions / Known limits
   </a>
@@ -12037,6 +12078,11 @@ Totally 37600 (26300 for training, 6800 for evaluation and 4500 for test) TIER I
 <td>str</td>
 <td>the width of an input image</td>
 </tr>
+<tr>
+<td><code>build_only</code></td>
+<td>bool</td>
+<td>shutdown node after TensorRT engine file is built</td>
+</tr>
 </tbody>
 </table>
 <h4 id="hsv_classifier_1">hsv_classifier<a class="headerlink" href="#hsv_classifier_1" title="Permanent link">#</a></h4>
@@ -12141,6 +12187,49 @@ Totally 37600 (26300 for training, 6800 for evaluation and 4500 for test) TIER I
 </tr>
 </tbody>
 </table>
+<h2 id="customization-of-cnn-model">Customization of CNN model<a class="headerlink" href="#customization-of-cnn-model" title="Permanent link">#</a></h2>
+<p>Currently, in Autoware, <a href="https://arxiv.org/abs/1801.04381v3">MobileNetV2</a> is used as CNN classifier by default. The corresponding onnx file is <a href="./data/traffic_light_classifier_mobilenetv2.onnx">data/traffic_light_classifier_mobilenetv2.onnx</a>.
+Also, you can apply the following models shown as below, for example.</p>
+<ul>
+<li><a href="https://arxiv.org/abs/1905.11946v5">EfficientNet</a></li>
+<li><a href="https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html">ResNet</a></li>
+<li><a href="https://arxiv.org/abs/1905.02244">MobileNetV3</a>
+  ...</li>
+</ul>
+<p>In order to train models and export onnx model, we recommend <a href="https://github.com/open-mmlab/mmclassification.git">open-mmlab/mmclassification</a>.
+Please follow the <a href="https://mmclassification.readthedocs.io/en/latest/">official document</a> to install and experiment with mmclassification. If you get into troubles, <a href="https://mmclassification.readthedocs.io/en/latest/faq.html">FAQ page</a> would help you.</p>
+<p>The following steps are example of a quick-start.</p>
+<h3 id="step-0-install-mmcv-and-mim">step 0. Install <a href="https://github.com/open-mmlab/mmcv.git">MMCV</a> and <a href="https://github.com/open-mmlab/mim.git">MIM</a><a class="headerlink" href="#step-0-install-mmcv-and-mim" title="Permanent link">#</a></h3>
+<p><em>NOTE</em> : First of all, install <a href="https://pytorch.org/">PyTorch</a> suitable for your CUDA version (CUDA11.6 is supported in Autoware).</p>
+<p>In order to install mmcv suitable for your CUDA version, install it specifying a url.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install mim</span>
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>openmim
+
+<span class="c1"># Install mmcv on a machine with CUDA11.6 and PyTorch1.13.0</span>
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mmcv-full<span class="w"> </span>-f<span class="w"> </span>https://download.openmmlab.com/mmcv/dist/cu116/torch1.13/index.html
+</code></pre></div>
+<h3 id="step-1-install-mmclassification">step 1. Install MMClassification<a class="headerlink" href="#step-1-install-mmclassification" title="Permanent link">#</a></h3>
+<p>You can install MMClassification as a Python package or from source.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># As a Python package</span>
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mmcls
+
+<span class="c1"># From source</span>
+$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/open-mmlab/mmclassification.git
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>mmclassification
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-v<span class="w"> </span>-e<span class="w"> </span>.
+</code></pre></div>
+<h3 id="step-2-train-your-model">step 2. Train your model<a class="headerlink" href="#step-2-train-your-model" title="Permanent link">#</a></h3>
+<p>Train model with your experiment configuration file. For the details of config file, see <a href="https://mmclassification.readthedocs.io/en/latest/tutorials/config.html">here</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># [] is optional, you can start training from pre-trained checkpoint</span>
+$<span class="w"> </span>mim<span class="w"> </span>train<span class="w"> </span>mmcls<span class="w"> </span>YOUR_CONFIG.py<span class="w"> </span><span class="o">[</span>--resume-from<span class="w"> </span>YOUR_CHECKPOINT.pth<span class="o">]</span>
+</code></pre></div>
+<h3 id="step-3-export-onnx-model">step 3. Export onnx model<a class="headerlink" href="#step-3-export-onnx-model" title="Permanent link">#</a></h3>
+<p>In exporting onnx, use <code>mmclassificatoin/tools/deployment/pytorch2onnx.py</code> or <a href="https://github.com/open-mmlab/mmdeploy.git">open-mmlab/mmdeploy</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/mmclassification/tools/deployment
+python3<span class="w"> </span>pytorch2onnx.py<span class="w"> </span>YOUR_CONFIG.py<span class="w"> </span>...
+</code></pre></div>
+<p>After obtaining your onnx model, update parameters defined in the launch file (e.g. <code>model_file_path</code>, <code>label_file_path</code>, <code>input_h</code>, <code>input_w</code>...).
+Note that, we only support labels defined in <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_perception_msgs/msg/TrafficLight.idl">autoware_auto_perception_msgs::msg::TrafficLight</a>.</p>
 <h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
 <!-- Write assumptions and limitations of your implementation.
 
