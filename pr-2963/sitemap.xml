@@ -281,12 +281,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2963/evaluator/diagnostic_converter/</loc>
+         <lastmod>2023-03-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-2963/evaluator/kinematic_evaluator/</loc>
          <lastmod>2023-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-2963/evaluator/localization_evaluator/</loc>
+         <lastmod>2023-03-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2963/evaluator/planning_evaluator/</loc>
          <lastmod>2023-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -827,11 +837,6 @@
     </url>
     <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/pr-2963/planning/planning_debug_tools/doc-stop-reason-visualizer/</loc>
-         <lastmod>2023-03-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://autowarefoundation.github.io/autoware.universe/pr-2963/planning/planning_evaluator/</loc>
          <lastmod>2023-03-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
