@@ -17,7 +17,7 @@
         <link rel="next" href="docs/debug/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.113286f1.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7bf56d0a.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -95,7 +95,7 @@
 
   
 
-<header class="md-header md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Autoware Universe Documentation" class="md-header__button md-logo" aria-label="Autoware Universe Documentation" data-md-component="logo">
       
@@ -7346,6 +7346,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -7432,6 +7436,34 @@
     <li class="md-nav__item">
       <a href="../behavior_path_planner/behavior_path_planner_path_generation_design/" class="md-nav__link">
         Path Generation design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior_path_planner/behavior_path_planner_pull_out_design/" class="md-nav__link">
+        Pull Out design
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior_path_planner/behavior_path_planner_pull_over_design/" class="md-nav__link">
+        Pull Over design
       </a>
     </li>
   
@@ -11794,15 +11826,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#insertzerovelocityoutsidedrivablearea" class="md-nav__link">
-    insertZeroVelocityOutsideDrivableArea
+  <a href="#applyinputvelocity" class="md-nav__link">
+    applyInputVelocity
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#alignvelocity" class="md-nav__link">
-    alignVelocity
+  <a href="#insertzerovelocityoutsidedrivablearea" class="md-nav__link">
+    insertZeroVelocityOutsideDrivableArea
   </a>
   
 </li>
@@ -12028,6 +12060,9 @@ This parameter <code>mpt.kinematics.optimization center offset</code> is defined
 Some examples are shown in the following figure, and it is shown that the trajectory of vehicle shape differs according to the optimization center even if the reference trajectory (green one) is the same.</p>
 <p><img alt="mpt_optimization_offset" src="media/mpt_optimization_offset.svg" /></p>
 <p>More details can be seen <a href="docs/mpt/">here</a>.</p>
+<h3 id="applyinputvelocity">applyInputVelocity<a class="headerlink" href="#applyinputvelocity" title="Permanent link">#</a></h3>
+<p>Velocity is assigned in the optimized trajectory from the velocity in the behavior path.
+The shapes of the optimized trajectory and the path are different, therefore the each nearest trajectory point to the path is searched and the velocity is interpolated with zero-order hold.</p>
 <h3 id="insertzerovelocityoutsidedrivablearea">insertZeroVelocityOutsideDrivableArea<a class="headerlink" href="#insertzerovelocityoutsidedrivablearea" title="Permanent link">#</a></h3>
 <p>Optimized trajectory is too short for velocity planning, therefore extend the trajectory by concatenating the optimized trajectory and the behavior path considering drivability.
 Generated trajectory is checked if it is inside the drivable area or not, and if outside drivable area, output a trajectory inside drivable area with the behavior path or the previously generated trajectory.</p>
@@ -12055,9 +12090,6 @@ The output trajectory is memorized as a previously generated trajectory for the 
 <p><em>Rationale</em>
 In the current design, since there are some modelling errors, the constraints are considered to be soft constraints.
 Therefore, we have to make sure that the optimized trajectory is inside the drivable area or not after optimization.</p>
-<h3 id="alignvelocity">alignVelocity<a class="headerlink" href="#alignvelocity" title="Permanent link">#</a></h3>
-<p>Velocity is assigned in the result trajectory from the velocity in the behavior path.
-The shapes of the trajectory and the path are different, therefore the each nearest trajectory point to the path is searched and interpolated linearly.</p>
 <h2 id="limitation">Limitation<a class="headerlink" href="#limitation" title="Permanent link">#</a></h2>
 <ul>
 <li>Computation cost is sometimes high.</li>
@@ -12086,18 +12118,25 @@ Although it has a cons to converge to the local minima, it can get a good soluti
 <h2 id="how-to-tune-parameters">How to Tune Parameters<a class="headerlink" href="#how-to-tune-parameters" title="Permanent link">#</a></h2>
 <h3 id="drivability-in-narrow-roads">Drivability in narrow roads<a class="headerlink" href="#drivability-in-narrow-roads" title="Permanent link">#</a></h3>
 <ul>
-<li>set <code>option.drivability_check.use_vehicle_circles</code> true<ul>
-<li>use a set of circles as a shape of the vehicle when checking if the generated trajectory will be outside the drivable area.</li>
+<li>modify <code>mpt.clearance.soft_clearance_from_road</code><ul>
+<li>This parameter describes how much margin to make between the trajectory and road boundaries.</li>
+<li>Due to the model error for optimization, the constraint such as collision-free is not fully met.<ul>
+<li>By making this parameter larger, the is for narrow-road driving may be resolved. 12180</li>
 </ul>
 </li>
-<li>make <code>mpt.clearance.soft_clearance_from_road</code> smaller</li>
+</ul>
+</li>
 <li>
-<p>make <code>mpt.kinematics.optimization_center_offset</code> different</p>
+<p>modify <code>mpt.kinematics.optimization_center_offset</code></p>
 <ul>
-<li>The point on the vehicle, offset forward from the base link` tries to follow the reference path.</li>
+<li>The point on the vehicle, offset forward with this parameter from the base link` tries to follow the reference path.</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li>This may cause the a part of generated trajectory will be outside the drivable area.</li>
+<li>change or tune the method to approximate footprints with a set of circles.<ul>
+<li>See <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/docs/mpt/#collision-free">here</a></li>
+<li>Tuning means changing the ratio of circle's radius.</li>
 </ul>
 </li>
 </ul>
@@ -12285,7 +12324,7 @@ Although it has a cons to converge to the local minima, it can get a good soluti
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fc8c2696.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
