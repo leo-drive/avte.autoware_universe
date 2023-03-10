@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/perception/ground_segmentation/">
+        <link rel="canonical" href="https://autowarefoundation.github.io/autoware.universe/main/perception/traffic_light_selector/">
       
       
-        <link rel="prev" href="../front_vehicle_velocity_estimator/">
+        <link rel="prev" href="../traffic_light_map_based_detector/">
       
       
-        <link rel="next" href="docs/ransac-ground-filter/">
+        <link rel="next" href="../traffic_light_ssd_fine_detector/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>ground_segmentation - Autoware Universe Documentation</title>
+        <title>traffic_light_selector - Autoware Universe Documentation</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ground_segmentation" class="md-skip">
+        <a href="#traffic_light_selector" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ground_segmentation
+              traffic_light_selector
             
           </span>
         </div>
@@ -5708,18 +5708,18 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_9" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11_9" >
       
       
         
@@ -5733,8 +5733,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Ground segmentation</a>
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../ground_segmentation/">Ground segmentation</a>
           
             <label for="__nav_11_9">
               <span class="md-nav__icon md-icon"></span>
@@ -5742,7 +5742,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_9_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_9_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_11_9">
           <span class="md-nav__icon md-icon"></span>
           Ground segmentation
@@ -5794,7 +5794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/ransac-ground-filter/" class="md-nav__link">
+      <a href="../ground_segmentation/docs/ransac-ground-filter/" class="md-nav__link">
         RANSAC Ground Filter
       </a>
     </li>
@@ -5808,7 +5808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/ray-ground-filter/" class="md-nav__link">
+      <a href="../ground_segmentation/docs/ray-ground-filter/" class="md-nav__link">
         Ray Ground Filter
       </a>
     </li>
@@ -5822,7 +5822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/scan-ground-filter/" class="md-nav__link">
+      <a href="../ground_segmentation/docs/scan-ground-filter/" class="md-nav__link">
         Scan Ground Filter
       </a>
     </li>
@@ -7236,18 +7236,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11_30" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_30" checked>
       
       
         
@@ -7259,12 +7259,12 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../traffic_light_selector/">Traffic light selector</a>
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Traffic light selector</a>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_30_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_30_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_11_30">
           <span class="md-nav__icon md-icon"></span>
           Traffic light selector
@@ -11858,13 +11858,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inner-workings-algorithms" class="md-nav__link">
-    Inner-workings / Algorithms
+  <a href="#trafficlightselector" class="md-nav__link">
+    TrafficLightSelector
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="TrafficLightSelector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#inputs-outputs" class="md-nav__link">
     Inputs / Outputs
   </a>
@@ -11890,18 +11891,38 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
+  <a href="#trafficlightconverter" class="md-nav__link">
+    TrafficLightConverter
   </a>
   
-    <nav class="md-nav" aria-label="Parameters">
+    <nav class="md-nav" aria-label="TrafficLightConverter">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#node-parameters" class="md-nav__link">
-    Node Parameters
+  <a href="#inputs-outputs_1" class="md-nav__link">
+    Inputs / Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs / Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input_1" class="md-nav__link">
+    Input
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output_1" class="md-nav__link">
+    Output
   </a>
   
 </li>
@@ -11910,18 +11931,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#assumptions-known-limits" class="md-nav__link">
-    Assumptions / Known limits
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#referencesexternal-links" class="md-nav__link">
-    References/External links
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -11943,39 +11955,14 @@
   
 
 
-<h1 id="ground_segmentation">ground_segmentation<a class="headerlink" href="#ground_segmentation" title="Permanent link">#</a></h1>
+<h1 id="traffic_light_selector">traffic_light_selector<a class="headerlink" href="#traffic_light_selector" title="Permanent link">#</a></h1>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">#</a></h2>
-<p>The <code>ground_segmentation</code> is a node that remove the ground points from the input pointcloud.</p>
-<h2 id="inner-workings-algorithms">Inner-workings / Algorithms<a class="headerlink" href="#inner-workings-algorithms" title="Permanent link">#</a></h2>
-<p>Detail description of each ground segmentation algorithm is in the following links.</p>
-<table>
-<thead>
-<tr>
-<th>Filter Name</th>
-<th>Description</th>
-<th>Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ray_ground_filter</td>
-<td>A method of removing the ground based on the geometrical relationship between points lined up on radiation</td>
-<td><a href="docs/ray-ground-filter/">link</a></td>
-</tr>
-<tr>
-<td>scan_ground_filter</td>
-<td>Almost the same method as <code>ray_ground_filter</code>, but with slightly improved performance</td>
-<td><a href="docs/scan-ground-filter/">link</a></td>
-</tr>
-<tr>
-<td>ransac_ground_filter</td>
-<td>A method of removing the ground by approximating the ground to a plane</td>
-<td><a href="docs/ransac-ground-filter/">link</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h2>
-<h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
+<p>This package receives multiple traffic light/signal states and outputs a single traffic signal state for use by the planning component.</p>
+<h2 id="trafficlightselector">TrafficLightSelector<a class="headerlink" href="#trafficlightselector" title="Permanent link">#</a></h2>
+<p>A node that merges traffic light/signal state from image recognition and V2X to provide a planning component.
+It's currently a provisional implementation.</p>
+<h3 id="inputs-outputs">Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permanent link">#</a></h3>
+<h4 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -11986,18 +11973,18 @@
 </thead>
 <tbody>
 <tr>
-<td><code>~/input/points</code></td>
-<td><code>sensor_msgs::msg::PointCloud2</code></td>
-<td>reference points</td>
+<td>~/sub/vector_map</td>
+<td>autoware_auto_mapping_msgs/msg/HADMapBin</td>
+<td>The vector map to get traffic light id relations.</td>
 </tr>
 <tr>
-<td><code>~/input/indices</code></td>
-<td><code>pcl_msgs::msg::Indices</code></td>
-<td>reference indices</td>
+<td>~/sub/traffic_lights</td>
+<td>autoware_perception_msgs/msg/TrafficLightArray</td>
+<td>The traffic light state from image recognition.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
+<h4 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -12008,66 +11995,49 @@
 </thead>
 <tbody>
 <tr>
-<td><code>~/output/points</code></td>
-<td><code>sensor_msgs::msg::PointCloud2</code></td>
-<td>filtered points</td>
+<td>~/pub/traffic_signals</td>
+<td>autoware_perception_msgs/msg/TrafficSignalArray</td>
+<td>The merged traffic signal state.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">#</a></h2>
-<h3 id="node-parameters">Node Parameters<a class="headerlink" href="#node-parameters" title="Permanent link">#</a></h3>
+<h2 id="trafficlightconverter">TrafficLightConverter<a class="headerlink" href="#trafficlightconverter" title="Permanent link">#</a></h2>
+<p>A temporary node that converts old message type to new message type.</p>
+<h3 id="inputs-outputs_1">Inputs / Outputs<a class="headerlink" href="#inputs-outputs_1" title="Permanent link">#</a></h3>
+<h4 id="input_1">Input<a class="headerlink" href="#input_1" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Type</th>
-<th>Default Value</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>input_frame</code></td>
-<td>string</td>
-<td>" "</td>
-<td>input frame id</td>
-</tr>
-<tr>
-<td><code>output_frame</code></td>
-<td>string</td>
-<td>" "</td>
-<td>output frame id</td>
-</tr>
-<tr>
-<td><code>max_queue_size</code></td>
-<td>int</td>
-<td>5</td>
-<td>max queue size of input/output topics</td>
-</tr>
-<tr>
-<td><code>use_indices</code></td>
-<td>bool</td>
-<td>false</td>
-<td>flag to use pointcloud indices</td>
-</tr>
-<tr>
-<td><code>latched_indices</code></td>
-<td>bool</td>
-<td>false</td>
-<td>flag to latch pointcloud indices</td>
-</tr>
-<tr>
-<td><code>approximate_sync</code></td>
-<td>bool</td>
-<td>false</td>
-<td>flag to use approximate sync option</td>
+<td>~/sub/traffic_lights</td>
+<td>autoware_auto_perception_msgs/msg/TrafficSignalArray</td>
+<td>The state in old message type.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="assumptions-known-limits">Assumptions / Known limits<a class="headerlink" href="#assumptions-known-limits" title="Permanent link">#</a></h2>
-<p><code>pointcloud_preprocessor::Filter</code> is implemented based on pcl_perception [1] because of <a href="https://github.com/ros-perception/perception_pcl/issues/9">this issue</a>.</p>
-<h2 id="referencesexternal-links">References/External links<a class="headerlink" href="#referencesexternal-links" title="Permanent link">#</a></h2>
-<p>[1] <a href="https://github.com/ros-perception/perception_pcl/blob/ros2/pcl_ros/src/pcl_ros/filters/filter.cpp">https://github.com/ros-perception/perception_pcl/blob/ros2/pcl_ros/src/pcl_ros/filters/filter.cpp</a></p>
+<h4 id="output_1">Output<a class="headerlink" href="#output_1" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~/pub/traffic_lights</td>
+<td>autoware_perception_msgs/msg/TrafficLightArray</td>
+<td>The state in new message type.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -12094,7 +12064,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../front_vehicle_velocity_estimator/" class="md-footer__link md-footer__link--prev" aria-label="Previous: front_vehicle_velocity_estimator" rel="prev">
+          <a href="../traffic_light_map_based_detector/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The `traffic_light_map_based_detector` Package" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -12103,20 +12073,20 @@
                 <span class="md-footer__direction">
                   Previous
                 </span>
-                front_vehicle_velocity_estimator
+                The `traffic_light_map_based_detector` Package
               </div>
             </div>
           </a>
         
         
           
-          <a href="docs/ransac-ground-filter/" class="md-footer__link md-footer__link--next" aria-label="Next: RANSAC Ground Filter" rel="next">
+          <a href="../traffic_light_ssd_fine_detector/" class="md-footer__link md-footer__link--next" aria-label="Next: traffic_light_ssd_fine_detector" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Next
                 </span>
-                RANSAC Ground Filter
+                traffic_light_ssd_fine_detector
               </div>
             </div>
             <div class="md-footer__button md-icon">

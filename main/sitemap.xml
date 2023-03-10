@@ -631,6 +631,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/traffic_light_selector/</loc>
+         <lastmod>2023-03-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://autowarefoundation.github.io/autoware.universe/main/perception/traffic_light_ssd_fine_detector/</loc>
          <lastmod>2023-03-10</lastmod>
          <changefreq>daily</changefreq>
