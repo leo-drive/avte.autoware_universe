@@ -8418,13 +8418,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#two-step-soft-constraints" class="md-nav__link">
-    Two-step soft constraints
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -12035,13 +12028,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#two-step-soft-constraints" class="md-nav__link">
-    Two-step soft constraints
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -12754,74 +12740,6 @@ Instead, if we use L-infinity norm where slack variables are shared by enabling 
 \end{align}
 </script>
 </div>
-<h4 id="two-step-soft-constraints">Two-step soft constraints<a class="headerlink" href="#two-step-soft-constraints" title="Permanent link">#</a></h4>
-<div class="arithmatex">
-<div class="MathJax_Preview">
-\begin{align}
-\boldsymbol{v}' =
-  \begin{pmatrix}
-    \boldsymbol{v} \\
-    \boldsymbol{\lambda}^{soft_1} \\
-    \boldsymbol{\lambda}^{soft_2} \\
-  \end{pmatrix}
-  \in \boldsymbol{R}^{D_v + 2N_{slack}}
-\end{align}
-</div>
-<script type="math/tex; mode=display">
-\begin{align}
-\boldsymbol{v}' =
-  \begin{pmatrix}
-    \boldsymbol{v} \\
-    \boldsymbol{\lambda}^{soft_1} \\
-    \boldsymbol{\lambda}^{soft_2} \\
-  \end{pmatrix}
-  \in \boldsymbol{R}^{D_v + 2N_{slack}}
-\end{align}
-</script>
-</div>
-<p><span class="arithmatex"><span class="MathJax_Preview">*</span><script type="math/tex">*</script></span> depends on whether to use L2 norm or L-infinity optimization.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
-\begin{align}
-    A_{blk} &amp; =
-    \begin{pmatrix}
-        A^{soft_1}_{blk} \\
-        A^{soft_2}_{blk} \\
-    \end{pmatrix}\\
-    &amp; =
-    \begin{pmatrix}
-        C_1^{soft_1} B &amp; &amp; \\
-        -C_1^{soft_1} B &amp; \Huge{*} &amp; \Huge{O} \\
-        O &amp; &amp; \\
-        C_1^{soft_2} B &amp; &amp; \\
-        -C_1^{soft_2} B &amp; \Huge{O} &amp; \Huge{*} \\
-        O &amp; &amp;
-    \end{pmatrix}
-    \in \boldsymbol{R}^{6 N_{ref} \times D_v + 2 N_{slack}}
-\end{align}
-</div>
-<script type="math/tex; mode=display">
-\begin{align}
-    A_{blk} & =
-    \begin{pmatrix}
-        A^{soft_1}_{blk} \\
-        A^{soft_2}_{blk} \\
-    \end{pmatrix}\\
-    & =
-    \begin{pmatrix}
-        C_1^{soft_1} B & & \\
-        -C_1^{soft_1} B & \Huge{*} & \Huge{O} \\
-        O & & \\
-        C_1^{soft_2} B & & \\
-        -C_1^{soft_2} B & \Huge{O} & \Huge{*} \\
-        O & &
-    \end{pmatrix}
-    \in \boldsymbol{R}^{6 N_{ref} \times D_v + 2 N_{slack}}
-\end{align}
-</script>
-</div>
-<p><span class="arithmatex"><span class="MathJax_Preview">N_{slack}</span><script type="math/tex">N_{slack}</script></span> is <span class="arithmatex"><span class="MathJax_Preview">N_{circle}</span><script type="math/tex">N_{circle}</script></span> when L2 optimization, or <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> when L-infinity optimization.
-<span class="arithmatex"><span class="MathJax_Preview">N_{circle}</span><script type="math/tex">N_{circle}</script></span> is the number of circles to check collision.</p>
 
 
 

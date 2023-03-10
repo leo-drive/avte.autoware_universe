@@ -12192,70 +12192,7 @@ Although it has a cons to converge to the local minima, it can get a good soluti
 </ul>
 <h3 id="computation-time">Computation time<a class="headerlink" href="#computation-time" title="Permanent link">#</a></h3>
 <ul>
-<li>
-<p>Loose EB optimization</p>
-<ul>
-<li>
-<ol>
-<li>make <code>eb.common.delta_arc_length</code> large and <code>eb.common.num_points</code> small</li>
-<li>This makes the number of design variables smaller</li>
-<li>Be careful about the trajectory length between MPT and EB as shown in Assumptions.</li>
-<li>However, empirically this causes large turn at the corner (e.g. The vehicle turns a steering wheel to the opposite side (=left) a bit just before the corner turning to right)</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>make <code>eb.qp.eps_abs</code> and <code>eb.qp.eps_rel</code> small</li>
-<li>This causes very unstable reference path generation for MPT, or turning a steering wheel a little bit larger</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Enable computation reduction flag</p>
-<ul>
-<li>
-<ol>
-<li>set l_inf_norm true (by default)</li>
-<li>use L-inf norm optimization for MPT w.r.t. slack variables, resulting in lower number of design variables</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>set enable_warm_start true</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>set enable_manual_warm_start true (by default)</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>set steer_limit_constraint false</li>
-<li>This causes no assumption for trajectory generation where steering angle will not exceeds its hardware limitation</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>make the number of collision-free constraints small</li>
-<li>How to change parameters depend on the type of collision-free constraints<ul>
-<li>If</li>
-</ul>
-</li>
-<li>This may cause the trajectory generation where a part of ego vehicle is out of drivable area</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Disable publishing debug visualization markers<ul>
-<li>set <code>option.is_publishing_*</code> false</li>
-</ul>
-</li>
+<li>under construction</li>
 </ul>
 <h3 id="robustness">Robustness<a class="headerlink" href="#robustness" title="Permanent link">#</a></h3>
 <ul>
@@ -12278,12 +12215,6 @@ Although it has a cons to converge to the local minima, it can get a good soluti
 </li>
 <li><code>option.enable_calculation_time_info</code> enables showing each calculation time for functions and total calculation time on the terminal.</li>
 <li><code>option.enable_outside_drivable_area_stop</code> enables stopping just before the generated trajectory point will be outside the drivable area.</li>
-<li><code>mpt.option.plan_from_ego</code> enables planning from the ego pose when the ego's velocity is zero.</li>
-<li><code>mpt.option.max_plan_from_ego_length</code> maximum length threshold to plan from ego. it is enabled when the length of trajectory is shorter than this value.</li>
-<li><code>mpt.option.two_step_soft_constraint</code> enables two step of soft constraints for collision free<ul>
-<li><code>mpt.option.soft_clearance_from_road</code> and <code>mpt.option.soft_second_clearance_from_road</code> are the weight.</li>
-</ul>
-</li>
 </ul>
 <h2 id="how-to-debug">How To Debug<a class="headerlink" href="#how-to-debug" title="Permanent link">#</a></h2>
 <p>How to debug can be seen <a href="docs/debug/">here</a>.</p>
