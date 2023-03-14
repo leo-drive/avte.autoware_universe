@@ -11958,7 +11958,8 @@
 <img alt="pointcloud_based_occupancy_grid_map_sample_image" src="image/pointcloud_based_occupancy_grid_map_sample_image.gif" /></p>
 <h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">#</a></h2>
 <p>Occupancy grid map is generated on <code>map_frame</code>, and grid orientation is fixed.</p>
-<p>You may need to choose <code>output_frame</code> which means grid map origin. Default is <code>base_link</code>, but your main LiDAR sensor frame (e.g. <code>velodyne_top</code> in sample_vehicle) would be the better choice.</p>
+<p>You may need to choose <code>scan_origin_frame</code> and <code>gridmap_origin_frame</code> which means sensor origin and gridmap origin respectively. Especially, set your main LiDAR sensor frame (e.g. <code>velodyne_top</code> in sample_vehicle) as a <code>scan_origin_frame</code> would result in better performance.</p>
+<p><img alt="image_for_frame_parameter_visualization" src="image/gridmap_frame_settings.drawio.svg" /></p>
 <h3 id="each-config-paramters">Each config paramters<a class="headerlink" href="#each-config-paramters" title="Permanent link">#</a></h3>
 <p>Config parameters are managed in <code>config/*.yaml</code> and here shows its outline.</p>
 <ul>
@@ -11981,7 +11982,11 @@
 <td>"base_link"</td>
 </tr>
 <tr>
-<td>output_frame</td>
+<td>scan_origin_frame</td>
+<td>"base_link"</td>
+</tr>
+<tr>
+<td>gridmap_origin_frame</td>
 <td>"base_link"</td>
 </tr>
 <tr>
@@ -12050,7 +12055,11 @@
 <td>"base_link"</td>
 </tr>
 <tr>
-<td>output_frame</td>
+<td>scan_origin_frame</td>
+<td>"base_link"</td>
+</tr>
+<tr>
+<td>gridmap_origin_frame</td>
 <td>"base_link"</td>
 </tr>
 </tbody>
