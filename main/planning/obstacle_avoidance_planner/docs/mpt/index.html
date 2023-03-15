@@ -17,7 +17,7 @@
         <link rel="next" href="../../../obstacle_cruise_planner/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7bf56d0a.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c4a75a56.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -8518,13 +8518,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#two-step-soft-constraints" class="md-nav__link">
-    Two-step soft constraints
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -12135,13 +12128,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#two-step-soft-constraints" class="md-nav__link">
-    Two-step soft constraints
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -12854,74 +12840,6 @@ Instead, if we use L-infinity norm where slack variables are shared by enabling 
 \end{align}
 </script>
 </div>
-<h4 id="two-step-soft-constraints">Two-step soft constraints<a class="headerlink" href="#two-step-soft-constraints" title="Permanent link">#</a></h4>
-<div class="arithmatex">
-<div class="MathJax_Preview">
-\begin{align}
-\boldsymbol{v}' =
-  \begin{pmatrix}
-    \boldsymbol{v} \\
-    \boldsymbol{\lambda}^{soft_1} \\
-    \boldsymbol{\lambda}^{soft_2} \\
-  \end{pmatrix}
-  \in \boldsymbol{R}^{D_v + 2N_{slack}}
-\end{align}
-</div>
-<script type="math/tex; mode=display">
-\begin{align}
-\boldsymbol{v}' =
-  \begin{pmatrix}
-    \boldsymbol{v} \\
-    \boldsymbol{\lambda}^{soft_1} \\
-    \boldsymbol{\lambda}^{soft_2} \\
-  \end{pmatrix}
-  \in \boldsymbol{R}^{D_v + 2N_{slack}}
-\end{align}
-</script>
-</div>
-<p><span class="arithmatex"><span class="MathJax_Preview">*</span><script type="math/tex">*</script></span> depends on whether to use L2 norm or L-infinity optimization.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">
-\begin{align}
-    A_{blk} &amp; =
-    \begin{pmatrix}
-        A^{soft_1}_{blk} \\
-        A^{soft_2}_{blk} \\
-    \end{pmatrix}\\
-    &amp; =
-    \begin{pmatrix}
-        C_1^{soft_1} B &amp; &amp; \\
-        -C_1^{soft_1} B &amp; \Huge{*} &amp; \Huge{O} \\
-        O &amp; &amp; \\
-        C_1^{soft_2} B &amp; &amp; \\
-        -C_1^{soft_2} B &amp; \Huge{O} &amp; \Huge{*} \\
-        O &amp; &amp;
-    \end{pmatrix}
-    \in \boldsymbol{R}^{6 N_{ref} \times D_v + 2 N_{slack}}
-\end{align}
-</div>
-<script type="math/tex; mode=display">
-\begin{align}
-    A_{blk} & =
-    \begin{pmatrix}
-        A^{soft_1}_{blk} \\
-        A^{soft_2}_{blk} \\
-    \end{pmatrix}\\
-    & =
-    \begin{pmatrix}
-        C_1^{soft_1} B & & \\
-        -C_1^{soft_1} B & \Huge{*} & \Huge{O} \\
-        O & & \\
-        C_1^{soft_2} B & & \\
-        -C_1^{soft_2} B & \Huge{O} & \Huge{*} \\
-        O & &
-    \end{pmatrix}
-    \in \boldsymbol{R}^{6 N_{ref} \times D_v + 2 N_{slack}}
-\end{align}
-</script>
-</div>
-<p><span class="arithmatex"><span class="MathJax_Preview">N_{slack}</span><script type="math/tex">N_{slack}</script></span> is <span class="arithmatex"><span class="MathJax_Preview">N_{circle}</span><script type="math/tex">N_{circle}</script></span> when L2 optimization, or <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> when L-infinity optimization.
-<span class="arithmatex"><span class="MathJax_Preview">N_{circle}</span><script type="math/tex">N_{circle}</script></span> is the number of circles to check collision.</p>
 
 
 
@@ -12934,10 +12852,10 @@ Instead, if we use L-infinity norm where slack variables are shared by enabling 
           
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
-          </a>
+          </button>
         
       </main>
       
@@ -13009,7 +12927,7 @@ Instead, if we use L-infinity norm where slack variables are shared by enabling 
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
