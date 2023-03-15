@@ -17,7 +17,7 @@
         <link rel="next" href="../eb/">
       
       <link rel="icon" href="../../../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7bf56d0a.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c4a75a56.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -8403,14 +8403,48 @@
     Debug visualization
   </a>
   
+    <nav class="md-nav" aria-label="Debug visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    Input
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-band-eb" class="md-nav__link">
+    Elastic Band (EB)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-predictive-trajectory-mpt" class="md-nav__link">
+    Model Predictive Trajectory (MPT)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    Output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#calculation-cost" class="md-nav__link">
-    Calculation cost
+  <a href="#calculation-time" class="md-nav__link">
+    Calculation time
   </a>
   
-    <nav class="md-nav" aria-label="Calculation cost">
+    <nav class="md-nav" aria-label="Calculation time">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -8423,6 +8457,40 @@
           <li class="md-nav__item">
   <a href="#plot" class="md-nav__link">
     Plot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa-for-debug" class="md-nav__link">
+    Q&amp;A for Debug
+  </a>
+  
+    <nav class="md-nav" aria-label="Q&amp;A for Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-output-frequency-is-low" class="md-nav__link">
+    The output frequency is low
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-a-part-of-the-trajectory-has-high-curvature" class="md-nav__link">
+    When a part of the trajectory has high curvature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-the-trajectorys-shape-is-zigzag" class="md-nav__link">
+    When the trajectory's shape is zigzag
   </a>
   
 </li>
@@ -11973,14 +12041,48 @@
     Debug visualization
   </a>
   
+    <nav class="md-nav" aria-label="Debug visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    Input
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-band-eb" class="md-nav__link">
+    Elastic Band (EB)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-predictive-trajectory-mpt" class="md-nav__link">
+    Model Predictive Trajectory (MPT)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    Output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#calculation-cost" class="md-nav__link">
-    Calculation cost
+  <a href="#calculation-time" class="md-nav__link">
+    Calculation time
   </a>
   
-    <nav class="md-nav" aria-label="Calculation cost">
+    <nav class="md-nav" aria-label="Calculation time">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -11993,6 +12095,40 @@
           <li class="md-nav__item">
   <a href="#plot" class="md-nav__link">
     Plot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qa-for-debug" class="md-nav__link">
+    Q&amp;A for Debug
+  </a>
+  
+    <nav class="md-nav" aria-label="Q&amp;A for Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-output-frequency-is-low" class="md-nav__link">
+    The output frequency is low
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-a-part-of-the-trajectory-has-high-curvature" class="md-nav__link">
+    When a part of the trajectory has high curvature
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-the-trajectorys-shape-is-zigzag" class="md-nav__link">
+    When the trajectory's shape is zigzag
   </a>
   
 </li>
@@ -12022,125 +12158,201 @@
 
 <h1 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">#</a></h1>
 <h2 id="debug-visualization">Debug visualization<a class="headerlink" href="#debug-visualization" title="Permanent link">#</a></h2>
-<p>Topics for debugging will be explained in this section.</p>
+<p>The visualization markers of the planning flow (Input, Elastic Band, Model Predictive Trajectory, and Output) are explained here.</p>
+<p>All the following markers can be visualized by</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>obstacle_avoidance_planner<span class="w"> </span>launch_visualiation.launch.xml<span class="w"> </span>vehilce_model:<span class="o">=</span>sample_vehicle
+</code></pre></div>
+<p>The <code>vehicle_model</code> must be specified to make footprints with vehicle's size.</p>
+<h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>Drivable area</strong><ul>
-<li>Drivable area to cover the road. Whether this area is continuous and covers the road can be checked.</li>
-<li><code>/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/debug/drivable_area</code>, whose type is <code>nav_msgs/msg/OccupancyGrid</code></li>
+<li><strong>Path</strong><ul>
+<li>The path generated in the <code>behavior</code> planner.</li>
+<li>The semitransparent and thick, green and red band, that is visualized by default.</li>
 </ul>
 </li>
 </ul>
-<p><img alt="drivable_area" src="../../media/drivable_area.png" /></p>
+<p><img alt="path" src="../../media/debug/path_visualization.png" /></p>
 <ul>
-<li><strong>Path from behavior</strong><ul>
-<li>The input path of obstacle_avoidance_planner. Whether this path is continuous and the curvature is not so high can be checked.</li>
-<li><code>Path</code> or <code>PathFootprint</code> rviz plugin.</li>
+<li><strong>Path Footprint</strong><ul>
+<li>The path generated in the <code>behavior</code> planner is converted to footprints.</li>
+<li>NOTE:<ul>
+<li>Check if there is no high curvature.</li>
+<li>The path may be outside the drivable area in some cases, but it is okay to ignore it since the <code>behavior</code> planner does not support it.</li>
 </ul>
 </li>
 </ul>
-<p><img alt="behavior_path" src="../../media/behavior_path.png" /></p>
+</li>
+</ul>
+<p><img alt="path_footprint" src="../../media/debug/path_footprint_visualization.png" /></p>
 <ul>
-<li><strong>EB trajectory</strong><ul>
-<li>The output trajectory of elastic band. Whether this trajectory is very smooth and a sampling width is constant can be checked.</li>
-<li><code>Trajectory</code> or <code>TrajectoryFootprint</code> rviz plugin.</li>
+<li><strong>Drivalbe Area</strong><ul>
+<li>The Drivable area generated in the <code>behavior</code> planner.</li>
+<li>The skyblue left and right line strings, that is visualized by default.</li>
+<li>NOTE:<ul>
+<li>Check if the path is almost inside the drivable area.<ul>
+<li>Then, the <code>obstacle_avoidance_planner</code> will try to make the trajectory fully inside the drivable area.</li>
+</ul>
+</li>
+<li>During avoidance or lane change by the <code>behavior</code> planner, please make sure that the drivable area is expanded correctly.</li>
 </ul>
 </li>
 </ul>
-<p><img alt="eb_traj" src="../../media/eb_traj.png" /></p>
+</li>
+</ul>
+<p><img alt="drivable_area" src="../../media/debug/drivable_area_visualization.png" /></p>
+<h3 id="elastic-band-eb">Elastic Band (EB)<a class="headerlink" href="#elastic-band-eb" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>MPT reference trajectory</strong><ul>
-<li>The reference trajectory of model predictive trajectory. Whether this trajectory is very smooth and a sampling width is constant can be checked.</li>
-<li><code>Trajectory</code> or <code>TrajectoryFootprint</code> rviz plugin.</li>
+<li><strong>EB Fixed Trajectory</strong><ul>
+<li>The fixed trajectory points as a constraint of elastic band.</li>
 </ul>
 </li>
 </ul>
-<p><img alt="mpt_ref_traj" src="../../media/mpt_ref_traj.png" /></p>
+<p><img alt="eb_fixed_traj" src="../../media/debug/eb_fixed_traj_visualization.png" /></p>
 <ul>
-<li><strong>MPT fixed trajectory</strong><ul>
-<li>The fixed trajectory around the ego of model predictive trajectory.</li>
-<li><code>Trajectory</code> or <code>TrajectoryFootprint</code> rviz plugin.</li>
+<li><strong>EB Trajectory</strong><ul>
+<li>The optimized trajectory points by elastic band.</li>
 </ul>
 </li>
 </ul>
-<p><img alt="mpt_fixed_traj" src="../../media/mpt_fixed_traj.png" /></p>
+<p><img alt="eb_traj" src="../../media/debug/eb_traj_visualization.png" /></p>
+<h3 id="model-predictive-trajectory-mpt">Model Predictive Trajectory (MPT)<a class="headerlink" href="#model-predictive-trajectory-mpt" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>bounds</strong><ul>
-<li>Lateral Distance to the road or object boundaries to check collision in model predictive trajectory.</li>
-<li>Whether these lines' ends align the road or obstacle boundaries can be checked.</li>
-<li><code>bounds*</code> of <code>/planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/marker</code> whose type is <code>visualization_msgs/msg/MarkerArray</code></li>
+<li><strong>MPT Reference Trajectory</strong><ul>
+<li>The reference trajectory points of model predictive trajectory.</li>
 </ul>
 </li>
 </ul>
-<p><img alt="bounds" src="../../media/bounds.png" /></p>
+<p><img alt="mpt_ref_traj" src="../../media/debug/mpt_ref_traj_visualization.png" /></p>
 <ul>
-<li><strong>MPT trajectory</strong><ul>
-<li>The output of model predictive trajectory. Whether this trajectory is smooth enough and inside the drivable area can be checked.</li>
-<li><code>Trajectory</code> or <code>TrajectoryFootprint</code> rviz plugin.</li>
+<li><strong>MPT Fixed Trajectory</strong><ul>
+<li>The fixed trajectory points as a constraint of model predictive trajectory.</li>
 </ul>
 </li>
 </ul>
-<p><img alt="mpt_traj" src="../../media/mpt_traj.png" /></p>
+<p><img alt="mpt_fixed_traj" src="../../media/debug/mpt_fixed_traj_visualization.png" /></p>
 <ul>
-<li><strong>Output trajectory</strong><ul>
-<li>The output of obstacle_avoidance_planner. Whether this trajectory is smooth enough can be checked.</li>
-<li><code>Trajectory</code> or <code>TrajectoryFootprint</code> rviz plugin.</li>
+<li><strong>Boundaries' Width</strong><ul>
+<li>The boundaries' width is calculated from the drivable area line strings.</li>
 </ul>
 </li>
 </ul>
-<p><img alt="output_traj" src="../../media/output_traj.png" /></p>
-<h2 id="calculation-cost">Calculation cost<a class="headerlink" href="#calculation-cost" title="Permanent link">#</a></h2>
-<p>Obstacle avoidance planner consists of many functions such as clearance map generation, boundary search, reference path smoothing, trajectory optimization, ...
+<p><img alt="bounds" src="../../media/debug/bounds_visualization.png" /></p>
+<ul>
+<li><strong>Vehicle Circles</strong><ul>
+<li>The vehicle's shape is represented by a set of circles.</li>
+<li>The <code>obstcle_avoidance_planner</code> will try to make the these circles inside the above boundaries' width.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="vehicle_circles" src="../../media/debug/vehicle_circles_visualization.png" /></p>
+<ul>
+<li><strong>Vehicle Circles on Trajectory</strong><ul>
+<li>The vehicle's circles on the MPT trajectory.</li>
+<li>Check if the circles are not so big compared to the road's width.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="vehicle_traj_circles" src="../../media/debug/vehicle_traj_circles_visualization.png" /></p>
+<ul>
+<li><strong>MPT Trajectory</strong><ul>
+<li>The optimized trajectory points by model predictive trajectory.</li>
+<li>The footprints are supposed to be fully inside the drivable area.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="mpt_traj" src="../../media/debug/mpt_traj_visualization.png" /></p>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Trajectory</strong><ul>
+<li>The output trajectory.</li>
+<li>The dark and thin, green and red band, that is visualized by default.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="traj" src="../../media/debug/traj_visualization.png" /></p>
+<ul>
+<li><strong>Trajectory Footprint</strong><ul>
+<li>The output trajectory is converted to footprints.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="traj_footprint" src="../../media/debug/traj_footprint_visualization.png" /></p>
+<h2 id="calculation-time">Calculation time<a class="headerlink" href="#calculation-time" title="Permanent link">#</a></h2>
+<p>The <code>obstacle_avoidance_planner</code> consists of many functions such as boundaries' width calculation, reference path smoothing, collision-free planning, etc.
 We can see the calculation time for each function as follows.</p>
 <h3 id="raw-data">Raw data<a class="headerlink" href="#raw-data" title="Permanent link">#</a></h3>
+<p>Enable <code>option.enable_calculation_time_info</code> or echo the topic as follows.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/calculation_time<span class="w"> </span>--field<span class="w"> </span>data
-
-<span class="w">      </span>getDrivableAreaInCV:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.21<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">      </span>getClearanceMap:<span class="o">=</span><span class="w"> </span><span class="m">1</span>.327<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">      </span>drawObstaclesOnImage:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.436<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">      </span>getAreaWithObjects:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.029<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">      </span>getClearanceMap:<span class="o">=</span><span class="w"> </span><span class="m">2</span>.186<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>getMaps:<span class="o">=</span><span class="w"> </span><span class="m">4</span>.213<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">          </span>calculateTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">2</span>.417<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">        </span>getOptimizedTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">5</span>.203<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">      </span>getEBTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">5</span>.231<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">          </span>calcBounds:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.821<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">          </span>calcVehicleBounds:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.27<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">        </span>getReferencePoints:<span class="o">=</span><span class="w"> </span><span class="m">2</span>.866<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">        </span>generateMPTMatrix:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.195<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">        </span>generateValueMatrix:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.019<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">          </span>getObjectiveMatrix:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.559<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">          </span>getConstraintMatrix:<span class="o">=</span><span class="w"> </span><span class="m">1</span>.776<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">          </span>initOsqp:<span class="o">=</span><span class="w"> </span><span class="m">9</span>.074<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">          </span>solveOsqp:<span class="o">=</span><span class="w"> </span><span class="m">3</span>.809<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">        </span>executeOptimization:<span class="o">=</span><span class="w"> </span><span class="m">15</span>.46<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">        </span>getMPTPoints:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.049<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">      </span>getModelPredictiveTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">18</span>.928<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>optimizeTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">24</span>.234<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>insertZeroVelocityOutsideDrivableArea:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.023<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">      </span>getDebugVisualizationMarker:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.446<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">      </span>publishDebugVisualizationMarker:<span class="o">=</span><span class="w"> </span><span class="m">2</span>.146<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">      </span>getDebugVisualizationWallMarker:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.001<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">      </span>publishDebugVisualizationWallMarker:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.013<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>publishDebugDataInOptimization:<span class="o">=</span><span class="w"> </span><span class="m">2</span>.696<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>getExtendedTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.016<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>generateFineTrajectoryPoints:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.118<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>alignVelocity:<span class="o">=</span><span class="w"> </span><span class="m">1</span>.227<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">  </span>generatePostProcessedTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">1</span>.375<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>makePrevTrajectories:<span class="o">=</span><span class="w"> </span><span class="m">1</span>.411<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">  </span>generateOptimizedTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">33</span>.284<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>getExtendedTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.018<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>generateFineTrajectoryPoints:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.084<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>alignVelocity:<span class="o">=</span><span class="w"> </span><span class="m">1</span>.109<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">  </span>generatePostProcessedTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">1</span>.217<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">    </span>getDebugCostMap<span class="w"> </span>*<span class="w"> </span><span class="m">3</span>:<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-<span class="w">  </span>publishDebugDataInMain:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.023<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
-pathCallback:<span class="o">=</span><span class="w"> </span><span class="m">34</span>.614<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+---
+<span class="w">        </span>insertFixedPoint:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.008<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">        </span>getPaddedTrajectoryPoints:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.002<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">        </span>updateConstraint:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.741<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">        </span>optimizeTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.101<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">        </span>convertOptimizedPointsToTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.014<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">      </span>getEBTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.991<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">          </span>resampleReferencePoints:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.058<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">          </span>updateFixedPoint:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.237<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">          </span>updateBounds:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.22<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">          </span>updateVehicleBounds:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.509<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">        </span>calcReferencePoints:<span class="o">=</span><span class="w"> </span><span class="m">1</span>.649<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">        </span>calcMatrix:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.209<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">        </span>calcValueMatrix:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.015<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">          </span>calcObjectiveMatrix:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.305<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">          </span>calcConstraintMatrix:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.641<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">          </span>initOsqp:<span class="o">=</span><span class="w"> </span><span class="m">6</span>.896<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">          </span>solveOsqp:<span class="o">=</span><span class="w"> </span><span class="m">2</span>.796<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">        </span>calcOptimizedSteerAngles:<span class="o">=</span><span class="w"> </span><span class="m">9</span>.856<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">        </span>calcMPTPoints:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.04<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">      </span>getModelPredictiveTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">12</span>.782<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">    </span>optimizeTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">12</span>.981<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">    </span>applyInputVelocity:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.577<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">    </span>insertZeroVelocityOutsideDrivableArea:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.81<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">      </span>getDebugMarker:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.684<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">      </span>publishDebugMarker:<span class="o">=</span><span class="w"> </span><span class="m">4</span>.354<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">    </span>publishDebugMarkerOfOptimization:<span class="o">=</span><span class="w"> </span><span class="m">5</span>.047<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w"> </span>generateOptimizedTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">20</span>.374<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">  </span>extendTrajectory:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.326<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+<span class="w">  </span>publishDebugData:<span class="o">=</span><span class="w"> </span><span class="m">0</span>.008<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
+onPath:<span class="o">=</span><span class="w"> </span><span class="m">20</span>.737<span class="w"> </span><span class="o">[</span>ms<span class="o">]</span>
 </code></pre></div>
 <h3 id="plot">Plot<a class="headerlink" href="#plot" title="Permanent link">#</a></h3>
-<p>With a script, we can plot some of above time as follows.</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>scripts/calclation_time_analyzer.py<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;solveOsqp,initOsqp,pathCallback&quot;</span>
+<p>With the following script, any calculation time of the above functions can be plot.</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>obstacle_avoidance_planner<span class="w"> </span>calclation_time_plotter.py
 </code></pre></div>
-<p><img alt="calculation_cost_plot" src="../../media/calculation_cost_plot.svg" /></p>
+<p><img alt="calculation_time_plot" src="../../media/debug/calculation_time_plot.png" /></p>
+<p>You can specify functions to plot with the <code>-f</code> option.</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>obstacle_avoidance_planner<span class="w"> </span>calclation_time_plotter.py<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;onPath, generateOptimizedTrajectory, calcReferencePoints&quot;</span>
+</code></pre></div>
+<h2 id="qa-for-debug">Q&amp;A for Debug<a class="headerlink" href="#qa-for-debug" title="Permanent link">#</a></h2>
+<h3 id="the-output-frequency-is-low">The output frequency is low<a class="headerlink" href="#the-output-frequency-is-low" title="Permanent link">#</a></h3>
+<p>Check the function which is comparatively heavy according to <a href=".#calculation-time">this information</a>.</p>
+<p>For your information, the following functions for optimization and its initialization may be heavy in some complicated cases.</p>
+<ul>
+<li>MPT<ul>
+<li><code>initOsqp</code></li>
+<li><code>solveOsqp</code></li>
+</ul>
+</li>
+<li>EB<ul>
+<li><code>optimizeTrajectory</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="when-a-part-of-the-trajectory-has-high-curvature">When a part of the trajectory has high curvature<a class="headerlink" href="#when-a-part-of-the-trajectory-has-high-curvature" title="Permanent link">#</a></h3>
+<p>Some of the following may have an issue.
+Please check if there is something weird by the visualization.</p>
+<ul>
+<li>Input Path</li>
+<li>Drivable Area</li>
+<li>Boundaries' Width</li>
+</ul>
+<h3 id="when-the-trajectorys-shape-is-zigzag">When the trajectory's shape is zigzag<a class="headerlink" href="#when-the-trajectorys-shape-is-zigzag" title="Permanent link">#</a></h3>
+<p>Some of the following may have an issue.
+Please check if there is something weird by the visualization.</p>
+<ul>
+<li>EB Trajectory</li>
+<li>Vehicle Circles on Trajectory</li>
+</ul>
 
 
 
@@ -12153,10 +12365,10 @@ pathCallback:<span class="o">=</span><span class="w"> </span><span class="m">34<
           
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
-          </a>
+          </button>
         
       </main>
       
@@ -12228,7 +12440,7 @@ pathCallback:<span class="o">=</span><span class="w"> </span><span class="m">34<
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

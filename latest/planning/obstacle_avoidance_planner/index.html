@@ -17,7 +17,7 @@
         <link rel="next" href="docs/debug/">
       
       <link rel="icon" href="../../docs/assets/images/autoware-foundation.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7bf56d0a.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -11976,15 +11976,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#insertzerovelocityoutsidedrivablearea" class="md-nav__link">
-    insertZeroVelocityOutsideDrivableArea
+  <a href="#applyinputvelocity" class="md-nav__link">
+    applyInputVelocity
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#alignvelocity" class="md-nav__link">
-    alignVelocity
+  <a href="#insertzerovelocityoutsidedrivablearea" class="md-nav__link">
+    insertZeroVelocityOutsideDrivableArea
   </a>
   
 </li>
@@ -12210,6 +12210,9 @@ This parameter <code>mpt.kinematics.optimization center offset</code> is defined
 Some examples are shown in the following figure, and it is shown that the trajectory of vehicle shape differs according to the optimization center even if the reference trajectory (green one) is the same.</p>
 <p><img alt="mpt_optimization_offset" src="media/mpt_optimization_offset.svg" /></p>
 <p>More details can be seen <a href="docs/mpt/">here</a>.</p>
+<h3 id="applyinputvelocity">applyInputVelocity<a class="headerlink" href="#applyinputvelocity" title="Permanent link">#</a></h3>
+<p>Velocity is assigned in the optimized trajectory from the velocity in the behavior path.
+The shapes of the optimized trajectory and the path are different, therefore the each nearest trajectory point to the path is searched and the velocity is interpolated with zero-order hold.</p>
 <h3 id="insertzerovelocityoutsidedrivablearea">insertZeroVelocityOutsideDrivableArea<a class="headerlink" href="#insertzerovelocityoutsidedrivablearea" title="Permanent link">#</a></h3>
 <p>Optimized trajectory is too short for velocity planning, therefore extend the trajectory by concatenating the optimized trajectory and the behavior path considering drivability.
 Generated trajectory is checked if it is inside the drivable area or not, and if outside drivable area, output a trajectory inside drivable area with the behavior path or the previously generated trajectory.</p>
@@ -12237,9 +12240,6 @@ The output trajectory is memorized as a previously generated trajectory for the 
 <p><em>Rationale</em>
 In the current design, since there are some modelling errors, the constraints are considered to be soft constraints.
 Therefore, we have to make sure that the optimized trajectory is inside the drivable area or not after optimization.</p>
-<h3 id="alignvelocity">alignVelocity<a class="headerlink" href="#alignvelocity" title="Permanent link">#</a></h3>
-<p>Velocity is assigned in the result trajectory from the velocity in the behavior path.
-The shapes of the trajectory and the path are different, therefore the each nearest trajectory point to the path is searched and interpolated linearly.</p>
 <h2 id="limitation">Limitation<a class="headerlink" href="#limitation" title="Permanent link">#</a></h2>
 <ul>
 <li>Computation cost is sometimes high.</li>
@@ -12268,87 +12268,31 @@ Although it has a cons to converge to the local minima, it can get a good soluti
 <h2 id="how-to-tune-parameters">How to Tune Parameters<a class="headerlink" href="#how-to-tune-parameters" title="Permanent link">#</a></h2>
 <h3 id="drivability-in-narrow-roads">Drivability in narrow roads<a class="headerlink" href="#drivability-in-narrow-roads" title="Permanent link">#</a></h3>
 <ul>
-<li>set <code>option.drivability_check.use_vehicle_circles</code> true<ul>
-<li>use a set of circles as a shape of the vehicle when checking if the generated trajectory will be outside the drivable area.</li>
+<li>modify <code>mpt.clearance.soft_clearance_from_road</code><ul>
+<li>This parameter describes how much margin to make between the trajectory and road boundaries.</li>
+<li>Due to the model error for optimization, the constraint such as collision-free is not fully met.<ul>
+<li>By making this parameter larger, the is for narrow-road driving may be resolved. 12180</li>
 </ul>
 </li>
-<li>make <code>mpt.clearance.soft_clearance_from_road</code> smaller</li>
+</ul>
+</li>
 <li>
-<p>make <code>mpt.kinematics.optimization_center_offset</code> different</p>
+<p>modify <code>mpt.kinematics.optimization_center_offset</code></p>
 <ul>
-<li>The point on the vehicle, offset forward from the base link` tries to follow the reference path.</li>
+<li>The point on the vehicle, offset forward with this parameter from the base link` tries to follow the reference path.</li>
+</ul>
+</li>
 </ul>
 <ul>
-<li>This may cause the a part of generated trajectory will be outside the drivable area.</li>
+<li>change or tune the method to approximate footprints with a set of circles.<ul>
+<li>See <a href="https://autowarefoundation.github.io/autoware.universe/main/planning/obstacle_avoidance_planner/docs/mpt/#collision-free">here</a></li>
+<li>Tuning means changing the ratio of circle's radius.</li>
 </ul>
 </li>
 </ul>
 <h3 id="computation-time">Computation time<a class="headerlink" href="#computation-time" title="Permanent link">#</a></h3>
 <ul>
-<li>
-<p>Loose EB optimization</p>
-<ul>
-<li>
-<ol>
-<li>make <code>eb.common.delta_arc_length</code> large and <code>eb.common.num_points</code> small</li>
-<li>This makes the number of design variables smaller</li>
-<li>Be careful about the trajectory length between MPT and EB as shown in Assumptions.</li>
-<li>However, empirically this causes large turn at the corner (e.g. The vehicle turns a steering wheel to the opposite side (=left) a bit just before the corner turning to right)</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>make <code>eb.qp.eps_abs</code> and <code>eb.qp.eps_rel</code> small</li>
-<li>This causes very unstable reference path generation for MPT, or turning a steering wheel a little bit larger</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Enable computation reduction flag</p>
-<ul>
-<li>
-<ol>
-<li>set l_inf_norm true (by default)</li>
-<li>use L-inf norm optimization for MPT w.r.t. slack variables, resulting in lower number of design variables</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>set enable_warm_start true</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>set enable_manual_warm_start true (by default)</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>set steer_limit_constraint false</li>
-<li>This causes no assumption for trajectory generation where steering angle will not exceeds its hardware limitation</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>make the number of collision-free constraints small</li>
-<li>How to change parameters depend on the type of collision-free constraints<ul>
-<li>If</li>
-</ul>
-</li>
-<li>This may cause the trajectory generation where a part of ego vehicle is out of drivable area</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Disable publishing debug visualization markers<ul>
-<li>set <code>option.is_publishing_*</code> false</li>
-</ul>
-</li>
+<li>under construction</li>
 </ul>
 <h3 id="robustness">Robustness<a class="headerlink" href="#robustness" title="Permanent link">#</a></h3>
 <ul>
@@ -12371,12 +12315,6 @@ Although it has a cons to converge to the local minima, it can get a good soluti
 </li>
 <li><code>option.enable_calculation_time_info</code> enables showing each calculation time for functions and total calculation time on the terminal.</li>
 <li><code>option.enable_outside_drivable_area_stop</code> enables stopping just before the generated trajectory point will be outside the drivable area.</li>
-<li><code>mpt.option.plan_from_ego</code> enables planning from the ego pose when the ego's velocity is zero.</li>
-<li><code>mpt.option.max_plan_from_ego_length</code> maximum length threshold to plan from ego. it is enabled when the length of trajectory is shorter than this value.</li>
-<li><code>mpt.option.two_step_soft_constraint</code> enables two step of soft constraints for collision free<ul>
-<li><code>mpt.option.soft_clearance_from_road</code> and <code>mpt.option.soft_second_clearance_from_road</code> are the weight.</li>
-</ul>
-</li>
 </ul>
 <h2 id="how-to-debug">How To Debug<a class="headerlink" href="#how-to-debug" title="Permanent link">#</a></h2>
 <p>How to debug can be seen <a href="docs/debug/">here</a>.</p>
@@ -12392,10 +12330,10 @@ Although it has a cons to converge to the local minima, it can get a good soluti
           
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
-          </a>
+          </button>
         
       </main>
       
@@ -12467,7 +12405,7 @@ Although it has a cons to converge to the local minima, it can get a good soluti
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
