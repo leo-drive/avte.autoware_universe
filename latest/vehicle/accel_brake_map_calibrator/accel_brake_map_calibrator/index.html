@@ -12385,6 +12385,12 @@ Diagnostic type <code>WARN</code> indicates that the current accel/brake map is 
 <td align="left">For visualization. When the data num of each grid gets this value, the grid color gets red.</td>
 <td align="left">100</td>
 </tr>
+<tr>
+<td align="left">accel_brake_value_source</td>
+<td align="left">string</td>
+<td align="left">Whether to use actuation_status or actuation_command as accel/brake sources. value</td>
+<td align="left">status</td>
+</tr>
 </tbody>
 </table>
 <h2 id="test-utility-scripts">Test utility scripts<a class="headerlink" href="#test-utility-scripts" title="Permanent link">#</a></h2>
@@ -12449,9 +12455,9 @@ ros2<span class="w"> </span>run<span class="w"> </span>accel_brake_map_calibrato
 <h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">#</a></h4>
 <p>Data selection is determined by the following thresholds.
 | Name | Default Value |
-| -------- | -------- |
-|velocity_diff_threshold|0.556|
-|pedal_diff_threshold|0.03|</p>
+| ----------------------- | ------------- |
+| velocity_diff_threshold | 0.556 |
+| pedal_diff_threshold | 0.03 |</p>
 <h4 id="update-formula">Update formula<a class="headerlink" href="#update-formula" title="Permanent link">#</a></h4>
 <div class="arithmatex">
 <div class="MathJax_Preview">
