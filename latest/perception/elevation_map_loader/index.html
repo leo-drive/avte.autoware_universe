@@ -12129,7 +12129,7 @@ Cells with No elevation value can be inpainted using the values of neighboring c
 <td align="left">path_default</td>
 </tr>
 <tr>
-<td align="left">elevation_map_file_path</td>
+<td align="left">elevation_map_directory</td>
 <td align="left">std::string</td>
 <td align="left">elevation_map file (bag2)</td>
 <td align="left">path_default</td>
@@ -12167,32 +12167,8 @@ Cells with No elevation value can be inpainted using the values of neighboring c
 <tr>
 <td align="left">lane_margin</td>
 <td align="left">float</td>
-<td align="left">Value of how much to expand the range of vector_map [m]</td>
-<td align="left">0.5</td>
-</tr>
-<tr>
-<td align="left">lane_height_diff_thresh</td>
-<td align="left">float</td>
-<td align="left">Only point clouds in the height range of this value from vector_map are used to generate elevation_map [m]</td>
-<td align="left">1.0</td>
-</tr>
-<tr>
-<td align="left">lane_filter_voxel_size_x</td>
-<td align="left">float</td>
-<td align="left">Voxel size x for calculating point clouds in vector_map [m]</td>
-<td align="left">0.04</td>
-</tr>
-<tr>
-<td align="left">lane_filter_voxel_size_y</td>
-<td align="left">float</td>
-<td align="left">Voxel size y for calculating point clouds in vector_map [m]</td>
-<td align="left">0.04</td>
-</tr>
-<tr>
-<td align="left">lane_filter_voxel_size_z</td>
-<td align="left">float</td>
-<td align="left">Voxel size z for calculating point clouds in vector_map [m]</td>
-<td align="left">0.04</td>
+<td align="left">Margin distance from the lane polygon of the area to be included in the inpainting mask [m]. Used only when use_lane_filter=True.</td>
+<td align="left">0.0</td>
 </tr>
 </tbody>
 </table>
